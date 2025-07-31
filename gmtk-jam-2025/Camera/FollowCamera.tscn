@@ -1,8 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://ble64swkbdodj"]
+[gd_scene load_steps=3 format=3 uid="uid://ble64swkbdodj"]
 
 [ext_resource type="Script" uid="uid://xs5l2yevvf1p" path="res://Camera/follow_camera.gd" id="1_p0j1i"]
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_p0j1i"]
+
 [node name="FollowCamera" type="SpringArm3D"]
+shape = SubResource("SphereShape3D_p0j1i")
 script = ExtResource("1_p0j1i")
 
 [node name="Camera3D" type="Camera3D" parent="."]

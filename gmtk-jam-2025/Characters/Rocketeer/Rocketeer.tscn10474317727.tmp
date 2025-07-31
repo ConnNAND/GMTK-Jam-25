@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://bje5llf3vk0jp"]
+
+[ext_resource type="Script" uid="uid://crvf0fpyykp20" path="res://Characters/Rocketeer/rocketeer.gd" id="1_8gcnr"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_u2dk0"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_jq88g"]
+
+[node name="Rocketeer" type="CharacterBody3D"]
+script = ExtResource("1_8gcnr")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_u2dk0")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_jq88g")

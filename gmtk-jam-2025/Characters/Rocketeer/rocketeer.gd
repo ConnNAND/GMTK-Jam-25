@@ -75,7 +75,28 @@ func _physics_process(delta: float) -> void:
 	#var full_rotation : float = forward_dir.signed_angle_to(move_dir, global_basis.y)
 	#rotate(global_basis.y, lerpf(0, full_rotation, delta * rotation_speed))
 
-func get_movement():
+	
+	# Should be able to rotate x basis (pitch) based on player momentum
+	# This should pull rotation away from vertical, 
+	# and return it to vertical when momentum is lost
+	# The movement relative to their "ground"
+	if is_on_floor() and velocity.length()>2:
+		up_vec.x = rotate_toward(up_vec.x, get_floor_normal().x, delta)
+		up_vec.y = rotate_toward(up_vec.y,get_floor_normal().y, delta)
+		up_vec.z = rotate_toward(up_vec.z,get_floor_normal().z, delta)
+	else:
+		up_vec.x = rotate_toward(up_vec.x,Vector3.UP.x, delta)
+		up_vec.y = rotate_toward(up_vec.y,Vector3.UP.y, delta)
+		up_vec.z = rotate_toward(up_vec.z,Vector3.UP.z, delta)
+	up_vec = up_vec.normalized()
+	global_basis.y = up_vec
+	global_basis.x = global_basis.y.cross(global_basis.z)
+	global_basis.z = global_basis.x.cross(global_basis.y)
+	global_basis = global_basis.orthonormalized()
+	up_direction = global_transform.basis.y
+	
+
+func get_player_movement():
 	var forward = movement_input.x - movement_input.w
 	var right = movement_input.y - movement_input.z
 	return Vector3(right, 0, forward).normalized()
