@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://bje5llf3vk0jp"]
+[gd_scene load_steps=5 format=3 uid="uid://bje5llf3vk0jp"]
 
 [ext_resource type="Script" uid="uid://crvf0fpyykp20" path="res://Characters/Rocketeer/rocketeer.gd" id="1_8gcnr"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_u2dk0"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_jq88g"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_jq88g"]
+size = Vector3(0.875, 0.215, 0.3)
 
 [node name="Rocketeer" type="CharacterBody3D"]
 script = ExtResource("1_8gcnr")
@@ -14,3 +17,7 @@ shape = SubResource("CapsuleShape3D_u2dk0")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("CapsuleMesh_jq88g")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.406197, 0.418443)
+mesh = SubResource("BoxMesh_jq88g")
