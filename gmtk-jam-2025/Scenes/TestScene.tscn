@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://ccbbvvq1f766n"]
+
+[ext_resource type="PackedScene" uid="uid://bje5llf3vk0jp" path="res://Characters/Rocketeer/Rocketeer.tscn" id="1_b5ayd"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_b5ayd"]
+sky_top_color = Color(0.323794, 0.418307, 0.773297, 1)
+
+[sub_resource type="Sky" id="Sky_b5ayd"]
+sky_material = SubResource("ProceduralSkyMaterial_b5ayd")
+
+[sub_resource type="Environment" id="Environment_b5ayd"]
+background_mode = 2
+sky = SubResource("Sky_b5ayd")
+ambient_light_source = 3
+ambient_light_color = Color(1, 1, 1, 1)
+
+[node name="TestScene" type="Node3D"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+use_collision = true
+size = Vector3(10, 1, 10)
+
+[node name="Rocketeer" parent="." instance=ExtResource("1_b5ayd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3126, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_b5ayd")
