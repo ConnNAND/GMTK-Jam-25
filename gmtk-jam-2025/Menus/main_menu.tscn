@@ -1,0 +1,153 @@
+[gd_scene load_steps=3 format=3 uid="uid://dfivfc2s87jok"]
+
+[ext_resource type="Texture2D" uid="uid://l2sos73kuk6q" path="res://icon.svg" id="1_jf8mj"]
+[ext_resource type="Script" uid="uid://dfp0okjwoo2d1" path="res://Menus/home_menu.gd" id="2_p3jrs"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BackgroundImage" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_jf8mj")
+expand_mode = 3
+stretch_mode = 6
+
+[node name="HomeMenu" type="CenterContainer" parent="BackgroundImage"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_p3jrs")
+
+[node name="MainMenu" type="VBoxContainer" parent="BackgroundImage/HomeMenu"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="BackgroundImage/HomeMenu/MainMenu"]
+layout_mode = 2
+text = "Ayooo It's Da Racin' Game"
+
+[node name="Play" type="Button" parent="BackgroundImage/HomeMenu/MainMenu"]
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../Help")
+focus_next = NodePath("../Help")
+text = "Play"
+
+[node name="Help" type="Button" parent="BackgroundImage/HomeMenu/MainMenu"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Play")
+focus_neighbor_bottom = NodePath("../Options")
+focus_next = NodePath("../Options")
+focus_previous = NodePath("../Play")
+text = "Help"
+
+[node name="Options" type="Button" parent="BackgroundImage/HomeMenu/MainMenu"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Help")
+focus_neighbor_bottom = NodePath("../Quit")
+focus_next = NodePath("../Quit")
+focus_previous = NodePath("../Help")
+text = "Options"
+
+[node name="Quit" type="Button" parent="BackgroundImage/HomeMenu/MainMenu"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Options")
+focus_previous = NodePath("../Options")
+text = "Quit"
+
+[node name="ModeSelect" type="VBoxContainer" parent="BackgroundImage/HomeMenu"]
+visible = false
+layout_mode = 2
+
+[node name="Label" type="Label" parent="BackgroundImage/HomeMenu/ModeSelect"]
+layout_mode = 2
+text = "Mode Select"
+
+[node name="LocalGame" type="Button" parent="BackgroundImage/HomeMenu/ModeSelect"]
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../Back")
+focus_next = NodePath("../Back")
+text = "Local"
+
+[node name="Back" type="Button" parent="BackgroundImage/HomeMenu/ModeSelect"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../LocalGame")
+focus_previous = NodePath("../LocalGame")
+text = "Back"
+
+[node name="CharacterSelect" type="GridContainer" parent="BackgroundImage/HomeMenu"]
+visible = false
+layout_mode = 2
+
+[node name="Label" type="Label" parent="BackgroundImage/HomeMenu/CharacterSelect"]
+layout_mode = 2
+text = "Character Select"
+
+[node name="Prompt" type="Label" parent="BackgroundImage/HomeMenu/CharacterSelect"]
+layout_mode = 2
+text = "Press Start or Enter to Join In..."
+
+[node name="Back" type="Button" parent="BackgroundImage/HomeMenu/CharacterSelect"]
+layout_mode = 2
+text = "Back"
+
+[node name="Help" type="VBoxContainer" parent="BackgroundImage/HomeMenu"]
+visible = false
+layout_mode = 2
+
+[node name="HowToPlay" type="Label" parent="BackgroundImage/HomeMenu/Help"]
+layout_mode = 2
+text = "How To Play:
+run really fast around the track and avoid obstacles to always beat your best lap time
+If you don't, your overtime will drain, and once that hits 0, you're eliminated.
+You can gain overtime back by besting your lap time, or by collecting a stopwatch
+Items will also spawn that will increase your ability to go fast, use them to get the best time possible."
+
+[node name="Controls" type="Label" parent="BackgroundImage/HomeMenu/Help"]
+layout_mode = 2
+text = "Controls:
+press da buttons on keyboard or controller idk yet"
+
+[node name="Back" type="Button" parent="BackgroundImage/HomeMenu/Help"]
+layout_mode = 2
+text = "Back"
+
+[node name="Options" type="VBoxContainer" parent="BackgroundImage/HomeMenu"]
+visible = false
+layout_mode = 2
+
+[node name="Label" type="Label" parent="BackgroundImage/HomeMenu/Options"]
+layout_mode = 2
+text = "Options"
+
+[node name="Volume" type="HSlider" parent="BackgroundImage/HomeMenu/Options"]
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../Back")
+focus_next = NodePath("../Back")
+value = 50.0
+tick_count = 1
+
+[node name="Back" type="Button" parent="BackgroundImage/HomeMenu/Options"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Volume")
+focus_previous = NodePath("../Volume")
+text = "Back"
+
+[connection signal="pressed" from="BackgroundImage/HomeMenu/MainMenu/Play" to="BackgroundImage/HomeMenu" method="_on_play_pressed"]
+[connection signal="pressed" from="BackgroundImage/HomeMenu/MainMenu/Help" to="BackgroundImage/HomeMenu" method="_on_help_pressed"]
+[connection signal="pressed" from="BackgroundImage/HomeMenu/MainMenu/Options" to="BackgroundImage/HomeMenu" method="_on_options_pressed"]
+[connection signal="pressed" from="BackgroundImage/HomeMenu/MainMenu/Quit" to="BackgroundImage/HomeMenu" method="_on_quit_pressed"]
+[connection signal="pressed" from="BackgroundImage/HomeMenu/ModeSelect/Back" to="BackgroundImage/HomeMenu" method="_modeselect_on_back_pressed"]
+[connection signal="pressed" from="BackgroundImage/HomeMenu/Help/Back" to="BackgroundImage/HomeMenu" method="_help_on_back_pressed"]
+[connection signal="pressed" from="BackgroundImage/HomeMenu/Options/Back" to="BackgroundImage/HomeMenu" method="_options_on_back_pressed"]
