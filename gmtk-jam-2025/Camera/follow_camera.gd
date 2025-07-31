@@ -9,4 +9,4 @@ func _ready():
 
 func _process(delta):
 	global_position = lerp(global_position, target.global_position + Vector3(target.global_basis.z.x * follow_distance,extra_height,target.global_basis.z.z * follow_distance), delta * follow_speed)
-	look_at(target.position)
+	look_at(target.position, target.global_basis.y)
