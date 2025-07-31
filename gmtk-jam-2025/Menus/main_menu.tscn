@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dfivfc2s87jok"]
 
 [ext_resource type="Texture2D" uid="uid://l2sos73kuk6q" path="res://icon.svg" id="1_jf8mj"]
-[ext_resource type="Script" uid="uid://dfp0okjwoo2d1" path="res://Menus/home_menu.gd" id="2_p3jrs"]
+[ext_resource type="Script" uid="uid://dfp0okjwoo2d1" path="res://Menus/Scripts/home_menu.gd" id="2_p3jrs"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -84,22 +84,6 @@ text = "Local"
 layout_mode = 2
 focus_neighbor_top = NodePath("../LocalGame")
 focus_previous = NodePath("../LocalGame")
-text = "Back"
-
-[node name="CharacterSelect" type="GridContainer" parent="BackgroundImage/HomeMenu"]
-visible = false
-layout_mode = 2
-
-[node name="Label" type="Label" parent="BackgroundImage/HomeMenu/CharacterSelect"]
-layout_mode = 2
-text = "Character Select"
-
-[node name="Prompt" type="Label" parent="BackgroundImage/HomeMenu/CharacterSelect"]
-layout_mode = 2
-text = "Press Start or Enter to Join In..."
-
-[node name="Back" type="Button" parent="BackgroundImage/HomeMenu/CharacterSelect"]
-layout_mode = 2
 text = "Back"
 
 [node name="Help" type="VBoxContainer" parent="BackgroundImage/HomeMenu"]
