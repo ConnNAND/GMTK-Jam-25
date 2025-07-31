@@ -14,12 +14,14 @@ var turning:float
 var max_speed:float
 var rotation_speed : float = 5
 var gravity:float = ProjectSettings.get_setting("physics/3d/default_gravity")
+var up_vec = Vector3.UP
 
 @export var camera_orientation:Node3D
 
 var spare_jump = true
 
 func _physics_process(delta: float) -> void:
+	print(current_speed)
 	#checks the angle of the floor to see if you should speed up or slow down
 	floor_incline = (global_transform.basis.z.normalized().y + 1)/2
 	if floor_incline <= 0.5:#looking up
@@ -69,25 +71,18 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	apply_floor_snap()
 	
-	# Takes care of the rotation of the player
-	#var forward_dir = -global_basis.z
-	#var move_dir = (movement - movement.project(global_basis.y)).normalized()
-	#var full_rotation : float = forward_dir.signed_angle_to(move_dir, global_basis.y)
-	#rotate(global_basis.y, lerpf(0, full_rotation, delta * rotation_speed))
-
-	
 	# Should be able to rotate x basis (pitch) based on player momentum
 	# This should pull rotation away from vertical, 
 	# and return it to vertical when momentum is lost
 	# The movement relative to their "ground"
 	if is_on_floor() and velocity.length()>2:
-		up_vec.x = rotate_toward(up_vec.x, get_floor_normal().x, delta)
-		up_vec.y = rotate_toward(up_vec.y,get_floor_normal().y, delta)
-		up_vec.z = rotate_toward(up_vec.z,get_floor_normal().z, delta)
+		up_vec.x = rotate_toward(up_vec.x, get_floor_normal().x, delta*5)
+		up_vec.y = rotate_toward(up_vec.y,get_floor_normal().y, delta*5)
+		up_vec.z = rotate_toward(up_vec.z,get_floor_normal().z, delta*5)
 	else:
-		up_vec.x = rotate_toward(up_vec.x,Vector3.UP.x, delta)
-		up_vec.y = rotate_toward(up_vec.y,Vector3.UP.y, delta)
-		up_vec.z = rotate_toward(up_vec.z,Vector3.UP.z, delta)
+		up_vec.x = rotate_toward(up_vec.x,Vector3.UP.x, delta*5)
+		up_vec.y = rotate_toward(up_vec.y,Vector3.UP.y, delta*5)
+		up_vec.z = rotate_toward(up_vec.z,Vector3.UP.z, delta*5)
 	up_vec = up_vec.normalized()
 	global_basis.y = up_vec
 	global_basis.x = global_basis.y.cross(global_basis.z)
@@ -96,7 +91,7 @@ func _physics_process(delta: float) -> void:
 	up_direction = global_transform.basis.y
 	
 
-func get_player_movement():
+func get_movement():
 	var forward = movement_input.x - movement_input.w
 	var right = movement_input.y - movement_input.z
 	return Vector3(right, 0, forward).normalized()
