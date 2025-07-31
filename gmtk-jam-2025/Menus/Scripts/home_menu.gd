@@ -45,3 +45,7 @@ func _options_on_back_pressed() -> void:
 
 func _on_local_game_pressed() -> void:
 	get_tree().change_scene_to_file("res://Menus/character_select.tscn")
+
+
+func _on_volume_value_changed(value: float) -> void:
+	AudioServer.set_bus_volume_linear(0, value)

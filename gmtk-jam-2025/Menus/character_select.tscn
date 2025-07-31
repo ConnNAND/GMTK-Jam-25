@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dcdj1se40r3wv"]
+[gd_scene load_steps=5 format=3 uid="uid://dcdj1se40r3wv"]
 
 [ext_resource type="Texture2D" uid="uid://l2sos73kuk6q" path="res://icon.svg" id="1_5ipcs"]
 [ext_resource type="Script" uid="uid://djn53ol3pwg7c" path="res://Menus/Scripts/players_selection.gd" id="2_wicqc"]
+[ext_resource type="PackedScene" uid="uid://c4ioxrv2edq3" path="res://Menus/player_select_menu.tscn" id="3_hwkai"]
 [ext_resource type="PackedScene" uid="uid://dfivfc2s87jok" path="res://Menus/main_menu.tscn" id="3_ot7gh"]
 
 [node name="CharacterSelect" type="Control"]
@@ -13,8 +14,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="TextureRect" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
+layout_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
@@ -52,10 +52,21 @@ text = "Press Start or Enter To Join In..."
 [node name="PlayersSelection" type="GridContainer" parent="TextureRect/VBoxContainer"]
 layout_mode = 2
 script = ExtResource("2_wicqc")
+player_select = ExtResource("3_hwkai")
 MainMenu = ExtResource("3_ot7gh")
+
+[node name="AddPlayer" type="Button" parent="TextureRect/VBoxContainer"]
+layout_mode = 2
+text = "Add Player"
+
+[node name="Start" type="Button" parent="TextureRect/VBoxContainer"]
+layout_mode = 2
+text = "Start"
 
 [node name="Back" type="Button" parent="TextureRect/VBoxContainer"]
 layout_mode = 2
 text = "Back"
 
+[connection signal="pressed" from="TextureRect/VBoxContainer/AddPlayer" to="TextureRect/VBoxContainer/PlayersSelection" method="_on_add_player_pressed"]
+[connection signal="pressed" from="TextureRect/VBoxContainer/Start" to="TextureRect/VBoxContainer/PlayersSelection" method="_on_start_pressed"]
 [connection signal="pressed" from="TextureRect/VBoxContainer/Back" to="TextureRect/VBoxContainer/PlayersSelection" method="_on_back_pressed"]

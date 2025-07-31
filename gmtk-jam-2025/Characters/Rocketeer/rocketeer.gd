@@ -1,30 +1,37 @@
 extends CharacterBody3D
-var gravity : float = 10
-var jump_strength : float = 10
-var jumps : int = 2
-var move_speed : float = 10
 
-func _physics_process(delta):
-	if (is_on_floor()):
-		velocity.y = 0
-		jumps = 2
-	else:
-		velocity.y -= gravity * delta
-	if (Input.is_action_just_pressed("jump") && jumps > 0):
-			velocity.y += jump_strength
-			jumps -= 1
-	var movement := get_movement() * move_speed
-	velocity.x = lerpf(velocity.x, movement.x,0.2)
-	velocity.z = lerpf(velocity.z, movement.z,0.2)
-	
+var player_id:int = 0
+var input_dir:Vector2 = Vector2.ZERO
+var target_velocity:Vector3 = Vector3.ZERO
+var actual_velocity:Vector3 = Vector3.ZERO
+var speed:float
+var acceleration:float
+var turning:float
+var max_speed:float
+
+
+func _physics_process(delta: float) -> void:
+	if not is_on_floor():
+		velocity += get_gravity()*delta
 	move_and_slide()
 
-func get_movement() -> Vector3:
-	var input := Vector2.ZERO
-	input.x = Input.get_axis("move_left", "move_right")
-	input.y = Input.get_axis("move_forward", "move_backward")
-	var forward = %Camera.global_basis.z
-	var right = %Camera.global_basis.x
-	var move_direction : Vector3 = forward * input.y + right * input.x
-	move_direction.y = 0
-	return move_direction.normalized()
+
+func _input(event: InputEvent) -> void:
+	if event.device == player_id:
+		input_dir = Vector2.ZERO
+		if event.is_action_pressed("move_forward"):
+			input_dir.y += event.get_action_strength("move_forward")
+		if event.is_action_pressed("move_backward"):
+			input_dir.y -= event.get_action_strength("move_backward")
+		if event.is_action_pressed("move_left"):
+			input_dir.x -= event.get_action_strength("move_left")
+		if event.is_action_pressed("move_right"):
+			input_dir.x += event.get_action_strength("move_right")
+		if event.is_action_pressed("jump"):
+			jump()
+
+
+
+func jump():
+	if is_on_floor():
+		velocity.y = 10
