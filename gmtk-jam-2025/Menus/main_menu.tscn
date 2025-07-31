@@ -132,6 +132,7 @@ text = "Back"
 [connection signal="pressed" from="BackgroundImage/HomeMenu/MainMenu/Help" to="BackgroundImage/HomeMenu" method="_on_help_pressed"]
 [connection signal="pressed" from="BackgroundImage/HomeMenu/MainMenu/Options" to="BackgroundImage/HomeMenu" method="_on_options_pressed"]
 [connection signal="pressed" from="BackgroundImage/HomeMenu/MainMenu/Quit" to="BackgroundImage/HomeMenu" method="_on_quit_pressed"]
+[connection signal="pressed" from="BackgroundImage/HomeMenu/ModeSelect/LocalGame" to="BackgroundImage/HomeMenu" method="_on_local_game_pressed"]
 [connection signal="pressed" from="BackgroundImage/HomeMenu/ModeSelect/Back" to="BackgroundImage/HomeMenu" method="_modeselect_on_back_pressed"]
 [connection signal="pressed" from="BackgroundImage/HomeMenu/Help/Back" to="BackgroundImage/HomeMenu" method="_help_on_back_pressed"]
 [connection signal="pressed" from="BackgroundImage/HomeMenu/Options/Back" to="BackgroundImage/HomeMenu" method="_options_on_back_pressed"]

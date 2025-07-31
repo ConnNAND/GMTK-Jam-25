@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dcdj1se40r3wv"]
+[gd_scene load_steps=4 format=3 uid="uid://dcdj1se40r3wv"]
 
 [ext_resource type="Texture2D" uid="uid://l2sos73kuk6q" path="res://icon.svg" id="1_5ipcs"]
 [ext_resource type="Script" uid="uid://djn53ol3pwg7c" path="res://Menus/Scripts/players_selection.gd" id="2_wicqc"]
+[ext_resource type="PackedScene" uid="uid://dfivfc2s87jok" path="res://Menus/main_menu.tscn" id="3_ot7gh"]
 
 [node name="CharacterSelect" type="Control"]
 layout_mode = 3
@@ -51,3 +52,10 @@ text = "Press Start or Enter To Join In..."
 [node name="PlayersSelection" type="GridContainer" parent="TextureRect/VBoxContainer"]
 layout_mode = 2
 script = ExtResource("2_wicqc")
+MainMenu = ExtResource("3_ot7gh")
+
+[node name="Back" type="Button" parent="TextureRect/VBoxContainer"]
+layout_mode = 2
+text = "Back"
+
+[connection signal="pressed" from="TextureRect/VBoxContainer/Back" to="TextureRect/VBoxContainer/PlayersSelection" method="_on_back_pressed"]
