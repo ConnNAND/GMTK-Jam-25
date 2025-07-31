@@ -13,10 +13,15 @@ var max_speed:float
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity()*delta
+	print(input_dir)
+	var movement : Vector3 = (global_basis.z * input_dir.y + global_basis.x * input_dir.x).normalized()
+	velocity.x = movement.x * 5
+	velocity.z = movement.z * 5
 	move_and_slide()
 
 
 func _input(event: InputEvent) -> void:
+	print(event)
 	if event.device == player_id:
 		input_dir = Vector2.ZERO
 		if event.is_action_pressed("move_forward"):
