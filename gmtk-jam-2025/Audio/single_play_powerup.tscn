@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://2w3hm3lioico"]
+
+[ext_resource type="AudioStream" uid="uid://cjgkxhv02cr0m" path="res://Audio/PowerUp.ogg" id="1_she8r"]
+[ext_resource type="Script" uid="uid://du875iwlo7pog" path="res://Levels/Assets/single_play.gd" id="2_huwx2"]
+
+[node name="SinglePlay" type="AudioStreamPlayer3D"]
+stream = ExtResource("1_she8r")
+autoplay = true
+script = ExtResource("2_huwx2")
+
+[connection signal="finished" from="." to="." method="_on_finished"]

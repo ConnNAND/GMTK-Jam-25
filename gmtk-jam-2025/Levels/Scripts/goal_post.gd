@@ -14,10 +14,13 @@ func _on_body_entered(body: Node3D) -> void:
 					successful_lap = false
 					break
 		if successful_lap:
-			#do lap timer thing
 			if body.windspeed < -5:
 				$Horn.play()
 			else:
 				$Vibe.play()
 			if body.timer:
 				body.timer.cross_goal_post()
+			for i in get_tree().get_nodes_in_group("stopwatch"):
+				if i.player_id == body.player_id:
+					i.reset()
+					break

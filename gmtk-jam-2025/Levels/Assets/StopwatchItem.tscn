@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://dwnltvp4qqjyl"]
+
+[ext_resource type="Script" uid="uid://bjjwoldtu3xqi" path="res://Levels/Scripts/stopwatch_item.gd" id="1_qm6cp"]
+[ext_resource type="PackedScene" uid="uid://v1f2kkhcrqci" path="res://Audio/single_play.tscn" id="2_daslo"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_4sab8"]
+radius = 1.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qm6cp"]
+albedo_color = Color(1, 1, 0.247059, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_1fs6o"]
+material = SubResource("StandardMaterial3D_qm6cp")
+radius = 1.0
+height = 2.0
+
+[node name="StopwatchItem" type="PathFollow3D" groups=["stopwatch"]]
+v_offset = 2.0
+script = ExtResource("1_qm6cp")
+collectsound = ExtResource("2_daslo")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 2
+collision_mask = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_4sab8")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_1fs6o")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

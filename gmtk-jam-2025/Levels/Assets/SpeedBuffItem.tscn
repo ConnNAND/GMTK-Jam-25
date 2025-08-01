@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://b04o4ofu4dx6c"]
+
+[ext_resource type="Script" uid="uid://cq3kurevs5u7c" path="res://Levels/Scripts/speed_buff_item.gd" id="1_2cf11"]
+[ext_resource type="PackedScene" uid="uid://2w3hm3lioico" path="res://Audio/single_play_powerup.tscn" id="2_j5o8s"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_4sab8"]
+radius = 1.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j5o8s"]
+albedo_color = Color(1, 0.435951, 0.248848, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ibym7"]
+material = SubResource("StandardMaterial3D_j5o8s")
+size = Vector3(1, 0.405, 0.3)
+
+[node name="SpeedBuffItem" type="PathFollow3D" groups=["stopwatch"]]
+v_offset = 2.0
+script = ExtResource("1_2cf11")
+collectsound = ExtResource("2_j5o8s")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 2
+collision_mask = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_4sab8")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 0, 0, 1, -0.224067, -0.292923, 0)
+mesh = SubResource("BoxMesh_ibym7")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.707107, -0.707107, 0, 0.707107, -0.707107, 0, 0, 0, 1, 0.211153, -0.292923, 0)
+mesh = SubResource("BoxMesh_ibym7")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 0, 0, 1, -0.224067, 0.521406, 0)
+mesh = SubResource("BoxMesh_ibym7")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.707107, -0.707107, 0, 0.707107, -0.707107, 0, 0, 0, 1, 0.211153, 0.521406, 0)
+mesh = SubResource("BoxMesh_ibym7")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://v1f2kkhcrqci"]
+
+[ext_resource type="Script" uid="uid://du875iwlo7pog" path="res://Levels/Assets/single_play.gd" id="1_evcvl"]
+[ext_resource type="AudioStream" uid="uid://iw0hl45fv6ju" path="res://Audio/crank.ogg" id="1_nkayj"]
+
+[node name="SinglePlay" type="AudioStreamPlayer3D"]
+stream = ExtResource("1_nkayj")
+autoplay = true
+script = ExtResource("1_evcvl")
+
+[connection signal="finished" from="." to="." method="_on_finished"]

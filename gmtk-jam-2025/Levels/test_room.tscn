@@ -1,10 +1,12 @@
-[gd_scene load_steps=18 format=3 uid="uid://5r2fey2hmyxh"]
+[gd_scene load_steps=20 format=3 uid="uid://5r2fey2hmyxh"]
 
 [ext_resource type="Script" uid="uid://bghpm42r8jlx3" path="res://Levels/test_room.gd" id="1_pplu1"]
 [ext_resource type="PackedScene" uid="uid://bxynvktig10bh" path="res://Menus/PlayerView.tscn" id="2_5pqgv"]
 [ext_resource type="Script" uid="uid://bbcwyhasc3vyp" path="res://Levels/Scripts/goal_post.gd" id="3_3k1a2"]
+[ext_resource type="PackedScene" uid="uid://dwnltvp4qqjyl" path="res://Levels/Assets/StopwatchItem.tscn" id="3_frh75"]
 [ext_resource type="Texture2D" uid="uid://b3bgs6vejd5p1" path="res://Materials/Textures/new_road.jpg" id="3_uglqc"]
 [ext_resource type="PackedScene" uid="uid://cyrbhiwbvp3b4" path="res://Levels/Assets/check_point.tscn" id="4_3k1a2"]
+[ext_resource type="PackedScene" uid="uid://b04o4ofu4dx6c" path="res://Levels/Assets/SpeedBuffItem.tscn" id="4_q8bgm"]
 [ext_resource type="Script" uid="uid://bxj26gp2qshkl" path="res://Levels/Scripts/kill_plane.gd" id="5_r4o0h"]
 [ext_resource type="AudioStream" uid="uid://bm61rpkhvp20m" path="res://Audio/horn.ogg" id="6_v4rkh"]
 [ext_resource type="AudioStream" uid="uid://dbgicokse6pwm" path="res://Audio/vibegoal.ogg" id="7_ln84l"]
@@ -50,6 +52,8 @@ rings = 10
 environment = SubResource("Environment_5pqgv")
 script = ExtResource("1_pplu1")
 PlayerViewport = ExtResource("2_5pqgv")
+Stopwatch = ExtResource("3_frh75")
+SpeedBuff = ExtResource("4_q8bgm")
 
 [node name="PlayerViews" type="GridContainer" parent="."]
 anchors_preset = 15
