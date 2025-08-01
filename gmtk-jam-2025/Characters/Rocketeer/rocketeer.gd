@@ -17,10 +17,12 @@ var jump_just_pressed = false
 var unique_ability = 15
 
 var hinderance = 1
-var boost_factor = 1
+var boost_factor = 5
 
 var gravity:float = ProjectSettings.get_setting("physics/3d/default_gravity")
 var up_vec = Vector3.UP
+
+var timer
 
 @export var camera_orientation:Node3D
 

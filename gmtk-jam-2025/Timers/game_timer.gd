@@ -99,3 +99,4 @@ func _on_stopwatch_timer_timeout():
 func _on_overtime_timer_timeout():
 	print("ran out of time!")
 	overtime_timer_timeout.emit()
+	get_tree().quit()
