@@ -7,4 +7,7 @@ func _on_body_entered(body: Node3D) -> void:
 		body.respawn_point = global_transform
 		if entered_checkpoint.find(body.player_id)==-1:
 			entered_checkpoint.append(body.player_id)
-			$Collect.play()
+			if body.windspeed < -5:
+				$Collect.play()
+			else:
+				$VibeCollect.play()

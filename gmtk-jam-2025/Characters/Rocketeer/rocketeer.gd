@@ -24,6 +24,7 @@ var up_vec = Vector3.UP
 
 var timer
 var stepspeed = 5
+var windspeed = -20
 
 @export var camera_orientation:Node3D
 var respawn_point : Transform3D = Transform3D.IDENTITY
@@ -31,8 +32,8 @@ var respawn_point : Transform3D = Transform3D.IDENTITY
 var spare_jump = true
 
 func _physics_process(delta: float) -> void:
-	$Wind.volume_db = min(Vector3(velocity.x, velocity.y/2, velocity.z).length()/3-20, 10)
-	print(min(Vector3(velocity.x, velocity.y/2, velocity.z).length()/3-20, 10))
+	windspeed = min(Vector3(velocity.x, velocity.y/2, velocity.z).length()/3-20, 10)
+	$Wind.volume_db = windspeed
 	if stepspeed>0:
 		stepspeed -= delta*velocity.length()
 	#checks the angle of the floor to see if you should speed up or slow down
