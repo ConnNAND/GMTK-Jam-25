@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://d3lhb1ptnyo3d"]
+
+[ext_resource type="Script" uid="uid://cqo60avm2v36g" path="res://Levels/Scripts/physical_box.gd" id="1_db6sp"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_263ra"]
+size = Vector3(2, 2, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_263ra"]
+albedo_color = Color(0.3027, 0.320943, 0.372406, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_db6sp"]
+material = SubResource("StandardMaterial3D_263ra")
+size = Vector3(2, 2, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_db6sp"]
+size = Vector3(2.2, 2.2, 2.2)
+
+[node name="RigidBody3D" type="RigidBody3D"]
+collision_layer = 4
+collision_mask = 15
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_263ra")
+
+[node name="PhysicalBox" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_db6sp")
+script = ExtResource("1_db6sp")
+
+[node name="Area3D" type="Area3D" parent="PhysicalBox"]
+collision_layer = 4
+collision_mask = 15
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PhysicalBox/Area3D"]
+shape = SubResource("BoxShape3D_db6sp")
+
+[connection signal="body_entered" from="PhysicalBox/Area3D" to="PhysicalBox" method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="PhysicalBox/Area3D" to="PhysicalBox" method="_on_area_3d_body_exited"]

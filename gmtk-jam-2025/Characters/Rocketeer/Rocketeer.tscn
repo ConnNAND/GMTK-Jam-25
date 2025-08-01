@@ -10,6 +10,8 @@
 size = Vector3(0.875, 0.215, 0.3)
 
 [node name="Rocketeer" type="CharacterBody3D" groups=["player"]]
+collision_layer = 8
+collision_mask = 11
 script = ExtResource("1_8gcnr")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
