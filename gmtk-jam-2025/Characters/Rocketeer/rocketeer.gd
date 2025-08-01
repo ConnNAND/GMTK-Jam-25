@@ -25,7 +25,7 @@ var up_vec = Vector3.UP
 var timer
 
 @export var camera_orientation:Node3D
-var respawn_point:Vector3 = Vector3.ZERO
+var respawn_point : Transform3D = Transform3D.IDENTITY
 
 var spare_jump = true
 
@@ -152,4 +152,5 @@ func jump():
 
 
 func kill():
-	global_transform.origin = respawn_point
+	global_transform = respawn_point
+	velocity = Vector3.ZERO
