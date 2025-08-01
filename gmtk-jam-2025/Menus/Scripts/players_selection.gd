@@ -27,7 +27,8 @@ func _on_add_player_pressed() -> void:
 
 func _on_start_pressed() -> void:
 	var temp = []
-	for i in get_children():
-		temp.append([i.player_id, i.character])
-	PlayerData.load_players(temp)
-	get_tree().change_scene_to_file("res://Levels/test_room.tscn")
+	if get_children().size() > 0:
+		for i in get_children():
+			temp.append([i.player_id, i.character])
+		PlayerData.load_players(temp)
+		get_tree().change_scene_to_file("res://Levels/test_room.tscn")
