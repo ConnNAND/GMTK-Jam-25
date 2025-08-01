@@ -33,7 +33,7 @@ render_target_update_mode = 4
 
 [node name="FollowCamera" parent="SubViewport" instance=ExtResource("3_rpd14")]
 
-[node name="ColorRect" type="ColorRect" parent="SubViewport"]
+[node name="Dither" type="ColorRect" parent="SubViewport"]
 material = SubResource("ShaderMaterial_kxji3")
 anchors_preset = 15
 anchor_right = 1.0

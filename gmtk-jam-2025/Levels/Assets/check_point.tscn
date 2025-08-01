@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://cyrbhiwbvp3b4"]
+[gd_scene load_steps=6 format=3 uid="uid://cyrbhiwbvp3b4"]
 
 [ext_resource type="Script" uid="uid://bgrabu73a6ldf" path="res://Levels/Scripts/check_point.gd" id="1_b5pab"]
+[ext_resource type="AudioStream" uid="uid://dhy4hqgx0li36" path="res://Audio/checkpointclick.ogg" id="2_desj7"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5pqgv"]
 transparency = 1
@@ -26,5 +27,8 @@ mesh = SubResource("SphereMesh_p37q1")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_b5pab")
+
+[node name="Collect" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_desj7")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
