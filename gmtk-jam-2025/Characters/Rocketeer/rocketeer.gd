@@ -12,9 +12,9 @@ var acceleration:float = 0.9
 var turning:float = 2
 var default_speed:float = 10
 var top_speed:float = 50
-var jump_strength = 10
+var jump_strength = 15
 var jump_just_pressed = false
-var unique_ability = 15
+var unique_ability = 25
 
 var hinderance = 1
 var boost_factor = 2
@@ -88,7 +88,7 @@ func _physics_process(delta: float) -> void:
 		actual_velocity.z = lerp(actual_velocity.z, target_velocity.z, delta*5)
 	
 	if camera_orientation:
-		velocity = (global_transform.basis * actual_velocity.rotated(Vector3.UP, camera_orientation.rotation.y))/hinderance
+		velocity = (global_transform.basis * actual_velocity.rotated(global_basis.y, camera_orientation.rotation.y))/hinderance
 	
 	move_and_slide()
 	apply_floor_snap()

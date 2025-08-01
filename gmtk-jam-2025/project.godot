@@ -94,7 +94,7 @@ move_backward={
 
 [physics]
 
-3d/default_gravity=20.0
+3d/default_gravity=32.0
 
 [rendering]
 
