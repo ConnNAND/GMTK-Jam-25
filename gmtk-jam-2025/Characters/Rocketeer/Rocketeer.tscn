@@ -4,13 +4,13 @@
 [ext_resource type="AudioStream" uid="uid://cdetddmuofw2b" path="res://Audio/footstep.ogg" id="2_8gcnr"]
 [ext_resource type="AudioStream" uid="uid://n6khcqdnsss2" path="res://Audio/recordScratch.ogg" id="3_b1cc0"]
 [ext_resource type="AudioStream" uid="uid://c7xsddtonnoaj" path="res://Audio/Wind.ogg" id="3_h58gn"]
+[ext_resource type="ArrayMesh" uid="uid://b3xlp0tf26hlr" path="res://Characters/Rocketeer/jetpack.res" id="3_b1cc0"]
+[ext_resource type="Material" uid="uid://cfof8abwuu8py" path="res://Materials/jetpack.tres" id="4_qjgur"]
+[ext_resource type="PackedScene" uid="uid://csdw2glgpa7ek" path="res://Characters/Rocketeer/rocketeer.blend" id="5_qjgur"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_u2dk0"]
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_jq88g"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_jq88g"]
-size = Vector3(0.875, 0.215, 0.3)
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_qjgur"]
 
 [node name="Rocketeer" type="CharacterBody3D" groups=["player"]]
 collision_layer = 8
@@ -20,14 +20,8 @@ script = ExtResource("1_8gcnr")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_u2dk0")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("CapsuleMesh_jq88g")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.406197, -0.435804)
-mesh = SubResource("BoxMesh_jq88g")
-
 [node name="Step" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0042392, 5.96046e-08, 0.000622392)
 stream = ExtResource("2_8gcnr")
 volume_db = -8.0
 
@@ -38,3 +32,20 @@ volume_db = -8.0
 [node name="Wind" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("3_h58gn")
 autoplay = true
+
+[node name="rocketeer" parent="." instance=ExtResource("5_qjgur")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.114006, 0)
+
+[node name="Jetpack" type="MeshInstance3D" parent="rocketeer"]
+transform = Transform3D(0.2, 0, 0, 0, -0.262329, -0.0479003, 0, 0.0479003, -0.262329, -0.00306296, 0.149362, 0.161975)
+material_override = ExtResource("4_qjgur")
+mesh = ExtResource("3_b1cc0")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="rocketeer"]
+transform = Transform3D(0.1, 0, 0, 0, 0.2, 0, 0, 0, 0.1, 0.104049, -0.382397, 0)
+mesh = SubResource("CapsuleMesh_qjgur")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="rocketeer"]
+transform = Transform3D(0.1, 0, 0, 0, 0.2, 0, 0, 0, 0.1, -0.134069, -0.384837, 0.0236199)
+mesh = SubResource("CapsuleMesh_qjgur")
