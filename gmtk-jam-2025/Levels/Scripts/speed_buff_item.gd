@@ -6,7 +6,9 @@ var player_id = 99
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body.is_in_group("player"):
-		body.boost_factor += 0.4
+		#body.boost_factor += 0.2
+		body.top_speed += 6
+		body.default_speed += 5
 		var temp = collectsound.instantiate()
 		get_parent_node_3d().add_child(temp)
 		temp.global_transform.origin = global_transform.origin

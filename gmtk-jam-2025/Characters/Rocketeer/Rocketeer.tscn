@@ -1,12 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://bje5llf3vk0jp"]
+[gd_scene load_steps=10 format=3 uid="uid://bje5llf3vk0jp"]
 
 [ext_resource type="Script" uid="uid://crvf0fpyykp20" path="res://Characters/Rocketeer/rocketeer.gd" id="1_8gcnr"]
 [ext_resource type="AudioStream" uid="uid://cdetddmuofw2b" path="res://Audio/footstep.ogg" id="2_8gcnr"]
 [ext_resource type="AudioStream" uid="uid://n6khcqdnsss2" path="res://Audio/recordScratch.ogg" id="3_b1cc0"]
 [ext_resource type="AudioStream" uid="uid://c7xsddtonnoaj" path="res://Audio/Wind.ogg" id="3_h58gn"]
-[ext_resource type="ArrayMesh" uid="uid://b3xlp0tf26hlr" path="res://Characters/Rocketeer/jetpack.res" id="3_b1cc0"]
 [ext_resource type="Material" uid="uid://cfof8abwuu8py" path="res://Materials/jetpack.tres" id="4_qjgur"]
 [ext_resource type="PackedScene" uid="uid://csdw2glgpa7ek" path="res://Characters/Rocketeer/rocketeer.blend" id="5_qjgur"]
+[ext_resource type="ArrayMesh" uid="uid://dn61ae4ppjim8" path="res://Characters/Rocketeer/jetpack.res" id="7_mnh83"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_u2dk0"]
 
@@ -39,7 +39,7 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.114006, 0)
 [node name="Jetpack" type="MeshInstance3D" parent="rocketeer"]
 transform = Transform3D(0.2, 0, 0, 0, -0.262329, -0.0479003, 0, 0.0479003, -0.262329, -0.00306296, 0.149362, 0.161975)
 material_override = ExtResource("4_qjgur")
-mesh = ExtResource("3_b1cc0")
+mesh = ExtResource("7_mnh83")
 skeleton = NodePath("../..")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="rocketeer"]
