@@ -139,10 +139,10 @@ func _input(event: InputEvent) -> void:
 
 func jump():
 	if is_on_floor():
-		actual_velocity.y = jump_strength/hinderance
+		actual_velocity.y = 1.0 * jump_strength / hinderance
 		floor_snap_length = 0
 	#ROCKETEER ONLY
 	elif spare_jump:
-		actual_velocity.y = unique_ability/hinderance
+		actual_velocity.y = 1.0 * unique_ability / hinderance
 		floor_snap_length = 0
 		spare_jump = false

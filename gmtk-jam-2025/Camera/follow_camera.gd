@@ -10,7 +10,7 @@ func _ready():
 
 func _process(delta):
 	if target:
-		var placement_offset : Vector3 = target.global_basis.z * follow_distance + Vector3.UP
+		placement_offset = target.global_basis.z * follow_distance + Vector3.UP
 		global_position = lerp(global_position, target.global_position + placement_offset, delta * follow_speed)
 		$Node3D.look_at(target.position, target.global_basis.y)
 		global_rotation.x = lerp_angle(global_rotation.x, $Node3D.global_rotation.x, 15*delta)

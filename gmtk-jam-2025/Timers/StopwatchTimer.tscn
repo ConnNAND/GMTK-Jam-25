@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=3 uid="uid://dqpy3gp7cuamr"]
+
+[ext_resource type="Script" uid="uid://bjuytdb57yw06" path="res://Timers/stopwatch_timer.gd" id="1_ouem3"]
+
+[node name="GameTimer" type="Label"]
+script = ExtResource("1_ouem3")
+
+[node name="PersonalBest" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_top = 23.0
+offset_right = 40.0
+offset_bottom = 46.0
+text = "Best: 4:00.00"
+
+[node name="OvertimeTimer" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 110.0
+offset_right = 262.0
+offset_bottom = 23.0
+text = "+ 0:00.00 OVERTIME"
+
+[node name="StopwatchTimer" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Time: 0:00.00"
