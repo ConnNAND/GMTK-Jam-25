@@ -63,6 +63,9 @@ func _physics_process(delta: float) -> void:
 		rotate(global_transform.basis.y, -delta*turning)
 	
 	if is_on_floor():
+		if actual_velocity.length() > 0.2 and not $Step.playing:
+			$Step.pitch_scale = randf_range(0.7, 1.3)
+			$Step.play()
 		gravity = 0
 		floor_snap_length = 0.1
 		spare_jump = true
