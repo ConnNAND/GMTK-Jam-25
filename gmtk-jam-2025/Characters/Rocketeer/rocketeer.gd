@@ -4,15 +4,18 @@ var player_id:int = 0
 var movement_input:Vector4 = Vector4.ZERO
 var target_velocity:Vector3 = Vector3.ZERO
 var actual_velocity:Vector3 = Vector3.ZERO
-var default_speed:float = 10
-var top_speed:float = 50
 var current_speed:float
 var target_speed:float
 var floor_incline:float
-var acceleration:float
-var turning:float
-var max_speed:float
-var rotation_speed : float = 5
+
+var acceleration:float = 0.9
+var turning:float = 2
+var default_speed:float = 10
+var top_speed:float = 50
+var jump_strength = 5
+var jump_just_pressed = false
+var unique_ability = 10
+
 var gravity:float = ProjectSettings.get_setting("physics/3d/default_gravity")
 var up_vec = Vector3.UP
 
@@ -21,7 +24,6 @@ var up_vec = Vector3.UP
 var spare_jump = true
 
 func _physics_process(delta: float) -> void:
-	print(current_speed)
 	#checks the angle of the floor to see if you should speed up or slow down
 	floor_incline = (global_transform.basis.z.normalized().y + 1)/2
 	if floor_incline <= 0.5:#looking up
@@ -30,26 +32,35 @@ func _physics_process(delta: float) -> void:
 		target_speed = floor_incline * top_speed
 	
 	if (target_speed < current_speed and is_on_floor()):
-		current_speed = move_toward(current_speed, target_speed, delta*2)
+		current_speed = move_toward(current_speed, target_speed, delta*2*acceleration)
 	elif target_speed > current_speed:
-		current_speed = move_toward(current_speed, target_speed, delta*4)
+		current_speed = move_toward(current_speed, target_speed, delta*4*acceleration)
+	
+	if actual_velocity.length() == 0:
+		target_speed = default_speed
 		
 	var movement : Vector3 = get_movement()
 	target_velocity = movement * current_speed
 	
-	if Vector2(Input.get_joy_axis(player_id, JOY_AXIS_RIGHT_X), Input.get_joy_axis(player_id, JOY_AXIS_RIGHT_Y)).length() > 0.3:
-		var look_vec = Vector2(-Input.get_joy_axis(player_id, JOY_AXIS_RIGHT_X), -Input.get_joy_axis(player_id, JOY_AXIS_RIGHT_Y))
-		rotate_y(look_vec.x*delta*5)
-	if Vector2(Input.get_joy_axis(player_id, JOY_AXIS_LEFT_X), Input.get_joy_axis(player_id, JOY_AXIS_LEFT_Y)).length() > 0.3:
-		var look_vec = Vector2(-Input.get_joy_axis(player_id, JOY_AXIS_LEFT_X), -Input.get_joy_axis(player_id, JOY_AXIS_LEFT_Y))
-		rotate_y(look_vec.x*delta*5)
+	if abs(Input.get_joy_axis(player_id, JOY_AXIS_RIGHT_X)) > 0.3:
+		rotate(global_transform.basis.y, -Input.get_joy_axis(player_id, JOY_AXIS_RIGHT_X)*delta*turning)
+	if abs(Input.get_joy_axis(player_id, JOY_AXIS_LEFT_X)) > 0.3:
+		rotate(global_transform.basis.y, -Input.get_joy_axis(player_id, JOY_AXIS_LEFT_X)*delta*turning)
+	if Input.is_key_pressed(KEY_A) and player_id==99:
+		rotate(global_transform.basis.y, delta*turning)
+	if Input.is_key_pressed(KEY_D) and player_id==99:
+		rotate(global_transform.basis.y, -delta*turning)
 	
 	if is_on_floor():
 		gravity = 0
 		floor_snap_length = 0.1
 		spare_jump = true
 	if Input.is_joy_button_pressed(player_id, JOY_BUTTON_A) or (Input.is_key_pressed(KEY_SPACE) and player_id==99):
-		jump()
+		if !jump_just_pressed:
+			jump_just_pressed = true
+			jump()
+	else:
+		jump_just_pressed = false
 	actual_velocity.y -= gravity*delta
 	#variable jump height for holding the button down
 	if (Input.is_joy_button_pressed(player_id, JOY_BUTTON_A) or (Input.is_key_pressed(KEY_SPACE) and player_id==99)) and velocity.y > 0:
@@ -120,10 +131,10 @@ func _input(event: InputEvent) -> void:
 
 func jump():
 	if is_on_floor():
-		actual_velocity.y = 10
+		actual_velocity.y = jump_strength
 		floor_snap_length = 0
 	#ROCKETEER ONLY
 	elif spare_jump:
-		velocity.y = 10
+		actual_velocity.y = unique_ability
 		floor_snap_length = 0
 		spare_jump = false
