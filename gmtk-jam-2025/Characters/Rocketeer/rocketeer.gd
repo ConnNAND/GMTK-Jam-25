@@ -17,12 +17,13 @@ var jump_just_pressed = false
 var unique_ability:float = 25
 
 var hinderance:float = 1
-var boost_factor:float = 2
+var boost_factor:float = 1
 
 var gravity:float = ProjectSettings.get_setting("physics/3d/default_gravity")
 var up_vec = Vector3.UP
 
 var timer
+var stepspeed = 5
 
 @export var camera_orientation:Node3D
 var respawn_point : Transform3D = Transform3D.IDENTITY
@@ -30,6 +31,10 @@ var respawn_point : Transform3D = Transform3D.IDENTITY
 var spare_jump = true
 
 func _physics_process(delta: float) -> void:
+	$Wind.volume_db = min(velocity.length()-30, 0)
+	print(min(velocity.length()/4-35, 0))
+	if stepspeed>0:
+		stepspeed -= delta*velocity.length()
 	#checks the angle of the floor to see if you should speed up or slow down
 	floor_incline = (global_transform.basis.z.normalized().y + 1)/2
 	if floor_incline <= 0.5:#looking up
@@ -63,9 +68,10 @@ func _physics_process(delta: float) -> void:
 		rotate(global_transform.basis.y, -delta*turning)
 	
 	if is_on_floor():
-		if actual_velocity.length() > 0.2 and not $Step.playing:
-			$Step.pitch_scale = randf_range(0.7, 1.3)
+		if velocity.length() > 0.5 and stepspeed < 0:
+			$Step.pitch_scale = randf_range(0.9, 1.2)
 			$Step.play()
+			stepspeed = 5
 		gravity = 0
 		floor_snap_length = 0.1
 		spare_jump = true

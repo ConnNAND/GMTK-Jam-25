@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bje5llf3vk0jp"]
+[gd_scene load_steps=7 format=3 uid="uid://bje5llf3vk0jp"]
 
 [ext_resource type="Script" uid="uid://crvf0fpyykp20" path="res://Characters/Rocketeer/rocketeer.gd" id="1_8gcnr"]
 [ext_resource type="AudioStream" uid="uid://cdetddmuofw2b" path="res://Audio/footstep.ogg" id="2_8gcnr"]
+[ext_resource type="AudioStream" uid="uid://c7xsddtonnoaj" path="res://Audio/Wind.ogg" id="3_h58gn"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_u2dk0"]
 
@@ -25,5 +26,10 @@ mesh = SubResource("CapsuleMesh_jq88g")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.406197, -0.435804)
 mesh = SubResource("BoxMesh_jq88g")
 
-[node name="Step" type="AudioStreamPlayer3D" parent="."]
+[node name="Step" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_8gcnr")
+volume_db = -8.0
+
+[node name="Wind" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_h58gn")
+autoplay = true
