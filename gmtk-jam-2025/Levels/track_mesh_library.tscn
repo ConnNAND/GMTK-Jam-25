@@ -1,0 +1,303 @@
+[gd_scene load_steps=13 format=3 uid="uid://ccea7jgisb6wq"]
+
+[sub_resource type="Curve3D" id="Curve3D_sd1fo"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 50),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_2xvvj"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 10, 0, 0, 0, 0, 0, -10, 0, 0, 10, 0, -5, 25, 0, 0, -10, 0, 0, 0, 0, 0, 50),
+"tilts": PackedFloat32Array(0, 0, 0)
+}
+point_count = 3
+
+[sub_resource type="Curve3D" id="Curve3D_8tjfo"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 10, 0, 0, 0, 0, -5, 0, 0, -5, 0, 0, 2, 25, 0, 0, -10, 0, 0, 0, 0, 0, 50),
+"tilts": PackedFloat32Array(0, 0, 0)
+}
+point_count = 3
+
+[sub_resource type="Curve3D" id="Curve3D_12xy6"]
+_data = {
+"points": PackedVector3Array(0, 0, -30, 0, 0, 10, 0, 0, 0, 0, 0, -1, 0, 0, 0, 0, 15, 50),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_ofmra"]
+_data = {
+"points": PackedVector3Array(0, 0, -30, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 15, 50),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_lrnoj"]
+_data = {
+"points": PackedVector3Array(0, 0, -30, 0, 0, 0, 0, 0, 0, 0, 0, -10, 0, 0, 0, 0, 15, 50),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_b6a36"]
+_data = {
+"points": PackedVector3Array(0, 0, -30, 0, 0, 10, 0, 0, 0, 0, 0, -10, 0, 0, 0, 0, 15, 50),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_e2buu"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 25, 0, 0, 0, 25, 0, 0, 0, 0, 0, -50, 0, 50),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_vsgat"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 25, 0, 0, 0, 25, 0, 0, 0, 0, 0, -50, 0, 50),
+"tilts": PackedFloat32Array(0, 1.571)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_5ml67"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 25, 0, 0, 0, -25, 0, 0, 0, 0, 0, 50, 0, 50),
+"tilts": PackedFloat32Array(0, -1.57)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_fm5y6"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 50),
+"tilts": PackedFloat32Array(1.57, 1.57)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_83ptn"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 25, 0, 0, 0, -25, 0, 0, 0, 0, 0, 50, 0, 50),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[node name="TrackMeshLibrary" type="Node3D"]
+
+[node name="ShortStraight" type="CSGPolygon3D" parent="."]
+use_collision = true
+polygon = PackedVector2Array(-12.5, -0.5, -12.5, 0.5, 12.5, 0.5, 12.5, -0.5)
+mode = 2
+path_node = NodePath("Path3D")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = true
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+
+[node name="Path3D" type="Path3D" parent="ShortStraight"]
+curve = SubResource("Curve3D_sd1fo")
+
+[node name="ShortStraightDip" type="CSGPolygon3D" parent="."]
+use_collision = true
+polygon = PackedVector2Array(-12.5, -0.5, -12.5, 0.5, 12.5, 0.5, 12.5, -0.5)
+mode = 2
+path_node = NodePath("Path3D")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = true
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+
+[node name="Path3D" type="Path3D" parent="ShortStraightDip"]
+curve = SubResource("Curve3D_2xvvj")
+
+[node name="ShortStraightWave" type="CSGPolygon3D" parent="."]
+use_collision = true
+polygon = PackedVector2Array(-12.5, -0.5, -12.5, 0.5, 12.5, 0.5, 12.5, -0.5)
+mode = 2
+path_node = NodePath("Path3D")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = true
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+
+[node name="Path3D" type="Path3D" parent="ShortStraightWave"]
+curve = SubResource("Curve3D_8tjfo")
+
+[node name="ShortStraightRaiseStart" type="CSGPolygon3D" parent="."]
+use_collision = true
+polygon = PackedVector2Array(-12.5, -0.5, -12.5, 0.5, 12.5, 0.5, 12.5, -0.5)
+mode = 2
+path_node = NodePath("Path3D")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = true
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+
+[node name="Path3D" type="Path3D" parent="ShortStraightRaiseStart"]
+curve = SubResource("Curve3D_12xy6")
+
+[node name="ShortStraightIncline" type="CSGPolygon3D" parent="."]
+use_collision = true
+polygon = PackedVector2Array(-12.5, -0.5, -12.5, 0.5, 12.5, 0.5, 12.5, -0.5)
+mode = 2
+path_node = NodePath("Path3D")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = true
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+
+[node name="Path3D" type="Path3D" parent="ShortStraightIncline"]
+curve = SubResource("Curve3D_ofmra")
+
+[node name="ShortStraightInclineEnd" type="CSGPolygon3D" parent="."]
+use_collision = true
+polygon = PackedVector2Array(-12.5, -0.5, -12.5, 0.5, 12.5, 0.5, 12.5, -0.5)
+mode = 2
+path_node = NodePath("Path3D")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = true
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+
+[node name="Path3D" type="Path3D" parent="ShortStraightInclineEnd"]
+curve = SubResource("Curve3D_lrnoj")
+
+[node name="ShortHill" type="CSGPolygon3D" parent="."]
+use_collision = true
+polygon = PackedVector2Array(-12.5, -0.5, -12.5, 0.5, 12.5, 0.5, 12.5, -0.5)
+mode = 2
+path_node = NodePath("Path3D")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = true
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+
+[node name="Path3D" type="Path3D" parent="ShortHill"]
+curve = SubResource("Curve3D_b6a36")
+
+[node name="Short90Right" type="CSGPolygon3D" parent="."]
+use_collision = true
+polygon = PackedVector2Array(-12.5, -0.5, -12.5, 0.5, 12.5, 0.5, 12.5, -0.5)
+mode = 2
+path_node = NodePath("Path3D")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = true
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+
+[node name="Path3D" type="Path3D" parent="Short90Right"]
+curve = SubResource("Curve3D_e2buu")
+
+[node name="BankRightStart" type="CSGPolygon3D" parent="."]
+use_collision = true
+polygon = PackedVector2Array(-12.5, -0.5, -12.5, 0.5, 12.5, 0.5, 12.5, -0.5)
+mode = 2
+path_node = NodePath("Path3D")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = true
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+
+[node name="Path3D" type="Path3D" parent="BankRightStart"]
+curve = SubResource("Curve3D_vsgat")
+
+[node name="BankLeftStart" type="CSGPolygon3D" parent="."]
+use_collision = true
+polygon = PackedVector2Array(-12.5, -0.5, -12.5, 0.5, 12.5, 0.5, 12.5, -0.5)
+mode = 2
+path_node = NodePath("Path3D")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = true
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+
+[node name="Path3D" type="Path3D" parent="BankLeftStart"]
+curve = SubResource("Curve3D_5ml67")
+
+[node name="Bank" type="CSGPolygon3D" parent="."]
+use_collision = true
+polygon = PackedVector2Array(-12.5, -0.5, -12.5, 0.5, 12.5, 0.5, 12.5, -0.5)
+mode = 2
+path_node = NodePath("Path3D")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = true
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+
+[node name="Path3D" type="Path3D" parent="Bank"]
+curve = SubResource("Curve3D_fm5y6")
+
+[node name="Short90Left" type="CSGPolygon3D" parent="."]
+use_collision = true
+polygon = PackedVector2Array(-12.5, -0.5, -12.5, 0.5, 12.5, 0.5, 12.5, -0.5)
+mode = 2
+path_node = NodePath("Path3D")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = true
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+
+[node name="Path3D" type="Path3D" parent="Short90Left"]
+curve = SubResource("Curve3D_83ptn")
