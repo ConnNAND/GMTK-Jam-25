@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 PlayerData="*res://player_data.gd"
 
+[global_group]
+
+player="any character that will run around the track and be cool"
+
 [input]
 
 ui_accept={

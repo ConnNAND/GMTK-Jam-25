@@ -42,6 +42,7 @@ func _physics_process(delta: float) -> void:
 	var movement : Vector3 = get_movement()
 	target_velocity = movement * current_speed
 	
+	#rotating so the camera moves
 	if abs(Input.get_joy_axis(player_id, JOY_AXIS_RIGHT_X)) > 0.3:
 		rotate(global_transform.basis.y, -Input.get_joy_axis(player_id, JOY_AXIS_RIGHT_X)*delta*turning)
 	if abs(Input.get_joy_axis(player_id, JOY_AXIS_LEFT_X)) > 0.3:
@@ -49,6 +50,10 @@ func _physics_process(delta: float) -> void:
 	if Input.is_key_pressed(KEY_A) and player_id==99:
 		rotate(global_transform.basis.y, delta*turning)
 	if Input.is_key_pressed(KEY_D) and player_id==99:
+		rotate(global_transform.basis.y, -delta*turning)
+	if Input.is_key_pressed(KEY_Q) and player_id==99:
+		rotate(global_transform.basis.y, delta*turning)
+	if Input.is_key_pressed(KEY_E) and player_id==99:
 		rotate(global_transform.basis.y, -delta*turning)
 	
 	if is_on_floor():

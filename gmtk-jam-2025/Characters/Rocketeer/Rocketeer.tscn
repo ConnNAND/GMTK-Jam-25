@@ -9,7 +9,7 @@
 [sub_resource type="BoxMesh" id="BoxMesh_jq88g"]
 size = Vector3(0.875, 0.215, 0.3)
 
-[node name="Rocketeer" type="CharacterBody3D"]
+[node name="Rocketeer" type="CharacterBody3D" groups=["player"]]
 script = ExtResource("1_8gcnr")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
