@@ -1,9 +1,9 @@
 [gd_scene load_steps=2 format=3 uid="uid://dqpy3gp7cuamr"]
 
-[ext_resource type="Script" uid="uid://bjuytdb57yw06" path="res://Timers/stopwatch_timer.gd" id="1_ouem3"]
+[ext_resource type="Script" uid="uid://bjuytdb57yw06" path="res://Timers/game_timer.gd" id="1_qt5ce"]
 
 [node name="GameTimer" type="Label"]
-script = ExtResource("1_ouem3")
+script = ExtResource("1_qt5ce")
 
 [node name="PersonalBest" type="Label" parent="."]
 unique_name_in_owner = true
