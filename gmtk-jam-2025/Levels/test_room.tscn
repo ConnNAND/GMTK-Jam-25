@@ -92,10 +92,10 @@ shape = SubResource("SphereShape3D_3k1a2")
 mesh = SubResource("SphereMesh_3k1a2")
 
 [node name="CheckPoint" parent="GoalPost" instance=ExtResource("4_3k1a2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 329, -18, 63)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 329, -18, 63)
 
 [node name="CheckPoint2" parent="GoalPost" instance=ExtResource("4_3k1a2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 111, -41, 258)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 111, -41, 258)
 
 [node name="KillPlane" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -91.6126, 0)
