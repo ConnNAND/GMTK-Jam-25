@@ -154,3 +154,4 @@ func jump():
 func kill():
 	global_transform = respawn_point
 	velocity = Vector3.ZERO
+	actual_velocity = Vector3.ZERO
