@@ -12,12 +12,12 @@ var acceleration:float = 0.9
 var turning:float = 2
 var default_speed:float = 10
 var top_speed:float = 50
-var jump_strength = 15
+var jump_strength:float = 15
 var jump_just_pressed = false
-var unique_ability = 25
+var unique_ability:float = 25
 
-var hinderance = 1
-var boost_factor = 2
+var hinderance:float = 1
+var boost_factor:float = 2
 
 var gravity:float = ProjectSettings.get_setting("physics/3d/default_gravity")
 var up_vec = Vector3.UP
@@ -102,9 +102,9 @@ func _physics_process(delta: float) -> void:
 		up_vec.y = rotate_toward(up_vec.y,get_floor_normal().y, delta*5)
 		up_vec.z = rotate_toward(up_vec.z,get_floor_normal().z, delta*5)
 	else:
-		up_vec.x = rotate_toward(up_vec.x,Vector3.UP.x, delta*5)
-		up_vec.y = rotate_toward(up_vec.y,Vector3.UP.y, delta*5)
-		up_vec.z = rotate_toward(up_vec.z,Vector3.UP.z, delta*5)
+		up_vec.x = rotate_toward(up_vec.x,Vector3.UP.x, delta)
+		up_vec.y = rotate_toward(up_vec.y,Vector3.UP.y, delta)
+		up_vec.z = rotate_toward(up_vec.z,Vector3.UP.z, delta)
 	up_vec = up_vec.normalized()
 	global_basis.y = up_vec
 	global_basis.x = global_basis.y.cross(global_basis.z)
@@ -142,11 +142,11 @@ func _input(event: InputEvent) -> void:
 
 func jump():
 	if is_on_floor():
-		actual_velocity.y = 1.0 * jump_strength / hinderance
+		actual_velocity.y = jump_strength / hinderance
 		floor_snap_length = 0
 	#ROCKETEER ONLY
 	elif spare_jump:
-		actual_velocity.y = 1.0 * unique_ability / hinderance
+		actual_velocity.y = unique_ability / hinderance
 		floor_snap_length = 0
 		spare_jump = false
 
