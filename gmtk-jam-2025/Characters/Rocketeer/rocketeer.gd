@@ -152,5 +152,4 @@ func jump():
 
 
 func kill():
-	print("gaming!")
 	global_transform.origin = respawn_point
