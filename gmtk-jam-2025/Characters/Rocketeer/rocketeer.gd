@@ -16,6 +16,9 @@ var jump_strength = 5
 var jump_just_pressed = false
 var unique_ability = 10
 
+var hinderance = 1
+var boost_factor = 1
+
 var gravity:float = ProjectSettings.get_setting("physics/3d/default_gravity")
 var up_vec = Vector3.UP
 
@@ -32,21 +35,21 @@ func _physics_process(delta: float) -> void:
 		target_speed = floor_incline * top_speed
 	
 	if (target_speed < current_speed and is_on_floor()):
-		current_speed = move_toward(current_speed, target_speed, delta*2*acceleration)
+		current_speed = move_toward(current_speed, target_speed, delta*2*acceleration*boost_factor)
 	elif target_speed > current_speed:
-		current_speed = move_toward(current_speed, target_speed, delta*4*acceleration)
+		current_speed = move_toward(current_speed, target_speed, delta*4*acceleration*boost_factor)
 	
 	if actual_velocity.length() == 0:
 		target_speed = default_speed
 		
 	var movement : Vector3 = get_movement()
-	target_velocity = movement * current_speed
+	target_velocity = movement * current_speed * boost_factor
 	
 	#rotating so the camera moves
 	if abs(Input.get_joy_axis(player_id, JOY_AXIS_RIGHT_X)) > 0.3:
-		rotate(global_transform.basis.y, -Input.get_joy_axis(player_id, JOY_AXIS_RIGHT_X)*delta*turning)
+		rotate(global_transform.basis.y, -Input.get_joy_axis(player_id, JOY_AXIS_RIGHT_X)*delta*turning/hinderance)
 	if abs(Input.get_joy_axis(player_id, JOY_AXIS_LEFT_X)) > 0.3:
-		rotate(global_transform.basis.y, -Input.get_joy_axis(player_id, JOY_AXIS_LEFT_X)*delta*turning)
+		rotate(global_transform.basis.y, -Input.get_joy_axis(player_id, JOY_AXIS_LEFT_X)*delta*turning/hinderance)
 	if Input.is_key_pressed(KEY_A) and player_id==99:
 		rotate(global_transform.basis.y, delta*turning)
 	if Input.is_key_pressed(KEY_D) and player_id==99:
@@ -82,7 +85,7 @@ func _physics_process(delta: float) -> void:
 		actual_velocity.z = lerp(actual_velocity.z, target_velocity.z, delta*5)
 	
 	if camera_orientation:
-		velocity = (global_transform.basis * actual_velocity.rotated(Vector3.UP, camera_orientation.rotation.y))
+		velocity = (global_transform.basis * actual_velocity.rotated(Vector3.UP, camera_orientation.rotation.y))/hinderance
 	
 	move_and_slide()
 	apply_floor_snap()
@@ -136,10 +139,10 @@ func _input(event: InputEvent) -> void:
 
 func jump():
 	if is_on_floor():
-		actual_velocity.y = jump_strength
+		actual_velocity.y = jump_strength/hinderance
 		floor_snap_length = 0
 	#ROCKETEER ONLY
 	elif spare_jump:
-		actual_velocity.y = unique_ability
+		actual_velocity.y = unique_ability/hinderance
 		floor_snap_length = 0
 		spare_jump = false

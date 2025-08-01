@@ -1,9 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://5r2fey2hmyxh"]
+[gd_scene load_steps=14 format=3 uid="uid://5r2fey2hmyxh"]
 
 [ext_resource type="Script" uid="uid://bghpm42r8jlx3" path="res://Levels/test_room.gd" id="1_pplu1"]
 [ext_resource type="PackedScene" uid="uid://bxynvktig10bh" path="res://Menus/PlayerView.tscn" id="2_5pqgv"]
 [ext_resource type="PackedScene" uid="uid://8sur61og6h8" path="res://Levels/Assets/Bouncer.tscn" id="3_p37q1"]
 [ext_resource type="PackedScene" uid="uid://cc2rpu67g556f" path="res://Levels/Assets/AdditiveBouncer.tscn" id="4_3k1a2"]
+[ext_resource type="PackedScene" uid="uid://b51g5xitfkwih" path="res://Levels/Assets/Mud.tscn" id="5_r4o0h"]
+[ext_resource type="PackedScene" uid="uid://bee0qj6eunpda" path="res://Levels/Assets/BoostPanel.tscn" id="6_uglqc"]
+[ext_resource type="PackedScene" uid="uid://tgicqb4gnvq2" path="res://Levels/Assets/ShrinkingPlatform.tscn" id="7_v4rkh"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_i0trf"]
 
@@ -103,3 +106,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.90345, 7.37528, -30.617)
 
 [node name="Bouncer6" parent="." instance=ExtResource("4_3k1a2")]
 transform = Transform3D(1, 0, 0, 0, 0.602902, -0.797815, 0, 0.797815, 0.602902, 9.90345, 18.675, -30.617)
+
+[node name="Mud" parent="." instance=ExtResource("5_r4o0h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.365, -1.7264, 3.42991)
+
+[node name="Mud2" parent="." instance=ExtResource("6_uglqc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.38233, -1.5927, -6.00178)
+
+[node name="ShrinkingPlatform" parent="." instance=ExtResource("7_v4rkh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.25913, 1.39576, 8.54678)

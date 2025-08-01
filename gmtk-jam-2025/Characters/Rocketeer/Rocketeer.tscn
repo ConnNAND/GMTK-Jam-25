@@ -19,5 +19,5 @@ shape = SubResource("CapsuleShape3D_u2dk0")
 mesh = SubResource("CapsuleMesh_jq88g")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.406197, 0.418443)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.406197, -0.435804)
 mesh = SubResource("BoxMesh_jq88g")

@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://bee0qj6eunpda"]
+
+[ext_resource type="Script" uid="uid://dgpn0tnq8bdvv" path="res://Levels/Scripts/boost_panel.gd" id="1_x6sdw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x6sdw"]
+albedo_color = Color(1, 0.317647, 0.156863, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_e7umi"]
+material = SubResource("StandardMaterial3D_x6sdw")
+size = Vector3(10, 5, 10)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_tkupv"]
+data = PackedVector3Array(-5, 2.5, 5, 5, 2.5, 5, -5, -2.5, 5, 5, 2.5, 5, 5, -2.5, 5, -5, -2.5, 5, 5, 2.5, -5, -5, 2.5, -5, 5, -2.5, -5, -5, 2.5, -5, -5, -2.5, -5, 5, -2.5, -5, 5, 2.5, 5, 5, 2.5, -5, 5, -2.5, 5, 5, 2.5, -5, 5, -2.5, -5, 5, -2.5, 5, -5, 2.5, -5, -5, 2.5, 5, -5, -2.5, -5, -5, 2.5, 5, -5, -2.5, 5, -5, -2.5, -5, 5, 2.5, 5, -5, 2.5, 5, 5, 2.5, -5, -5, 2.5, 5, -5, 2.5, -5, 5, 2.5, -5, -5, -2.5, 5, 5, -2.5, 5, -5, -2.5, -5, 5, -2.5, 5, 5, -2.5, -5, -5, -2.5, -5)
+
+[node name="Mud" type="Area3D"]
+script = ExtResource("1_x6sdw")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_e7umi")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("ConcavePolygonShape3D_tkupv")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
