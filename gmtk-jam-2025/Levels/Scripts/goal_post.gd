@@ -15,5 +15,6 @@ func _on_body_entered(body: Node3D) -> void:
 					break
 		if successful_lap:
 			#do lap timer thing
+			$Horn.play()
 			if body.timer:
 				body.timer.cross_goal_post()

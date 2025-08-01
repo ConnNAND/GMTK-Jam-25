@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://5r2fey2hmyxh"]
+[gd_scene load_steps=17 format=3 uid="uid://5r2fey2hmyxh"]
 
 [ext_resource type="Script" uid="uid://bghpm42r8jlx3" path="res://Levels/test_room.gd" id="1_pplu1"]
 [ext_resource type="PackedScene" uid="uid://bxynvktig10bh" path="res://Menus/PlayerView.tscn" id="2_5pqgv"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://b3bgs6vejd5p1" path="res://Materials/Textures/new_road.jpg" id="3_uglqc"]
 [ext_resource type="PackedScene" uid="uid://cyrbhiwbvp3b4" path="res://Levels/Assets/check_point.tscn" id="4_3k1a2"]
 [ext_resource type="Script" uid="uid://bxj26gp2qshkl" path="res://Levels/Scripts/kill_plane.gd" id="5_r4o0h"]
+[ext_resource type="AudioStream" uid="uid://bm61rpkhvp20m" path="res://Audio/horn.ogg" id="6_v4rkh"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_i0trf"]
 
@@ -99,6 +100,10 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 329, -
 
 [node name="CheckPoint2" parent="GoalPost" instance=ExtResource("4_3k1a2")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 111, -41, 258)
+
+[node name="Horn" type="AudioStreamPlayer3D" parent="GoalPost"]
+stream = ExtResource("6_v4rkh")
+doppler_tracking = 2
 
 [node name="KillPlane" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -91.6126, 0)
