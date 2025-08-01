@@ -105,3 +105,4 @@ script = ExtResource("5_r4o0h")
 shape = SubResource("WorldBoundaryShape3D_r4o0h")
 
 [connection signal="body_entered" from="GoalPost" to="GoalPost" method="_on_body_entered"]
+[connection signal="body_entered" from="KillPlane" to="KillPlane" method="_on_body_entered"]
