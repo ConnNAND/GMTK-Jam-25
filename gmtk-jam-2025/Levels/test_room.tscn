@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://5r2fey2hmyxh"]
+[gd_scene load_steps=15 format=3 uid="uid://5r2fey2hmyxh"]
 
 [ext_resource type="Script" uid="uid://bghpm42r8jlx3" path="res://Levels/test_room.gd" id="1_pplu1"]
 [ext_resource type="PackedScene" uid="uid://bxynvktig10bh" path="res://Menus/PlayerView.tscn" id="2_5pqgv"]
@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://bee0qj6eunpda" path="res://Levels/Assets/BoostPanel.tscn" id="6_uglqc"]
 [ext_resource type="PackedScene" uid="uid://tgicqb4gnvq2" path="res://Levels/Assets/ShrinkingPlatform.tscn" id="7_v4rkh"]
 [ext_resource type="PackedScene" uid="uid://d3lhb1ptnyo3d" path="res://Levels/Assets/PhysicalBox.tscn" id="8_ln84l"]
-[ext_resource type="PackedScene" uid="uid://bnv68rhwncvkv" path="res://Timer/LapTimer.tscn" id="9_frh75"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_i0trf"]
 
@@ -130,5 +129,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.38233, -1.5927, -6.00178)
 [node name="ShrinkingPlatform" parent="Interactables" instance=ExtResource("7_v4rkh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.25913, 1.39576, 8.54678)
 skeleton = NodePath("../..")
-
-[node name="LapTimer" parent="." instance=ExtResource("9_frh75")]
