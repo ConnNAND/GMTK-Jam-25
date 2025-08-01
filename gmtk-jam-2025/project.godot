@@ -92,6 +92,10 @@ move_backward={
 3d_physics/layer_3="Physical Items"
 3d_physics/layer_4="Players"
 
+[physics]
+
+3d/default_gravity=20.0
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
