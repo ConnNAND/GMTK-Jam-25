@@ -12,3 +12,4 @@ func ready_player(playerInfo, spawnLocation):
 		temp.camera_orientation = $SubViewport/FollowCamera/Camera3D
 		temp.timer = $SubViewport/GameTimer
 		$SubViewport/GameTimer.resume_stopwatch_timer()
+		$SubViewport/Speedometer.target = temp
