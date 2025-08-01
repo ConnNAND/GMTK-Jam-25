@@ -3,6 +3,7 @@ extends Area3D
 var list = []
 func _on_body_entered(body: Node3D) -> void:
 	if body.is_in_group("player"):
+		body.respawn_point = global_transform.origin + Vector3.UP*2
 		var successful_lap = true
 		for i in get_children():
 			if i is Area3D:

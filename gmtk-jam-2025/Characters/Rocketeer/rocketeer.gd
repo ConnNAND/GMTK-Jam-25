@@ -17,7 +17,7 @@ var jump_just_pressed = false
 var unique_ability = 15
 
 var hinderance = 1
-var boost_factor = 5
+var boost_factor = 2
 
 var gravity:float = ProjectSettings.get_setting("physics/3d/default_gravity")
 var up_vec = Vector3.UP
@@ -25,6 +25,7 @@ var up_vec = Vector3.UP
 var timer
 
 @export var camera_orientation:Node3D
+var respawn_point:Vector3 = Vector3.ZERO
 
 var spare_jump = true
 
@@ -148,3 +149,8 @@ func jump():
 		actual_velocity.y = 1.0 * unique_ability / hinderance
 		floor_snap_length = 0
 		spare_jump = false
+
+
+func kill():
+	print("gaming!")
+	global_transform.origin = respawn_point

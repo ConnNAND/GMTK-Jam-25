@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://5r2fey2hmyxh"]
+[gd_scene load_steps=15 format=3 uid="uid://5r2fey2hmyxh"]
 
 [ext_resource type="Script" uid="uid://bghpm42r8jlx3" path="res://Levels/test_room.gd" id="1_pplu1"]
 [ext_resource type="PackedScene" uid="uid://bxynvktig10bh" path="res://Menus/PlayerView.tscn" id="2_5pqgv"]
 [ext_resource type="Script" uid="uid://bbcwyhasc3vyp" path="res://Levels/Scripts/goal_post.gd" id="3_3k1a2"]
 [ext_resource type="PackedScene" uid="uid://cyrbhiwbvp3b4" path="res://Levels/Assets/check_point.tscn" id="4_3k1a2"]
+[ext_resource type="Script" uid="uid://bxj26gp2qshkl" path="res://Levels/Scripts/kill_plane.gd" id="5_r4o0h"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_i0trf"]
 
@@ -37,6 +38,8 @@ rings = 10
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_3k1a2"]
 radius = 25.0
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_r4o0h"]
 
 [node name="TestRoom" type="WorldEnvironment"]
 environment = SubResource("Environment_5pqgv")
@@ -91,5 +94,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -329.097, -21.565, -63.1699)
 
 [node name="CheckPoint2" parent="GoalPost" instance=ExtResource("4_3k1a2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -111.263, -46.0403, -261.86)
+
+[node name="KillPlane" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -91.6126, 0)
+collision_layer = 2
+collision_mask = 8
+script = ExtResource("5_r4o0h")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KillPlane"]
+shape = SubResource("WorldBoundaryShape3D_r4o0h")
 
 [connection signal="body_entered" from="GoalPost" to="GoalPost" method="_on_body_entered"]
