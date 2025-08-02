@@ -87,7 +87,7 @@ func pause_overtime_timer(): _overtime_timer.paused = true
 # Resume the overtime timer
 func resume_overtime_timer(): _overtime_timer.paused = false
 # Adds time to the overtime timer
-func add_overtime(time : float): _overtime_timer.start(_get_overtime() + time)
+func add_overtime(time : float): _overtime_timer.start(min(_pb_seconds * 2, _get_overtime() + time))
 
 func set_pb(new_time : float):
 	_pb_seconds = new_time
