@@ -30,8 +30,10 @@ var windspeed = -20
 var respawn_point : Transform3D = Transform3D.IDENTITY
 
 var spare_jump = true
+var in_air : bool = true
 
 func _physics_process(delta: float) -> void:
+	
 	windspeed = min(Vector3(velocity.x, velocity.y/2, velocity.z).length()/3-20, 10)
 	$Wind.volume_db = windspeed
 	if stepspeed>0:
@@ -69,6 +71,9 @@ func _physics_process(delta: float) -> void:
 		rotate(global_transform.basis.y, -delta*turning)
 	
 	if is_on_floor():
+		if (in_air):
+			actual_velocity.y = 0
+			in_air = false
 		if velocity.length() > 0.5 and stepspeed < 0:
 			$Step.pitch_scale = randf_range(0.9, 1.2)
 			$Step.play()
@@ -76,6 +81,8 @@ func _physics_process(delta: float) -> void:
 		gravity = 0
 		floor_snap_length = 0.1
 		spare_jump = true
+	else:
+		in_air = true
 	if Input.is_joy_button_pressed(player_id, JOY_BUTTON_A) or (Input.is_key_pressed(KEY_SPACE) and player_id==99):
 		if !jump_just_pressed:
 			jump_just_pressed = true

@@ -50,7 +50,7 @@ func cross_goal_post():
 		# Get current stopwatch time
 		var stopwatch_time : float = _get_stopwatch_time()
 		# Get the time to add to overtime
-		var overtime : float = _stopwatch_timer.time_left
+		var overtime : float = _stopwatch_timer.time_left / 2
 		print("you beat your best by %05.2f seconds!" % overtime)
 		# Add the overtime to the overtime timer
 		add_overtime(overtime)
