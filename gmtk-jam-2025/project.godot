@@ -25,6 +25,7 @@ player="any character that will run around the track and be cool"
 stopwatch=""
 GameTimer=""
 speedbuff=""
+physics=""
 
 [input]
 

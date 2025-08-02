@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://d3lhb1ptnyo3d"]
+[gd_scene load_steps=7 format=3 uid="uid://d3lhb1ptnyo3d"]
 
 [ext_resource type="Script" uid="uid://cqo60avm2v36g" path="res://Levels/Scripts/physical_box.gd" id="1_db6sp"]
+[ext_resource type="Script" uid="uid://b5c6qctvt0nc" path="res://Levels/Assets/physical_box.gd" id="1_iv4ma"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_263ra"]
 size = Vector3(2, 2, 2)
@@ -15,9 +16,10 @@ size = Vector3(2, 2, 2)
 [sub_resource type="BoxShape3D" id="BoxShape3D_db6sp"]
 size = Vector3(2.2, 2.2, 2.2)
 
-[node name="RigidBody3D" type="RigidBody3D"]
+[node name="RigidBody3D" type="RigidBody3D" groups=["physics"]]
 collision_layer = 4
 collision_mask = 15
+script = ExtResource("1_iv4ma")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_263ra")

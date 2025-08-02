@@ -1,4 +1,4 @@
-[gd_scene load_steps=82 format=3 uid="uid://5r2fey2hmyxh"]
+[gd_scene load_steps=84 format=3 uid="uid://5r2fey2hmyxh"]
 
 [ext_resource type="Texture2D" uid="uid://bfms3pif0weju" path="res://Materials/Textures/bettersky.jpg" id="1_m7nff"]
 [ext_resource type="Script" uid="uid://bghpm42r8jlx3" path="res://Levels/test_room.gd" id="1_pplu1"]
@@ -42,6 +42,8 @@
 [ext_resource type="Texture2D" uid="uid://djr0apm4y2yxe" path="res://Materials/Textures/building_office4.png" id="32_486do"]
 [ext_resource type="Texture2D" uid="uid://bmte01rq22jbh" path="res://Materials/Textures/building_office5.png" id="32_t0647"]
 [ext_resource type="Texture2D" uid="uid://divqsoge5j8d3" path="res://Materials/Textures/building_office.png" id="34_6w1xo"]
+[ext_resource type="PackedScene" uid="uid://bfo3ngwkkdglj" path="res://Levels/Assets/Pole.tscn" id="43_qkvxo"]
+[ext_resource type="PackedScene" uid="uid://d3lhb1ptnyo3d" path="res://Levels/Assets/PhysicalBox.tscn" id="44_1g3un"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_8nbxi"]
 panorama = ExtResource("1_m7nff")
@@ -337,7 +339,7 @@ doppler_tracking = 2
 [node name="KillPlane" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -91.6126, 0)
 collision_layer = 2
-collision_mask = 8
+collision_mask = 12
 script = ExtResource("5_r4o0h")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="KillPlane"]
@@ -925,10 +927,12 @@ transform = Transform3D(0.701908, 0.478379, -0.527711, -0.11373, 0.806656, 0.579
 [node name="BoostPanel6" parent="Boosts" instance=ExtResource("12_yb6mu")]
 transform = Transform3D(1.76609, 0, 1.34511, 0, 2.22, 0, -1.34511, 0, 1.76609, 275.38, -20.2479, 300.771)
 
-[node name="Path3D2" type="Path3D" parent="."]
+[node name="RampGap" type="Node3D" parent="."]
+
+[node name="Path3D2" type="Path3D" parent="RampGap"]
 curve = SubResource("Curve3D_6w1xo")
 
-[node name="CSGPolygon3D" type="CSGPolygon3D" parent="Path3D2"]
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="RampGap/Path3D2"]
 use_collision = true
 polygon = PackedVector2Array(-12.5, -0.5, -12.5, 0.5, 12.5, 1, 12.5, -0.5)
 mode = 2
@@ -943,69 +947,275 @@ path_continuous_u = true
 path_u_distance = 1.0
 path_joined = false
 
-[node name="BoostPanel" parent="." instance=ExtResource("12_yb6mu")]
+[node name="BoostPanel" parent="RampGap/Path3D2" instance=ExtResource("12_yb6mu")]
 transform = Transform3D(0.0727756, 1.01425, -0.278893, -0.275449, 0.27083, 5.03234e-09, 0.0075155, 0.104741, 2.70064, -45.9523, -3.87323, 326.863)
 
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
+[node name="CSGBox3D" type="CSGBox3D" parent="RampGap"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -68.7471, 0, 317.882)
 use_collision = true
 size = Vector3(12.5, 1, 15)
 
-[node name="CSGBox3D6" type="CSGBox3D" parent="."]
+[node name="CSGBox3D6" type="CSGBox3D" parent="RampGap"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -119.302, 28.5787, 326.514)
 use_collision = true
 size = Vector3(88.6475, 1, 15)
 
-[node name="BoostPanel2" parent="CSGBox3D6" instance=ExtResource("12_yb6mu")]
+[node name="BoostPanel2" parent="RampGap/CSGBox3D6" instance=ExtResource("12_yb6mu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.3472, 1, 0.290741)
 
-[node name="BoostPanel3" parent="CSGBox3D6" instance=ExtResource("12_yb6mu")]
+[node name="BoostPanel3" parent="RampGap/CSGBox3D6" instance=ExtResource("12_yb6mu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.6305, 1, 0.299652)
 
-[node name="BoostPanel4" parent="CSGBox3D6" instance=ExtResource("12_yb6mu")]
+[node name="BoostPanel4" parent="RampGap/CSGBox3D6" instance=ExtResource("12_yb6mu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.20894, 1, -0.316681)
 
-[node name="BoostPanel5" parent="CSGBox3D6" instance=ExtResource("12_yb6mu")]
+[node name="BoostPanel5" parent="RampGap/CSGBox3D6" instance=ExtResource("12_yb6mu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.52802, 1, 0.290741)
 
-[node name="BoostPanel6" parent="CSGBox3D6" instance=ExtResource("12_yb6mu")]
+[node name="BoostPanel6" parent="RampGap/CSGBox3D6" instance=ExtResource("12_yb6mu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.2447, 1, 0.299652)
 
-[node name="CSGBox3D7" type="CSGBox3D" parent="."]
+[node name="CSGBox3D7" type="CSGBox3D" parent="RampGap"]
 transform = Transform3D(0.267508, 0.0669873, -0.961224, -0.258776, 0.965926, -0.00470221, 0.928156, 0.25, 0.275727, -162.289, 34.3627, 290.201)
 use_collision = true
 size = Vector3(39.7612, 1, 15)
 
-[node name="BoostPanel4" parent="CSGBox3D7" instance=ExtResource("12_yb6mu")]
+[node name="BoostPanel4" parent="RampGap/CSGBox3D7" instance=ExtResource("12_yb6mu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.759369, 1, -0.369049)
 
-[node name="CSGBox3D8" type="CSGBox3D" parent="."]
+[node name="CSGBox3D8" type="CSGBox3D" parent="RampGap"]
 transform = Transform3D(0.827294, 0.224144, 0.515115, -0.258776, 0.965926, -0.0047022, -0.498617, -0.12941, 0.857108, -185.698, 44.2845, 279.56)
 use_collision = true
 size = Vector3(24.6648, 1, 6.09961)
 
-[node name="BoostPanel4" parent="CSGBox3D8" instance=ExtResource("12_yb6mu")]
+[node name="BoostPanel4" parent="RampGap/CSGBox3D8" instance=ExtResource("12_yb6mu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.759369, 1, -0.369049)
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+[node name="CSGBox3D2" type="CSGBox3D" parent="RampGap"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -80.6026, 1.90735e-06, 336.893)
 use_collision = true
 size = Vector3(12.5, 1, 15)
 
-[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+[node name="CSGBox3D3" type="CSGBox3D" parent="RampGap"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -91.6174, 1.90735e-06, 317.1)
 use_collision = true
 size = Vector3(12.5, 1, 15)
 
-[node name="CSGBox3D4" type="CSGBox3D" parent="."]
+[node name="CSGBox3D4" type="CSGBox3D" parent="RampGap"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -103.974, 0, 336.63)
 use_collision = true
 size = Vector3(12.5, 1, 15)
 
-[node name="CSGBox3D5" type="CSGBox3D" parent="."]
+[node name="CSGBox3D5" type="CSGBox3D" parent="RampGap"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -114.233, 0, 314.435)
 use_collision = true
 size = Vector3(12.5, 1, 15)
+
+[node name="Pole" parent="." instance=ExtResource("43_qkvxo")]
+transform = Transform3D(0.109651, -6.28193, 4.09576, 7.49886, 0.130893, 0, -0.0714808, 4.09514, 6.28289, 328.689, -17.4926, -117.54)
+
+[node name="Pole2" parent="." instance=ExtResource("43_qkvxo")]
+transform = Transform3D(-1.30629, 6.14559, -4.09576, 7.33611, 1.55934, 0, 0.851557, -4.00626, -6.28289, 335.284, -17.4926, -103.831)
+
+[node name="Pole3" parent="." instance=ExtResource("43_qkvxo")]
+transform = Transform3D(0.651623, -7.44808, 0.59288, 7.47146, 0.653668, -2.34056e-08, -0.0516729, 0.590623, 7.47653, 338.195, -17.4926, -82.0514)
+
+[node name="Pole4" parent="." instance=ExtResource("43_qkvxo")]
+transform = Transform3D(0.618928, -3.69857, -6.49519, 7.39714, 1.23786, 0, 1.07202, -6.40611, 3.75, 192.582, -17.8397, 266.557)
+
+[node name="Boxes" type="Node3D" parent="."]
+
+[node name="RigidBody3D" parent="Boxes" instance=ExtResource("44_1g3un")]
+transform = Transform3D(0.999996, -0.00294373, -0.000186029, 0.0029496, 0.998005, 0.0630689, 0, -0.0630692, 0.998009, -283.01, -3.6468, 119.256)
+
+[node name="RigidBody3D2" parent="Boxes" instance=ExtResource("44_1g3un")]
+transform = Transform3D(0.999996, -0.00294373, -0.000186029, 0.0029496, 0.998005, 0.0630689, 0, -0.0630692, 0.998009, -280.716, -3.68264, 119.23)
+
+[node name="RigidBody3D3" parent="Boxes" instance=ExtResource("44_1g3un")]
+transform = Transform3D(0.999996, -0.00294373, -0.000186029, 0.0029496, 0.998005, 0.0630689, 0, -0.0630692, 0.998009, -278.26, -3.66847, 119.36)
+
+[node name="RigidBody3D4" parent="Boxes" instance=ExtResource("44_1g3un")]
+transform = Transform3D(0.999996, -0.00294373, -0.000186029, 0.0029496, 0.998005, 0.0630689, 0, -0.0630692, 0.998009, -275.769, -3.72386, 119.277)
+
+[node name="RigidBody3D5" parent="Boxes" instance=ExtResource("44_1g3un")]
+transform = Transform3D(0.999996, -0.00294373, -0.000186029, 0.0029496, 0.998005, 0.0630689, 0, -0.0630692, 0.998009, -273.219, -3.70618, 119.198)
+
+[node name="RigidBody3D6" parent="Boxes" instance=ExtResource("44_1g3un")]
+transform = Transform3D(0.999996, -0.00294373, -0.000186029, 0.0029496, 0.998005, 0.0630689, 0, -0.0630692, 0.998009, -270.795, -3.84047, 119.076)
+
+[node name="RigidBody3D7" parent="Boxes" instance=ExtResource("44_1g3un")]
+transform = Transform3D(0.999996, -0.00294373, -0.000186029, 0.0029496, 0.998005, 0.0630689, 0, -0.0630692, 0.998009, -268.049, -3.88315, 119.043)
+
+[node name="RigidBody3D8" parent="Boxes" instance=ExtResource("44_1g3un")]
+transform = Transform3D(0.999996, -0.00294373, -0.000186029, 0.0029496, 0.998005, 0.0630689, 0, -0.0630692, 0.998009, -265.379, -3.93533, 118.976)
+
+[node name="RigidBody3D9" parent="Boxes" instance=ExtResource("44_1g3un")]
+transform = Transform3D(0.999996, -0.00294373, -0.000186029, 0.0029496, 0.998005, 0.0630689, 0, -0.0630692, 0.998009, -262.786, -3.93414, 119.127)
+
+[node name="RigidBody3D10" parent="Boxes" instance=ExtResource("44_1g3un")]
+transform = Transform3D(0.999996, -0.00294373, -0.000186029, 0.0029496, 0.998005, 0.0630689, 0, -0.0630692, 0.998009, -260.035, -4.03323, 118.903)
+
+[node name="RigidBody3D11" parent="Boxes" instance=ExtResource("44_1g3un")]
+transform = Transform3D(0.999996, -0.00294373, -0.000186029, 0.0029496, 0.998005, 0.0630689, 0, -0.0630692, 0.998009, -257.451, -4.13755, 118.645)
+
+[node name="RigidBody3D12" parent="Boxes" instance=ExtResource("44_1g3un")]
+transform = Transform3D(0.999996, -0.00294373, -0.000186029, 0.0029496, 0.998005, 0.0630689, 0, -0.0630692, 0.998009, -254.757, -4.18682, 118.65)
+
+[node name="RigidBody3D13" parent="Boxes" instance=ExtResource("44_1g3un")]
+transform = Transform3D(0.999996, -0.00294373, -0.000186029, 0.0029496, 0.998005, 0.0630689, 0, -0.0630692, 0.998009, -251.597, -4.34327, 118.212)
+
+[node name="RigidBody3D14" parent="Boxes" instance=ExtResource("44_1g3un")]
+transform = Transform3D(0.999996, -0.00294373, -0.000186029, 0.0029496, 0.998005, 0.0630689, 0, -0.0630692, 0.998009, -283.016, -1.56979, 119.119)
+
+[node name="RigidBody3D15" parent="Boxes" instance=ExtResource("44_1g3un")]
+transform = Transform3D(0.999996, -0.00294373, -0.000186029, 0.0029496, 0.998005, 0.0630689, 0, -0.0630692, 0.998009, -280.722, -1.60563, 119.093)
+
+[node name="RigidBody3D16" parent="Boxes" instance=ExtResource("44_1g3un")]
+transform = Transform3D(0.999996, -0.00294373, -0.000186029, 0.0029496, 0.998005, 0.0630689, 0, -0.0630692, 0.998009, -278.266, -1.59146, 119.223)
+
+[node name="RigidBody3D17" parent="Boxes" instance=ExtResource("44_1g3un")]
+transform = Transform3D(0.999996, -0.00294373, -0.000186029, 0.0029496, 0.998005, 0.0630689, 0, -0.0630692, 0.998009, -275.776, -1.64685, 119.14)
+
+[node name="RigidBody3D18" parent="Boxes" instance=ExtResource("44_1g3un")]
+transform = Transform3D(0.999996, -0.00294373, -0.000186029, 0.0029496, 0.998005, 0.0630689, 0, -0.0630692, 0.998009, -273.226, -1.62917, 119.061)
+
+[node name="RigidBody3D19" parent="Boxes" instance=ExtResource("44_1g3un")]
+transform = Transform3D(0.999996, -0.00294373, -0.000186029, 0.0029496, 0.998005, 0.0630689, 0, -0.0630692, 0.998009, -270.801, -1.76346, 118.938)
+
+[node name="RigidBody3D20" parent="Boxes" instance=ExtResource("44_1g3un")]
+transform = Transform3D(0.999996, -0.00294373, -0.000186029, 0.0029496, 0.998005, 0.0630689, 0, -0.0630692, 0.998009, -268.056, -1.80613, 118.906)
+
+[node name="RigidBody3D21" parent="Boxes" instance=ExtResource("44_1g3un")]
+transform = Transform3D(0.999996, -0.00294373, -0.000186029, 0.0029496, 0.998005, 0.0630689, 0, -0.0630692, 0.998009, -265.385, -1.85832, 118.838)
+
+[node name="RigidBody3D22" parent="Boxes" instance=ExtResource("44_1g3un")]
+transform = Transform3D(0.999996, -0.00294373, -0.000186029, 0.0029496, 0.998005, 0.0630689, 0, -0.0630692, 0.998009, -262.793, -1.85713, 118.989)
+
+[node name="RigidBody3D23" parent="Boxes" instance=ExtResource("44_1g3un")]
+transform = Transform3D(0.999996, -0.00294373, -0.000186029, 0.0029496, 0.998005, 0.0630689, 0, -0.0630692, 0.998009, -260.041, -1.95622, 118.766)
+
+[node name="RigidBody3D24" parent="Boxes" instance=ExtResource("44_1g3un")]
+transform = Transform3D(0.999996, -0.00294373, -0.000186029, 0.0029496, 0.998005, 0.0630689, 0, -0.0630692, 0.998009, -257.458, -2.06054, 118.508)
+
+[node name="RigidBody3D25" parent="Boxes" instance=ExtResource("44_1g3un")]
+transform = Transform3D(0.999996, -0.00294373, -0.000186029, 0.0029496, 0.998005, 0.0630689, 0, -0.0630692, 0.998009, -254.763, -2.10981, 118.512)
+
+[node name="RigidBody3D26" parent="Boxes" instance=ExtResource("44_1g3un")]
+transform = Transform3D(0.999996, -0.00294373, -0.000186029, 0.0029496, 0.998005, 0.0630689, 0, -0.0630692, 0.998009, -251.603, -2.26626, 118.075)
+
+[node name="RigidBody3D27" parent="Boxes" instance=ExtResource("44_1g3un")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -182.297, -5.79786, 87.7186)
+
+[node name="RigidBody3D28" parent="Boxes" instance=ExtResource("44_1g3un")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -182.304, -6.39534, 90.3251)
+
+[node name="RigidBody3D29" parent="Boxes" instance=ExtResource("44_1g3un")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -181.888, -6.97236, 92.8733)
+
+[node name="RigidBody3D30" parent="Boxes" instance=ExtResource("44_1g3un")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -181.772, -7.38654, 95.4652)
+
+[node name="RigidBody3D31" parent="Boxes" instance=ExtResource("44_1g3un")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -182.108, -7.72257, 97.8539)
+
+[node name="RigidBody3D32" parent="Boxes" instance=ExtResource("44_1g3un")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -127.246, -5.71768, 77.9416)
+
+[node name="RigidBody3D33" parent="Boxes" instance=ExtResource("44_1g3un")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -129.861, -5.97226, 78.912)
+
+[node name="RigidBody3D34" parent="Boxes" instance=ExtResource("44_1g3un")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -132.425, -6.2526, 80.0297)
+
+[node name="RigidBody3D35" parent="Boxes" instance=ExtResource("44_1g3un")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -134.646, -6.53754, 81.227)
+
+[node name="RigidBody3D36" parent="Boxes" instance=ExtResource("44_1g3un")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -137.115, -6.78963, 82.1295)
+
+[node name="RigidBody3D37" parent="Boxes" instance=ExtResource("44_1g3un")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -79.9729, -9.4644, 150.688)
+
+[node name="RigidBody3D38" parent="Boxes" instance=ExtResource("44_1g3un")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -82.7545, -9.45312, 151.91)
+
+[node name="RigidBody3D39" parent="Boxes" instance=ExtResource("44_1g3un")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -81.4776, -9.43692, 155.093)
+
+[node name="RigidBody3D40" parent="Boxes" instance=ExtResource("44_1g3un")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -84.5726, -9.43764, 154.849)
+
+[node name="RigidBody3D41" parent="Boxes" instance=ExtResource("44_1g3un")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -83.7368, -9.4237, 157.681)
+
+[node name="RigidBody3D42" parent="Boxes" instance=ExtResource("44_1g3un")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -79.8991, -7.4644, 151.104)
+
+[node name="RigidBody3D43" parent="Boxes" instance=ExtResource("44_1g3un")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -82.3942, -7.45312, 152.144)
+
+[node name="RigidBody3D44" parent="Boxes" instance=ExtResource("44_1g3un")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -81.722, -7.43692, 155.302)
+
+[node name="RigidBody3D45" parent="Boxes" instance=ExtResource("44_1g3un")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -84.2392, -7.43764, 154.937)
+
+[node name="RigidBody3D46" parent="Boxes" instance=ExtResource("44_1g3un")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -182.051, -4.97236, 92.861)
+
+[node name="RigidBody3D47" parent="Boxes" instance=ExtResource("44_1g3un")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -182.24, -5.38655, 95.2853)
+
+[node name="RigidBody3D48" parent="Boxes" instance=ExtResource("44_1g3un")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -182.646, -4.39534, 90.3836)
+
+[node name="RigidBody3D49" parent="Boxes" instance=ExtResource("44_1g3un")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -182.699, -3.79786, 87.6629)
+
+[node name="RigidBody3D50" parent="Boxes" instance=ExtResource("44_1g3un")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -129.762, -3.97226, 79.036)
+
+[node name="RigidBody3D51" parent="Boxes" instance=ExtResource("44_1g3un")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -132.588, -4.2526, 80.0648)
+
+[node name="RigidBody3D52" parent="Boxes" instance=ExtResource("44_1g3un")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -134.801, -4.53754, 81.4437)
+
+[node name="RigidBody3D53" parent="Boxes" instance=ExtResource("44_1g3un")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -132.189, -6.62587, 82.7227)
+
+[node name="RigidBody3D54" parent="Boxes" instance=ExtResource("44_1g3un")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -179.435, -7.26016, 92.3438)
+
+[node name="BoostPanel" parent="Boxes" instance=ExtResource("12_yb6mu")]
+transform = Transform3D(0.947101, -0.0864818, -0.309063, 0.0431625, 0.988584, -0.144356, 0.318019, 0.12338, 0.940022, -9.27908, -8.01388, 128.558)
+
+[node name="RigidBody3D55" parent="Boxes" instance=ExtResource("44_1g3un")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.6188, -5.68649, 121.514)
+
+[node name="RigidBody3D56" parent="Boxes" instance=ExtResource("44_1g3un")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.30847, -5.66658, 122.322)
+
+[node name="RigidBody3D57" parent="Boxes" instance=ExtResource("44_1g3un")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.99889, -5.61347, 123.234)
+
+[node name="RigidBody3D58" parent="Boxes" instance=ExtResource("44_1g3un")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.51926, -5.50276, 123.792)
+
+[node name="RigidBody3D59" parent="Boxes" instance=ExtResource("44_1g3un")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.2966, -3.66658, 121.956)
+
+[node name="RigidBody3D60" parent="Boxes" instance=ExtResource("44_1g3un")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.70398, -3.61347, 122.791)
+
+[node name="RigidBody3D61" parent="Boxes" instance=ExtResource("44_1g3un")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.39859, -3.50276, 123.323)
+
+[node name="RigidBody3D62" parent="Boxes" instance=ExtResource("44_1g3un")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.4526, -5.03419, 120.507)
+
+[node name="RigidBody3D63" parent="Boxes" instance=ExtResource("44_1g3un")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.94293, -5.20284, 119.396)
 
 [connection signal="body_entered" from="GoalPost" to="GoalPost" method="_on_body_entered"]
 [connection signal="body_entered" from="KillPlane" to="KillPlane" method="_on_body_entered"]
