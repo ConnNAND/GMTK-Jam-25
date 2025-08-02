@@ -1,4 +1,4 @@
-[gd_scene load_steps=81 format=3 uid="uid://5r2fey2hmyxh"]
+[gd_scene load_steps=82 format=3 uid="uid://5r2fey2hmyxh"]
 
 [ext_resource type="Texture2D" uid="uid://bfms3pif0weju" path="res://Materials/Textures/bettersky.jpg" id="1_m7nff"]
 [ext_resource type="Script" uid="uid://bghpm42r8jlx3" path="res://Levels/test_room.gd" id="1_pplu1"]
@@ -242,6 +242,13 @@ size = Vector3(1, 1, 4.265)
 material = SubResource("StandardMaterial3D_2y4dp")
 size = Vector3(1, 1, 4.88)
 
+[sub_resource type="Curve3D" id="Curve3D_6w1xo"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, -0.975, 0, 0, -35.2229, -14.8547, 326.653, 0, -5.05, 0, 0, 0, 0, -46.3601, -3.37328, 326.913),
+"tilts": PackedFloat32Array(-0.1, -0.095)
+}
+point_count = 2
+
 [node name="TestRoom" type="WorldEnvironment"]
 environment = SubResource("Environment_5pqgv")
 script = ExtResource("1_pplu1")
@@ -292,6 +299,11 @@ path_local = true
 path_continuous_u = true
 path_u_distance = 1.0
 path_joined = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Path3D/MainTrack"]
+transform = Transform3D(-1, 8.31531e-09, 8.70264e-08, 0, 0.995466, -0.0951161, -8.74228e-08, -0.0951161, -0.995466, 86.952, -10.239, -322.909)
+operation = 2
+size = Vector3(101.266, 13.5684, 38.0405)
 
 [node name="GoalPost" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
@@ -912,6 +924,88 @@ transform = Transform3D(0.701908, 0.478379, -0.527711, -0.11373, 0.806656, 0.579
 
 [node name="BoostPanel6" parent="Boosts" instance=ExtResource("12_yb6mu")]
 transform = Transform3D(1.76609, 0, 1.34511, 0, 2.22, 0, -1.34511, 0, 1.76609, 275.38, -20.2479, 300.771)
+
+[node name="Path3D2" type="Path3D" parent="."]
+curve = SubResource("Curve3D_6w1xo")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="Path3D2"]
+use_collision = true
+polygon = PackedVector2Array(-12.5, -0.5, -12.5, 0.5, 12.5, 1, 12.5, -0.5)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = true
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+
+[node name="BoostPanel" parent="." instance=ExtResource("12_yb6mu")]
+transform = Transform3D(0.0727756, 1.01425, -0.278893, -0.275449, 0.27083, 5.03234e-09, 0.0075155, 0.104741, 2.70064, -45.9523, -3.87323, 326.863)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -68.7471, 0, 317.882)
+use_collision = true
+size = Vector3(12.5, 1, 15)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -119.302, 28.5787, 326.514)
+use_collision = true
+size = Vector3(88.6475, 1, 15)
+
+[node name="BoostPanel2" parent="CSGBox3D6" instance=ExtResource("12_yb6mu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.3472, 1, 0.290741)
+
+[node name="BoostPanel3" parent="CSGBox3D6" instance=ExtResource("12_yb6mu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.6305, 1, 0.299652)
+
+[node name="BoostPanel4" parent="CSGBox3D6" instance=ExtResource("12_yb6mu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.20894, 1, -0.316681)
+
+[node name="BoostPanel5" parent="CSGBox3D6" instance=ExtResource("12_yb6mu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.52802, 1, 0.290741)
+
+[node name="BoostPanel6" parent="CSGBox3D6" instance=ExtResource("12_yb6mu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.2447, 1, 0.299652)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="."]
+transform = Transform3D(0.267508, 0.0669873, -0.961224, -0.258776, 0.965926, -0.00470221, 0.928156, 0.25, 0.275727, -162.289, 34.3627, 290.201)
+use_collision = true
+size = Vector3(39.7612, 1, 15)
+
+[node name="BoostPanel4" parent="CSGBox3D7" instance=ExtResource("12_yb6mu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.759369, 1, -0.369049)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="."]
+transform = Transform3D(0.827294, 0.224144, 0.515115, -0.258776, 0.965926, -0.0047022, -0.498617, -0.12941, 0.857108, -185.698, 44.2845, 279.56)
+use_collision = true
+size = Vector3(24.6648, 1, 6.09961)
+
+[node name="BoostPanel4" parent="CSGBox3D8" instance=ExtResource("12_yb6mu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.759369, 1, -0.369049)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -80.6026, 1.90735e-06, 336.893)
+use_collision = true
+size = Vector3(12.5, 1, 15)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -91.6174, 1.90735e-06, 317.1)
+use_collision = true
+size = Vector3(12.5, 1, 15)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -103.974, 0, 336.63)
+use_collision = true
+size = Vector3(12.5, 1, 15)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -114.233, 0, 314.435)
+use_collision = true
+size = Vector3(12.5, 1, 15)
 
 [connection signal="body_entered" from="GoalPost" to="GoalPost" method="_on_body_entered"]
 [connection signal="body_entered" from="KillPlane" to="KillPlane" method="_on_body_entered"]
