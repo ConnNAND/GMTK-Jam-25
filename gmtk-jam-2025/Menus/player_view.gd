@@ -34,3 +34,8 @@ func toggle_pause():
 	else:
 		player.process_mode = Node.PROCESS_MODE_INHERIT
 		$SubViewport/GameTimer.resume_game_timer()
+
+
+func _on_game_timer_overtime_timer_timeout() -> void:
+	queue_free()
+	get_parent().call_deferred("check_over")

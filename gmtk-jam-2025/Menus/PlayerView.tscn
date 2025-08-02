@@ -56,3 +56,5 @@ grow_horizontal = 2
 text = "asdf"
 script = ExtResource("5_7hwyb")
 metadata/_custom_type_script = "uid://ckfn01tkm1mqy"
+
+[connection signal="overtime_timer_timeout" from="SubViewport/GameTimer" to="." method="_on_game_timer_overtime_timer_timeout"]
