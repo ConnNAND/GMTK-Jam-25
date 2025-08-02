@@ -8,6 +8,9 @@ radius = 1.5
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qm6cp"]
 albedo_color = Color(1, 1, 0.247059, 1)
+emission_enabled = true
+emission = Color(0.655852, 0.485939, 0.245925, 1)
+emission_energy_multiplier = 0.5
 
 [sub_resource type="SphereMesh" id="SphereMesh_1fs6o"]
 material = SubResource("StandardMaterial3D_qm6cp")
@@ -33,6 +36,9 @@ rings = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1fs6o"]
 albedo_color = Color(0.958496, 0.955859, 0.99292, 1)
+emission_enabled = true
+emission = Color(0.695503, 0.695503, 0.695503, 1)
+emission_energy_multiplier = 0.5
 
 [sub_resource type="SphereMesh" id="SphereMesh_daslo"]
 material = SubResource("StandardMaterial3D_1fs6o")

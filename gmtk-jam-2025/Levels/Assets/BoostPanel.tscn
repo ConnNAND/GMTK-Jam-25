@@ -6,6 +6,7 @@
 albedo_color = Color(1, 0.317647, 0.156863, 1)
 emission_enabled = true
 emission = Color(0.79904, 0.410934, 0.240211, 1)
+emission_energy_multiplier = 0.5
 
 [sub_resource type="BoxMesh" id="BoxMesh_e7umi"]
 material = SubResource("StandardMaterial3D_x6sdw")
