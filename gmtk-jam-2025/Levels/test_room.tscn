@@ -168,21 +168,6 @@ script = ExtResource("5_r4o0h")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="KillPlane"]
 shape = SubResource("WorldBoundaryShape3D_r4o0h")
 
-[node name="BoostPanel" parent="." instance=ExtResource("12_yb6mu")]
-transform = Transform3D(0.967561, 0.190425, -0.166024, -0.221075, 0.956251, -0.191596, 0.122276, 0.222085, 0.96733, 131.464, -23.8745, -156.523)
-
-[node name="BoostPanel2" parent="." instance=ExtResource("12_yb6mu")]
-transform = Transform3D(0.956829, -0.0388372, 0.288043, 0.0367367, 0.999244, 0.0126966, -0.288319, -0.00156672, 0.957533, 174.326, -33.7807, -100.831)
-
-[node name="BoostPanel3" parent="." instance=ExtResource("12_yb6mu")]
-transform = Transform3D(0.999824, 0.0187581, 0.000337577, -0.01876, 0.999397, 0.0292095, 0.000210542, -0.0292107, 0.999573, 251.863, -19.7594, -120.367)
-
-[node name="BoostPanel4" parent="." instance=ExtResource("12_yb6mu")]
-transform = Transform3D(3.53698, -0.0611466, -0.164579, -0.045426, 0.881753, -0.107941, 1.31846, 0.194416, 0.437793, 297.05, -19.0678, -148.081)
-
-[node name="BoostPanel5" parent="." instance=ExtResource("12_yb6mu")]
-transform = Transform3D(0.701908, 0.478379, -0.527711, -0.11373, 0.806656, 0.579976, 0.703129, -0.347073, 0.620604, 331.155, -19.9921, 130.515)
-
 [node name="Buildings" type="Node" parent="."]
 
 [node name="Building" type="CSGBox3D" parent="Buildings"]
@@ -541,6 +526,26 @@ skeleton = NodePath("../..")
 [node name="ShrinkingPlatform24" parent="MudSection" instance=ExtResource("17_2y4dp")]
 transform = Transform3D(0.74536, 0, -0.666663, 0, 1, 0, 0.666663, 0, 0.74536, 403.126, -15.5287, 275.698)
 skeleton = NodePath("../..")
+
+[node name="Boosts" type="Node3D" parent="."]
+
+[node name="BoostPanel" parent="Boosts" instance=ExtResource("12_yb6mu")]
+transform = Transform3D(0.967561, 0.190425, -0.166024, -0.221075, 0.956251, -0.191596, 0.122276, 0.222085, 0.96733, 131.464, -23.8745, -156.523)
+
+[node name="BoostPanel2" parent="Boosts" instance=ExtResource("12_yb6mu")]
+transform = Transform3D(0.956829, -0.0388372, 0.288043, 0.0367367, 0.999244, 0.0126966, -0.288319, -0.00156672, 0.957533, 174.326, -33.7807, -100.831)
+
+[node name="BoostPanel3" parent="Boosts" instance=ExtResource("12_yb6mu")]
+transform = Transform3D(0.999824, 0.0187581, 0.000337577, -0.01876, 0.999397, 0.0292095, 0.000210542, -0.0292107, 0.999573, 251.863, -19.7594, -120.367)
+
+[node name="BoostPanel4" parent="Boosts" instance=ExtResource("12_yb6mu")]
+transform = Transform3D(3.53698, -0.0611466, -0.164579, -0.045426, 0.881753, -0.107941, 1.31846, 0.194416, 0.437793, 297.05, -19.0678, -148.081)
+
+[node name="BoostPanel5" parent="Boosts" instance=ExtResource("12_yb6mu")]
+transform = Transform3D(0.701908, 0.478379, -0.527711, -0.11373, 0.806656, 0.579976, 0.703129, -0.347073, 0.620604, 331.155, -19.9921, 130.515)
+
+[node name="BoostPanel6" parent="Boosts" instance=ExtResource("12_yb6mu")]
+transform = Transform3D(1.76609, 0, 1.34511, 0, 2.22, 0, -1.34511, 0, 1.76609, 275.38, -20.2479, 300.771)
 
 [connection signal="body_entered" from="GoalPost" to="GoalPost" method="_on_body_entered"]
 [connection signal="body_entered" from="KillPlane" to="KillPlane" method="_on_body_entered"]
