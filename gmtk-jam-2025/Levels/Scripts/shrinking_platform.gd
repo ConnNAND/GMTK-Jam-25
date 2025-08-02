@@ -1,7 +1,7 @@
 extends MeshInstance3D
 
 var shrinking = false
-@export var shrink_speed = 0.5
+@export var shrink_speed = 0.7
 
 
 func _physics_process(delta: float) -> void:

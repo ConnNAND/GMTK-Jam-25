@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://c4xa4aebcn3d7"]
+
+[ext_resource type="Script" uid="uid://dgpn0tnq8bdvv" path="res://Levels/Scripts/boost_panel.gd" id="1_sv38q"]
+[ext_resource type="AudioStream" uid="uid://dk1l1wejll8" path="res://Audio/boostsf.ogg" id="2_e825x"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sv38q"]
+albedo_color = Color(0.179086, 0.709087, 0.414411, 1)
+emission_enabled = true
+emission = Color(1.2514e-06, 0.521751, 0.207406, 1)
+emission_energy_multiplier = 0.5
+
+[sub_resource type="TorusMesh" id="TorusMesh_sv38q"]
+material = SubResource("StandardMaterial3D_sv38q")
+inner_radius = 6.25
+outer_radius = 7.5
+rings = 12
+ring_segments = 6
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_e825x"]
+height = 3.92578
+radius = 6.79053
+
+[node name="BoostRing" type="Area3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+collision_layer = 2
+collision_mask = 12
+script = ExtResource("1_sv38q")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("TorusMesh_sv38q")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.129883, 8.88178e-16)
+shape = SubResource("CylinderShape3D_e825x")
+
+[node name="Boost" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_e825x")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

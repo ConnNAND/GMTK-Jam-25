@@ -1,4 +1,4 @@
-[gd_scene load_steps=84 format=3 uid="uid://5r2fey2hmyxh"]
+[gd_scene load_steps=85 format=3 uid="uid://5r2fey2hmyxh"]
 
 [ext_resource type="Texture2D" uid="uid://bfms3pif0weju" path="res://Materials/Textures/bettersky.jpg" id="1_m7nff"]
 [ext_resource type="Script" uid="uid://bghpm42r8jlx3" path="res://Levels/test_room.gd" id="1_pplu1"]
@@ -44,6 +44,7 @@
 [ext_resource type="Texture2D" uid="uid://divqsoge5j8d3" path="res://Materials/Textures/building_office.png" id="34_6w1xo"]
 [ext_resource type="PackedScene" uid="uid://bfo3ngwkkdglj" path="res://Levels/Assets/Pole.tscn" id="43_qkvxo"]
 [ext_resource type="PackedScene" uid="uid://d3lhb1ptnyo3d" path="res://Levels/Assets/PhysicalBox.tscn" id="44_1g3un"]
+[ext_resource type="PackedScene" uid="uid://c4xa4aebcn3d7" path="res://Levels/Assets/BoostRing.tscn" id="45_7gm10"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_8nbxi"]
 panorama = ExtResource("1_m7nff")
@@ -907,6 +908,24 @@ skeleton = NodePath("../..")
 transform = Transform3D(0.74536, 0, -0.666663, 0, 1, 0, 0.666663, 0, 0.74536, 403.126, -15.5287, 275.698)
 skeleton = NodePath("../..")
 
+[node name="Poles" type="Node3D" parent="."]
+transform = Transform3D(0.988707, 0.146019, 0.0337246, -0.149775, 0.970507, 0.188903, -0.0051465, -0.191821, 0.981417, -274.472, -29.4116, 123.032)
+
+[node name="Pole" parent="Poles" instance=ExtResource("43_qkvxo")]
+transform = Transform3D(-1.01436, -6.25167, 4.01717, 7.30742, -1.57578, -0.607129, 1.3501, 3.83191, 6.30426, 595.802, 145.787, -213.508)
+
+[node name="Pole2" parent="Poles" instance=ExtResource("43_qkvxo")]
+transform = Transform3D(-2.39468, 5.86325, -4.01717, 6.76565, 3.17921, 0.607129, 2.17749, -3.42999, -6.30426, 602.252, 144.121, -199.832)
+
+[node name="Pole3" parent="Poles" instance=ExtResource("43_qkvxo")]
+transform = Transform3D(-0.474507, -7.46491, 0.547706, 7.35616, -0.566468, -1.34758, 1.38264, 0.451943, 7.35758, 605.018, 140.368, -178.359)
+
+[node name="Pole4" parent="Poles" instance=ExtResource("43_qkvxo")]
+transform = Transform3D(-0.501484, -3.80923, -6.44114, 7.06371, 1.89011, -1.66775, 2.47031, -6.17796, 3.46126, 459.307, 51.8984, 158.795)
+
+[node name="Pole5" parent="Poles" instance=ExtResource("43_qkvxo")]
+transform = Transform3D(-0.810766, -1.73968, -7.25025, 6.92922, 2.51692, -1.37879, 2.75293, -6.84753, 1.33519, 58.035, 37.565, -15.314)
+
 [node name="Boosts" type="Node3D" parent="."]
 
 [node name="BoostPanel" parent="Boosts" instance=ExtResource("12_yb6mu")]
@@ -926,6 +945,40 @@ transform = Transform3D(0.701908, 0.478379, -0.527711, -0.11373, 0.806656, 0.579
 
 [node name="BoostPanel6" parent="Boosts" instance=ExtResource("12_yb6mu")]
 transform = Transform3D(1.76609, 0, 1.34511, 0, 2.22, 0, -1.34511, 0, 1.76609, 275.38, -20.2479, 300.771)
+
+[node name="BoostPanel7" parent="Boosts" instance=ExtResource("12_yb6mu")]
+transform = Transform3D(0.988707, 0.146019, 0.0337246, -0.149775, 0.970507, 0.188903, -0.0051465, -0.191821, 0.981417, -274.472, -29.4116, 123.032)
+
+[node name="BoostPanel8" parent="Boosts" instance=ExtResource("12_yb6mu")]
+transform = Transform3D(0.827859, 0.338958, -0.446941, -0.186742, 0.917868, 0.350207, 0.528939, -0.20646, 0.823164, -341.063, -25.7431, 73.2323)
+
+[node name="BoostRing" parent="Boosts" instance=ExtResource("45_7gm10")]
+transform = Transform3D(0.72953, 0.683949, -2.98964e-08, 0, -4.37114e-08, -1, -0.683949, 0.72953, -3.18888e-08, -129.727, 5.18743, 78.6863)
+
+[node name="BoostRing2" parent="Boosts" instance=ExtResource("45_7gm10")]
+transform = Transform3D(0.306925, 0.951734, -4.16016e-08, 0, -4.37114e-08, -1, -0.951734, 0.306925, -1.34161e-08, -81.5116, 2.3276, 151.795)
+
+[node name="BoostRing3" parent="Boosts" instance=ExtResource("45_7gm10")]
+transform = Transform3D(0.893607, -0.448851, 1.96199e-08, 0, -4.37114e-08, -1, 0.448851, 0.893607, -3.90608e-08, 367.444, -3.64605, 378.539)
+
+[node name="BoostRing4" parent="Boosts" instance=ExtResource("45_7gm10")]
+transform = Transform3D(0.930769, 0.365608, -1.59812e-08, 0, -4.37114e-08, -1, -0.365608, 0.930769, -4.06852e-08, 328.309, -7.64089, 385.411)
+
+[node name="BoostRing5" parent="Boosts" instance=ExtResource("45_7gm10")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 424.377, -2.8161, 227.522)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 221.429, -17.0748, 27.7353)
+use_collision = true
+size = Vector3(5.68677, 6.22809, 1)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 264.612, -25.5821, 52.2835)
+use_collision = true
+size = Vector3(4.74683, 5.13394, 1)
+
+[node name="BoostRing6" parent="." instance=ExtResource("45_7gm10")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 218.456, -7.86652, 3.4481)
 
 [node name="RampGap" type="Node3D" parent="."]
 
@@ -1010,18 +1063,6 @@ size = Vector3(12.5, 1, 15)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -114.233, 0, 314.435)
 use_collision = true
 size = Vector3(12.5, 1, 15)
-
-[node name="Pole" parent="." instance=ExtResource("43_qkvxo")]
-transform = Transform3D(0.109651, -6.28193, 4.09576, 7.49886, 0.130893, 0, -0.0714808, 4.09514, 6.28289, 328.689, -17.4926, -117.54)
-
-[node name="Pole2" parent="." instance=ExtResource("43_qkvxo")]
-transform = Transform3D(-1.30629, 6.14559, -4.09576, 7.33611, 1.55934, 0, 0.851557, -4.00626, -6.28289, 335.284, -17.4926, -103.831)
-
-[node name="Pole3" parent="." instance=ExtResource("43_qkvxo")]
-transform = Transform3D(0.651623, -7.44808, 0.59288, 7.47146, 0.653668, -2.34056e-08, -0.0516729, 0.590623, 7.47653, 338.195, -17.4926, -82.0514)
-
-[node name="Pole4" parent="." instance=ExtResource("43_qkvxo")]
-transform = Transform3D(0.618928, -3.69857, -6.49519, 7.39714, 1.23786, 0, 1.07202, -6.40611, 3.75, 192.582, -17.8397, 266.557)
 
 [node name="Boxes" type="Node3D" parent="."]
 

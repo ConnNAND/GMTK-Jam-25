@@ -16,7 +16,7 @@ emission_energy_multiplier = 0.5
 material = SubResource("StandardMaterial3D_j5o8s")
 size = Vector3(1, 0.405, 0.3)
 
-[node name="SpeedBuffItem" type="PathFollow3D" groups=["stopwatch"]]
+[node name="SpeedBuffItem" type="PathFollow3D" groups=["speedbuff"]]
 v_offset = 2.0
 script = ExtResource("1_2cf11")
 collectsound = ExtResource("2_j5o8s")

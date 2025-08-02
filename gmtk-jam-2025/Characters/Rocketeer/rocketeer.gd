@@ -10,8 +10,10 @@ var floor_incline:float
 
 var acceleration:float = 0.9
 var turning:float = 2
-var default_speed:float = 10
-var top_speed:float = 50
+var starting_speed:float = 10
+var default_speed:float = starting_speed
+var starting_top_speed = 50
+var top_speed:float = starting_top_speed
 var jump_strength:float = 15
 var jump_just_pressed = false
 var unique_ability:float = 25
@@ -180,6 +182,8 @@ func kill():
 	global_transform = respawn_point
 	velocity = Vector3.ZERO
 	actual_velocity = Vector3.ZERO
+	default_speed = max(default_speed-5, starting_speed)
+	top_speed = max(top_speed-6, starting_top_speed)
 	$Death.play()
 
 
