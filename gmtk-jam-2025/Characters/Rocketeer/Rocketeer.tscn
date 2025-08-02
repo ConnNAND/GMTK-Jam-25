@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bje5llf3vk0jp"]
+[gd_scene load_steps=11 format=3 uid="uid://bje5llf3vk0jp"]
 
 [ext_resource type="Script" uid="uid://crvf0fpyykp20" path="res://Characters/Rocketeer/rocketeer.gd" id="1_8gcnr"]
 [ext_resource type="AudioStream" uid="uid://cdetddmuofw2b" path="res://Audio/footstep.ogg" id="2_8gcnr"]
@@ -12,9 +12,12 @@
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_qjgur"]
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_mnh83"]
+radius = 0.56335
+
 [node name="Rocketeer" type="CharacterBody3D" groups=["player"]]
 collision_layer = 8
-collision_mask = 11
+collision_mask = 27
 script = ExtResource("1_8gcnr")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -49,3 +52,12 @@ mesh = SubResource("CapsuleMesh_qjgur")
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="rocketeer"]
 transform = Transform3D(0.1, 0, 0, 0, 0.2, 0, 0, 0, 0.1, -0.134069, -0.384837, 0.0236199)
 mesh = SubResource("CapsuleMesh_qjgur")
+
+[node name="BonkCheck" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BonkCheck"]
+shape = SubResource("SphereShape3D_mnh83")
+
+[connection signal="body_entered" from="BonkCheck" to="." method="_on_bonk_check_body_entered"]

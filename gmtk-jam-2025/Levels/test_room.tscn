@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://5r2fey2hmyxh"]
+[gd_scene load_steps=21 format=3 uid="uid://5r2fey2hmyxh"]
 
 [ext_resource type="Script" uid="uid://bghpm42r8jlx3" path="res://Levels/test_room.gd" id="1_pplu1"]
 [ext_resource type="PackedScene" uid="uid://bxynvktig10bh" path="res://Menus/PlayerView.tscn" id="2_5pqgv"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://bxj26gp2qshkl" path="res://Levels/Scripts/kill_plane.gd" id="5_r4o0h"]
 [ext_resource type="AudioStream" uid="uid://bm61rpkhvp20m" path="res://Audio/horn.ogg" id="6_v4rkh"]
 [ext_resource type="AudioStream" uid="uid://dbgicokse6pwm" path="res://Audio/vibegoal.ogg" id="7_ln84l"]
+[ext_resource type="PackedScene" uid="uid://be84toqk83qjy" path="res://Levels/Assets/Tree.tscn" id="11_qtgve"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_i0trf"]
 
@@ -124,6 +125,12 @@ script = ExtResource("5_r4o0h")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="KillPlane"]
 shape = SubResource("WorldBoundaryShape3D_r4o0h")
+
+[node name="Tree" parent="." instance=ExtResource("11_qtgve")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -5.77552, 5.62, -45.124)
+
+[node name="Tree2" parent="." instance=ExtResource("11_qtgve")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 6.21996, 5.62, -45.6539)
 
 [connection signal="body_entered" from="GoalPost" to="GoalPost" method="_on_body_entered"]
 [connection signal="body_entered" from="KillPlane" to="KillPlane" method="_on_body_entered"]

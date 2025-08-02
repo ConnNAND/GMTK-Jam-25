@@ -178,3 +178,9 @@ func kill():
 	velocity = Vector3.ZERO
 	actual_velocity = Vector3.ZERO
 	$Death.play()
+
+
+func _on_bonk_check_body_entered(body: Node3D) -> void:
+	print("YEOWCH!")
+	actual_velocity = Vector3.ZERO
+	target_velocity = Vector3.ZERO
