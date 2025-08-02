@@ -1,5 +1,9 @@
 extends Node
 
+func start_game():
+	for i in get_children():
+		i.pausable = true
+
 func check_over():
 	var game_over = true
 	for i in get_children():

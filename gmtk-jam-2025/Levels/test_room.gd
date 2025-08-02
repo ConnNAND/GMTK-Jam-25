@@ -21,5 +21,6 @@ func _ready() -> void:
 
 func start_game():
 	find_child("StartingBlock").queue_free()
+	$PlayerViews.start_game()
 	for i in get_tree().get_nodes_in_group("GameTimer"):
 		i.resume_game_timer()

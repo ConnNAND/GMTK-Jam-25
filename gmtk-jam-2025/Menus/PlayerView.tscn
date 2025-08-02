@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://bxynvktig10bh"]
+[gd_scene load_steps=10 format=3 uid="uid://bxynvktig10bh"]
 
 [ext_resource type="Script" uid="uid://cpgb1244uuv13" path="res://Menus/Scripts/player_view.gd" id="1_mw52u"]
 [ext_resource type="PackedScene" uid="uid://bje5llf3vk0jp" path="res://Characters/Rocketeer/Rocketeer.tscn" id="2_uypme"]
 [ext_resource type="PackedScene" uid="uid://ble64swkbdodj" path="res://Camera/FollowCamera.tscn" id="3_rpd14"]
+[ext_resource type="PackedScene" uid="uid://cdtc7ig867elb" path="res://Menus/pause_menu.tscn" id="3_t0o3n"]
 [ext_resource type="PackedScene" uid="uid://dqpy3gp7cuamr" path="res://Timers/GameTimer.tscn" id="4_nd2d2"]
 [ext_resource type="Script" uid="uid://ckfn01tkm1mqy" path="res://Speedometer/speedometer.gd" id="5_7hwyb"]
 [ext_resource type="Shader" uid="uid://d2n77cig0kdlu" path="res://Materials/Shaders/dither.gdshader" id="6_rqmiy"]
@@ -26,6 +27,7 @@ size_flags_vertical = 3
 stretch = true
 script = ExtResource("1_mw52u")
 Rocketeer = ExtResource("2_uypme")
+PauseScreen = ExtResource("3_t0o3n")
 
 [node name="SubViewport" type="SubViewport" parent="."]
 process_mode = 1
