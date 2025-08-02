@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://5r2fey2hmyxh"]
+[gd_scene load_steps=23 format=3 uid="uid://5r2fey2hmyxh"]
 
 [ext_resource type="Script" uid="uid://bghpm42r8jlx3" path="res://Levels/test_room.gd" id="1_pplu1"]
 [ext_resource type="PackedScene" uid="uid://bxynvktig10bh" path="res://Menus/PlayerView.tscn" id="2_5pqgv"]
@@ -11,6 +11,8 @@
 [ext_resource type="AudioStream" uid="uid://bm61rpkhvp20m" path="res://Audio/horn.ogg" id="6_v4rkh"]
 [ext_resource type="AudioStream" uid="uid://dbgicokse6pwm" path="res://Audio/vibegoal.ogg" id="7_ln84l"]
 [ext_resource type="PackedScene" uid="uid://be84toqk83qjy" path="res://Levels/Assets/Tree.tscn" id="11_qtgve"]
+[ext_resource type="PackedScene" uid="uid://bee0qj6eunpda" path="res://Levels/Assets/BoostPanel.tscn" id="12_yb6mu"]
+[ext_resource type="PackedScene" uid="uid://8sur61og6h8" path="res://Levels/Assets/Bouncer.tscn" id="13_j8rep"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_i0trf"]
 
@@ -20,6 +22,7 @@ sky_material = SubResource("ProceduralSkyMaterial_i0trf")
 [sub_resource type="Environment" id="Environment_5pqgv"]
 background_mode = 2
 sky = SubResource("Sky_pplu1")
+ambient_light_color = Color(0.495545, 0.706268, 0.834397, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v4rkh"]
 albedo_texture = ExtResource("3_uglqc")
@@ -62,9 +65,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
-omni_range = 15.66
 
 [node name="Spawn" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.73447, 0)
@@ -127,10 +127,52 @@ script = ExtResource("5_r4o0h")
 shape = SubResource("WorldBoundaryShape3D_r4o0h")
 
 [node name="Tree" parent="." instance=ExtResource("11_qtgve")]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -5.77552, 5.62, -45.124)
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 221.117, -14.4912, 261.172)
 
 [node name="Tree2" parent="." instance=ExtResource("11_qtgve")]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 6.21996, 5.62, -45.6539)
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 227.348, -14.274, 247.091)
+
+[node name="Tree3" parent="." instance=ExtResource("11_qtgve")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 234.613, -14.3726, 253.989)
+
+[node name="Tree4" parent="." instance=ExtResource("11_qtgve")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 249.419, -14.4297, 270.19)
+
+[node name="Tree5" parent="." instance=ExtResource("11_qtgve")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 261.633, -14.3107, 263.19)
+
+[node name="Tree6" parent="." instance=ExtResource("11_qtgve")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 262.949, -14.3545, 277.307)
+
+[node name="BoostPanel" parent="." instance=ExtResource("12_yb6mu")]
+transform = Transform3D(0.967561, 0.190425, -0.166024, -0.221075, 0.956251, -0.191596, 0.122276, 0.222085, 0.96733, 131.464, -25.9813, -156.523)
+
+[node name="BoostPanel2" parent="." instance=ExtResource("12_yb6mu")]
+transform = Transform3D(0.956829, -0.0388372, 0.288043, 0.0367367, 0.999244, 0.0126966, -0.288319, -0.00156672, 0.957533, 174.326, -35.8875, -100.831)
+
+[node name="BoostPanel3" parent="." instance=ExtResource("12_yb6mu")]
+transform = Transform3D(0.999824, 0.0187581, 0.000337577, -0.01876, 0.999397, 0.0292095, 0.000210542, -0.0292107, 0.999573, 251.863, -21.8662, -120.367)
+
+[node name="BoostPanel4" parent="." instance=ExtResource("12_yb6mu")]
+transform = Transform3D(3.53698, -0.0611466, -0.164579, -0.045426, 0.881753, -0.107941, 1.31846, 0.194416, 0.437793, 297.05, -21.1746, -148.081)
+
+[node name="BoostPanel5" parent="." instance=ExtResource("12_yb6mu")]
+transform = Transform3D(0.701908, 0.478379, -0.527711, -0.11373, 0.806656, 0.579976, 0.703129, -0.347073, 0.620604, 331.155, -22.0989, 130.515)
+
+[node name="Bouncer" parent="." instance=ExtResource("13_j8rep")]
+transform = Transform3D(1, 0, 0, 0, 0.997691, -0.0679109, 0, 0.0679109, 0.997691, 324.154, -42.5603, 17.7161)
+
+[node name="Bouncer2" parent="." instance=ExtResource("13_j8rep")]
+transform = Transform3D(0.844664, 0.535296, 0, -0.411277, 0.64897, -0.640069, -0.342627, 0.540644, 0.768317, 379.809, -19.1123, 165.888)
+
+[node name="Bouncer3" parent="." instance=ExtResource("13_j8rep")]
+transform = Transform3D(0.911336, 0.306479, -0.274839, -0.411277, 0.64897, -0.640069, -0.0178052, 0.696354, 0.717478, 406.452, -17.637, 184.291)
+
+[node name="Bouncer4" parent="." instance=ExtResource("13_j8rep")]
+transform = Transform3D(0.88565, 0.11843, -0.448998, -0.411277, 0.64897, -0.640069, 0.215583, 0.75154, 0.623468, 421.994, -17.637, 217.406)
+
+[node name="Bouncer5" parent="." instance=ExtResource("13_j8rep")]
+transform = Transform3D(0.660444, -0.271805, -0.699954, -0.411277, 0.64897, -0.640069, 0.628223, 0.710605, 0.316821, 424.156, -17.8562, 252.634)
 
 [connection signal="body_entered" from="GoalPost" to="GoalPost" method="_on_body_entered"]
 [connection signal="body_entered" from="KillPlane" to="KillPlane" method="_on_body_entered"]
