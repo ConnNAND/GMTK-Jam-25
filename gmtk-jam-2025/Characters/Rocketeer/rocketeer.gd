@@ -180,6 +180,6 @@ func kill():
 
 
 func _on_bonk_check_body_entered(body: Node3D) -> void:
-	print("YEOWCH!")
+	$Ouch.play()
 	actual_velocity = Vector3.ZERO
 	target_velocity = Vector3.ZERO

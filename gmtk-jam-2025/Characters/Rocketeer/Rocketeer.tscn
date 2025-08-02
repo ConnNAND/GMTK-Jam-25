@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bje5llf3vk0jp"]
+[gd_scene load_steps=12 format=3 uid="uid://bje5llf3vk0jp"]
 
 [ext_resource type="Script" uid="uid://crvf0fpyykp20" path="res://Characters/Rocketeer/rocketeer.gd" id="1_8gcnr"]
 [ext_resource type="AudioStream" uid="uid://cdetddmuofw2b" path="res://Audio/footstep.ogg" id="2_8gcnr"]
@@ -7,6 +7,7 @@
 [ext_resource type="Material" uid="uid://cfof8abwuu8py" path="res://Materials/jetpack.tres" id="4_qjgur"]
 [ext_resource type="PackedScene" uid="uid://csdw2glgpa7ek" path="res://Characters/Rocketeer/rocketeer.blend" id="5_qjgur"]
 [ext_resource type="ArrayMesh" uid="uid://dn61ae4ppjim8" path="res://Characters/Rocketeer/jetpack.res" id="7_mnh83"]
+[ext_resource type="AudioStream" uid="uid://q2haj26bmde2" path="res://Audio/smack.ogg" id="8_3js8k"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_u2dk0"]
 
@@ -59,5 +60,8 @@ collision_mask = 16
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BonkCheck"]
 shape = SubResource("SphereShape3D_mnh83")
+
+[node name="Ouch" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("8_3js8k")
 
 [connection signal="body_entered" from="BonkCheck" to="." method="_on_bonk_check_body_entered"]
