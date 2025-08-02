@@ -281,42 +281,182 @@ use_collision = true
 size = Vector3(31, 150, 25)
 
 [node name="Building17" type="CSGBox3D" parent="Buildings"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 251.5, -81, -177.252)
+transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, 243.5, -69, -171.252)
 use_collision = true
-size = Vector3(26, 150, 25)
+size = Vector3(26, 174, 25)
 
 [node name="Building18" type="CSGBox3D" parent="Buildings"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 286.5, -81, -185.252)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 286.5, -66, -185.252)
 use_collision = true
-size = Vector3(26, 150, 25)
+size = Vector3(26, 180, 25)
 
 [node name="Building19" type="CSGBox3D" parent="Buildings"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 321.5, -81, -179.252)
+transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 325.5, -57, -169.252)
 use_collision = true
-size = Vector3(26, 150, 25)
+size = Vector3(26, 198, 25)
 
 [node name="Building20" type="CSGBox3D" parent="Buildings"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 356.5, -81, -147.252)
+transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 356.5, -68.5, -147.252)
 use_collision = true
-size = Vector3(26, 150, 25)
+size = Vector3(26, 175, 25)
 
 [node name="Building21" type="CSGBox3D" parent="Buildings"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 368.5, -81, -112.252)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 368.5, -69.5, -112.252)
 use_collision = true
-size = Vector3(26, 150, 25)
+size = Vector3(26, 173, 25)
 
 [node name="Building22" type="CSGBox3D" parent="Buildings"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 374.5, -81, -74.2519)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 374.5, -73.5, -74.2519)
 use_collision = true
-size = Vector3(26, 150, 25)
+size = Vector3(26, 165, 25)
 
 [node name="Building23" type="CSGBox3D" parent="Buildings"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 374.5, -81, -49.2519)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 374.5, -66, -49.2519)
+use_collision = true
+size = Vector3(26, 180, 25)
+
+[node name="Building24" type="CSGBox3D" parent="Buildings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 368.5, -84, -15.2519)
+use_collision = true
+size = Vector3(26, 144, 25)
+
+[node name="Building36" type="CSGBox3D" parent="Buildings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 362.5, -74.5, 20.7481)
+use_collision = true
+size = Vector3(26, 163, 25)
+
+[node name="Building37" type="CSGBox3D" parent="Buildings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 368.5, -79, 56.7481)
+use_collision = true
+size = Vector3(26, 154, 25)
+
+[node name="Building38" type="CSGBox3D" parent="Buildings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 368.5, -72, 81.7481)
+use_collision = true
+size = Vector3(26, 168, 25)
+
+[node name="Building39" type="CSGBox3D" parent="Buildings"]
+transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 368.5, -65, 118.748)
+use_collision = true
+size = Vector3(26, 182, 25)
+
+[node name="Building42" type="CSGBox3D" parent="Buildings"]
+transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, 451.5, -69.5, 201.748)
+use_collision = true
+size = Vector3(26, 173, 25)
+
+[node name="Building43" type="CSGBox3D" parent="Buildings"]
+transform = Transform3D(0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 455.5, -64.5, 257.248)
+use_collision = true
+size = Vector3(26, 183, 64)
+
+[node name="Building45" type="CSGBox3D" parent="Buildings"]
+transform = Transform3D(0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 405.1, -66.5, 348.169)
+use_collision = true
+size = Vector3(26, 179, 59)
+
+[node name="Building46" type="CSGBox3D" parent="Buildings"]
+transform = Transform3D(0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 431.5, -52, 304.748)
+use_collision = true
+size = Vector3(26, 186, 39)
+
+[node name="Building47" type="CSGBox3D" parent="Buildings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 292.5, -71, 417.248)
+use_collision = true
+size = Vector3(26, 170, 54)
+
+[node name="Building48" type="CSGBox3D" parent="Buildings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 396.5, -71, 421.248)
+use_collision = true
+size = Vector3(26, 170, 46)
+
+[node name="Building49" type="CSGBox3D" parent="Buildings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 344.5, -58, 431.748)
+use_collision = true
+size = Vector3(78, 196, 25)
+
+[node name="Building52" type="CSGBox3D" parent="Buildings"]
+transform = Transform3D(0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, 287.861, -75.5, 356.998)
+use_collision = true
+size = Vector3(26, 161, 42)
+
+[node name="Building53" type="CSGBox3D" parent="Buildings"]
+transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 254.5, -65.5, 336.748)
+use_collision = true
+size = Vector3(26, 181, 25)
+
+[node name="Building55" type="CSGBox3D" parent="Buildings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 172.5, -65.5, 314.748)
+use_collision = true
+size = Vector3(26, 181, 25)
+
+[node name="Building57" type="CSGBox3D" parent="Buildings"]
+transform = Transform3D(0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 129.5, -70, 314.748)
+use_collision = true
+size = Vector3(26, 172, 25)
+
+[node name="Building58" type="CSGBox3D" parent="Buildings"]
+transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 88.5, -70.5, 289.748)
+use_collision = true
+size = Vector3(26, 171, 25)
+
+[node name="Building59" type="CSGBox3D" parent="Buildings"]
+transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 45.5, -81, 282.748)
 use_collision = true
 size = Vector3(26, 150, 25)
 
-[node name="Building24" type="CSGBox3D" parent="Buildings"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 368.5, -81, -10.2519)
+[node name="Building60" type="CSGBox3D" parent="Buildings"]
+transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, -3.5, -69, 349.748)
+use_collision = true
+size = Vector3(26, 174, 25)
+
+[node name="Building62" type="CSGBox3D" parent="Buildings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46.5, -53, 354.748)
+use_collision = true
+size = Vector3(26, 206, 25)
+
+[node name="Building63" type="CSGBox3D" parent="Buildings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -82.5, -63, 360.748)
+use_collision = true
+size = Vector3(26, 186, 25)
+
+[node name="Building64" type="CSGBox3D" parent="Buildings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -108.5, -54, 360.748)
+use_collision = true
+size = Vector3(26, 204, 25)
+
+[node name="Building65" type="CSGBox3D" parent="Buildings"]
+transform = Transform3D(0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, -146.5, -51, 352.748)
+use_collision = true
+size = Vector3(26, 210, 25)
+
+[node name="Building66" type="CSGBox3D" parent="Buildings"]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -175.5, -36.5, 336.748)
+use_collision = true
+size = Vector3(26, 239, 25)
+
+[node name="Building61" type="CSGBox3D" parent="Buildings"]
+transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 25.5, -70, 324.748)
+use_collision = true
+size = Vector3(26, 172, 25)
+
+[node name="Building56" type="CSGBox3D" parent="Buildings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 219.5, -72.5, 324.748)
+use_collision = true
+size = Vector3(26, 167, 25)
+
+[node name="Building54" type="CSGBox3D" parent="Buildings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 229, -67, 286.748)
+use_collision = true
+size = Vector3(25, 172, 35)
+
+[node name="Building40" type="CSGBox3D" parent="Buildings"]
+transform = Transform3D(0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, 402.5, -65.5, 141.748)
+use_collision = true
+size = Vector3(26, 181, 25)
+
+[node name="Building41" type="CSGBox3D" parent="Buildings"]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 433.5, -46, 168.748)
 use_collision = true
 size = Vector3(26, 150, 25)
 
@@ -341,10 +481,10 @@ use_collision = true
 size = Vector3(25, 140, 60)
 
 [node name="Building10" type="CSGBox3D" parent="Buildings"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 276, -60, -25.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 276, -58, -24.5)
 use_collision = true
 collision_layer = 16
-size = Vector3(25, 140, 60)
+size = Vector3(25, 144, 60)
 
 [node name="Building12" type="CSGBox3D" parent="Buildings"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 286, -45, -87.0634)
@@ -353,9 +493,9 @@ collision_layer = 16
 size = Vector3(45, 170, 60.5)
 
 [node name="Building13" type="CSGBox3D" parent="Buildings"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.5, -45, 202.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26, -45, 202.5)
 use_collision = true
-size = Vector3(60, 170, 60)
+size = Vector3(85, 170, 60)
 
 [node name="StartingBlock" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15.3223, 0)
