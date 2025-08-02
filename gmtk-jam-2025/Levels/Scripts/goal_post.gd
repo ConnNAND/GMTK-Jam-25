@@ -24,3 +24,7 @@ func _on_body_entered(body: Node3D) -> void:
 				if i.player_id == body.player_id:
 					i.reset()
 					break
+			for i in get_tree().get_nodes_in_group("speedbuff"):
+				if i.player_id == body.player_id:
+					i.reset()
+					break

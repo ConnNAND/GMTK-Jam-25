@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://5r2fey2hmyxh"]
+[gd_scene load_steps=32 format=3 uid="uid://5r2fey2hmyxh"]
 
 [ext_resource type="Texture2D" uid="uid://bfms3pif0weju" path="res://Materials/Textures/bettersky.jpg" id="1_m7nff"]
 [ext_resource type="Script" uid="uid://bghpm42r8jlx3" path="res://Levels/test_room.gd" id="1_pplu1"]
@@ -15,6 +15,8 @@
 [ext_resource type="AudioStream" uid="uid://dbgicokse6pwm" path="res://Audio/vibegoal.ogg" id="7_ln84l"]
 [ext_resource type="PackedScene" uid="uid://oqgdctnd8xb4" path="res://Levels/Assets/Tree.tscn" id="11_qtgve"]
 [ext_resource type="PackedScene" uid="uid://bee0qj6eunpda" path="res://Levels/Assets/BoostPanel.tscn" id="12_yb6mu"]
+[ext_resource type="PackedScene" uid="uid://b51g5xitfkwih" path="res://Levels/Assets/Mud.tscn" id="16_8nbxi"]
+[ext_resource type="PackedScene" uid="uid://tgicqb4gnvq2" path="res://Levels/Assets/ShrinkingPlatform.tscn" id="17_2y4dp"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_8nbxi"]
 panorama = ExtResource("1_m7nff")
@@ -165,42 +167,6 @@ script = ExtResource("5_r4o0h")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="KillPlane"]
 shape = SubResource("WorldBoundaryShape3D_r4o0h")
-
-[node name="Tree" parent="." instance=ExtResource("11_qtgve")]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 240.821, -14.4912, 262.262)
-
-[node name="Tree2" parent="." instance=ExtResource("11_qtgve")]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 243.267, -14.274, 250.092)
-
-[node name="Tree3" parent="." instance=ExtResource("11_qtgve")]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 254.317, -14.3726, 255.079)
-
-[node name="Tree4" parent="." instance=ExtResource("11_qtgve")]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 249.419, -14.4297, 270.19)
-
-[node name="Tree5" parent="." instance=ExtResource("11_qtgve")]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 261.633, -14.3107, 263.19)
-
-[node name="Tree6" parent="." instance=ExtResource("11_qtgve")]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 262.949, -14.3545, 277.307)
-
-[node name="Tree7" parent="." instance=ExtResource("11_qtgve")]
-transform = Transform3D(3.51103, 0, -1.91642, 0, 4, 0, 1.91642, 0, 3.51103, 260.687, -14.4912, 289.165)
-
-[node name="Tree8" parent="." instance=ExtResource("11_qtgve")]
-transform = Transform3D(3.51103, 0, -1.91642, 0, 4, 0, 1.91642, 0, 3.51103, 272.903, -14.274, 279.79)
-
-[node name="Tree9" parent="." instance=ExtResource("11_qtgve")]
-transform = Transform3D(3.51103, 0, -1.91642, 0, 4, 0, 1.91642, 0, 3.51103, 275.975, -14.3726, 289.326)
-
-[node name="Tree10" parent="." instance=ExtResource("11_qtgve")]
-transform = Transform3D(3.51103, 0, -1.91642, 0, 4, 0, 1.91642, 0, 3.51103, 281.209, -14.4297, 310.64)
-
-[node name="Tree11" parent="." instance=ExtResource("11_qtgve")]
-transform = Transform3D(3.51103, 0, -1.91642, 0, 4, 0, 1.91642, 0, 3.51103, 295.284, -14.3107, 310.347)
-
-[node name="Tree12" parent="." instance=ExtResource("11_qtgve")]
-transform = Transform3D(3.51103, 0, -1.91642, 0, 4, 0, 1.91642, 0, 3.51103, 289.675, -14.3545, 323.369)
 
 [node name="BoostPanel" parent="." instance=ExtResource("12_yb6mu")]
 transform = Transform3D(0.967561, 0.190425, -0.166024, -0.221075, 0.956251, -0.191596, 0.122276, 0.222085, 0.96733, 131.464, -23.8745, -156.523)
@@ -424,6 +390,157 @@ mesh = SubResource("BoxMesh_4kpi4")
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="StartingBlock"]
 transform = Transform3D(-0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, -0.866025, -1.14622, -14.8548, -2.25815)
 mesh = SubResource("BoxMesh_ymruk")
+
+[node name="Trees" type="Node3D" parent="."]
+
+[node name="Tree" parent="Trees" instance=ExtResource("11_qtgve")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 240.821, -14.4912, 262.262)
+
+[node name="Tree2" parent="Trees" instance=ExtResource("11_qtgve")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 243.267, -14.274, 250.092)
+
+[node name="Tree3" parent="Trees" instance=ExtResource("11_qtgve")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 254.317, -14.3726, 255.079)
+
+[node name="Tree4" parent="Trees" instance=ExtResource("11_qtgve")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 249.419, -14.4297, 270.19)
+
+[node name="Tree5" parent="Trees" instance=ExtResource("11_qtgve")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 261.633, -14.3107, 263.19)
+
+[node name="Tree6" parent="Trees" instance=ExtResource("11_qtgve")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 262.949, -14.3545, 277.307)
+
+[node name="Tree7" parent="Trees" instance=ExtResource("11_qtgve")]
+transform = Transform3D(3.51103, 0, -1.91642, 0, 4, 0, 1.91642, 0, 3.51103, 260.687, -14.4912, 289.165)
+
+[node name="Tree8" parent="Trees" instance=ExtResource("11_qtgve")]
+transform = Transform3D(3.51103, 0, -1.91642, 0, 4, 0, 1.91642, 0, 3.51103, 272.903, -14.274, 279.79)
+
+[node name="Tree9" parent="Trees" instance=ExtResource("11_qtgve")]
+transform = Transform3D(3.51103, 0, -1.91642, 0, 4, 0, 1.91642, 0, 3.51103, 275.975, -14.3726, 289.326)
+
+[node name="Tree10" parent="Trees" instance=ExtResource("11_qtgve")]
+transform = Transform3D(3.51103, 0, -1.91642, 0, 4, 0, 1.91642, 0, 3.51103, 281.209, -14.4297, 310.64)
+
+[node name="Tree11" parent="Trees" instance=ExtResource("11_qtgve")]
+transform = Transform3D(3.51103, 0, -1.91642, 0, 4, 0, 1.91642, 0, 3.51103, 295.284, -14.3107, 310.347)
+
+[node name="Tree12" parent="Trees" instance=ExtResource("11_qtgve")]
+transform = Transform3D(3.51103, 0, -1.91642, 0, 4, 0, 1.91642, 0, 3.51103, 289.675, -14.3545, 323.369)
+
+[node name="MudSection" type="Node3D" parent="."]
+
+[node name="Mud" parent="MudSection" instance=ExtResource("16_8nbxi")]
+transform = Transform3D(0.799422, -0.237084, 0.552011, 0.285036, 0.958516, -0.00111276, -0.528848, 0.158232, 0.833836, 413.866, -19.2495, 198.595)
+
+[node name="Mud2" parent="MudSection" instance=ExtResource("16_8nbxi")]
+transform = Transform3D(0.939498, -0.212961, 0.268311, 0.225958, 0.973968, -0.0181508, -0.257461, 0.0776796, 0.963161, 421.926, -19.204, 216.491)
+
+[node name="Mud3" parent="MudSection" instance=ExtResource("16_8nbxi")]
+transform = Transform3D(0.977178, -0.206854, -0.0483159, 0.206528, 0.978371, -0.0116953, 0.0496901, 0.00144974, 0.998764, 424.563, -19.435, 236.966)
+
+[node name="Mud4" parent="MudSection" instance=ExtResource("16_8nbxi")]
+transform = Transform3D(0.944234, -0.202426, -0.259704, 0.206528, 0.978371, -0.0116953, 0.256454, -0.0425932, 0.965617, 421.535, -19.435, 259.298)
+
+[node name="Mud5" parent="MudSection" instance=ExtResource("16_8nbxi")]
+transform = Transform3D(0.780625, -0.171968, -0.600875, 0.206528, 0.978371, -0.0116953, 0.58989, -0.114968, 0.799257, 411.429, -19.435, 277.659)
+
+[node name="ShrinkingPlatform" parent="MudSection" instance=ExtResource("17_2y4dp")]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 415.791, -12.4575, 187.59)
+skeleton = NodePath("../..")
+
+[node name="ShrinkingPlatform2" parent="MudSection" instance=ExtResource("17_2y4dp")]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 411.057, -13.3377, 192.749)
+skeleton = NodePath("../..")
+
+[node name="ShrinkingPlatform3" parent="MudSection" instance=ExtResource("17_2y4dp")]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 406.138, -14.8918, 197.983)
+skeleton = NodePath("../..")
+
+[node name="ShrinkingPlatform4" parent="MudSection" instance=ExtResource("17_2y4dp")]
+transform = Transform3D(0.871591, 0, 0.490235, 0, 1, 0, -0.490235, 0, 0.871591, 423.123, -12.0328, 197.834)
+skeleton = NodePath("../..")
+
+[node name="ShrinkingPlatform5" parent="MudSection" instance=ExtResource("17_2y4dp")]
+transform = Transform3D(0.871591, 0, 0.490235, 0, 1, 0, -0.490235, 0, 0.871591, 417.173, -12.9129, 201.526)
+skeleton = NodePath("../..")
+
+[node name="ShrinkingPlatform6" parent="MudSection" instance=ExtResource("17_2y4dp")]
+transform = Transform3D(0.871591, 0, 0.490235, 0, 1, 0, -0.490235, 0, 0.871591, 411.024, -14.4671, 205.239)
+skeleton = NodePath("../..")
+
+[node name="ShrinkingPlatform7" parent="MudSection" instance=ExtResource("17_2y4dp")]
+transform = Transform3D(0.987781, 0, 0.155848, 0, 1, 0, -0.155848, 0, 0.987781, 428.311, -12.0328, 211.095)
+skeleton = NodePath("../..")
+
+[node name="ShrinkingPlatform8" parent="MudSection" instance=ExtResource("17_2y4dp")]
+transform = Transform3D(0.987781, 0, 0.155848, 0, 1, 0, -0.155848, 0, 0.987781, 421.448, -12.9129, 212.482)
+skeleton = NodePath("../..")
+
+[node name="ShrinkingPlatform9" parent="MudSection" instance=ExtResource("17_2y4dp")]
+transform = Transform3D(0.987781, 0, 0.155848, 0, 1, 0, -0.155848, 0, 0.987781, 414.391, -14.4671, 213.821)
+skeleton = NodePath("../..")
+
+[node name="ShrinkingPlatform10" parent="MudSection" instance=ExtResource("17_2y4dp")]
+transform = Transform3D(0.998618, 0, 0.0525625, 0, 1, 0, -0.0525625, 0, 0.998618, 431.797, -12.0328, 225.145)
+skeleton = NodePath("../..")
+
+[node name="ShrinkingPlatform11" parent="MudSection" instance=ExtResource("17_2y4dp")]
+transform = Transform3D(0.998618, 0, 0.0525625, 0, 1, 0, -0.0525625, 0, 0.998618, 424.827, -12.9129, 225.813)
+skeleton = NodePath("../..")
+
+[node name="ShrinkingPlatform12" parent="MudSection" instance=ExtResource("17_2y4dp")]
+transform = Transform3D(0.998618, 0, 0.0525625, 0, 1, 0, -0.0525625, 0, 0.998618, 417.669, -14.4671, 226.413)
+skeleton = NodePath("../..")
+
+[node name="ShrinkingPlatform13" parent="MudSection" instance=ExtResource("17_2y4dp")]
+transform = Transform3D(0.968899, 0, -0.247456, 0, 1, 0, 0.247456, 0, 0.968899, 431.659, -13.0944, 244.024)
+skeleton = NodePath("../..")
+
+[node name="ShrinkingPlatform14" parent="MudSection" instance=ExtResource("17_2y4dp")]
+transform = Transform3D(0.968899, 0, -0.247456, 0, 1, 0, 0.247456, 0, 0.968899, 424.807, -13.9745, 242.584)
+skeleton = NodePath("../..")
+
+[node name="ShrinkingPlatform15" parent="MudSection" instance=ExtResource("17_2y4dp")]
+transform = Transform3D(0.968899, 0, -0.247456, 0, 1, 0, 0.247456, 0, 0.968899, 417.796, -15.5286, 241.023)
+skeleton = NodePath("../..")
+
+[node name="ShrinkingPlatform16" parent="MudSection" instance=ExtResource("17_2y4dp")]
+transform = Transform3D(0.922827, 0, -0.385214, 0, 1, 0, 0.385214, 0, 0.922827, 428.936, -13.0944, 259.207)
+skeleton = NodePath("../..")
+
+[node name="ShrinkingPlatform17" parent="MudSection" instance=ExtResource("17_2y4dp")]
+transform = Transform3D(0.922827, 0, -0.385214, 0, 1, 0, 0.385214, 0, 0.922827, 422.365, -13.9745, 256.79)
+skeleton = NodePath("../..")
+
+[node name="ShrinkingPlatform18" parent="MudSection" instance=ExtResource("17_2y4dp")]
+transform = Transform3D(0.922827, 0, -0.385214, 0, 1, 0, 0.385214, 0, 0.922827, 415.654, -15.5287, 254.229)
+skeleton = NodePath("../..")
+
+[node name="ShrinkingPlatform19" parent="MudSection" instance=ExtResource("17_2y4dp")]
+transform = Transform3D(0.823345, 0, -0.567542, 0, 1, 0, 0.567542, 0, 0.823345, 424.142, -13.0944, 273.86)
+skeleton = NodePath("../..")
+
+[node name="ShrinkingPlatform20" parent="MudSection" instance=ExtResource("17_2y4dp")]
+transform = Transform3D(0.823345, 0, -0.567542, 0, 1, 0, 0.567542, 0, 0.823345, 418.211, -13.9745, 270.137)
+skeleton = NodePath("../..")
+
+[node name="ShrinkingPlatform21" parent="MudSection" instance=ExtResource("17_2y4dp")]
+transform = Transform3D(0.823345, 0, -0.567542, 0, 1, 0, 0.567542, 0, 0.823345, 412.174, -15.5287, 266.246)
+skeleton = NodePath("../..")
+
+[node name="ShrinkingPlatform22" parent="MudSection" instance=ExtResource("17_2y4dp")]
+transform = Transform3D(0.74536, 0, -0.666663, 0, 1, 0, 0.666663, 0, 0.74536, 414.04, -13.0944, 284.758)
+skeleton = NodePath("../..")
+
+[node name="ShrinkingPlatform23" parent="MudSection" instance=ExtResource("17_2y4dp")]
+transform = Transform3D(0.74536, 0, -0.666663, 0, 1, 0, 0.666663, 0, 0.74536, 408.625, -13.9745, 280.318)
+skeleton = NodePath("../..")
+
+[node name="ShrinkingPlatform24" parent="MudSection" instance=ExtResource("17_2y4dp")]
+transform = Transform3D(0.74536, 0, -0.666663, 0, 1, 0, 0.666663, 0, 0.74536, 403.126, -15.5287, 275.698)
+skeleton = NodePath("../..")
 
 [connection signal="body_entered" from="GoalPost" to="GoalPost" method="_on_body_entered"]
 [connection signal="body_entered" from="KillPlane" to="KillPlane" method="_on_body_entered"]
