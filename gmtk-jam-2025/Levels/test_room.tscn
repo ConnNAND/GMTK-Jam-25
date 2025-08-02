@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://5r2fey2hmyxh"]
+[gd_scene load_steps=81 format=3 uid="uid://5r2fey2hmyxh"]
 
 [ext_resource type="Texture2D" uid="uid://bfms3pif0weju" path="res://Materials/Textures/bettersky.jpg" id="1_m7nff"]
 [ext_resource type="Script" uid="uid://bghpm42r8jlx3" path="res://Levels/test_room.gd" id="1_pplu1"]
@@ -15,8 +15,33 @@
 [ext_resource type="AudioStream" uid="uid://dbgicokse6pwm" path="res://Audio/vibegoal.ogg" id="7_ln84l"]
 [ext_resource type="PackedScene" uid="uid://oqgdctnd8xb4" path="res://Levels/Assets/Tree.tscn" id="11_qtgve"]
 [ext_resource type="PackedScene" uid="uid://bee0qj6eunpda" path="res://Levels/Assets/BoostPanel.tscn" id="12_yb6mu"]
+[ext_resource type="Texture2D" uid="uid://bypokqu4j24f3" path="res://Materials/Textures/apartments1.png" id="14_shs50"]
+[ext_resource type="Material" uid="uid://cp5t0l1r2tq8a" path="res://Materials/coolbrickbuilding.tres" id="14_ymruk"]
+[ext_resource type="Material" uid="uid://716l81gsnl6i" path="res://Materials/coolofficebuilding.tres" id="15_4kpi4"]
+[ext_resource type="Texture2D" uid="uid://bj1sf4cb7fsd8" path="res://Materials/Textures/apartments2.png" id="15_y4w06"]
 [ext_resource type="PackedScene" uid="uid://b51g5xitfkwih" path="res://Levels/Assets/Mud.tscn" id="16_8nbxi"]
 [ext_resource type="PackedScene" uid="uid://tgicqb4gnvq2" path="res://Levels/Assets/ShrinkingPlatform.tscn" id="17_2y4dp"]
+[ext_resource type="Texture2D" uid="uid://m2shmh1jcy00" path="res://Materials/Textures/apartments4.png" id="18_mvwd1"]
+[ext_resource type="Texture2D" uid="uid://grvbdgpnvdkj" path="res://Materials/Textures/apartments9.png" id="19_t0sje"]
+[ext_resource type="Texture2D" uid="uid://cfcxm4ybqglqu" path="res://Materials/Textures/building_construction.png" id="20_8tmlt"]
+[ext_resource type="Texture2D" uid="uid://cp3uds58n7lo6" path="res://Materials/Textures/apartment_block5.png" id="20_mvwd1"]
+[ext_resource type="Texture2D" uid="uid://cu0s0hv6mpkxl" path="res://Materials/Textures/apartment_block6.png" id="21_t0sje"]
+[ext_resource type="Texture2D" uid="uid://q58ac8av6d3m" path="res://Materials/Textures/building_dks-1.png" id="21_tlcfh"]
+[ext_resource type="Texture2D" uid="uid://dmxxdwa1dsn7s" path="res://Materials/Textures/building_derelict1.png" id="21_u6ab0"]
+[ext_resource type="Texture2D" uid="uid://8cl86yyaghd7" path="res://Materials/Textures/apartment_block7.png" id="22_voyto"]
+[ext_resource type="Texture2D" uid="uid://b2wvkwi4kv5y7" path="res://Materials/Textures/building_dock2.png" id="23_1qgm3"]
+[ext_resource type="Texture2D" uid="uid://cxysb78ihxeo1" path="res://Materials/Textures/building_dock_apartments2.png" id="24_mbwd3"]
+[ext_resource type="Texture2D" uid="uid://2xit7p06g7qo" path="res://Materials/Textures/building_dock_apartments.png" id="25_13yq3"]
+[ext_resource type="Texture2D" uid="uid://dod832gr6j8k5" path="res://Materials/Textures/building_hsp.png" id="26_c120j"]
+[ext_resource type="Texture2D" uid="uid://d0ylgbef0r5mj" path="res://Materials/Textures/building_jmu.png" id="27_y85wf"]
+[ext_resource type="Texture2D" uid="uid://dklmdao01cufd" path="res://Materials/Textures/building_l2.png" id="28_2dwcg"]
+[ext_resource type="Texture2D" uid="uid://c8vnshjl0uid1" path="res://Materials/Textures/building_lh1.png" id="29_seg11"]
+[ext_resource type="Texture2D" uid="uid://b0o1gwu6audja" path="res://Materials/Textures/building_mirrored.png" id="30_bni5o"]
+[ext_resource type="Texture2D" uid="uid://bol64dkymc5l6" path="res://Materials/Textures/building_modern2.png" id="31_bxxod"]
+[ext_resource type="Texture2D" uid="uid://c8uo2wa13fqkq" path="res://Materials/Textures/building_office2.png" id="31_guapq"]
+[ext_resource type="Texture2D" uid="uid://djr0apm4y2yxe" path="res://Materials/Textures/building_office4.png" id="32_486do"]
+[ext_resource type="Texture2D" uid="uid://bmte01rq22jbh" path="res://Materials/Textures/building_office5.png" id="32_t0647"]
+[ext_resource type="Texture2D" uid="uid://divqsoge5j8d3" path="res://Materials/Textures/building_office.png" id="34_6w1xo"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_8nbxi"]
 panorama = ExtResource("1_m7nff")
@@ -58,6 +83,144 @@ radial_segments = 10
 rings = 10
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_r4o0h"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xfamv"]
+albedo_texture = ExtResource("14_shs50")
+uv1_scale = Vector3(0.02, 0.02, 0.02)
+uv1_offset = Vector3(0, 0.2, 0)
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_voyto"]
+albedo_texture = ExtResource("15_y4w06")
+uv1_scale = Vector3(0.02, 0.02, 0.02)
+uv1_offset = Vector3(0, -0.4, 0)
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_13yq3"]
+albedo_texture = ExtResource("20_8tmlt")
+uv1_scale = Vector3(0.02, 0.02, 0.02)
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_486do"]
+albedo_texture = ExtResource("28_2dwcg")
+uv1_scale = Vector3(0.04, 0.04, 0.04)
+uv1_offset = Vector3(0.155, 0.15, 0.18)
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_seg11"]
+albedo_texture = ExtResource("24_mbwd3")
+uv1_scale = Vector3(0.04, 0.04, 0.04)
+uv1_offset = Vector3(0, -0.065, 0)
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tlcfh"]
+albedo_texture = ExtResource("19_t0sje")
+uv1_scale = Vector3(0.02, 0.02, 0.02)
+uv1_offset = Vector3(0.46, 0.495, -0.595)
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8tmlt"]
+albedo_texture = ExtResource("18_mvwd1")
+uv1_scale = Vector3(0.02, 0.02, 0.02)
+uv1_offset = Vector3(0, -0.2, 0)
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y85wf"]
+albedo_texture = ExtResource("21_u6ab0")
+uv1_scale = Vector3(0.08, 0.08, -0.085)
+uv1_offset = Vector3(0, -0.79, 0)
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c120j"]
+albedo_texture = ExtResource("21_tlcfh")
+uv1_scale = Vector3(-0.035, 0.035, -0.08)
+uv1_offset = Vector3(0, 0.38, 0)
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2dwcg"]
+albedo_texture = ExtResource("23_1qgm3")
+uv1_scale = Vector3(0.08, 0.08, 0.08)
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bni5o"]
+albedo_texture = ExtResource("25_13yq3")
+uv1_scale = Vector3(0.04, 0.04, 0.04)
+uv1_offset = Vector3(-0.495, -0.495, -0.495)
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bxxod"]
+albedo_texture = ExtResource("26_c120j")
+uv1_scale = Vector3(0.04, 0.125, 0.075)
+uv1_offset = Vector3(0, 0.26, 0)
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_guapq"]
+albedo_texture = ExtResource("27_y85wf")
+uv1_scale = Vector3(0.04, 0.065, 0.04)
+uv1_offset = Vector3(-0.495, -0.29, -0.49)
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t0647"]
+albedo_texture = ExtResource("29_seg11")
+uv1_scale = Vector3(0.04, 0.04, 0.04)
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6w1xo"]
+albedo_texture = ExtResource("30_bni5o")
+uv1_scale = Vector3(0.04, 0.04, 0.04)
+uv1_offset = Vector3(-0.505, 0, -0.5)
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1g3un"]
+albedo_texture = ExtResource("31_guapq")
+uv1_scale = Vector3(0.04, 0.025, 0.04)
+uv1_offset = Vector3(0, -0.1, -0.505)
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ag8mv"]
+albedo_texture = ExtResource("32_t0647")
+uv1_scale = Vector3(0.04, 0.04, 0.04)
+uv1_offset = Vector3(0, -0.15, 0)
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7gm10"]
+albedo_texture = ExtResource("32_486do")
+uv1_scale = Vector3(0.04, 0.08, 0.04)
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d2xca"]
+albedo_texture = ExtResource("34_6w1xo")
+uv1_scale = Vector3(0.04, 0.04, 0.04)
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qkvxo"]
+albedo_texture = ExtResource("31_bxxod")
+uv1_scale = Vector3(0.04, 0.04, 0.04)
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t0sje"]
+albedo_texture = ExtResource("20_mvwd1")
+uv1_scale = Vector3(-0.025, 0.04, 0.02)
+uv1_offset = Vector3(0.65, -0.295, -0.495)
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1qgm3"]
+albedo_texture = ExtResource("21_t0sje")
+uv1_scale = Vector3(-0.055, 0.015, -0.035)
+uv1_offset = Vector3(-0.545, -0.125, -0.525)
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u6ab0"]
+albedo_texture = ExtResource("20_mvwd1")
+uv1_scale = Vector3(-0.025, 0.04, 0.02)
+uv1_offset = Vector3(0, -0.295, 0)
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mbwd3"]
+albedo_texture = ExtResource("22_voyto")
+uv1_scale = Vector3(-0.035, 0.02, 0.017)
+uv1_offset = Vector3(0, 0.075, -1.5)
+uv1_triplanar = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8nbxi"]
 transparency = 1
@@ -174,19 +337,23 @@ shape = SubResource("WorldBoundaryShape3D_r4o0h")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, -65, -110)
 use_collision = true
 size = Vector3(25, 130, 25)
+material = SubResource("StandardMaterial3D_xfamv")
 
 [node name="Building2" type="CSGBox3D" parent="Buildings"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57, -60, -110)
 use_collision = true
 size = Vector3(25, 140, 25)
+material = SubResource("StandardMaterial3D_voyto")
 
 [node name="Building11" type="CSGBox3D" parent="Buildings"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, -50, -66)
 use_collision = true
 size = Vector3(25, 160, 25)
+material = ExtResource("14_ymruk")
 
 [node name="Building25" type="CSGBox3D" parent="Buildings"]
 transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -198, -24.5, 262)
+material_override = ExtResource("15_4kpi4")
 use_collision = true
 collision_layer = 16
 size = Vector3(25, 211, 25)
@@ -196,15 +363,18 @@ transform = Transform3D(0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, -261, -22.
 use_collision = true
 collision_layer = 16
 size = Vector3(25, 215, 25)
+material = SubResource("StandardMaterial3D_13yq3")
 
 [node name="Building33" type="CSGBox3D" parent="Buildings"]
 transform = Transform3D(0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, -218, -27, 239)
 use_collision = true
 collision_layer = 16
 size = Vector3(25, 206, 25)
+material = SubResource("StandardMaterial3D_xfamv")
 
 [node name="Building34" type="CSGBox3D" parent="Buildings"]
 transform = Transform3D(0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, 0.258819, -269, -33, 227)
+material_override = ExtResource("14_ymruk")
 use_collision = true
 collision_layer = 16
 size = Vector3(25, 194, 25)
@@ -214,27 +384,32 @@ transform = Transform3D(-0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, -0.866025, -319, -3
 use_collision = true
 collision_layer = 16
 size = Vector3(25, 191, 25)
+material = SubResource("StandardMaterial3D_486do")
 
 [node name="Building27" type="CSGBox3D" parent="Buildings"]
 transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -232, -29, 289)
 use_collision = true
 collision_layer = 16
 size = Vector3(25, 202, 25)
+material = SubResource("StandardMaterial3D_seg11")
 
 [node name="Building28" type="CSGBox3D" parent="Buildings"]
 transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -250, -39.5, 250)
 use_collision = true
 collision_layer = 16
 size = Vector3(25, 181, 25)
+material = SubResource("StandardMaterial3D_xfamv")
 
 [node name="Building29" type="CSGBox3D" parent="Buildings"]
 transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, -280, -32, 279)
 use_collision = true
 collision_layer = 16
 size = Vector3(25, 196, 25)
+material = SubResource("StandardMaterial3D_voyto")
 
 [node name="Building30" type="CSGBox3D" parent="Buildings"]
 transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -298, -36, 240)
+material_override = ExtResource("15_4kpi4")
 use_collision = true
 size = Vector3(25, 188, 25)
 
@@ -243,9 +418,11 @@ transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, -186, -14.
 use_collision = true
 collision_layer = 16
 size = Vector3(25, 231, 25)
+material = SubResource("StandardMaterial3D_tlcfh")
 
 [node name="Building31" type="CSGBox3D" parent="Buildings"]
 transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, -214, -22.5, 313)
+material_override = ExtResource("14_ymruk")
 use_collision = true
 collision_layer = 16
 size = Vector3(25, 215, 25)
@@ -254,39 +431,47 @@ size = Vector3(25, 215, 25)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 87, -70, -110)
 use_collision = true
 size = Vector3(25, 120, 25)
+material = SubResource("StandardMaterial3D_8tmlt")
 
 [node name="Building4" type="CSGBox3D" parent="Buildings"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 117, -40, -89.5)
 use_collision = true
 size = Vector3(25, 180, 56)
+material = ExtResource("15_4kpi4")
 
 [node name="Building5" type="CSGBox3D" parent="Buildings"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 142, -55, -99)
 use_collision = true
 size = Vector3(25, 150, 25)
+material = SubResource("StandardMaterial3D_tlcfh")
 
 [node name="Building14" type="CSGBox3D" parent="Buildings"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 218, -76, -91.223)
 use_collision = true
 size = Vector3(25, 160, 25)
+material = SubResource("StandardMaterial3D_13yq3")
 
 [node name="Building16" type="CSGBox3D" parent="Buildings"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 210.5, -71, -141.223)
 use_collision = true
 size = Vector3(40, 170, 25)
+material = SubResource("StandardMaterial3D_y85wf")
 
 [node name="Building15" type="CSGBox3D" parent="Buildings"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 215, -81, -116.252)
 use_collision = true
 size = Vector3(31, 150, 25)
+material = SubResource("StandardMaterial3D_c120j")
 
 [node name="Building17" type="CSGBox3D" parent="Buildings"]
 transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, 243.5, -69, -171.252)
 use_collision = true
 size = Vector3(26, 174, 25)
+material = SubResource("StandardMaterial3D_2dwcg")
 
 [node name="Building18" type="CSGBox3D" parent="Buildings"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 286.5, -66, -185.252)
+material_override = ExtResource("14_ymruk")
 use_collision = true
 size = Vector3(26, 180, 25)
 
@@ -294,29 +479,35 @@ size = Vector3(26, 180, 25)
 transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 325.5, -57, -169.252)
 use_collision = true
 size = Vector3(26, 198, 25)
+material = SubResource("StandardMaterial3D_seg11")
 
 [node name="Building20" type="CSGBox3D" parent="Buildings"]
 transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 356.5, -68.5, -147.252)
 use_collision = true
 size = Vector3(26, 175, 25)
+material = SubResource("StandardMaterial3D_bni5o")
 
 [node name="Building21" type="CSGBox3D" parent="Buildings"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 368.5, -69.5, -112.252)
 use_collision = true
 size = Vector3(26, 173, 25)
+material = SubResource("StandardMaterial3D_bxxod")
 
 [node name="Building22" type="CSGBox3D" parent="Buildings"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 374.5, -73.5, -74.2519)
 use_collision = true
 size = Vector3(26, 165, 25)
+material = SubResource("StandardMaterial3D_guapq")
 
 [node name="Building23" type="CSGBox3D" parent="Buildings"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 374.5, -66, -49.2519)
 use_collision = true
 size = Vector3(26, 180, 25)
+material = SubResource("StandardMaterial3D_486do")
 
 [node name="Building24" type="CSGBox3D" parent="Buildings"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 368.5, -84, -15.2519)
+material_override = ExtResource("14_ymruk")
 use_collision = true
 size = Vector3(26, 144, 25)
 
@@ -324,14 +515,17 @@ size = Vector3(26, 144, 25)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 362.5, -74.5, 20.7481)
 use_collision = true
 size = Vector3(26, 163, 25)
+material = SubResource("StandardMaterial3D_t0647")
 
 [node name="Building37" type="CSGBox3D" parent="Buildings"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 368.5, -79, 56.7481)
+material_override = ExtResource("15_4kpi4")
 use_collision = true
 size = Vector3(26, 154, 25)
 
 [node name="Building38" type="CSGBox3D" parent="Buildings"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 368.5, -72, 81.7481)
+material_override = ExtResource("15_4kpi4")
 use_collision = true
 size = Vector3(26, 168, 25)
 
@@ -339,14 +533,17 @@ size = Vector3(26, 168, 25)
 transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 368.5, -65, 118.748)
 use_collision = true
 size = Vector3(26, 182, 25)
+material = SubResource("StandardMaterial3D_6w1xo")
 
 [node name="Building42" type="CSGBox3D" parent="Buildings"]
 transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, 451.5, -69.5, 201.748)
 use_collision = true
 size = Vector3(26, 173, 25)
+material = SubResource("StandardMaterial3D_1g3un")
 
 [node name="Building43" type="CSGBox3D" parent="Buildings"]
 transform = Transform3D(0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 455.5, -64.5, 257.248)
+material_override = ExtResource("15_4kpi4")
 use_collision = true
 size = Vector3(26, 183, 64)
 
@@ -354,24 +551,29 @@ size = Vector3(26, 183, 64)
 transform = Transform3D(0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 405.1, -66.5, 348.169)
 use_collision = true
 size = Vector3(26, 179, 59)
+material = SubResource("StandardMaterial3D_ag8mv")
 
 [node name="Building46" type="CSGBox3D" parent="Buildings"]
 transform = Transform3D(0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 431.5, -52, 304.748)
 use_collision = true
 size = Vector3(26, 186, 39)
+material = SubResource("StandardMaterial3D_7gm10")
 
 [node name="Building47" type="CSGBox3D" parent="Buildings"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 292.5, -71, 417.248)
 use_collision = true
 size = Vector3(26, 170, 54)
+material = SubResource("StandardMaterial3D_d2xca")
 
 [node name="Building48" type="CSGBox3D" parent="Buildings"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 396.5, -71, 421.248)
+material_override = ExtResource("14_ymruk")
 use_collision = true
 size = Vector3(26, 170, 46)
 
 [node name="Building49" type="CSGBox3D" parent="Buildings"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 344.5, -58, 431.748)
+material_override = ExtResource("15_4kpi4")
 use_collision = true
 size = Vector3(78, 196, 25)
 
@@ -379,9 +581,11 @@ size = Vector3(78, 196, 25)
 transform = Transform3D(0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, 287.861, -75.5, 356.998)
 use_collision = true
 size = Vector3(26, 161, 42)
+material = SubResource("StandardMaterial3D_xfamv")
 
 [node name="Building53" type="CSGBox3D" parent="Buildings"]
 transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 254.5, -65.5, 336.748)
+material_override = ExtResource("14_ymruk")
 use_collision = true
 size = Vector3(26, 181, 25)
 
@@ -389,9 +593,11 @@ size = Vector3(26, 181, 25)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 172.5, -65.5, 314.748)
 use_collision = true
 size = Vector3(26, 181, 25)
+material = SubResource("StandardMaterial3D_guapq")
 
 [node name="Building57" type="CSGBox3D" parent="Buildings"]
 transform = Transform3D(0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 129.5, -70, 314.748)
+material_override = ExtResource("14_ymruk")
 use_collision = true
 size = Vector3(26, 172, 25)
 
@@ -399,14 +605,17 @@ size = Vector3(26, 172, 25)
 transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 88.5, -70.5, 289.748)
 use_collision = true
 size = Vector3(26, 171, 25)
+material = SubResource("StandardMaterial3D_486do")
 
 [node name="Building59" type="CSGBox3D" parent="Buildings"]
 transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 45.5, -81, 282.748)
 use_collision = true
 size = Vector3(26, 150, 25)
+material = SubResource("StandardMaterial3D_guapq")
 
 [node name="Building60" type="CSGBox3D" parent="Buildings"]
 transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, -3.5, -69, 349.748)
+material_override = ExtResource("14_ymruk")
 use_collision = true
 size = Vector3(26, 174, 25)
 
@@ -414,14 +623,17 @@ size = Vector3(26, 174, 25)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46.5, -53, 354.748)
 use_collision = true
 size = Vector3(26, 206, 25)
+material = SubResource("StandardMaterial3D_voyto")
 
 [node name="Building63" type="CSGBox3D" parent="Buildings"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -82.5, -63, 360.748)
 use_collision = true
 size = Vector3(26, 186, 25)
+material = SubResource("StandardMaterial3D_6w1xo")
 
 [node name="Building64" type="CSGBox3D" parent="Buildings"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -108.5, -54, 360.748)
+material_override = ExtResource("15_4kpi4")
 use_collision = true
 size = Vector3(26, 204, 25)
 
@@ -429,29 +641,35 @@ size = Vector3(26, 204, 25)
 transform = Transform3D(0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, -146.5, -51, 352.748)
 use_collision = true
 size = Vector3(26, 210, 25)
+material = SubResource("StandardMaterial3D_bni5o")
 
 [node name="Building66" type="CSGBox3D" parent="Buildings"]
 transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -175.5, -36.5, 336.748)
 use_collision = true
 size = Vector3(26, 239, 25)
+material = SubResource("StandardMaterial3D_8tmlt")
 
 [node name="Building61" type="CSGBox3D" parent="Buildings"]
 transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 25.5, -70, 324.748)
 use_collision = true
 size = Vector3(26, 172, 25)
+material = SubResource("StandardMaterial3D_xfamv")
 
 [node name="Building56" type="CSGBox3D" parent="Buildings"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 219.5, -72.5, 324.748)
 use_collision = true
 size = Vector3(26, 167, 25)
+material = SubResource("StandardMaterial3D_tlcfh")
 
 [node name="Building54" type="CSGBox3D" parent="Buildings"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 229, -67, 286.748)
 use_collision = true
 size = Vector3(25, 172, 35)
+material = SubResource("StandardMaterial3D_seg11")
 
 [node name="Building40" type="CSGBox3D" parent="Buildings"]
 transform = Transform3D(0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, 402.5, -65.5, 141.748)
+material_override = ExtResource("14_ymruk")
 use_collision = true
 size = Vector3(26, 181, 25)
 
@@ -459,19 +677,23 @@ size = Vector3(26, 181, 25)
 transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 433.5, -46, 168.748)
 use_collision = true
 size = Vector3(26, 150, 25)
+material = SubResource("StandardMaterial3D_qkvxo")
 
 [node name="Building8" type="CSGBox3D" parent="Buildings"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 190, -60, -8)
 use_collision = true
 size = Vector3(25, 140, 25)
+material = SubResource("StandardMaterial3D_t0sje")
 
 [node name="Building9" type="CSGBox3D" parent="Buildings"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 251, -55, -8)
 use_collision = true
 size = Vector3(25, 150, 25)
+material = SubResource("StandardMaterial3D_1qgm3")
 
 [node name="Building6" type="CSGBox3D" parent="Buildings"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 147.5, -60, -74)
+material_override = ExtResource("14_ymruk")
 use_collision = true
 size = Vector3(36, 140, 25)
 
@@ -479,21 +701,25 @@ size = Vector3(36, 140, 25)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 165, -60, -25.5)
 use_collision = true
 size = Vector3(25, 140, 60)
+material = SubResource("StandardMaterial3D_u6ab0")
 
 [node name="Building10" type="CSGBox3D" parent="Buildings"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 276, -58, -24.5)
 use_collision = true
 collision_layer = 16
 size = Vector3(25, 144, 60)
+material = SubResource("StandardMaterial3D_mbwd3")
 
 [node name="Building12" type="CSGBox3D" parent="Buildings"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 286, -45, -87.0634)
+material_override = ExtResource("15_4kpi4")
 use_collision = true
 collision_layer = 16
 size = Vector3(45, 170, 60.5)
 
 [node name="Building13" type="CSGBox3D" parent="Buildings"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26, -45, 202.5)
+material_override = ExtResource("15_4kpi4")
 use_collision = true
 size = Vector3(85, 170, 60)
 
