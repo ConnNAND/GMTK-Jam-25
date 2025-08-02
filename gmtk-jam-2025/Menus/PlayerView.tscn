@@ -27,7 +27,6 @@ size_flags_vertical = 3
 stretch = true
 script = ExtResource("1_mw52u")
 Rocketeer = ExtResource("2_uypme")
-PauseScreen = ExtResource("3_t0o3n")
 
 [node name="SubViewport" type="SubViewport" parent="."]
 process_mode = 1
@@ -75,5 +74,9 @@ grow_horizontal = 0
 text = "Laps: 0"
 script = ExtResource("7_kxji3")
 metadata/_custom_type_script = "uid://ctyx8vtlw442d"
+
+[node name="PauseMenu" parent="SubViewport" instance=ExtResource("3_t0o3n")]
+unique_name_in_owner = true
+visible = false
 
 [connection signal="overtime_timer_timeout" from="SubViewport/GameTimer" to="." method="_on_game_timer_overtime_timer_timeout"]
