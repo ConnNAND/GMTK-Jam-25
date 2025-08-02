@@ -9,4 +9,4 @@ func check_over():
 			game_over = false
 			break
 	if game_over:
-		get_tree().change_scene_to_file("res://Menus/main_menu.tscn")
+		get_tree().change_scene_to_file("res://Menus/results_screen.tscn")

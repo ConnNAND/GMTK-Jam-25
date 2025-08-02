@@ -41,3 +41,5 @@ func _on_game_timer_overtime_timer_timeout() -> void:
 	finished = true
 	visible = false
 	get_parent().check_over()
+	PlayerData.bestTime[playerID] = $SubViewport/GameTimer._pb_seconds
+	PlayerData.lapCount[playerID] = $SubViewport/LapCounter.laps
