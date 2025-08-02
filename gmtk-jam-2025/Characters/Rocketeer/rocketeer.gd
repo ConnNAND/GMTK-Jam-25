@@ -96,7 +96,7 @@ func _physics_process(delta: float) -> void:
 		jump_just_pressed = false
 	actual_velocity.y -= gravity*delta
 	#variable jump height for holding the button down
-	if (Input.is_joy_button_pressed(player_id, JOY_BUTTON_A) or (Input.is_key_pressed(KEY_SPACE) and player_id==99)) and velocity.y > 0:
+	if (Input.is_joy_button_pressed(player_id, JOY_BUTTON_A) or (Input.is_key_pressed(KEY_SPACE) and player_id==99)) and velocity.y > 0 and spare_jump:
 		gravity = ProjectSettings.get_setting("physics/3d/default_gravity")/2
 	else:
 		gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
