@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dwnltvp4qqjyl"]
+[gd_scene load_steps=10 format=3 uid="uid://dwnltvp4qqjyl"]
 
 [ext_resource type="Script" uid="uid://bjjwoldtu3xqi" path="res://Levels/Scripts/stopwatch_item.gd" id="1_qm6cp"]
 [ext_resource type="PackedScene" uid="uid://v1f2kkhcrqci" path="res://Audio/single_play.tscn" id="2_daslo"]
@@ -8,11 +8,44 @@ radius = 1.5
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qm6cp"]
 albedo_color = Color(1, 1, 0.247059, 1)
+emission_enabled = true
+emission = Color(0.655852, 0.485939, 0.245925, 1)
+emission_energy_multiplier = 0.5
 
 [sub_resource type="SphereMesh" id="SphereMesh_1fs6o"]
 material = SubResource("StandardMaterial3D_qm6cp")
 radius = 1.0
-height = 2.0
+height = 0.5
+radial_segments = 12
+rings = 6
+
+[sub_resource type="SphereMesh" id="SphereMesh_0ar8t"]
+material = SubResource("StandardMaterial3D_qm6cp")
+radius = 0.2
+height = 0.2
+radial_segments = 8
+rings = 4
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_mg25p"]
+material = SubResource("StandardMaterial3D_qm6cp")
+top_radius = 0.1
+bottom_radius = 0.1
+height = 0.3
+radial_segments = 4
+rings = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1fs6o"]
+albedo_color = Color(0.958496, 0.955859, 0.99292, 1)
+emission_enabled = true
+emission = Color(0.695503, 0.695503, 0.695503, 1)
+emission_energy_multiplier = 0.5
+
+[sub_resource type="SphereMesh" id="SphereMesh_daslo"]
+material = SubResource("StandardMaterial3D_1fs6o")
+radius = 0.8
+height = 0.2
+radial_segments = 7
+rings = 2
 
 [node name="StopwatchItem" type="PathFollow3D" groups=["stopwatch"]]
 v_offset = 2.0
@@ -27,6 +60,19 @@ collision_mask = 8
 shape = SubResource("SphereShape3D_4sab8")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
 mesh = SubResource("SphereMesh_1fs6o")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.866025, 0.5, 0, -0.5, 0.866025, 0, 0, 0, 1, 0.549507, 1.06315, 0)
+mesh = SubResource("SphereMesh_0ar8t")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.866025, 0.5, 0, -0.5, 0.866025, 0, 0, 0, 1, 0.472223, 0.918652, 0)
+mesh = SubResource("CylinderMesh_mg25p")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0.160249)
+mesh = SubResource("SphereMesh_daslo")
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

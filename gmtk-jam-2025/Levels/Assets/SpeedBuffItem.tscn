@@ -8,6 +8,9 @@ radius = 1.5
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j5o8s"]
 albedo_color = Color(1, 0.435951, 0.248848, 1)
+emission_enabled = true
+emission = Color(0.853518, 0.459802, 0, 1)
+emission_energy_multiplier = 0.5
 
 [sub_resource type="BoxMesh" id="BoxMesh_ibym7"]
 material = SubResource("StandardMaterial3D_j5o8s")
