@@ -1,5 +1,6 @@
-[gd_scene load_steps=24 format=3 uid="uid://5r2fey2hmyxh"]
+[gd_scene load_steps=25 format=3 uid="uid://5r2fey2hmyxh"]
 
+[ext_resource type="Texture2D" uid="uid://bfms3pif0weju" path="res://Materials/Textures/bettersky.jpg" id="1_m7nff"]
 [ext_resource type="Script" uid="uid://bghpm42r8jlx3" path="res://Levels/test_room.gd" id="1_pplu1"]
 [ext_resource type="PackedScene" uid="uid://bxynvktig10bh" path="res://Menus/PlayerView.tscn" id="2_5pqgv"]
 [ext_resource type="Script" uid="uid://bbcwyhasc3vyp" path="res://Levels/Scripts/goal_post.gd" id="3_3k1a2"]
@@ -11,18 +12,21 @@
 [ext_resource type="Script" uid="uid://bxj26gp2qshkl" path="res://Levels/Scripts/kill_plane.gd" id="5_r4o0h"]
 [ext_resource type="AudioStream" uid="uid://bm61rpkhvp20m" path="res://Audio/horn.ogg" id="6_v4rkh"]
 [ext_resource type="AudioStream" uid="uid://dbgicokse6pwm" path="res://Audio/vibegoal.ogg" id="7_ln84l"]
-[ext_resource type="PackedScene" uid="uid://be84toqk83qjy" path="res://Levels/Assets/Tree.tscn" id="11_qtgve"]
+[ext_resource type="PackedScene" uid="uid://oqgdctnd8xb4" path="res://Levels/Assets/Tree.tscn" id="11_qtgve"]
 [ext_resource type="PackedScene" uid="uid://bee0qj6eunpda" path="res://Levels/Assets/BoostPanel.tscn" id="12_yb6mu"]
 [ext_resource type="PackedScene" uid="uid://8sur61og6h8" path="res://Levels/Assets/Bouncer.tscn" id="13_j8rep"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_i0trf"]
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_8nbxi"]
+panorama = ExtResource("1_m7nff")
+filter = false
 
-[sub_resource type="Sky" id="Sky_pplu1"]
-sky_material = SubResource("ProceduralSkyMaterial_i0trf")
+[sub_resource type="Sky" id="Sky_2y4dp"]
+sky_material = SubResource("PanoramaSkyMaterial_8nbxi")
+radiance_size = 0
 
 [sub_resource type="Environment" id="Environment_5pqgv"]
 background_mode = 2
-sky = SubResource("Sky_pplu1")
+sky = SubResource("Sky_2y4dp")
 ambient_light_color = Color(0.495545, 0.706268, 0.834397, 1)
 
 [sub_resource type="Curve3D" id="Curve3D_frh75"]
@@ -90,20 +94,6 @@ path_local = true
 path_continuous_u = true
 path_u_distance = 1.0
 path_joined = true
-
-[node name="CSGPolygon3D" type="CSGPolygon3D" parent="Path3D"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
-mode = 2
-path_node = NodePath("..")
-path_interval_type = 0
-path_interval = 1.0
-path_simplify_angle = 0.0
-path_rotation = 2
-path_rotation_accurate = false
-path_local = false
-path_continuous_u = true
-path_u_distance = 1.0
-path_joined = false
 
 [node name="GoalPost" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
@@ -189,6 +179,99 @@ transform = Transform3D(0.88565, 0.11843, -0.448998, -0.411277, 0.64897, -0.6400
 
 [node name="Bouncer5" parent="." instance=ExtResource("13_j8rep")]
 transform = Transform3D(0.660444, -0.271805, -0.699954, -0.411277, 0.64897, -0.640069, 0.628223, 0.710605, 0.316821, 424.156, -17.8562, 252.634)
+
+[node name="Buildings" type="Node" parent="."]
+
+[node name="Building" type="CSGBox3D" parent="Buildings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, -65, -110)
+use_collision = true
+size = Vector3(25, 130, 25)
+
+[node name="Building2" type="CSGBox3D" parent="Buildings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57, -60, -110)
+use_collision = true
+size = Vector3(25, 140, 25)
+
+[node name="Building11" type="CSGBox3D" parent="Buildings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, -50, -66)
+use_collision = true
+size = Vector3(25, 160, 25)
+
+[node name="Building3" type="CSGBox3D" parent="Buildings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 87, -70, -110)
+use_collision = true
+size = Vector3(25, 120, 25)
+
+[node name="Building4" type="CSGBox3D" parent="Buildings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 117, -60, -89.5)
+use_collision = true
+size = Vector3(25, 140, 56)
+
+[node name="Building5" type="CSGBox3D" parent="Buildings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 142, -55, -99)
+use_collision = true
+size = Vector3(25, 150, 25)
+
+[node name="Building14" type="CSGBox3D" parent="Buildings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 218, -81, -87)
+use_collision = true
+size = Vector3(25, 150, 25)
+
+[node name="Building8" type="CSGBox3D" parent="Buildings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 190, -60, -8)
+use_collision = true
+size = Vector3(25, 140, 25)
+
+[node name="Building9" type="CSGBox3D" parent="Buildings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 251, -55, -8)
+use_collision = true
+size = Vector3(25, 150, 25)
+
+[node name="Building6" type="CSGBox3D" parent="Buildings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 147.5, -60, -74)
+use_collision = true
+size = Vector3(36, 140, 25)
+
+[node name="Building7" type="CSGBox3D" parent="Buildings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 165, -60, -25.5)
+use_collision = true
+size = Vector3(25, 140, 60)
+
+[node name="Building10" type="CSGBox3D" parent="Buildings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 276, -60, -25.5)
+use_collision = true
+size = Vector3(25, 140, 60)
+
+[node name="Building12" type="CSGBox3D" parent="Buildings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 293.5, -45, 186.5)
+use_collision = true
+size = Vector3(60, 170, 60)
+
+[node name="Building13" type="CSGBox3D" parent="Buildings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.5, -45, 202.5)
+use_collision = true
+size = Vector3(60, 170, 60)
+
+[node name="Ramp" type="CSGBox3D" parent="."]
+transform = Transform3D(-0.764692, -0.219279, -0.605939, 0.0161701, 0.933496, -0.358222, 0.644192, -0.283728, -0.710292, 241.571, -17, -53.0132)
+use_collision = true
+size = Vector3(10, 1, 10)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Ramp"]
+transform = Transform3D(1, 0, 0, 0, 0.965926, -0.258819, 0, 0.258819, 0.965926, 0, 0, -2)
+size = Vector3(10, 1, 10)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Ramp/CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 0.965926, -0.258819, 0, 0.258819, 0.965926, 0, 0, -2)
+size = Vector3(10, 1, 10)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Ramp/CSGBox3D/CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 0.965926, -0.258819, 0, 0.258819, 0.965926, 0, 0, -2)
+size = Vector3(10, 1, 10)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Ramp/CSGBox3D/CSGBox3D/CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 0.965926, -0.258819, 0, 0.258819, 0.965926, 0, 0, -2)
+size = Vector3(10, 1, 10)
 
 [connection signal="body_entered" from="GoalPost" to="GoalPost" method="_on_body_entered"]
 [connection signal="body_entered" from="KillPlane" to="KillPlane" method="_on_body_entered"]
