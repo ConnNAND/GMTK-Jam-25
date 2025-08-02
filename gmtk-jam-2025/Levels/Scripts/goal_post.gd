@@ -20,6 +20,7 @@ func _on_body_entered(body: Node3D) -> void:
 				$Vibe.play()
 			if body.timer:
 				body.timer.cross_goal_post()
+				body.lap_counter.increment()
 			for i in get_tree().get_nodes_in_group("stopwatch"):
 				if i.player_id == body.player_id:
 					i.reset()

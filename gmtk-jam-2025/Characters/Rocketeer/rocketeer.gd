@@ -23,6 +23,8 @@ var gravity:float = ProjectSettings.get_setting("physics/3d/default_gravity")
 var up_vec = Vector3.UP
 
 var timer
+var lap_counter
+
 var stepspeed = 5
 var windspeed = -20
 

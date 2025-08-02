@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bxynvktig10bh"]
+[gd_scene load_steps=9 format=3 uid="uid://bxynvktig10bh"]
 
 [ext_resource type="Script" uid="uid://cpgb1244uuv13" path="res://Menus/player_view.gd" id="1_mw52u"]
 [ext_resource type="PackedScene" uid="uid://bje5llf3vk0jp" path="res://Characters/Rocketeer/Rocketeer.tscn" id="2_uypme"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dqpy3gp7cuamr" path="res://Timers/GameTimer.tscn" id="4_nd2d2"]
 [ext_resource type="Script" uid="uid://ckfn01tkm1mqy" path="res://Speedometer/speedometer.gd" id="5_7hwyb"]
 [ext_resource type="Shader" uid="uid://d2n77cig0kdlu" path="res://Materials/Shaders/dither.gdshader" id="6_rqmiy"]
+[ext_resource type="Script" uid="uid://ctyx8vtlw442d" path="res://LapCounter/lap_counter.gd" id="7_kxji3"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kxji3"]
 shader = ExtResource("6_rqmiy")
@@ -46,15 +47,31 @@ grow_vertical = 2
 [node name="GameTimer" parent="SubViewport" instance=ExtResource("4_nd2d2")]
 
 [node name="Speedometer" type="Label" parent="SubViewport"]
-anchors_preset = 5
+anchors_preset = 7
 anchor_left = 0.5
+anchor_top = 1.0
 anchor_right = 0.5
+anchor_bottom = 1.0
 offset_left = -20.0
+offset_top = -23.0
 offset_right = 20.0
-offset_bottom = 23.0
 grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 8
+size_flags_vertical = 0
 text = "asdf"
 script = ExtResource("5_7hwyb")
 metadata/_custom_type_script = "uid://ckfn01tkm1mqy"
+
+[node name="LapCounter" type="Label" parent="SubViewport"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 23.0
+grow_horizontal = 0
+text = "Laps: 0"
+script = ExtResource("7_kxji3")
+metadata/_custom_type_script = "uid://ctyx8vtlw442d"
 
 [connection signal="overtime_timer_timeout" from="SubViewport/GameTimer" to="." method="_on_game_timer_overtime_timer_timeout"]
