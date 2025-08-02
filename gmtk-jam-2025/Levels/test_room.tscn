@@ -10,7 +10,7 @@
 [ext_resource type="Script" uid="uid://bxj26gp2qshkl" path="res://Levels/Scripts/kill_plane.gd" id="5_r4o0h"]
 [ext_resource type="AudioStream" uid="uid://bm61rpkhvp20m" path="res://Audio/horn.ogg" id="6_v4rkh"]
 [ext_resource type="AudioStream" uid="uid://dbgicokse6pwm" path="res://Audio/vibegoal.ogg" id="7_ln84l"]
-[ext_resource type="PackedScene" uid="uid://be84toqk83qjy" path="res://Levels/Assets/Tree.tscn" id="11_qtgve"]
+[ext_resource type="PackedScene" uid="uid://oqgdctnd8xb4" path="res://Levels/Assets/Tree.tscn" id="11_qtgve"]
 [ext_resource type="PackedScene" uid="uid://bee0qj6eunpda" path="res://Levels/Assets/BoostPanel.tscn" id="12_yb6mu"]
 [ext_resource type="PackedScene" uid="uid://8sur61og6h8" path="res://Levels/Assets/Bouncer.tscn" id="13_j8rep"]
 
@@ -24,17 +24,17 @@ background_mode = 2
 sky = SubResource("Sky_pplu1")
 ambient_light_color = Color(0.495545, 0.706268, 0.834397, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v4rkh"]
-albedo_texture = ExtResource("3_uglqc")
-uv1_scale = Vector3(0.02, -8.035, 1)
-texture_filter = 0
-
 [sub_resource type="Curve3D" id="Curve3D_frh75"]
 _data = {
 "points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, -50, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 0, 0, 50, 0, 0, -10, 0, 0, 10, 0, -20, 100, 47.3711, 0, 1.13736, -47.3711, 0, -1.13736, -50, -20, 150, 9.9584, 3.07617, -0.691467, -9.9584, -3.07617, 0.691467, -108.426, -20, 150.332, 11.0146, 0, 49.2758, -11.0146, 0, -49.2758, -177.695, -34.0002, 106.432, 24.9278, 0, -20.8698, -24.9278, 0, 20.8698, -238.566, -20, 62.3732, 49.8556, 0, -8.69572, -49.8556, 0, 8.69572, -272.769, -20, 151.07, -2.89859, 0, 44.0584, 2.89859, 0, -44.0584, -338.856, -20, 62.9529, -5.36755, 4.43921, 19.3839, 5.36755, -4.43921, -19.3839, -334.148, -51.3645, 1.6824, -4.45889, 0, 18.0445, 4.45889, 0, -18.0445, -330.67, -20, -63.2458, 12.9326, 0, 26.7403, -12.9326, 0, -26.7403, -327.771, -20, -125.855, 27.2313, 0, 26.1263, -27.2313, 0, -26.1263, -393.085, -20, -172.778, -9.87048, 0, 33.6626, 9.87048, 0, -33.6626, -421.491, -20, -260.315, 13.2907, 0, 38.8226, -13.2907, 0, -38.8226, -368.155, -20, -355.098, -14.5356, 0, -14.5112, 14.5356, 0, 14.5112, -326.996, -20, -389.881, -49.3186, 0, -16.83, 49.3186, 0, 16.83, -302.647, -20, -320.315, -40.07, 0, -5.8559, 40.07, 0, 5.8559, -234.821, -20, -253.647, -21.3789, 0, -0.80545, 21.3789, 0, 0.80545, -164.095, -20, -285.532, -34.0377, -0.000244141, -6.43954, 34.0377, 0.000244141, 6.43954, -76.4562, -58.54, -242.403, -6.81636, 0, 45.0508, 6.81636, 0, -45.0508, -3.3678, -20, -295.659, -32.3238, 0, 4.4707, 32.3238, 0, -4.4707, 100.715, -7.19408, -327.85, -12.1741, 0, -2.89859, 12.1741, 0, 2.89859, 154.35, -3.10237, -310.351, -17.9712, 0, 22.0292, 17.9712, 0, -22.0292, 188.575, -5.79781, -281.307, -17.9712, 0, 31.3047, 17.9712, 0, -31.3047, 243.425, -8.61179, -273.126, -29.5655, 0, 32.4641, 29.5655, 0, -32.4641, 287.419, -3.60102, -261.323, 64.9282, 0, -15.6523, -64.9282, 0, 15.6523, 307.284, -20, -178.51, -54.02, -27.5852, 62.3611, 54.02, 27.5852, -62.3611, 334.599, -30.6383, -62.3255, 37.1018, 0, -34.2032, -37.1018, 0, 34.2032, 180.696, -7.28745, -84.3947, 20.2901, 0, 22.6089, -20.2901, 0, -22.6089, 92.7893, -10.9762, -137.35, 19.1306, 0, -11.0146, -19.1306, 0, 11.0146, 22.9271, -11.0242, -149.947, 0.579712, 0, -27.2466, -0.579712, 0, 27.2466, 0.555762, -0.458965, -64.9994),
 "tilts": PackedFloat32Array(0, 0, 0, 0, 0.546268, 0.257229, 0.227628, 0.248472, 0.845362, 0.582414, 0.587975, 0.529936, 0, 1.05535, 0.892396, 1.02514, 0.99883, 0.692733, 0.692146, 0.615032, 0, 1.05836, 1.06979, 1.29508, 1.14404, 1.07313, 0.951046, 1.49108, 1.22026, 2.4284, 2.19009, 2.16515, 2.31258)
 }
 point_count = 33
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v4rkh"]
+albedo_texture = ExtResource("3_uglqc")
+uv1_scale = Vector3(0.02, -8.035, 1)
+texture_filter = 0
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_3k1a2"]
 radius = 25.0
@@ -69,13 +69,16 @@ grow_vertical = 2
 [node name="Spawn" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.73447, 0)
 
-[node name="MainTrack" type="CSGPolygon3D" parent="."]
+[node name="Path3D" type="Path3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+curve = SubResource("Curve3D_frh75")
+
+[node name="MainTrack" type="CSGPolygon3D" parent="Path3D"]
 material_override = SubResource("StandardMaterial3D_v4rkh")
 use_collision = true
 polygon = PackedVector2Array(-11.5, -0.5, -12.5, 0.5, 12.5, 0.5, 11.5, -0.5)
 mode = 2
-path_node = NodePath("Path3D")
+path_node = NodePath("..")
 path_interval_type = 0
 path_interval = 1.0
 path_simplify_angle = 0.0
@@ -86,8 +89,19 @@ path_continuous_u = true
 path_u_distance = 1.0
 path_joined = true
 
-[node name="Path3D" type="Path3D" parent="MainTrack"]
-curve = SubResource("Curve3D_frh75")
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="Path3D"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
 
 [node name="GoalPost" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
