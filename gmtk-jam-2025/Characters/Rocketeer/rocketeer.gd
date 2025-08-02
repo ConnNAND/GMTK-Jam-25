@@ -123,10 +123,10 @@ func _physics_process(delta: float) -> void:
 		up_vec.y = rotate_toward(up_vec.y,get_floor_normal().y, delta*5)
 		up_vec.z = rotate_toward(up_vec.z,get_floor_normal().z, delta*5)
 	else:
+		floor_snap_length = 0
 		up_vec.x = rotate_toward(up_vec.x,Vector3.UP.x, delta)
 		up_vec.y = rotate_toward(up_vec.y,Vector3.UP.y, delta)
 		up_vec.z = rotate_toward(up_vec.z,Vector3.UP.z, delta)
-	up_vec = up_vec.normalized()
 	global_basis.y = up_vec
 	global_basis.x = global_basis.y.cross(global_basis.z)
 	global_basis.z = global_basis.x.cross(global_basis.y)
