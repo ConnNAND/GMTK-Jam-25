@@ -18,3 +18,8 @@ func _ready() -> void:
 		temp3.player_id = i[0]
 		temp3.reset()
 	$PlayerViews.columns = maxi(ceili(sqrt($PlayerViews.get_child_count())), 1)
+
+func start_game():
+	find_child("StartingBlock").queue_free()
+	for i in get_tree().get_nodes_in_group("GameTimer"):
+		i.resume_game_timer()

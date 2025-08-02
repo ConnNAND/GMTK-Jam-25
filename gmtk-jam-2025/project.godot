@@ -23,6 +23,7 @@ PlayerData="*res://player_data.gd"
 
 player="any character that will run around the track and be cool"
 stopwatch=""
+GameTimer=""
 
 [input]
 
