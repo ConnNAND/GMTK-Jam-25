@@ -4,6 +4,9 @@
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eybok"]
 albedo_color = Color(0.414786, 0.0461094, 0.524074, 1)
+emission_enabled = true
+emission = Color(0.549584, 0.00056159, 0.625463, 1)
+emission_energy_multiplier = 0.5
 
 [sub_resource type="BoxMesh" id="BoxMesh_cye3n"]
 material = SubResource("StandardMaterial3D_eybok")
