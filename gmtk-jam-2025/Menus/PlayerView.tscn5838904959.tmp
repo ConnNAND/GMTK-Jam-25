@@ -14,7 +14,6 @@ shader_parameter/resolution_downsampling = 2.0
 shader_parameter/bit_depth = 16.0
 
 [node name="PlayerView" type="SubViewportContainer"]
-process_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -27,7 +26,6 @@ script = ExtResource("1_mw52u")
 Rocketeer = ExtResource("2_uypme")
 
 [node name="SubViewport" type="SubViewport" parent="."]
-process_mode = 1
 handle_input_locally = false
 audio_listener_enable_3d = true
 size = Vector2i(1152, 648)

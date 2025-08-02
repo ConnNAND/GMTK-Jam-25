@@ -32,9 +32,8 @@ var respawn_point : Transform3D = Transform3D.IDENTITY
 var spare_jump = true
 var in_air : bool = true
 var jumping:bool = false
-
+var is_paused : bool = false
 func _physics_process(delta: float) -> void:
-	
 	windspeed = min(Vector3(velocity.x, velocity.y/2, velocity.z).length()/3-20, 10)
 	$Wind.volume_db = windspeed
 	if stepspeed>0:

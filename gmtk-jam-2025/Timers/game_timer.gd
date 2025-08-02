@@ -61,6 +61,20 @@ func cross_goal_post():
 	# Start the timer with new PB
 	start_stopwatch()
 
+# Starts the game timer from wherever its at
+func resume_game_timer():
+	if _stopwatch_timer.time_left != 0.0:
+		resume_stopwatch_timer()
+	else:
+		resume_overtime_timer()
+
+# Starts the game timer from wherever its at
+func pause_game_timer():
+	if _stopwatch_timer.time_left != 0.0:
+		pause_stopwatch_timer()
+	else:
+		pause_overtime_timer()
+
 # Start the stopwatch timer
 func start_stopwatch(): _stopwatch_timer.start(_pb_seconds)
 # Pause the overtime timer
