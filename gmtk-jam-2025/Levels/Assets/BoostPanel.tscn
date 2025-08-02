@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bee0qj6eunpda"]
+[gd_scene load_steps=6 format=3 uid="uid://bee0qj6eunpda"]
 
 [ext_resource type="Script" uid="uid://dgpn0tnq8bdvv" path="res://Levels/Scripts/boost_panel.gd" id="1_x6sdw"]
+[ext_resource type="AudioStream" uid="uid://dk1l1wejll8" path="res://Audio/boostsf.ogg" id="2_e7umi"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x6sdw"]
 albedo_color = Color(1, 0.317647, 0.156863, 1)
@@ -25,6 +26,9 @@ mesh = SubResource("BoxMesh_e7umi")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_x6sdw")
+
+[node name="Boost" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_e7umi")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

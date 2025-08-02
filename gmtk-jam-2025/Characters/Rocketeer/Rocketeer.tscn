@@ -1,20 +1,22 @@
-[gd_scene load_steps=12 format=3 uid="uid://bje5llf3vk0jp"]
+[gd_scene load_steps=14 format=3 uid="uid://bje5llf3vk0jp"]
 
 [ext_resource type="Script" uid="uid://crvf0fpyykp20" path="res://Characters/Rocketeer/rocketeer.gd" id="1_8gcnr"]
 [ext_resource type="AudioStream" uid="uid://cdetddmuofw2b" path="res://Audio/footstep.ogg" id="2_8gcnr"]
 [ext_resource type="AudioStream" uid="uid://n6khcqdnsss2" path="res://Audio/recordScratch.ogg" id="3_b1cc0"]
 [ext_resource type="AudioStream" uid="uid://c7xsddtonnoaj" path="res://Audio/Wind.ogg" id="3_h58gn"]
 [ext_resource type="Material" uid="uid://cfof8abwuu8py" path="res://Materials/jetpack.tres" id="4_qjgur"]
+[ext_resource type="AudioStream" uid="uid://cjsrc6pmgop8q" path="res://Audio/jump.ogg" id="5_cipta"]
 [ext_resource type="PackedScene" uid="uid://csdw2glgpa7ek" path="res://Characters/Rocketeer/rocketeer.blend" id="5_qjgur"]
 [ext_resource type="ArrayMesh" uid="uid://dn61ae4ppjim8" path="res://Characters/Rocketeer/jetpack.res" id="7_mnh83"]
 [ext_resource type="AudioStream" uid="uid://q2haj26bmde2" path="res://Audio/smack.ogg" id="8_3js8k"]
+[ext_resource type="AudioStream" uid="uid://c2n1hmrt2tel4" path="res://Audio/jetpack.ogg" id="10_b6dng"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_u2dk0"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_qjgur"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3js8k"]
-radius = 0.51
+radius = 0.6
 
 [node name="Rocketeer" type="CharacterBody3D" groups=["player"]]
 collision_layer = 8
@@ -36,6 +38,9 @@ volume_db = -8.0
 [node name="Wind" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("3_h58gn")
 autoplay = true
+
+[node name="Jump" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("5_cipta")
 
 [node name="rocketeer" parent="." instance=ExtResource("5_qjgur")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.114006, 0)
@@ -68,5 +73,8 @@ stream = ExtResource("8_3js8k")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.96046e-08, -0.120396, 0.208575)
 light_color = Color(1, 0.570212, 0.354496, 1)
 omni_range = 50.0
+
+[node name="Jetpack" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("10_b6dng")
 
 [connection signal="body_entered" from="BonkCheck" to="." method="_on_bonk_check_body_entered"]
