@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://d0p5cqmpdfyi8" path="res://Materials/Textures/pole.png" id="1_cyxgi"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_cyxgi"]
-height = 2.44357
+height = 2.25201
 radius = 0.0688477
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_sqpum"]
@@ -19,7 +19,7 @@ collision_mask = 0
 texture = ExtResource("1_cyxgi")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0168514, -0.0579567, 0)
+transform = Transform3D(0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, -0.0168514, -0.153739, 0)
 shape = SubResource("CylinderShape3D_cyxgi")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
