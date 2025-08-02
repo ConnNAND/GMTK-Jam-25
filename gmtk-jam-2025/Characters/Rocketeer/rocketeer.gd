@@ -31,6 +31,7 @@ var respawn_point : Transform3D = Transform3D.IDENTITY
 
 var spare_jump = true
 var in_air : bool = true
+var jumping:bool = false
 
 func _physics_process(delta: float) -> void:
 	
@@ -71,8 +72,9 @@ func _physics_process(delta: float) -> void:
 		rotate(global_transform.basis.y, -delta*turning)
 	
 	if is_on_floor():
+		jumping = false
 		if (in_air):
-			actual_velocity.y = 0
+			actual_velocity.y = -ProjectSettings.get_setting("physics/3d/default_gravity")
 			in_air = false
 		if velocity.length() > 0.5 and stepspeed < 0:
 			$Step.pitch_scale = randf_range(0.9, 1.2)
@@ -82,7 +84,9 @@ func _physics_process(delta: float) -> void:
 		floor_snap_length = 0.1
 		spare_jump = true
 	else:
-		in_air = true
+		if not in_air and !jumping:
+			actual_velocity.y = 0
+			in_air = true
 	if Input.is_joy_button_pressed(player_id, JOY_BUTTON_A) or (Input.is_key_pressed(KEY_SPACE) and player_id==99):
 		if !jump_just_pressed:
 			jump_just_pressed = true
@@ -158,6 +162,7 @@ func _input(event: InputEvent) -> void:
 
 
 func jump():
+	jumping = true
 	if is_on_floor():
 		actual_velocity.y = jump_strength / hinderance
 		floor_snap_length = 0
