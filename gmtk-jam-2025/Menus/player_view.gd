@@ -4,6 +4,7 @@ extends SubViewportContainer
 var playerID = -1
 var pause_held_flag = false
 var player : CharacterBody3D
+var finished = false
 
 func ready_player(playerInfo, spawnLocation):
 	if playerInfo[1]==0:
@@ -37,5 +38,6 @@ func toggle_pause():
 
 
 func _on_game_timer_overtime_timer_timeout() -> void:
-	queue_free()
-	get_parent().call_deferred("check_over")
+	finished = true
+	visible = false
+	get_parent().check_over()

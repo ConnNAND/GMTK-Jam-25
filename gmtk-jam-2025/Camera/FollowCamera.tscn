@@ -11,4 +11,10 @@ script = ExtResource("1_p0j1i")
 [node name="Camera3D" type="Camera3D" parent="."]
 current = true
 
+[node name="SpotLight3D" type="SpotLight3D" parent="Camera3D"]
+light_color = Color(0.756863, 0.584314, 0.929412, 1)
+light_energy = 5.0
+light_cull_mask = 4294967293
+spot_range = 200.0
+
 [node name="Node3D" type="Node3D" parent="."]
