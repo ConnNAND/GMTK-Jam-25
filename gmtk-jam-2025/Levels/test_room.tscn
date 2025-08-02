@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://5r2fey2hmyxh"]
+[gd_scene load_steps=26 format=3 uid="uid://5r2fey2hmyxh"]
 
 [ext_resource type="Texture2D" uid="uid://bfms3pif0weju" path="res://Materials/Textures/bettersky.jpg" id="1_m7nff"]
 [ext_resource type="Script" uid="uid://bghpm42r8jlx3" path="res://Levels/test_room.gd" id="1_pplu1"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://oqgdctnd8xb4" path="res://Levels/Assets/Tree.tscn" id="11_qtgve"]
 [ext_resource type="PackedScene" uid="uid://bee0qj6eunpda" path="res://Levels/Assets/BoostPanel.tscn" id="12_yb6mu"]
 [ext_resource type="PackedScene" uid="uid://8sur61og6h8" path="res://Levels/Assets/Bouncer.tscn" id="13_j8rep"]
+[ext_resource type="PackedScene" uid="uid://blo8duotlcmw1" path="res://Levels/Assets/Ramp.blend" id="16_8nbxi"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_8nbxi"]
 panorama = ExtResource("1_m7nff")
@@ -105,6 +106,7 @@ script = ExtResource("3_3k1a2")
 shape = SubResource("SphereShape3D_3k1a2")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="GoalPost"]
+layers = 2
 mesh = SubResource("SphereMesh_3k1a2")
 
 [node name="CheckPoint" parent="GoalPost" instance=ExtResource("4_3k1a2")]
@@ -213,9 +215,9 @@ use_collision = true
 size = Vector3(25, 150, 25)
 
 [node name="Building14" type="CSGBox3D" parent="Buildings"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 218, -81, -87)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 218, -29.7229, -87)
 use_collision = true
-size = Vector3(25, 150, 25)
+size = Vector3(25, 252.554, 25)
 
 [node name="Building8" type="CSGBox3D" parent="Buildings"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 190, -60, -8)
@@ -252,26 +254,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.5, -45, 202.5)
 use_collision = true
 size = Vector3(60, 170, 60)
 
-[node name="Ramp" type="CSGBox3D" parent="."]
-transform = Transform3D(-0.764692, -0.219279, -0.605939, 0.0161701, 0.933496, -0.358222, 0.644192, -0.283728, -0.710292, 241.571, -17, -53.0132)
-use_collision = true
-size = Vector3(10, 1, 10)
+[node name="Ramp" parent="." instance=ExtResource("16_8nbxi")]
+transform = Transform3D(0.502402, -0.229837, -0.833527, 0.371834, 0.927758, -0.0317006, 0.780597, -0.294007, 0.551569, 235.026, -17.3133, -50.0413)
 
-[node name="CSGBox3D" type="CSGBox3D" parent="Ramp"]
-transform = Transform3D(1, 0, 0, 0, 0.965926, -0.258819, 0, 0.258819, 0.965926, 0, 0, -2)
-size = Vector3(10, 1, 10)
-
-[node name="CSGBox3D" type="CSGBox3D" parent="Ramp/CSGBox3D"]
-transform = Transform3D(1, 0, 0, 0, 0.965926, -0.258819, 0, 0.258819, 0.965926, 0, 0, -2)
-size = Vector3(10, 1, 10)
-
-[node name="CSGBox3D" type="CSGBox3D" parent="Ramp/CSGBox3D/CSGBox3D"]
-transform = Transform3D(1, 0, 0, 0, 0.965926, -0.258819, 0, 0.258819, 0.965926, 0, 0, -2)
-size = Vector3(10, 1, 10)
-
-[node name="CSGBox3D" type="CSGBox3D" parent="Ramp/CSGBox3D/CSGBox3D/CSGBox3D"]
-transform = Transform3D(1, 0, 0, 0, 0.965926, -0.258819, 0, 0.258819, 0.965926, 0, 0, -2)
-size = Vector3(10, 1, 10)
+[node name="Ramp2" parent="." instance=ExtResource("16_8nbxi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 198.054, -32.7335, -90.2423)
 
 [connection signal="body_entered" from="GoalPost" to="GoalPost" method="_on_body_entered"]
 [connection signal="body_entered" from="KillPlane" to="KillPlane" method="_on_body_entered"]
