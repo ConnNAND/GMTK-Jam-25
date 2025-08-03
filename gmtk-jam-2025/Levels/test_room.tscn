@@ -1,4 +1,4 @@
-[gd_scene load_steps=93 format=3 uid="uid://5r2fey2hmyxh"]
+[gd_scene load_steps=94 format=3 uid="uid://5r2fey2hmyxh"]
 
 [ext_resource type="Texture2D" uid="uid://bfms3pif0weju" path="res://Materials/Textures/bettersky.jpg" id="1_m7nff"]
 [ext_resource type="Script" uid="uid://bghpm42r8jlx3" path="res://Levels/test_room.gd" id="1_pplu1"]
@@ -50,6 +50,7 @@
 [ext_resource type="AudioStream" uid="uid://cqllqn3s7x2r" path="res://Audio/hyper-garden-jungle-breakbeat-drum-and-bass-loop-edit-356528.mp3" id="47_ffy06"]
 [ext_resource type="AudioStream" uid="uid://ipr4r8cu4a0m" path="res://Audio/jungle-waves-drumampbass-electronic-inspiring-promo-345013.mp3" id="48_v5ntf"]
 [ext_resource type="AudioStream" uid="uid://dsqnveboepueu" path="res://Audio/otherworldly-drum-and-bass-full-369492.mp3" id="49_vrdyx"]
+[ext_resource type="Script" uid="uid://b1lreptywkk30" path="res://Levels/car_spawner.gd" id="50_v5ntf"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_8nbxi"]
 panorama = ExtResource("1_m7nff")
@@ -1574,13 +1575,12 @@ volume_db = -20.0
 [node name="CarPath" type="Path3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1, 0)
 curve = SubResource("Curve3D_ag8mv")
+script = ExtResource("50_v5ntf")
+car = ExtResource("47_d2xca")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="CarPath"]
 transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, 258.967, -29.7052, -107.288)
 size = Vector3(4, 10, 10)
-
-[node name="Car" parent="CarPath" instance=ExtResource("47_d2xca")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 261, -30, -103)
 
 [connection signal="body_entered" from="GoalPost" to="GoalPost" method="_on_body_entered"]
 [connection signal="body_entered" from="KillPlane" to="KillPlane" method="_on_body_entered"]
