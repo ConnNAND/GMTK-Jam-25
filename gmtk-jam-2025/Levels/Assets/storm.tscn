@@ -108,12 +108,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20.5562, 0)
 shape = SubResource("CylinderShape3D_dkrub")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="GroundCheck/LightningBump"]
+visible = false
 light_color = Color(0.431373, 0.85098, 1, 1)
 light_energy = 2.0
 omni_range = 7.0
 
 [node name="Lightning" type="Sprite3D" parent="GroundCheck/LightningBump"]
 transform = Transform3D(29.52, 0, 0, 0, 29.52, 0, 0, 0, 29.52, 0, 75.4889, 0)
+visible = false
 offset = Vector2(53.35, 0)
 billboard = 2
 texture = ExtResource("2_bv3r6")
