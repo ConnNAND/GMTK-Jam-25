@@ -1,0 +1,94 @@
+[gd_scene load_steps=15 format=3 uid="uid://c3x0gqnyw076v"]
+
+[ext_resource type="Script" uid="uid://b5e1rmhwtxabo" path="res://Characters/Daniel/daniel_running.gd" id="1_23ok5"]
+[ext_resource type="AudioStream" uid="uid://cdetddmuofw2b" path="res://Audio/footstep.ogg" id="2_kvtol"]
+[ext_resource type="AudioStream" uid="uid://n6khcqdnsss2" path="res://Audio/recordScratch.ogg" id="3_5h65t"]
+[ext_resource type="AudioStream" uid="uid://c7xsddtonnoaj" path="res://Audio/Wind.ogg" id="4_f7hr7"]
+[ext_resource type="AudioStream" uid="uid://cjsrc6pmgop8q" path="res://Audio/jump.ogg" id="5_3ndl2"]
+[ext_resource type="AudioStream" uid="uid://q2haj26bmde2" path="res://Audio/smack.ogg" id="9_mf3gd"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_u2dk0"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3js8k"]
+radius = 0.6
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_okdnc"]
+albedo_color = Color(0.956871, 0.729796, 0.566016, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_23ok5"]
+material = SubResource("StandardMaterial3D_okdnc")
+radius = 0.3
+height = 0.6
+radial_segments = 6
+rings = 4
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wlobj"]
+albedo_color = Color(0.145098, 0.376471, 1, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_wlobj"]
+material = SubResource("StandardMaterial3D_wlobj")
+radius = 0.33
+height = 1.3
+radial_segments = 5
+rings = 1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_23ok5"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_wlobj"]
+material = SubResource("StandardMaterial3D_23ok5")
+size = Vector3(0.46, 0.14, 0.195)
+
+[node name="DanielRunning" type="CharacterBody3D" groups=["player"]]
+collision_layer = 8
+collision_mask = 27
+script = ExtResource("1_23ok5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_u2dk0")
+
+[node name="Step" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_kvtol")
+volume_db = -8.0
+
+[node name="Death" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_5h65t")
+volume_db = -8.0
+
+[node name="Wind" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_f7hr7")
+autoplay = true
+
+[node name="Jump" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_3ndl2")
+
+[node name="BonkCheck" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BonkCheck"]
+shape = SubResource("CapsuleShape3D_3js8k")
+
+[node name="Ouch" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_mf3gd")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.96046e-08, -0.120396, 0.208575)
+light_color = Color(1, 0.570212, 0.354496, 1)
+omni_range = 50.0
+
+[node name="Model" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.662628, 0)
+mesh = SubResource("SphereMesh_23ok5")
+
+[node name="Model2" type="MeshInstance3D" parent="Model"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.87517, 0)
+mesh = SubResource("CapsuleMesh_wlobj")
+skeleton = NodePath("../..")
+
+[node name="Model3" type="MeshInstance3D" parent="Model"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0571468, -0.176393)
+mesh = SubResource("BoxMesh_wlobj")
+skeleton = NodePath("../..")
+
+[connection signal="body_entered" from="BonkCheck" to="." method="_on_bonk_check_body_entered"]

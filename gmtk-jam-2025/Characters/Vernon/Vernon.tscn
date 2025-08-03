@@ -1,0 +1,129 @@
+[gd_scene load_steps=18 format=3 uid="uid://dkfrtxv2meskt"]
+
+[ext_resource type="Script" uid="uid://c5wr7yhmvqtn0" path="res://Characters/Vernon/vernon.gd" id="1_20b2s"]
+[ext_resource type="AudioStream" uid="uid://cdetddmuofw2b" path="res://Audio/footstep.ogg" id="2_shx52"]
+[ext_resource type="AudioStream" uid="uid://n6khcqdnsss2" path="res://Audio/recordScratch.ogg" id="3_qmlaw"]
+[ext_resource type="AudioStream" uid="uid://c7xsddtonnoaj" path="res://Audio/Wind.ogg" id="4_gpfy2"]
+[ext_resource type="AudioStream" uid="uid://cjsrc6pmgop8q" path="res://Audio/jump.ogg" id="5_o0t3j"]
+[ext_resource type="AudioStream" uid="uid://cuc5b47lykeub" path="res://Audio/614160__videofueralle__swishes_16_strong_slower.ogg" id="7_20b2s"]
+[ext_resource type="AudioStream" uid="uid://q2haj26bmde2" path="res://Audio/smack.ogg" id="9_t22br"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_u2dk0"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3js8k"]
+radius = 0.6
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_20b2s"]
+albedo_color = Color(0.304843, 0.0879827, 0.00409919, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_20b2s"]
+material = SubResource("StandardMaterial3D_20b2s")
+bottom_radius = 1.0
+height = 0.05
+radial_segments = 5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fxxk1"]
+albedo_color = Color(0.304843, 0.0879827, 0.00409919, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_fxxk1"]
+material = SubResource("StandardMaterial3D_fxxk1")
+radius = 0.32
+height = 1.0
+radial_segments = 4
+rings = 0
+
+[sub_resource type="SphereMesh" id="SphereMesh_fxxk1"]
+material = SubResource("StandardMaterial3D_fxxk1")
+radius = 0.3
+height = 0.6
+radial_segments = 6
+rings = 4
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pleoa"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_5lr1s"]
+material = SubResource("StandardMaterial3D_pleoa")
+radius = 0.1
+height = 0.2
+radial_segments = 6
+rings = 4
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_20b2s"]
+material = SubResource("StandardMaterial3D_fxxk1")
+radius = 0.05
+height = 0.6
+radial_segments = 4
+rings = 0
+
+[node name="Vernon" type="CharacterBody3D" groups=["player"]]
+collision_layer = 8
+collision_mask = 27
+script = ExtResource("1_20b2s")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_u2dk0")
+
+[node name="Step" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_shx52")
+volume_db = -8.0
+
+[node name="Death" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_qmlaw")
+volume_db = -8.0
+
+[node name="Wind" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_gpfy2")
+autoplay = true
+
+[node name="Jump" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_o0t3j")
+
+[node name="BonkCheck" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BonkCheck"]
+shape = SubResource("CapsuleShape3D_3js8k")
+
+[node name="Ouch" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_t22br")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.96046e-08, -0.120396, 0.208575)
+light_color = Color(1, 0.570212, 0.354496, 1)
+omni_range = 50.0
+
+[node name="Fly" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_20b2s")
+
+[node name="Flight" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.97226, -0.233904, 0, 0.233904, 0.97226, 0, -0.158011, 0.603651)
+visible = false
+mesh = SubResource("CylinderMesh_20b2s")
+skeleton = NodePath("../Mesh")
+
+[node name="Body" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 0, 0, 1, 0, -0.347855, 0)
+mesh = SubResource("CapsuleMesh_fxxk1")
+skeleton = NodePath("../Mesh")
+
+[node name="Mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.313437, 0)
+mesh = SubResource("SphereMesh_fxxk1")
+
+[node name="Mesh2" type="MeshInstance3D" parent="Mesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.206367, 0.054452, -0.13403)
+mesh = SubResource("SphereMesh_5lr1s")
+skeleton = NodePath("../..")
+
+[node name="Mesh3" type="MeshInstance3D" parent="Mesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.206, 0.054, -0.134018)
+mesh = SubResource("SphereMesh_5lr1s")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh"]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0.195793, 0)
+mesh = SubResource("CapsuleMesh_20b2s")
+
+[connection signal="body_entered" from="BonkCheck" to="." method="_on_bonk_check_body_entered"]

@@ -1,8 +1,7 @@
 extends CenterContainer
 
 var player_id = 0
-enum characters {Rocketeer, Vampire, FlyingSquirrel, Gecko, Climbers}
-var character:characters
+var character:int
 
 func _ready() -> void:
 	for i in Input.get_connected_joypads():

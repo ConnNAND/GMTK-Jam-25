@@ -1,4 +1,4 @@
-[gd_scene load_steps=96 format=3 uid="uid://5r2fey2hmyxh"]
+[gd_scene load_steps=98 format=3 uid="uid://5r2fey2hmyxh"]
 
 [ext_resource type="Texture2D" uid="uid://bfms3pif0weju" path="res://Materials/Textures/bettersky.jpg" id="1_m7nff"]
 [ext_resource type="Script" uid="uid://bghpm42r8jlx3" path="res://Levels/test_room.gd" id="1_pplu1"]
@@ -13,7 +13,6 @@
 [ext_resource type="Script" uid="uid://br5dh2ewaliyt" path="res://Levels/intro_timer.gd" id="6_8nbxi"]
 [ext_resource type="AudioStream" uid="uid://bm61rpkhvp20m" path="res://Audio/horn.ogg" id="6_v4rkh"]
 [ext_resource type="AudioStream" uid="uid://dbgicokse6pwm" path="res://Audio/vibegoal.ogg" id="7_ln84l"]
-[ext_resource type="PackedScene" uid="uid://cl34uppi3w5uy" path="res://Levels/Assets/storm.tscn" id="9_ag8mv"]
 [ext_resource type="PackedScene" uid="uid://dix1odcv6uuc4" path="res://Levels/Assets/storm.tscn" id="9_ag8mv"]
 [ext_resource type="Script" uid="uid://coh53ekisdwqr" path="res://Levels/lamp_generator.gd" id="10_wddm5"]
 [ext_resource type="PackedScene" uid="uid://c3jyqlurl3ali" path="res://Levels/Assets/Lamp.tscn" id="11_lbcri"]
@@ -1605,6 +1604,7 @@ stream = ExtResource("51_vrdyx")
 
 [node name="fail" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("53_lbcri")
+
 [node name="Lamps" type="Node3D" parent="."]
 
 [connection signal="body_entered" from="GoalPost" to="GoalPost" method="_on_body_entered"]

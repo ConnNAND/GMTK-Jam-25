@@ -34,7 +34,6 @@ var windspeed = -20
 @export var camera_orientation:Node3D
 var respawn_point : Transform3D = Transform3D.IDENTITY
 
-var spare_jump = true
 var in_air : bool = true
 var jumping:bool = false
 var is_paused : bool = false
@@ -86,7 +85,6 @@ func _physics_process(delta: float) -> void:
 			stepspeed = 5
 		gravity = 0
 		floor_snap_length = 0.1
-		spare_jump = true
 	else:
 		if not in_air and !jumping:
 			actual_velocity.y = 0
@@ -99,7 +97,7 @@ func _physics_process(delta: float) -> void:
 		jump_just_pressed = false
 	actual_velocity.y -= gravity*delta
 	#variable jump height for holding the button down
-	if (Input.is_joy_button_pressed(player_id, JOY_BUTTON_A) or (Input.is_key_pressed(KEY_SPACE) and player_id==99)) and velocity.y > 0 and spare_jump:
+	if (Input.is_joy_button_pressed(player_id, JOY_BUTTON_A) or (Input.is_key_pressed(KEY_SPACE) and player_id==99)) and velocity.y > 0:
 		gravity = ProjectSettings.get_setting("physics/3d/default_gravity")/2
 	else:
 		gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -171,13 +169,6 @@ func jump():
 		actual_velocity.y = jump_strength / hinderance
 		floor_snap_length = 0
 		$Jump.play()
-	#ROCKETEER ONLY
-	elif spare_jump:
-		actual_velocity.y = unique_ability / hinderance
-		floor_snap_length = 0
-		spare_jump = false
-		$Jetpack.play()
-		$particles.emitting = true
 
 
 func kill():

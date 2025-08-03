@@ -1,11 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://bxynvktig10bh"]
+[gd_scene load_steps=13 format=3 uid="uid://bxynvktig10bh"]
 
 [ext_resource type="Script" uid="uid://cpgb1244uuv13" path="res://Menus/Scripts/player_view.gd" id="1_mw52u"]
 [ext_resource type="PackedScene" uid="uid://bje5llf3vk0jp" path="res://Characters/Rocketeer/Rocketeer.tscn" id="2_uypme"]
 [ext_resource type="PackedScene" uid="uid://ble64swkbdodj" path="res://Camera/FollowCamera.tscn" id="3_rpd14"]
+[ext_resource type="PackedScene" uid="uid://c3x0gqnyw076v" path="res://Characters/Daniel/DanielRunning.tscn" id="3_scolh"]
 [ext_resource type="PackedScene" uid="uid://cdtc7ig867elb" path="res://Menus/pause_menu.tscn" id="3_t0o3n"]
 [ext_resource type="PackedScene" uid="uid://dqpy3gp7cuamr" path="res://Timers/GameTimer.tscn" id="4_nd2d2"]
+[ext_resource type="PackedScene" uid="uid://dkfrtxv2meskt" path="res://Characters/Vernon/Vernon.tscn" id="4_pawcj"]
 [ext_resource type="Script" uid="uid://ckfn01tkm1mqy" path="res://Speedometer/speedometer.gd" id="5_7hwyb"]
+[ext_resource type="PackedScene" uid="uid://do0ucus8i4gsr" path="res://Characters/Gary/GaryGecko.tscn" id="5_mko63"]
 [ext_resource type="Shader" uid="uid://d2n77cig0kdlu" path="res://Materials/Shaders/dither.gdshader" id="6_rqmiy"]
 [ext_resource type="Script" uid="uid://ctyx8vtlw442d" path="res://LapCounter/lap_counter.gd" id="7_kxji3"]
 
@@ -27,6 +30,9 @@ size_flags_vertical = 3
 stretch = true
 script = ExtResource("1_mw52u")
 Rocketeer = ExtResource("2_uypme")
+Daniel = ExtResource("3_scolh")
+Vernon = ExtResource("4_pawcj")
+Gary = ExtResource("5_mko63")
 
 [node name="SubViewport" type="SubViewport" parent="."]
 process_mode = 1
@@ -45,6 +51,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="GameTimer" parent="SubViewport" instance=ExtResource("4_nd2d2")]
+initial_pb_seconds = 200.0
 
 [node name="Speedometer" type="Label" parent="SubViewport"]
 anchors_preset = 7

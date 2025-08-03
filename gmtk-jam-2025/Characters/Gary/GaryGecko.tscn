@@ -1,0 +1,127 @@
+[gd_scene load_steps=18 format=3 uid="uid://do0ucus8i4gsr"]
+
+[ext_resource type="Script" uid="uid://crt4pn1y82hlg" path="res://Characters/Gary/gary_gecko.gd" id="1_fqe5j"]
+[ext_resource type="AudioStream" uid="uid://cdetddmuofw2b" path="res://Audio/footstep.ogg" id="2_74cv5"]
+[ext_resource type="AudioStream" uid="uid://n6khcqdnsss2" path="res://Audio/recordScratch.ogg" id="3_1bcv2"]
+[ext_resource type="AudioStream" uid="uid://c7xsddtonnoaj" path="res://Audio/Wind.ogg" id="4_f0580"]
+[ext_resource type="AudioStream" uid="uid://cjsrc6pmgop8q" path="res://Audio/jump.ogg" id="5_dmwqs"]
+[ext_resource type="AudioStream" uid="uid://q2haj26bmde2" path="res://Audio/smack.ogg" id="6_67wop"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_u2dk0"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3js8k"]
+radius = 0.6
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rjxyo"]
+albedo_color = Color(0, 0.701076, 0.245672, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_3whpj"]
+material = SubResource("StandardMaterial3D_rjxyo")
+radius = 0.3
+height = 0.6
+radial_segments = 6
+rings = 4
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fqe5j"]
+albedo_color = Color(0, 0.701076, 0.245672, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_mcrdh"]
+material = SubResource("StandardMaterial3D_fqe5j")
+radius = 0.32
+height = 1.0
+radial_segments = 4
+rings = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_726md"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_xqt8l"]
+material = SubResource("StandardMaterial3D_726md")
+radius = 0.1
+height = 0.2
+radial_segments = 6
+rings = 4
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sbt7l"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_rijmv"]
+material = SubResource("StandardMaterial3D_sbt7l")
+radius = 0.1
+height = 0.2
+radial_segments = 6
+rings = 4
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_fqe5j"]
+material = SubResource("StandardMaterial3D_rjxyo")
+top_radius = 0.2
+bottom_radius = 0.0
+height = 0.8
+radial_segments = 4
+rings = 0
+
+[node name="Gary" type="CharacterBody3D" groups=["player"]]
+collision_layer = 8
+collision_mask = 27
+script = ExtResource("1_fqe5j")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_u2dk0")
+
+[node name="Step" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_74cv5")
+volume_db = -8.0
+
+[node name="Death" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_1bcv2")
+volume_db = -8.0
+
+[node name="Wind" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_f0580")
+autoplay = true
+
+[node name="Jump" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_dmwqs")
+
+[node name="BonkCheck" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BonkCheck"]
+shape = SubResource("CapsuleShape3D_3js8k")
+
+[node name="Ouch" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_67wop")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.96046e-08, -0.120396, 0.208575)
+light_color = Color(1, 0.570212, 0.354496, 1)
+omni_range = 50.0
+
+[node name="Mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.590776, 0)
+mesh = SubResource("SphereMesh_3whpj")
+
+[node name="Body" type="MeshInstance3D" parent="Mesh"]
+transform = Transform3D(-1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 0, 0, 1, 0, -0.661293, 0)
+mesh = SubResource("CapsuleMesh_mcrdh")
+
+[node name="Mesh2" type="MeshInstance3D" parent="Mesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.206367, 0.054452, -0.13403)
+mesh = SubResource("SphereMesh_xqt8l")
+skeleton = NodePath("../..")
+
+[node name="Mesh3" type="MeshInstance3D" parent="Mesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.206, 0.054, -0.134018)
+mesh = SubResource("SphereMesh_rijmv")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh"]
+transform = Transform3D(1, 0, 0, 0, 0.474734, 0.88013, 0, -0.88013, 0.474734, 0, -1.06954, 0.4476)
+mesh = SubResource("CylinderMesh_fqe5j")
+
+[node name="climbray" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.305207, 0)
+target_position = Vector3(0, 0, -1)
+
+[connection signal="body_entered" from="BonkCheck" to="." method="_on_bonk_check_body_entered"]

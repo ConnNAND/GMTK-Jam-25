@@ -1,6 +1,9 @@
 extends SubViewportContainer
 
 @export var Rocketeer:PackedScene
+@export var Daniel:PackedScene
+@export var Vernon:PackedScene
+@export var Gary:PackedScene
 var playerID = -1
 var pause_held_flag = false
 var player : CharacterBody3D
@@ -12,17 +15,51 @@ func ready_player(playerInfo, spawnLocation):
 	playerID = playerInfo[0]
 	%PauseMenu.prepare_menu(playerID)
 	%PauseMenu.quit.connect(game_over)
-	if playerInfo[1]==0:
-		player = Rocketeer.instantiate()
-		$SubViewport.add_child(player)
-		player.global_transform.origin = spawnLocation
-		player.player_id = playerInfo[0]
-		$SubViewport/FollowCamera.target = player
-		player.camera_orientation = $SubViewport/FollowCamera/Camera3D
-		player.timer = $SubViewport/GameTimer
-		player.lap_counter = $SubViewport/LapCounter
-		$SubViewport/Speedometer.target = player
-		player_collision_layer = player.collision_layer
+	match playerInfo[1]:
+		0:#daniel running
+			player = Daniel.instantiate()
+			$SubViewport.add_child(player)
+			player.global_transform.origin = spawnLocation
+			player.player_id = playerInfo[0]
+			$SubViewport/FollowCamera.target = player
+			player.camera_orientation = $SubViewport/FollowCamera/Camera3D
+			player.timer = $SubViewport/GameTimer
+			player.lap_counter = $SubViewport/LapCounter
+			$SubViewport/Speedometer.target = player
+			player_collision_layer = player.collision_layer
+		1:#jeffery rocket
+			player = Rocketeer.instantiate()
+			$SubViewport.add_child(player)
+			player.global_transform.origin = spawnLocation
+			player.player_id = playerInfo[0]
+			$SubViewport/FollowCamera.target = player
+			player.camera_orientation = $SubViewport/FollowCamera/Camera3D
+			player.timer = $SubViewport/GameTimer
+			player.lap_counter = $SubViewport/LapCounter
+			$SubViewport/Speedometer.target = player
+			player_collision_layer = player.collision_layer
+		2:#vernon colugo
+			player = Vernon.instantiate()
+			$SubViewport.add_child(player)
+			player.global_transform.origin = spawnLocation
+			player.player_id = playerInfo[0]
+			$SubViewport/FollowCamera.target = player
+			player.camera_orientation = $SubViewport/FollowCamera/Camera3D
+			player.timer = $SubViewport/GameTimer
+			player.lap_counter = $SubViewport/LapCounter
+			$SubViewport/Speedometer.target = player
+			player_collision_layer = player.collision_layer
+		3:#gary gecko
+			player = Gary.instantiate()
+			$SubViewport.add_child(player)
+			player.global_transform.origin = spawnLocation
+			player.player_id = playerInfo[0]
+			$SubViewport/FollowCamera.target = player
+			player.camera_orientation = $SubViewport/FollowCamera/Camera3D
+			player.timer = $SubViewport/GameTimer
+			player.lap_counter = $SubViewport/LapCounter
+			$SubViewport/Speedometer.target = player
+			player_collision_layer = player.collision_layer
 	if !get_parent().get_parent().first:
 		get_parent().get_parent().first = player
 		$SubViewport.audio_listener_enable_3d = true

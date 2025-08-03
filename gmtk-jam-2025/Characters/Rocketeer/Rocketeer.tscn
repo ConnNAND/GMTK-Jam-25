@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bje5llf3vk0jp"]
+[gd_scene load_steps=16 format=3 uid="uid://bje5llf3vk0jp"]
 
 [ext_resource type="Script" uid="uid://crvf0fpyykp20" path="res://Characters/Rocketeer/rocketeer.gd" id="1_8gcnr"]
 [ext_resource type="AudioStream" uid="uid://cdetddmuofw2b" path="res://Audio/footstep.ogg" id="2_8gcnr"]
@@ -17,6 +17,18 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3js8k"]
 radius = 0.6
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b6dng"]
+albedo_color = Color(0.595182, 0, 0.109802, 1)
+emission_enabled = true
+emission = Color(0.747132, 0.258918, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_kel2h"]
+material = SubResource("StandardMaterial3D_b6dng")
+radius = 0.1
+height = 0.5
+radial_segments = 4
+rings = 1
 
 [node name="Rocketeer" type="CharacterBody3D" groups=["player"]]
 collision_layer = 8
@@ -75,5 +87,16 @@ omni_range = 50.0
 
 [node name="Jetpack" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_b6dng")
+
+[node name="particles" type="CPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.116782, 0.43801)
+emitting = false
+one_shot = true
+explosiveness = 0.85
+mesh = SubResource("SphereMesh_kel2h")
+direction = Vector3(0, -1, 0)
+spread = 15.0
+initial_velocity_min = 5.0
+initial_velocity_max = 15.0
 
 [connection signal="body_entered" from="BonkCheck" to="." method="_on_bonk_check_body_entered"]
