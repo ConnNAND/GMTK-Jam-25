@@ -23,6 +23,7 @@ func _on_back_pressed() -> void:
 func _on_add_player_pressed() -> void:
 	var temp = player_select.instantiate()
 	add_child(temp)
+	temp.get_child(0).get_child(0).text = "Player " + str(get_child_count())
 	columns = ceili(sqrt(get_child_count()))
 
 
