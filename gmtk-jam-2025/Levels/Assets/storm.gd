@@ -39,3 +39,12 @@ func _on_active_timer_timeout() -> void:
 	$GroundCheck/LightningBump/Rain.stop()
 	$Visual.visible = false
 	$ActiveTimer.start()
+
+
+func _on_lightning_bump_body_entered(body: Node3D) -> void:
+	if body.is_in_group("player"):
+		body.default_speed = max(body.starting_speed, body.default_speed-5)
+		body.top_speed = max(body.starting_top_speed, body.top_speed-6)
+		body.actual_velocity = Vector3.ZERO
+		body.target_velocity = Vector3.ZERO
+		body.current_speed = 0

@@ -12,11 +12,12 @@ material = SubResource("StandardMaterial3D_n06eo")
 radius = 29.639
 height = 18.895
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_n06eo"]
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_dkrub"]
+height = 43.1124
 radius = 5.0
 
 [node name="Storm" type="PathFollow3D"]
-h_offset = 150.0
+v_offset = 150.0
 rotation_mode = 1
 tilt_enabled = false
 script = ExtResource("1_g0r6i")
@@ -98,20 +99,21 @@ target_position = Vector3(0, -151, 0)
 
 [node name="LightningBump" type="Area3D" parent="GroundCheck"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -150, 0)
+collision_layer = 2
+collision_mask = 8
 monitoring = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="GroundCheck/LightningBump"]
-shape = SubResource("SphereShape3D_n06eo")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20.5562, 0)
+shape = SubResource("CylinderShape3D_dkrub")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="GroundCheck/LightningBump"]
-visible = false
 light_color = Color(0.431373, 0.85098, 1, 1)
 light_energy = 2.0
 omni_range = 7.0
 
 [node name="Lightning" type="Sprite3D" parent="GroundCheck/LightningBump"]
 transform = Transform3D(29.52, 0, 0, 0, 29.52, 0, 0, 0, 29.52, 0, 75.4889, 0)
-visible = false
 offset = Vector2(53.35, 0)
 billboard = 2
 texture = ExtResource("2_bv3r6")
@@ -132,5 +134,6 @@ wait_time = 240.0
 one_shot = true
 autostart = true
 
+[connection signal="body_entered" from="GroundCheck/LightningBump" to="." method="_on_lightning_bump_body_entered"]
 [connection signal="timeout" from="LightningTimer" to="." method="_on_lightning_timer_timeout"]
 [connection signal="timeout" from="ActiveTimer" to="." method="_on_active_timer_timeout"]
