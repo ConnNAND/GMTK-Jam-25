@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cl34uppi3w5uy"]
+[gd_scene load_steps=13 format=3 uid="uid://cl34uppi3w5uy"]
 
 [ext_resource type="Script" uid="uid://cvgg7ai18h48f" path="res://Levels/Assets/storm.gd" id="1_g0r6i"]
 [ext_resource type="Texture2D" uid="uid://06oquof4vngs" path="res://Materials/Textures/lightning.png" id="2_bv3r6"]
@@ -43,6 +43,10 @@ radius = 30.0
 height = 100.0
 radial_segments = 6
 rings = 3
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_jcr6p"]
+height = 362.349
+radius = 101.52
 
 [node name="Storm" type="PathFollow3D"]
 v_offset = 150.0
@@ -156,6 +160,7 @@ stream = ExtResource("3_uu8oq")
 stream = ExtResource("4_dkrub")
 
 [node name="RealRain" type="GPUParticles3D" parent="GroundCheck/LightningBump"]
+transform = Transform3D(1, 0, 0, 0, 0.927589, -0.373603, 0, 0.373603, 0.927589, 0, 0, 0)
 emitting = false
 amount = 30
 process_material = SubResource("ParticleProcessMaterial_p0r8l")
@@ -171,6 +176,16 @@ wait_time = 240.0
 one_shot = true
 autostart = true
 
+[node name="WindZone" type="Area3D" parent="."]
+collision_layer = 2
+collision_mask = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WindZone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -168.492, 0)
+shape = SubResource("CylinderShape3D_jcr6p")
+
 [connection signal="body_entered" from="GroundCheck/LightningBump" to="." method="_on_lightning_bump_body_entered"]
 [connection signal="timeout" from="LightningTimer" to="." method="_on_lightning_timer_timeout"]
 [connection signal="timeout" from="ActiveTimer" to="." method="_on_active_timer_timeout"]
+[connection signal="body_entered" from="WindZone" to="." method="_on_wind_zone_body_entered"]
+[connection signal="body_exited" from="WindZone" to="." method="_on_wind_zone_body_exited"]

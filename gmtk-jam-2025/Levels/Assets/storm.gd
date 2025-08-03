@@ -1,12 +1,18 @@
 extends PathFollow3D
 
 var active = false
+var shift_these = []
+var wind_strength = 25
 
 func _ready() -> void:
 	progress_ratio = randf_range(0, 1)
 
 func _process(delta: float) -> void:
 	progress += delta*10
+	if active:
+		for i in shift_these:
+			i.velocity += global_basis.x * wind_strength * delta
+			i.move_and_slide()
 	if $GroundCheck.is_colliding():
 		$GroundCheck/LightningBump.global_position = $GroundCheck.get_collision_point()
 
@@ -50,3 +56,13 @@ func _on_lightning_bump_body_entered(body: Node3D) -> void:
 		body.actual_velocity = Vector3.ZERO
 		body.target_velocity = Vector3.ZERO
 		body.current_speed = 0
+
+
+func _on_wind_zone_body_entered(body: Node3D) -> void:
+	if body.is_in_group("player"):
+		shift_these.append(body)
+
+
+func _on_wind_zone_body_exited(body: Node3D) -> void:
+	if body.is_in_group("player"):
+		shift_these.erase(body)
