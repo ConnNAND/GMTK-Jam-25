@@ -1,4 +1,4 @@
-extends AudioStreamPlayer3D
+extends AudioStreamPlayer
 
 
 func _on_finished() -> void:

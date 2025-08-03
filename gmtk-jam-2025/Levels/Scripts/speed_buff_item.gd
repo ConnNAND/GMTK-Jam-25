@@ -11,7 +11,7 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 		body.default_speed += 5
 		var temp = collectsound.instantiate()
 		get_parent_node_3d().add_child(temp)
-		temp.global_transform.origin = global_transform.origin
+		#temp.global_transform.origin = global_transform.origin
 		reset()
 
 func reset():

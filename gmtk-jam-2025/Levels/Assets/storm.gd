@@ -11,7 +11,7 @@ func _process(delta: float) -> void:
 	progress += delta*10
 	if active:
 		for i in shift_these:
-			i.velocity += global_basis.x * wind_strength * delta
+			i.velocity = global_basis.x * wind_strength * delta
 			i.move_and_slide()
 	if $GroundCheck.is_colliding():
 		$GroundCheck/LightningBump.global_position = $GroundCheck.get_collision_point()

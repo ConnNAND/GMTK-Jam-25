@@ -19,7 +19,7 @@ var jump_just_pressed = false
 var unique_ability:float = 25
 
 var hinderance:float = 1
-var boost_factor:float = 1
+var boost_factor:float = 2.75
 
 var gravity:float = ProjectSettings.get_setting("physics/3d/default_gravity")
 var up_vec = Vector3.UP
@@ -29,6 +29,7 @@ var lap_counter
 
 var stepspeed = 5
 var windspeed = -20
+@onready var wind = $Wind
 
 @export var camera_orientation:Node3D
 var respawn_point : Transform3D = Transform3D.IDENTITY
@@ -39,7 +40,8 @@ var jumping:bool = false
 var is_paused : bool = false
 func _physics_process(delta: float) -> void:
 	windspeed = min(Vector3(velocity.x, velocity.y/2, velocity.z).length()/3-20, 10)
-	$Wind.volume_db = windspeed
+	wind.volume_db = windspeed
+	print(windspeed)
 	if stepspeed>0:
 		stepspeed -= delta*velocity.length()
 	#checks the angle of the floor to see if you should speed up or slow down

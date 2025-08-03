@@ -26,20 +26,19 @@ script = ExtResource("1_8gcnr")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_u2dk0")
 
-[node name="Step" type="AudioStreamPlayer3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0042392, 5.96046e-08, 0.000622392)
+[node name="Step" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_8gcnr")
 volume_db = -8.0
 
-[node name="Death" type="AudioStreamPlayer3D" parent="."]
+[node name="Death" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_b1cc0")
 volume_db = -8.0
 
-[node name="Wind" type="AudioStreamPlayer3D" parent="."]
+[node name="Wind" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_h58gn")
 autoplay = true
 
-[node name="Jump" type="AudioStreamPlayer3D" parent="."]
+[node name="Jump" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_cipta")
 
 [node name="rocketeer" parent="." instance=ExtResource("5_qjgur")]
@@ -66,7 +65,7 @@ collision_mask = 16
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BonkCheck"]
 shape = SubResource("CapsuleShape3D_3js8k")
 
-[node name="Ouch" type="AudioStreamPlayer3D" parent="."]
+[node name="Ouch" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_3js8k")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
@@ -74,7 +73,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.96046e-08, -0.120396, 0.20
 light_color = Color(1, 0.570212, 0.354496, 1)
 omni_range = 50.0
 
-[node name="Jetpack" type="AudioStreamPlayer3D" parent="."]
+[node name="Jetpack" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_b6dng")
 
 [connection signal="body_entered" from="BonkCheck" to="." method="_on_bonk_check_body_entered"]

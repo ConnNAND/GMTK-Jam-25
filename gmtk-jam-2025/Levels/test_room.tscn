@@ -1,4 +1,4 @@
-[gd_scene load_steps=88 format=3 uid="uid://5r2fey2hmyxh"]
+[gd_scene load_steps=91 format=3 uid="uid://5r2fey2hmyxh"]
 
 [ext_resource type="Texture2D" uid="uid://bfms3pif0weju" path="res://Materials/Textures/bettersky.jpg" id="1_m7nff"]
 [ext_resource type="Script" uid="uid://bghpm42r8jlx3" path="res://Levels/test_room.gd" id="1_pplu1"]
@@ -13,7 +13,7 @@
 [ext_resource type="Script" uid="uid://br5dh2ewaliyt" path="res://Levels/intro_timer.gd" id="6_8nbxi"]
 [ext_resource type="AudioStream" uid="uid://bm61rpkhvp20m" path="res://Audio/horn.ogg" id="6_v4rkh"]
 [ext_resource type="AudioStream" uid="uid://dbgicokse6pwm" path="res://Audio/vibegoal.ogg" id="7_ln84l"]
-[ext_resource type="PackedScene" path="res://Levels/Assets/storm.tscn" id="9_ag8mv"]
+[ext_resource type="PackedScene" uid="uid://cl34uppi3w5uy" path="res://Levels/Assets/storm.tscn" id="9_ag8mv"]
 [ext_resource type="PackedScene" uid="uid://oqgdctnd8xb4" path="res://Levels/Assets/Tree.tscn" id="11_qtgve"]
 [ext_resource type="PackedScene" uid="uid://bee0qj6eunpda" path="res://Levels/Assets/BoostPanel.tscn" id="12_yb6mu"]
 [ext_resource type="Texture2D" uid="uid://bypokqu4j24f3" path="res://Materials/Textures/apartments1.png" id="14_shs50"]
@@ -46,6 +46,9 @@
 [ext_resource type="PackedScene" uid="uid://bfo3ngwkkdglj" path="res://Levels/Assets/Pole.tscn" id="43_qkvxo"]
 [ext_resource type="PackedScene" uid="uid://d3lhb1ptnyo3d" path="res://Levels/Assets/PhysicalBox.tscn" id="44_1g3un"]
 [ext_resource type="PackedScene" uid="uid://c4xa4aebcn3d7" path="res://Levels/Assets/BoostRing.tscn" id="45_7gm10"]
+[ext_resource type="AudioStream" uid="uid://cqllqn3s7x2r" path="res://Audio/hyper-garden-jungle-breakbeat-drum-and-bass-loop-edit-356528.mp3" id="47_ffy06"]
+[ext_resource type="AudioStream" uid="uid://ipr4r8cu4a0m" path="res://Audio/jungle-waves-drumampbass-electronic-inspiring-promo-345013.mp3" id="48_v5ntf"]
+[ext_resource type="AudioStream" uid="uid://dsqnveboepueu" path="res://Audio/otherworldly-drum-and-bass-full-369492.mp3" id="49_vrdyx"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_8nbxi"]
 panorama = ExtResource("1_m7nff")
@@ -259,6 +262,12 @@ _data = {
 }
 point_count = 2
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_wddm5"]
+streams_count = 3
+stream_0/stream = ExtResource("47_ffy06")
+stream_1/stream = ExtResource("48_v5ntf")
+stream_2/stream = ExtResource("49_vrdyx")
+
 [node name="TestRoom" type="WorldEnvironment"]
 environment = SubResource("Environment_5pqgv")
 script = ExtResource("1_pplu1")
@@ -337,15 +346,13 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 329, -
 [node name="CheckPoint2" parent="GoalPost" instance=ExtResource("4_3k1a2")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 111, -41, 258)
 
-[node name="Horn" type="AudioStreamPlayer3D" parent="GoalPost"]
+[node name="Horn" type="AudioStreamPlayer" parent="GoalPost"]
 stream = ExtResource("6_v4rkh")
 volume_db = -8.0
-doppler_tracking = 2
 
-[node name="Vibe" type="AudioStreamPlayer3D" parent="GoalPost"]
+[node name="Vibe" type="AudioStreamPlayer" parent="GoalPost"]
 stream = ExtResource("7_ln84l")
 volume_db = 20.0
-doppler_tracking = 2
 
 [node name="KillPlane" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -91.6126, 0)
@@ -1552,5 +1559,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.4526, -5.03419, 120.507)
 [node name="RigidBody3D63" parent="Boxes" instance=ExtResource("44_1g3un")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.94293, -5.20284, 119.396)
 
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_wddm5")
+volume_db = -20.0
+
 [connection signal="body_entered" from="GoalPost" to="GoalPost" method="_on_body_entered"]
 [connection signal="body_entered" from="KillPlane" to="KillPlane" method="_on_body_entered"]
+[connection signal="finished" from="Music" to="." method="_on_music_finished"]

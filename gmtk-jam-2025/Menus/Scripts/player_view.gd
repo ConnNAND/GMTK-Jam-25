@@ -21,7 +21,10 @@ func ready_player(playerInfo, spawnLocation):
 		player.timer = $SubViewport/GameTimer
 		player.lap_counter = $SubViewport/LapCounter
 		$SubViewport/Speedometer.target = player
-	
+	if !get_parent().get_parent().first:
+		get_parent().get_parent().first = player
+		$SubViewport.audio_listener_enable_3d = true
+		
 
 func _process(_delta):
 	if (playerID == 99 and (Input.is_key_pressed(KEY_ESCAPE)) or Input.is_joy_button_pressed(playerID,JOY_BUTTON_START)):

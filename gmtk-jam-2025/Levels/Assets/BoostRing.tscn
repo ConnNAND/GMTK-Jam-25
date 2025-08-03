@@ -33,7 +33,7 @@ mesh = SubResource("TorusMesh_sv38q")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.129883, 8.88178e-16)
 shape = SubResource("CylinderShape3D_e825x")
 
-[node name="Boost" type="AudioStreamPlayer3D" parent="."]
+[node name="Boost" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_e825x")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
