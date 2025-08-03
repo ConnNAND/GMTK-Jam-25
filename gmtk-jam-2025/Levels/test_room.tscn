@@ -51,6 +51,7 @@
 [ext_resource type="AudioStream" uid="uid://ipr4r8cu4a0m" path="res://Audio/jungle-waves-drumampbass-electronic-inspiring-promo-345013.mp3" id="48_v5ntf"]
 [ext_resource type="AudioStream" uid="uid://dsqnveboepueu" path="res://Audio/otherworldly-drum-and-bass-full-369492.mp3" id="49_vrdyx"]
 [ext_resource type="AudioStream" uid="uid://dkx018144b44o" path="res://Audio/140512__blackstalian__click_sfx6.wav" id="51_vrdyx"]
+[ext_resource type="Script" uid="uid://b1lreptywkk30" path="res://Levels/car_spawner.gd" id="50_v5ntf"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_8nbxi"]
 panorama = ExtResource("1_m7nff")
@@ -1575,6 +1576,8 @@ volume_db = -20.0
 [node name="CarPath" type="Path3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1, 0)
 curve = SubResource("Curve3D_ag8mv")
+script = ExtResource("50_v5ntf")
+car = ExtResource("47_d2xca")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="CarPath"]
 transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, 258.967, -29.7052, -107.288)
