@@ -12,5 +12,7 @@ func check_over():
 		else:
 			game_over = false
 			break
+	$"../fail".play()
+	await $"../fail".finished
 	if game_over:
 		get_tree().change_scene_to_file("res://Menus/results_screen.tscn")
