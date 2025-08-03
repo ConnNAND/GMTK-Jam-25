@@ -19,7 +19,7 @@ var jump_just_pressed = false
 var unique_ability:float = 25
 
 var hinderance:float = 1
-var boost_factor:float = 2.75
+var boost_factor:float = 1
 
 var gravity:float = ProjectSettings.get_setting("physics/3d/default_gravity")
 var up_vec = Vector3.UP
