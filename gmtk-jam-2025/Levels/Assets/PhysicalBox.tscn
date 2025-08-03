@@ -1,13 +1,17 @@
-[gd_scene load_steps=7 format=3 uid="uid://d3lhb1ptnyo3d"]
+[gd_scene load_steps=8 format=3 uid="uid://d3lhb1ptnyo3d"]
 
 [ext_resource type="Script" uid="uid://cqo60avm2v36g" path="res://Levels/Scripts/physical_box.gd" id="1_db6sp"]
 [ext_resource type="Script" uid="uid://b5c6qctvt0nc" path="res://Levels/Assets/physical_box.gd" id="1_iv4ma"]
+[ext_resource type="Texture2D" uid="uid://csdsdu61fj7bf" path="res://Materials/Textures/crate1_diffuse.png" id="2_evhes"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_263ra"]
 size = Vector3(2, 2, 2)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_263ra"]
-albedo_color = Color(0.3027, 0.320943, 0.372406, 1)
+albedo_texture = ExtResource("2_evhes")
+uv1_scale = Vector3(0.5, 0.5, 0.5)
+uv1_offset = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
 
 [sub_resource type="BoxMesh" id="BoxMesh_db6sp"]
 material = SubResource("StandardMaterial3D_263ra")
