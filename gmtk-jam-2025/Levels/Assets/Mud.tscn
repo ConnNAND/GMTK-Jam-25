@@ -1,9 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://b51g5xitfkwih"]
+[gd_scene load_steps=7 format=3 uid="uid://b51g5xitfkwih"]
 
 [ext_resource type="Script" uid="uid://o48tnexlwwy6" path="res://Levels/Scripts/mud.gd" id="1_1b0qu"]
+[ext_resource type="Texture2D" uid="uid://d284jbu0wnto2" path="res://Materials/Textures/brown_mud_03_diff_4k.jpg" id="2_jnodd"]
+[ext_resource type="AudioStream" uid="uid://c5bcp1kqpjw8g" path="res://Audio/mudsquish.ogg" id="3_1lgnd"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3j3hb"]
-albedo_color = Color(0.156031, 0.0402403, 1.8049e-08, 1)
+albedo_color = Color(0.952148, 0.581449, 0.450303, 1)
+albedo_texture = ExtResource("2_jnodd")
+uv1_scale = Vector3(0.05, 0.05, 0.05)
+uv1_triplanar = true
 
 [sub_resource type="BoxMesh" id="BoxMesh_3j3hb"]
 material = SubResource("StandardMaterial3D_3j3hb")
@@ -22,6 +27,10 @@ mesh = SubResource("BoxMesh_3j3hb")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_1b0qu")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_1lgnd")
+volume_db = -4.285
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
