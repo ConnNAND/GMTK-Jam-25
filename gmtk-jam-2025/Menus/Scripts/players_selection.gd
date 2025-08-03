@@ -4,6 +4,7 @@ extends GridContainer
 @export var MainMenu:PackedScene
 
 func _ready() -> void:
+	$"../../../AudioStreamPlayer".play()
 	$"../AddPlayer".grab_focus()
 
 #func _unhandled_input(event: InputEvent) -> void:

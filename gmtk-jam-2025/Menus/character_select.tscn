@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dcdj1se40r3wv"]
+[gd_scene load_steps=6 format=3 uid="uid://dcdj1se40r3wv"]
 
-[ext_resource type="Texture2D" uid="uid://l2sos73kuk6q" path="res://icon.svg" id="1_5ipcs"]
+[ext_resource type="Texture2D" uid="uid://bu0ovmoltj2b7" path="res://Materials/Textures/citybg.jpg" id="1_hwkai"]
 [ext_resource type="Script" uid="uid://djn53ol3pwg7c" path="res://Menus/Scripts/players_selection.gd" id="2_wicqc"]
 [ext_resource type="PackedScene" uid="uid://c4ioxrv2edq3" path="res://Menus/player_select_menu.tscn" id="3_hwkai"]
 [ext_resource type="PackedScene" uid="uid://dfivfc2s87jok" path="res://Menus/main_menu.tscn" id="3_ot7gh"]
+[ext_resource type="AudioStream" uid="uid://bmgxbqve8c1qu" path="res://Audio/140511__blackstalian__click_sfx7.wav" id="5_q6kq1"]
 
 [node name="CharacterSelect" type="Control"]
 layout_mode = 3
@@ -19,7 +20,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_5ipcs")
+texture = ExtResource("1_hwkai")
 expand_mode = 3
 stretch_mode = 6
 
@@ -66,6 +67,9 @@ text = "Start"
 [node name="Back" type="Button" parent="TextureRect/VBoxContainer"]
 layout_mode = 2
 text = "Back"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_q6kq1")
 
 [connection signal="pressed" from="TextureRect/VBoxContainer/AddPlayer" to="TextureRect/VBoxContainer/PlayersSelection" method="_on_add_player_pressed"]
 [connection signal="pressed" from="TextureRect/VBoxContainer/Start" to="TextureRect/VBoxContainer/PlayersSelection" method="_on_start_pressed"]

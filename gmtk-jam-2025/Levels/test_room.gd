@@ -21,6 +21,7 @@ func _ready() -> void:
 		temp3.player_id = i[0]
 		temp3.reset()
 	$PlayerViews.columns = maxi(ceili(sqrt($PlayerViews.get_child_count())), 1)
+	$AudioStreamPlayer.play()
 
 func _process(delta: float) -> void:
 	music.volume_db = move_toward(music.volume_db, min(-20, first.windspeed*-30), delta*5)#-20 - (first.windspeed)

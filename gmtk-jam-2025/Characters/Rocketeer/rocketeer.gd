@@ -41,7 +41,6 @@ var is_paused : bool = false
 func _physics_process(delta: float) -> void:
 	windspeed = min(Vector3(velocity.x, velocity.y/2, velocity.z).length()/3-20, 10)
 	wind.volume_db = windspeed
-	print(windspeed)
 	if stepspeed>0:
 		stepspeed -= delta*velocity.length()
 	#checks the angle of the floor to see if you should speed up or slow down

@@ -7,18 +7,21 @@ func _ready() -> void:
 func _on_play_pressed() -> void:
 	$MainMenu.visible = false
 	$ModeSelect.visible = true
+	$"../../click".play()
 	$ModeSelect/LocalGame.grab_focus()
 
 
 func _on_help_pressed() -> void:
 	$MainMenu.visible = false
 	$Help.visible = true
+	$"../../click".play()
 	$Help/Back.grab_focus()
 
 
 func _on_options_pressed() -> void:
 	$MainMenu.visible = false
 	$Options.visible = true
+	$"../../click".play()
 	AudioServer.get_bus_volume_linear(0)
 	$Options/Volume.grab_focus()
 

@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dfivfc2s87jok"]
+[gd_scene load_steps=4 format=3 uid="uid://dfivfc2s87jok"]
 
-[ext_resource type="Texture2D" uid="uid://l2sos73kuk6q" path="res://icon.svg" id="1_jf8mj"]
+[ext_resource type="Texture2D" uid="uid://bu0ovmoltj2b7" path="res://Materials/Textures/citybg.jpg" id="1_p3jrs"]
 [ext_resource type="Script" uid="uid://dfp0okjwoo2d1" path="res://Menus/Scripts/home_menu.gd" id="2_p3jrs"]
+[ext_resource type="AudioStream" uid="uid://ihy28bn13bai" path="res://Audio/vibeclick.ogg" id="3_at0u2"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -18,7 +19,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_jf8mj")
+texture = ExtResource("1_p3jrs")
 expand_mode = 3
 stretch_mode = 6
 
@@ -36,7 +37,9 @@ layout_mode = 2
 
 [node name="Title" type="Label" parent="BackgroundImage/HomeMenu/MainMenu"]
 layout_mode = 2
-text = "Ayooo It's Da Racin' Game"
+theme_override_font_sizes/font_size = 60
+text = "Top G"
+horizontal_alignment = 1
 
 [node name="Play" type="Button" parent="BackgroundImage/HomeMenu/MainMenu"]
 layout_mode = 2
@@ -101,7 +104,9 @@ Items will also spawn that will increase your ability to go fast, use them to ge
 [node name="Controls" type="Label" parent="BackgroundImage/HomeMenu/Help"]
 layout_mode = 2
 text = "Controls:
-press da buttons on keyboard or controller idk yet"
+Keyboard: wasd to move, space to jump, qe rotate camera
+Controller: left stick move, right stick camera, a jump
+escape or start to pause"
 
 [node name="Back" type="Button" parent="BackgroundImage/HomeMenu/Help"]
 layout_mode = 2
@@ -133,6 +138,9 @@ layout_mode = 2
 focus_neighbor_top = NodePath("../Volume")
 focus_previous = NodePath("../Volume")
 text = "Back"
+
+[node name="click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_at0u2")
 
 [connection signal="pressed" from="BackgroundImage/HomeMenu/MainMenu/Play" to="BackgroundImage/HomeMenu" method="_on_play_pressed"]
 [connection signal="pressed" from="BackgroundImage/HomeMenu/MainMenu/Help" to="BackgroundImage/HomeMenu" method="_on_help_pressed"]
