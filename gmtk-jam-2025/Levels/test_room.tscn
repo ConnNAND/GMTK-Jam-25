@@ -317,8 +317,6 @@ size = Vector3(101.266, 13.5684, 38.0405)
 
 [node name="Storm" parent="Path3D" instance=ExtResource("9_ag8mv")]
 transform = Transform3D(-0.999952, 0, -8.74186e-08, 0, 1, 0, 8.74186e-08, 0, -0.999952, 0, 150, -50)
-h_offset = 0.0
-v_offset = 150.0
 
 [node name="GoalPost" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
@@ -522,12 +520,6 @@ material = SubResource("StandardMaterial3D_8tmlt")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -244, -50, 139)
 use_collision = true
 size = Vector3(25, 160, 25)
-material = SubResource("StandardMaterial3D_8tmlt")
-
-[node name="Building94" type="CSGBox3D" parent="Buildings"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -304, -63.5, 19)
-use_collision = true
-size = Vector3(25, 133, 25)
 material = SubResource("StandardMaterial3D_8tmlt")
 
 [node name="Building95" type="CSGBox3D" parent="Buildings"]
