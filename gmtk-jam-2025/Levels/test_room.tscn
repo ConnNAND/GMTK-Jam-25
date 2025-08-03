@@ -1,4 +1,4 @@
-[gd_scene load_steps=89 format=3 uid="uid://5r2fey2hmyxh"]
+[gd_scene load_steps=93 format=3 uid="uid://5r2fey2hmyxh"]
 
 [ext_resource type="Texture2D" uid="uid://bfms3pif0weju" path="res://Materials/Textures/bettersky.jpg" id="1_m7nff"]
 [ext_resource type="Script" uid="uid://bghpm42r8jlx3" path="res://Levels/test_room.gd" id="1_pplu1"]
@@ -13,7 +13,7 @@
 [ext_resource type="Script" uid="uid://br5dh2ewaliyt" path="res://Levels/intro_timer.gd" id="6_8nbxi"]
 [ext_resource type="AudioStream" uid="uid://bm61rpkhvp20m" path="res://Audio/horn.ogg" id="6_v4rkh"]
 [ext_resource type="AudioStream" uid="uid://dbgicokse6pwm" path="res://Audio/vibegoal.ogg" id="7_ln84l"]
-[ext_resource type="PackedScene" uid="uid://cl34uppi3w5uy" path="res://Levels/Assets/storm.tscn" id="9_ag8mv"]
+[ext_resource type="PackedScene" path="res://Levels/Assets/storm.tscn" id="9_ag8mv"]
 [ext_resource type="PackedScene" uid="uid://oqgdctnd8xb4" path="res://Levels/Assets/Tree.tscn" id="11_qtgve"]
 [ext_resource type="PackedScene" uid="uid://bee0qj6eunpda" path="res://Levels/Assets/BoostPanel.tscn" id="12_yb6mu"]
 [ext_resource type="Texture2D" uid="uid://bypokqu4j24f3" path="res://Materials/Textures/apartments1.png" id="14_shs50"]
@@ -46,10 +46,10 @@
 [ext_resource type="PackedScene" uid="uid://bfo3ngwkkdglj" path="res://Levels/Assets/Pole.tscn" id="43_qkvxo"]
 [ext_resource type="PackedScene" uid="uid://d3lhb1ptnyo3d" path="res://Levels/Assets/PhysicalBox.tscn" id="44_1g3un"]
 [ext_resource type="PackedScene" uid="uid://c4xa4aebcn3d7" path="res://Levels/Assets/BoostRing.tscn" id="45_7gm10"]
+[ext_resource type="PackedScene" uid="uid://drufw3vujjsra" path="res://Car/car.tscn" id="47_d2xca"]
 [ext_resource type="AudioStream" uid="uid://cqllqn3s7x2r" path="res://Audio/hyper-garden-jungle-breakbeat-drum-and-bass-loop-edit-356528.mp3" id="47_ffy06"]
 [ext_resource type="AudioStream" uid="uid://ipr4r8cu4a0m" path="res://Audio/jungle-waves-drumampbass-electronic-inspiring-promo-345013.mp3" id="48_v5ntf"]
 [ext_resource type="AudioStream" uid="uid://dsqnveboepueu" path="res://Audio/otherworldly-drum-and-bass-full-369492.mp3" id="49_vrdyx"]
-[ext_resource type="PackedScene" uid="uid://drufw3vujjsra" path="res://Car/car.tscn" id="47_d2xca"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_8nbxi"]
 panorama = ExtResource("1_m7nff")
@@ -268,6 +268,7 @@ streams_count = 3
 stream_0/stream = ExtResource("47_ffy06")
 stream_1/stream = ExtResource("48_v5ntf")
 stream_2/stream = ExtResource("49_vrdyx")
+
 [sub_resource type="Curve3D" id="Curve3D_ag8mv"]
 _data = {
 "points": PackedVector3Array(39, 0, -2, 5, 0, 0, 261, -30, -108, 0, 1, -5, 0, -1, 5, 274, -33, -104, -22, 3, -23, 22, 0, 25, 294, -41, -56, 10, -9, 14, -10, 9, -20, 343, -18, -91, 0, 0, 0, 0, 0, 0, 278, -8, -109, 43.5099, 0.270226, -30.4879, -43.5099, -0.270226, 30.4879, 180.696, -7.28745, -84.3947, 22.0025, -0.118562, 21.5272, -22.0025, 0.118562, -21.5272, 92.7893, -10.9762, -137.35, 20, -1, -12, -20, 1, 12, 22.9271, -11.0242, -149.947, 0.215277, -0.116595, -6.39167, -0.215277, 0.116595, 6.39167, 1.60719, -1.57992, -82.2956, 0, 0, 0, 0, 0, 0, 0, 0, -50, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 0, 0, 50, 0, 0, -10, 0, 0, 10, 0, -20, 100, 47.3711, 0, 1.13736, -47.3711, 0, -1.13736, -49.9987, -19.8645, 149.905, 9.9584, 3.07617, -0.691467, -9.9584, -3.07617, 0.691467, -108.426, -20, 150.332, 11.0146, 0, 49.2758, -11.0146, 0, -49.2758, -177.695, -34.0002, 106.432, 24.9278, 0, -20.8698, -24.9278, 0, 20.8698, -238.566, -20, 62.3732, 49.8556, 0, -8.69572, -49.8556, 0, 8.69572, -272.769, -20, 151.07, -2.89859, 0, 44.0584, 2.89859, 0, -44.0584, -338.856, -20, 62.9529, -5.36755, 4.43921, 19.3839, 5.36755, -4.43921, -19.3839, -334.148, -51.3645, 1.6824, -4.45889, 0, 18.0445, 4.45889, 0, -18.0445, -330.67, -20, -63.2458, 12.9326, 0, 26.7403, -12.9326, 0, -26.7403, -327.771, -20, -125.855, 27.2313, 0, 26.1263, -27.2313, 0, -26.1263, -393.085, -20, -172.778, -9.87048, 0, 33.6626, 9.87048, 0, -33.6626, -421.491, -20, -260.315, 13.2907, 0, 38.8226, -13.2907, 0, -38.8226, -368.155, -20, -355.098, -14.5356, 0, -14.5112, 14.5356, 0, 14.5112, -326.996, -20, -389.881, -49, 1, -16, 49, -1, 16, -302.647, -20, -320.315, -40.07, 0, -5.8559, 40.07, 0, 5.8559, -234.821, -20, -253.647, -21.3789, 0, -0.80545, 21.3789, 0, 0.80545, -164.095, -20, -285.532, -34.0377, -0.000244141, -6.43954, 34.0377, 0.000244141, 6.43954, -76.4562, -58.54, -242.403, -6.81636, 0, 45.0508, 0, 0, -20, -3.3678, -20, -295.659, -11, -2, 1, 11, 50, -1, 34, -14, -327, -12.2926, 3.73498, 0.835968, 12.2926, -3.73498, -0.835968, 101, 17, -327, -12.1741, 0, -2.89859, 12.1741, 0, 2.89859, 154.35, -3.10237, -310.351, -17.9712, 0, 22.0292, 17.9712, 0, -22.0292, 188.575, -5.79781, -281.307, -17.9712, 0, 31.3047, 17.9712, 0, -31.3047, 243.425, -8.61179, -273.126, -29.5655, 0, 32.4641, 29.5655, 0, -32.4641, 287.419, -3.60102, -261.323, 17, 2, -17, -17, -3, 17, 332.852, -18, -196.15, 12, 1, -2, -12, -1, 2, 302, -20, -177, 7, 3, -15, -7, -3, 15, 279, -24.8452, -150, 2.36096, 4.1327, -10.9712, -2.36096, -4.1327, 10.9712, 273, -30, -122, 0, 0, 0, 0, 0, 0, 261, -30, -108),
@@ -1569,6 +1570,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.94293, -5.20284, 119.396)
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_wddm5")
 volume_db = -20.0
+
 [node name="CarPath" type="Path3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1, 0)
 curve = SubResource("Curve3D_ag8mv")

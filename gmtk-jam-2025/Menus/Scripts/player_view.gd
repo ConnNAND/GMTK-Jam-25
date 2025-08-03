@@ -6,6 +6,7 @@ var pause_held_flag = false
 var player : CharacterBody3D
 var finished = false
 var pausable : bool = false
+var player_collision_layer : int
 
 func ready_player(playerInfo, spawnLocation):
 	playerID = playerInfo[0]
@@ -21,6 +22,7 @@ func ready_player(playerInfo, spawnLocation):
 		player.timer = $SubViewport/GameTimer
 		player.lap_counter = $SubViewport/LapCounter
 		$SubViewport/Speedometer.target = player
+		player_collision_layer = player.collision_layer
 	if !get_parent().get_parent().first:
 		get_parent().get_parent().first = player
 		$SubViewport.audio_listener_enable_3d = true
@@ -36,10 +38,12 @@ func _process(_delta):
 func toggle_pause():
 	player.is_paused = not player.is_paused
 	if player.is_paused:
+		player.collision_layer = 0
 		%PauseMenu.visible = true
 		player.process_mode = Node.PROCESS_MODE_DISABLED
 		$SubViewport/GameTimer.pause_game_timer()
 	else:
+		player.collision_layer = player_collision_layer
 		%PauseMenu.visible = false
 		player.process_mode = Node.PROCESS_MODE_INHERIT
 		$SubViewport/GameTimer.resume_game_timer()
