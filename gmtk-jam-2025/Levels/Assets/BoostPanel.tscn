@@ -4,7 +4,8 @@
 [ext_resource type="AudioStream" uid="uid://dk1l1wejll8" path="res://Audio/boostsf.ogg" id="2_e7umi"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x6sdw"]
-albedo_color = Color(1, 0.317647, 0.156863, 1)
+transparency = 1
+albedo_color = Color(1, 0.317647, 0.156863, 0.541176)
 emission_enabled = true
 emission = Color(0.79904, 0.410934, 0.240211, 1)
 emission_energy_multiplier = 0.5

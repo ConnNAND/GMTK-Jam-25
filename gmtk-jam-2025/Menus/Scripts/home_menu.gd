@@ -19,6 +19,7 @@ func _on_help_pressed() -> void:
 func _on_options_pressed() -> void:
 	$MainMenu.visible = false
 	$Options.visible = true
+	AudioServer.get_bus_volume_linear(0)
 	$Options/Volume.grab_focus()
 
 

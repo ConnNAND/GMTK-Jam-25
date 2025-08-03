@@ -115,6 +115,10 @@ layout_mode = 2
 layout_mode = 2
 text = "Options"
 
+[node name="ChangeVolume" type="Label" parent="BackgroundImage/HomeMenu/Options"]
+layout_mode = 2
+text = "Adjust this slider to change the volume"
+
 [node name="Volume" type="HSlider" parent="BackgroundImage/HomeMenu/Options"]
 layout_mode = 2
 focus_neighbor_bottom = NodePath("../Back")
