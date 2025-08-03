@@ -100,7 +100,17 @@ text = "How To Play:
 run really fast around the track and avoid obstacles to always beat your best lap time
 If you don't, your overtime will drain, and once that hits 0, you're eliminated.
 You can gain overtime back by besting your lap time, or by collecting a stopwatch
-Items will also spawn that will increase your ability to go fast, use them to get the best time possible."
+Items will also spawn that will increase your ability to go fast, use them to get the best time possible. 
+Careful, falling off or being hit by certain obstacles will slow you back down!"
+horizontal_alignment = 1
+
+[node name="HowToPlay2" type="Label" parent="BackgroundImage/HomeMenu/Help"]
+layout_mode = 2
+text = "Characters: Every character has a unique gimmick! 
+Jeffery can double-jump with his rocket pack,
+Vernon can open up his body to glide, and Gary is able to climb up walls, 
+but real G's always pick Daniel."
+horizontal_alignment = 1
 
 [node name="Controls" type="Label" parent="BackgroundImage/HomeMenu/Help"]
 layout_mode = 2
