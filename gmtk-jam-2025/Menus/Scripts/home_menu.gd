@@ -2,7 +2,7 @@ extends CenterContainer
 
 func _ready() -> void:
 	$MainMenu/Play.grab_focus()
-
+	$"../../AudioStreamPlayer".play()
 
 func _on_play_pressed() -> void:
 	$MainMenu.visible = false
