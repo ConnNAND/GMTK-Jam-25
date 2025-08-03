@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://c3jyqlurl3ali"]
+
+[ext_resource type="Texture2D" uid="uid://dr4hpe6gsnflb" path="res://Materials/Textures/lamp.png" id="1_edxmm"]
+
+[node name="Lamp" type="PathFollow3D"]
+rotation_mode = 4
+tilt_enabled = false
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 0, 0, 0)
+offset = Vector2(0, 60)
+shaded = true
+texture = ExtResource("1_edxmm")

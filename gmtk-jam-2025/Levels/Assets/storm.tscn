@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cl34uppi3w5uy"]
+[gd_scene load_steps=13 format=3 uid="uid://dix1odcv6uuc4"]
 
 [ext_resource type="Script" uid="uid://cvgg7ai18h48f" path="res://Levels/Assets/storm.gd" id="1_g0r6i"]
 [ext_resource type="Texture2D" uid="uid://06oquof4vngs" path="res://Materials/Textures/lightning.png" id="2_bv3r6"]

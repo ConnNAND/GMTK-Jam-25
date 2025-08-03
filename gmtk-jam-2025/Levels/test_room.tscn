@@ -14,6 +14,9 @@
 [ext_resource type="AudioStream" uid="uid://bm61rpkhvp20m" path="res://Audio/horn.ogg" id="6_v4rkh"]
 [ext_resource type="AudioStream" uid="uid://dbgicokse6pwm" path="res://Audio/vibegoal.ogg" id="7_ln84l"]
 [ext_resource type="PackedScene" uid="uid://cl34uppi3w5uy" path="res://Levels/Assets/storm.tscn" id="9_ag8mv"]
+[ext_resource type="PackedScene" uid="uid://dix1odcv6uuc4" path="res://Levels/Assets/storm.tscn" id="9_ag8mv"]
+[ext_resource type="Script" uid="uid://coh53ekisdwqr" path="res://Levels/lamp_generator.gd" id="10_wddm5"]
+[ext_resource type="PackedScene" uid="uid://c3jyqlurl3ali" path="res://Levels/Assets/Lamp.tscn" id="11_lbcri"]
 [ext_resource type="PackedScene" uid="uid://oqgdctnd8xb4" path="res://Levels/Assets/Tree.tscn" id="11_qtgve"]
 [ext_resource type="PackedScene" uid="uid://bee0qj6eunpda" path="res://Levels/Assets/BoostPanel.tscn" id="12_yb6mu"]
 [ext_resource type="Texture2D" uid="uid://bypokqu4j24f3" path="res://Materials/Textures/apartments1.png" id="14_shs50"]
@@ -76,6 +79,9 @@ point_count = 33
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v4rkh"]
 albedo_texture = ExtResource("3_uglqc")
+emission_enabled = true
+emission = Color(0.215902, 0.215902, 0.215902, 1)
+emission_energy_multiplier = 0.1
 uv1_scale = Vector3(0.02, -8.035, 1)
 texture_filter = 0
 
@@ -309,6 +315,13 @@ script = ExtResource("6_8nbxi")
 
 [node name="Spawn" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.73447, 0)
+
+[node name="LampGenerator" type="Node3D" parent="." node_paths=PackedStringArray("path")]
+transform = Transform3D(1, 0, 2.38419e-07, 0, 1, 0, -2.38419e-07, 0, 1, 12, 0, 50)
+script = ExtResource("10_wddm5")
+num_lamps = 80
+lamp = ExtResource("11_lbcri")
+path = NodePath("../Path3D")
 
 [node name="Path3D" type="Path3D" parent="."]
 transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, 0, 0)
@@ -1592,6 +1605,7 @@ stream = ExtResource("51_vrdyx")
 
 [node name="fail" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("53_lbcri")
+[node name="Lamps" type="Node3D" parent="."]
 
 [connection signal="body_entered" from="GoalPost" to="GoalPost" method="_on_body_entered"]
 [connection signal="body_entered" from="KillPlane" to="KillPlane" method="_on_body_entered"]
