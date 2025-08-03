@@ -1,4 +1,4 @@
-[gd_scene load_steps=85 format=3 uid="uid://5r2fey2hmyxh"]
+[gd_scene load_steps=86 format=3 uid="uid://5r2fey2hmyxh"]
 
 [ext_resource type="Texture2D" uid="uid://bfms3pif0weju" path="res://Materials/Textures/bettersky.jpg" id="1_m7nff"]
 [ext_resource type="Script" uid="uid://bghpm42r8jlx3" path="res://Levels/test_room.gd" id="1_pplu1"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" uid="uid://br5dh2ewaliyt" path="res://Levels/intro_timer.gd" id="6_8nbxi"]
 [ext_resource type="AudioStream" uid="uid://bm61rpkhvp20m" path="res://Audio/horn.ogg" id="6_v4rkh"]
 [ext_resource type="AudioStream" uid="uid://dbgicokse6pwm" path="res://Audio/vibegoal.ogg" id="7_ln84l"]
+[ext_resource type="PackedScene" uid="uid://cl34uppi3w5uy" path="res://Levels/Assets/storm.tscn" id="9_ag8mv"]
 [ext_resource type="PackedScene" uid="uid://oqgdctnd8xb4" path="res://Levels/Assets/Tree.tscn" id="11_qtgve"]
 [ext_resource type="PackedScene" uid="uid://bee0qj6eunpda" path="res://Levels/Assets/BoostPanel.tscn" id="12_yb6mu"]
 [ext_resource type="Texture2D" uid="uid://bypokqu4j24f3" path="res://Materials/Textures/apartments1.png" id="14_shs50"]
@@ -307,6 +308,9 @@ path_joined = true
 transform = Transform3D(-1, 8.31531e-09, 8.70264e-08, 0, 0.995466, -0.0951161, -8.74228e-08, -0.0951161, -0.995466, 86.952, -10.239, -322.909)
 operation = 2
 size = Vector3(101.266, 13.5684, 38.0405)
+
+[node name="Storm" parent="Path3D" instance=ExtResource("9_ag8mv")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -150, 0, -50)
 
 [node name="GoalPost" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)

@@ -1,0 +1,136 @@
+[gd_scene load_steps=8 format=3 uid="uid://cl34uppi3w5uy"]
+
+[ext_resource type="Script" uid="uid://cvgg7ai18h48f" path="res://Levels/Assets/storm.gd" id="1_g0r6i"]
+[ext_resource type="Texture2D" uid="uid://06oquof4vngs" path="res://Materials/Textures/lightning.png" id="2_bv3r6"]
+[ext_resource type="AudioStream" uid="uid://bghxvqruqlru0" path="res://Audio/thunder.ogg" id="3_uu8oq"]
+[ext_resource type="AudioStream" uid="uid://ctiq3lpqnupnn" path="res://Audio/rain.ogg" id="4_dkrub"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n06eo"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_g0r6i"]
+material = SubResource("StandardMaterial3D_n06eo")
+radius = 29.639
+height = 18.895
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_n06eo"]
+radius = 5.0
+
+[node name="Storm" type="PathFollow3D"]
+h_offset = 150.0
+rotation_mode = 1
+tilt_enabled = false
+script = ExtResource("1_g0r6i")
+
+[node name="Visual" type="Node3D" parent="."]
+visible = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Visual"]
+mesh = SubResource("SphereMesh_g0r6i")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Visual"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.6081, 8.02056, -26.5042)
+mesh = SubResource("SphereMesh_g0r6i")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Visual"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.4103, 15.2404, 6.36675)
+mesh = SubResource("SphereMesh_g0r6i")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Visual"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.3471, 6.31968, 24.8814)
+mesh = SubResource("SphereMesh_g0r6i")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="Visual"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.8901, -6.69725, 33.7773)
+mesh = SubResource("SphereMesh_g0r6i")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D13" type="MeshInstance3D" parent="Visual"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.9462, -5.64951, 24.3917)
+mesh = SubResource("SphereMesh_g0r6i")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D14" type="MeshInstance3D" parent="Visual"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.3815, -13.9557, -1.41052)
+mesh = SubResource("SphereMesh_g0r6i")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="Visual"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.4337, -4.68292, -21.8647)
+mesh = SubResource("SphereMesh_g0r6i")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="Visual"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.1312, 2.18652, 12.8656)
+mesh = SubResource("SphereMesh_g0r6i")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="Visual"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.95722, 2.18652, -25.9978)
+mesh = SubResource("SphereMesh_g0r6i")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="Visual"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.95722, 2.18652, 40.875)
+mesh = SubResource("SphereMesh_g0r6i")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D10" type="MeshInstance3D" parent="Visual"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.7113, -5.22058, -33.4227)
+mesh = SubResource("SphereMesh_g0r6i")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D11" type="MeshInstance3D" parent="Visual"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.7559, -0.643215, 1.71283)
+mesh = SubResource("SphereMesh_g0r6i")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D12" type="MeshInstance3D" parent="Visual"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.4336, -11.1658, 1.74075)
+mesh = SubResource("SphereMesh_g0r6i")
+skeleton = NodePath("../..")
+
+[node name="GroundCheck" type="RayCast3D" parent="."]
+target_position = Vector3(0, -151, 0)
+
+[node name="LightningBump" type="Area3D" parent="GroundCheck"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -150, 0)
+monitoring = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GroundCheck/LightningBump"]
+shape = SubResource("SphereShape3D_n06eo")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="GroundCheck/LightningBump"]
+visible = false
+light_color = Color(0.431373, 0.85098, 1, 1)
+light_energy = 2.0
+omni_range = 7.0
+
+[node name="Lightning" type="Sprite3D" parent="GroundCheck/LightningBump"]
+transform = Transform3D(29.52, 0, 0, 0, 29.52, 0, 0, 0, 29.52, 0, 75.4889, 0)
+visible = false
+offset = Vector2(53.35, 0)
+billboard = 2
+texture = ExtResource("2_bv3r6")
+
+[node name="Thunder" type="AudioStreamPlayer3D" parent="GroundCheck/LightningBump"]
+stream = ExtResource("3_uu8oq")
+
+[node name="Rain" type="AudioStreamPlayer3D" parent="GroundCheck/LightningBump"]
+stream = ExtResource("4_dkrub")
+
+[node name="LightningTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[node name="ActiveTimer" type="Timer" parent="."]
+wait_time = 240.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="LightningTimer" to="." method="_on_lightning_timer_timeout"]
+[connection signal="timeout" from="ActiveTimer" to="." method="_on_active_timer_timeout"]
