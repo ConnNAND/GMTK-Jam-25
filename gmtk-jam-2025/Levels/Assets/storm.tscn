@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://cl34uppi3w5uy"]
+[gd_scene load_steps=12 format=3 uid="uid://cl34uppi3w5uy"]
 
 [ext_resource type="Script" uid="uid://cvgg7ai18h48f" path="res://Levels/Assets/storm.gd" id="1_g0r6i"]
 [ext_resource type="Texture2D" uid="uid://06oquof4vngs" path="res://Materials/Textures/lightning.png" id="2_bv3r6"]
 [ext_resource type="AudioStream" uid="uid://bghxvqruqlru0" path="res://Audio/thunder.ogg" id="3_uu8oq"]
 [ext_resource type="AudioStream" uid="uid://ctiq3lpqnupnn" path="res://Audio/rain.ogg" id="4_dkrub"]
+[ext_resource type="Texture2D" uid="uid://p7iiriht6xtn" path="res://Materials/Textures/rain-png-transparent-9.png" id="5_jcr6p"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n06eo"]
 
@@ -11,10 +12,37 @@
 material = SubResource("StandardMaterial3D_n06eo")
 radius = 29.639
 height = 18.895
+radial_segments = 8
+rings = 4
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_dkrub"]
 height = 43.1124
 radius = 5.0
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_p0r8l"]
+emission_shape_offset = Vector3(0, 150, 0)
+emission_shape = 6
+emission_ring_axis = Vector3(0, 1, 0)
+emission_ring_height = 16.04
+emission_ring_radius = 51.49
+emission_ring_inner_radius = 0.0
+emission_ring_cone_angle = 90.0
+direction = Vector3(0, -1, 0)
+spread = 13.872
+initial_velocity_min = 700.0
+initial_velocity_max = 980.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xyu8p"]
+transparency = 1
+shading_mode = 0
+albedo_texture = ExtResource("5_jcr6p")
+
+[sub_resource type="SphereMesh" id="SphereMesh_7xvv3"]
+material = SubResource("StandardMaterial3D_xyu8p")
+radius = 30.0
+height = 100.0
+radial_segments = 6
+rings = 3
 
 [node name="Storm" type="PathFollow3D"]
 v_offset = 150.0
@@ -23,7 +51,6 @@ tilt_enabled = false
 script = ExtResource("1_g0r6i")
 
 [node name="Visual" type="Node3D" parent="."]
-visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Visual"]
 mesh = SubResource("SphereMesh_g0r6i")
@@ -108,9 +135,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20.5562, 0)
 shape = SubResource("CylinderShape3D_dkrub")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="GroundCheck/LightningBump"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.06337, 0)
 visible = false
 light_color = Color(0.431373, 0.85098, 1, 1)
-light_energy = 2.0
+light_energy = 5.0
 omni_range = 7.0
 
 [node name="Lightning" type="Sprite3D" parent="GroundCheck/LightningBump"]
@@ -125,6 +153,11 @@ stream = ExtResource("3_uu8oq")
 
 [node name="Rain" type="AudioStreamPlayer3D" parent="GroundCheck/LightningBump"]
 stream = ExtResource("4_dkrub")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="GroundCheck/LightningBump"]
+amount = 30
+process_material = SubResource("ParticleProcessMaterial_p0r8l")
+draw_pass_1 = SubResource("SphereMesh_7xvv3")
 
 [node name="LightningTimer" type="Timer" parent="."]
 wait_time = 5.0

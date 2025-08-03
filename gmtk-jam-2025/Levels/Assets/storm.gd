@@ -6,7 +6,7 @@ func _ready() -> void:
 	progress_ratio = randf_range(0, 1)
 
 func _process(delta: float) -> void:
-	progress += delta
+	progress += delta*10
 	if $GroundCheck.is_colliding():
 		$GroundCheck/LightningBump.global_position = $GroundCheck.get_collision_point()
 
