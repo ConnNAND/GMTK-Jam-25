@@ -34,9 +34,11 @@ func _on_active_timer_timeout() -> void:
 	active = true
 	$Visual.visible = true
 	$GroundCheck/LightningBump/Rain.play()
+	$GroundCheck/LightningBump/RealRain.emitting = true
 	await get_tree().create_timer(randf_range(240, 1000)).timeout
 	active = false
 	$GroundCheck/LightningBump/Rain.stop()
+	$GroundCheck/LightningBump/RealRain.emitting = false
 	$Visual.visible = false
 	$ActiveTimer.start()
 
