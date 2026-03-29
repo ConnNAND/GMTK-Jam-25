@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://b04o4ofu4dx6c"]
+[gd_scene format=3 uid="uid://b04o4ofu4dx6c"]
 
 [ext_resource type="Script" uid="uid://cq3kurevs5u7c" path="res://Levels/Scripts/speed_buff_item.gd" id="1_2cf11"]
 [ext_resource type="PackedScene" uid="uid://2w3hm3lioico" path="res://Audio/single_play_powerup.tscn" id="2_j5o8s"]
@@ -16,31 +16,31 @@ emission_energy_multiplier = 0.5
 material = SubResource("StandardMaterial3D_j5o8s")
 size = Vector3(1, 0.405, 0.3)
 
-[node name="SpeedBuffItem" type="PathFollow3D" groups=["speedbuff"]]
+[node name="SpeedBuffItem" type="PathFollow3D" unique_id=961351652 groups=["speedbuff"]]
 v_offset = 2.0
 script = ExtResource("1_2cf11")
 collectsound = ExtResource("2_j5o8s")
 
-[node name="Area3D" type="Area3D" parent="."]
+[node name="Area3D" type="Area3D" parent="." unique_id=1228903901]
 collision_layer = 2
 collision_mask = 8
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1790187069]
 shape = SubResource("SphereShape3D_4sab8")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=327001671]
 transform = Transform3D(0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 0, 0, 1, -0.224067, -0.292923, 0)
 mesh = SubResource("BoxMesh_ibym7")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1009138649]
 transform = Transform3D(-0.707107, -0.707107, 0, 0.707107, -0.707107, 0, 0, 0, 1, 0.211153, -0.292923, 0)
 mesh = SubResource("BoxMesh_ibym7")
 
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="." unique_id=1987373403]
 transform = Transform3D(0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 0, 0, 1, -0.224067, 0.521406, 0)
 mesh = SubResource("BoxMesh_ibym7")
 
-[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="." unique_id=2112164476]
 transform = Transform3D(-0.707107, -0.707107, 0, 0.707107, -0.707107, 0, 0, 0, 1, 0.211153, 0.521406, 0)
 mesh = SubResource("BoxMesh_ibym7")
 

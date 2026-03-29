@@ -51,7 +51,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="GameTimer" parent="SubViewport" instance=ExtResource("4_nd2d2")]
-initial_pb_seconds = 200.0
 
 [node name="Speedometer" type="Label" parent="SubViewport"]
 anchors_preset = 7

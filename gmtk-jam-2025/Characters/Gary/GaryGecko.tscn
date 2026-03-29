@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://do0ucus8i4gsr"]
+[gd_scene format=3 uid="uid://do0ucus8i4gsr"]
 
 [ext_resource type="Script" uid="uid://crt4pn1y82hlg" path="res://Characters/Gary/gary_gecko.gd" id="1_fqe5j"]
 [ext_resource type="AudioStream" uid="uid://cdetddmuofw2b" path="res://Audio/footstep.ogg" id="2_74cv5"]
@@ -60,67 +60,67 @@ height = 0.8
 radial_segments = 4
 rings = 0
 
-[node name="Gary" type="CharacterBody3D" groups=["player"]]
+[node name="Gary" type="CharacterBody3D" unique_id=1784929569 groups=["player"]]
 collision_layer = 8
 collision_mask = 27
 script = ExtResource("1_fqe5j")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1596341362]
 shape = SubResource("CapsuleShape3D_u2dk0")
 
-[node name="Step" type="AudioStreamPlayer" parent="."]
+[node name="Step" type="AudioStreamPlayer" parent="." unique_id=1527873142]
 stream = ExtResource("2_74cv5")
 volume_db = -8.0
 
-[node name="Death" type="AudioStreamPlayer" parent="."]
+[node name="Death" type="AudioStreamPlayer" parent="." unique_id=1933528530]
 stream = ExtResource("3_1bcv2")
 volume_db = -8.0
 
-[node name="Wind" type="AudioStreamPlayer" parent="."]
+[node name="Wind" type="AudioStreamPlayer" parent="." unique_id=871586658]
 stream = ExtResource("4_f0580")
 autoplay = true
 
-[node name="Jump" type="AudioStreamPlayer" parent="."]
+[node name="Jump" type="AudioStreamPlayer" parent="." unique_id=546534871]
 stream = ExtResource("5_dmwqs")
 
-[node name="BonkCheck" type="Area3D" parent="."]
+[node name="BonkCheck" type="Area3D" parent="." unique_id=1725553713]
 collision_layer = 0
 collision_mask = 16
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="BonkCheck"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BonkCheck" unique_id=1504954769]
 shape = SubResource("CapsuleShape3D_3js8k")
 
-[node name="Ouch" type="AudioStreamPlayer" parent="."]
+[node name="Ouch" type="AudioStreamPlayer" parent="." unique_id=1993304297]
 stream = ExtResource("6_67wop")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1787152912]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.96046e-08, -0.120396, 0.208575)
 light_color = Color(1, 0.570212, 0.354496, 1)
 omni_range = 50.0
 
-[node name="Mesh" type="MeshInstance3D" parent="."]
+[node name="Mesh" type="MeshInstance3D" parent="." unique_id=1371253983]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.590776, 0)
 mesh = SubResource("SphereMesh_3whpj")
 
-[node name="Body" type="MeshInstance3D" parent="Mesh"]
+[node name="Body" type="MeshInstance3D" parent="Mesh" unique_id=1523885154]
 transform = Transform3D(-1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 0, 0, 1, 0, -0.661293, 0)
 mesh = SubResource("CapsuleMesh_mcrdh")
 
-[node name="Mesh2" type="MeshInstance3D" parent="Mesh"]
+[node name="Mesh2" type="MeshInstance3D" parent="Mesh" unique_id=1744484907]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.206367, 0.054452, -0.13403)
 mesh = SubResource("SphereMesh_xqt8l")
 skeleton = NodePath("../..")
 
-[node name="Mesh3" type="MeshInstance3D" parent="Mesh"]
+[node name="Mesh3" type="MeshInstance3D" parent="Mesh" unique_id=1124377735]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.206, 0.054, -0.134018)
 mesh = SubResource("SphereMesh_rijmv")
 skeleton = NodePath("../..")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh" unique_id=938244722]
 transform = Transform3D(1, 0, 0, 0, 0.474734, 0.88013, 0, -0.88013, 0.474734, 0, -1.06954, 0.4476)
 mesh = SubResource("CylinderMesh_fqe5j")
 
-[node name="climbray" type="RayCast3D" parent="."]
+[node name="climbray" type="RayCast3D" parent="." unique_id=563376210]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.305207, 0)
 target_position = Vector3(0, 0, -1)
 

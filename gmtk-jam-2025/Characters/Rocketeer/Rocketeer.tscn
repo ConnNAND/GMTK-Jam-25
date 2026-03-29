@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bje5llf3vk0jp"]
+[gd_scene format=3 uid="uid://bje5llf3vk0jp"]
 
 [ext_resource type="Script" uid="uid://crvf0fpyykp20" path="res://Characters/Rocketeer/rocketeer.gd" id="1_8gcnr"]
 [ext_resource type="AudioStream" uid="uid://cdetddmuofw2b" path="res://Audio/footstep.ogg" id="2_8gcnr"]
@@ -30,65 +30,65 @@ height = 0.5
 radial_segments = 4
 rings = 1
 
-[node name="Rocketeer" type="CharacterBody3D" groups=["player"]]
+[node name="Rocketeer" type="CharacterBody3D" unique_id=901812802 groups=["player"]]
 collision_layer = 8
 collision_mask = 27
 script = ExtResource("1_8gcnr")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=737877969]
 shape = SubResource("CapsuleShape3D_u2dk0")
 
-[node name="Step" type="AudioStreamPlayer" parent="."]
+[node name="Step" type="AudioStreamPlayer" parent="." unique_id=918899295]
 stream = ExtResource("2_8gcnr")
 volume_db = -8.0
 
-[node name="Death" type="AudioStreamPlayer" parent="."]
+[node name="Death" type="AudioStreamPlayer" parent="." unique_id=713968584]
 stream = ExtResource("3_b1cc0")
 volume_db = -8.0
 
-[node name="Wind" type="AudioStreamPlayer" parent="."]
+[node name="Wind" type="AudioStreamPlayer" parent="." unique_id=1268058816]
 stream = ExtResource("3_h58gn")
 autoplay = true
 
-[node name="Jump" type="AudioStreamPlayer" parent="."]
+[node name="Jump" type="AudioStreamPlayer" parent="." unique_id=1418921936]
 stream = ExtResource("5_cipta")
 
-[node name="rocketeer" parent="." instance=ExtResource("5_qjgur")]
+[node name="rocketeer" parent="." unique_id=332744016 instance=ExtResource("5_qjgur")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.114006, 0)
 
-[node name="Jetpack" type="MeshInstance3D" parent="rocketeer"]
+[node name="Jetpack" type="MeshInstance3D" parent="rocketeer" unique_id=138304796]
 transform = Transform3D(0.2, 0, 0, 0, -0.262329, -0.0479003, 0, 0.0479003, -0.262329, -0.00306296, 0.149362, 0.161975)
 material_override = ExtResource("4_qjgur")
 mesh = ExtResource("7_mnh83")
 skeleton = NodePath("../..")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="rocketeer"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="rocketeer" unique_id=854820572]
 transform = Transform3D(0.1, 0, 0, 0, 0.2, 0, 0, 0, 0.1, 0.104049, -0.382397, 0)
 mesh = SubResource("CapsuleMesh_qjgur")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="rocketeer"]
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="rocketeer" unique_id=1984383465]
 transform = Transform3D(0.1, 0, 0, 0, 0.2, 0, 0, 0, 0.1, -0.134069, -0.384837, 0.0236199)
 mesh = SubResource("CapsuleMesh_qjgur")
 
-[node name="BonkCheck" type="Area3D" parent="."]
+[node name="BonkCheck" type="Area3D" parent="." unique_id=1732778643]
 collision_layer = 0
 collision_mask = 16
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="BonkCheck"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BonkCheck" unique_id=120050992]
 shape = SubResource("CapsuleShape3D_3js8k")
 
-[node name="Ouch" type="AudioStreamPlayer" parent="."]
+[node name="Ouch" type="AudioStreamPlayer" parent="." unique_id=1362161842]
 stream = ExtResource("8_3js8k")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=2111621799]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.96046e-08, -0.120396, 0.208575)
 light_color = Color(1, 0.570212, 0.354496, 1)
 omni_range = 50.0
 
-[node name="Jetpack" type="AudioStreamPlayer" parent="."]
+[node name="Jetpack" type="AudioStreamPlayer" parent="." unique_id=2010545609]
 stream = ExtResource("10_b6dng")
 
-[node name="particles" type="CPUParticles3D" parent="."]
+[node name="particles" type="CPUParticles3D" parent="." unique_id=1295099385]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.116782, 0.43801)
 emitting = false
 one_shot = true
