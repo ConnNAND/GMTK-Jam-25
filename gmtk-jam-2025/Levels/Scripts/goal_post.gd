@@ -14,6 +14,10 @@ func _on_body_entered(body: Node3D) -> void:
 					successful_lap = false
 					break
 		if successful_lap:
+			body.starting_speed = body.default_speed + 1.25
+			body.starting_top_speed = body.top_speed + 1.5
+			body.default_speed += 2.5
+			body.top_speed += 3
 			if body.windspeed < -5:
 				$Horn.play()
 			else:
