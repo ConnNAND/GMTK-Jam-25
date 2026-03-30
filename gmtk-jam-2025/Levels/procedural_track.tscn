@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://p7sjc8ok2ks8"]
+
+[ext_resource type="Script" uid="uid://beryr7uag718v" path="res://Levels/procedural_track.gd" id="1_3ceda"]
+[ext_resource type="Texture2D" uid="uid://b3bgs6vejd5p1" path="res://Materials/Textures/new_road.jpg" id="1_5j575"]
+[ext_resource type="Script" uid="uid://xs5l2yevvf1p" path="res://Camera/follow_camera.gd" id="2_5j575"]
+[ext_resource type="PackedScene" uid="uid://dkfrtxv2meskt" path="res://Characters/Vernon/Vernon.tscn" id="3_x4m0m"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8w7oe"]
+
+[sub_resource type="Sky" id="Sky_8ntcu"]
+sky_material = SubResource("ProceduralSkyMaterial_8w7oe")
+
+[sub_resource type="Environment" id="Environment_l3udk"]
+background_mode = 2
+sky = SubResource("Sky_8ntcu")
+
+[sub_resource type="Curve3D" id="Curve3D_3ceda"]
+closed = true
+_data = {
+"points": PackedVector3Array(-1.1074125, -0.20679967, 5.3264127, 7.2966614, 1.3625882, -35.095352, -490.01352, -18.688435, -46.544422, -30.367466, 10.5043, 15.94548, 22.904907, -7.9229536, -12.027008, -460.82687, -13.238082, -186.92583, -27.016932, -0.9482657, 1.1149482, 51.71326, 1.8150806, -2.1341286, -369.20724, -44.929897, -235.03386, -51.55622, -0.81326795, -4.837908, 33.285458, 0.5250578, 3.1234248, -162.3542, -37.669575, -243.57037, -7.6347175, -10.720009, -30.736712, 3.6223576, 5.0862007, 14.583298, -29.212368, -35.569344, -231.07668, -1.345061, 0.8930682, -15.781531, 3.6807344, -2.4438648, 43.18587, -14.722938, -15.224541, -172.74348, 5.3428907, -4.7542906, -42.818104, -4.3888135, 3.9053195, 35.172096, 0, -25, 0, 33.965294, 2.309622, -10.611976, -57.89481, -3.9368165, 18.088413, -17.555254, -9.378722, 140.68839, 58.30552, -4.085996, 16.681396, -46.496124, 3.258405, -13.302691, -249.13449, -25.125988, 213.04204, 13.694177, -0.5039198, 46.493916, -13.723632, 0.5050037, -46.59392, -435.119, -12.092368, 159.83127, 0, 19.218971, 44.611862, 0, -2.1540203, -5, -490.01352, -10.072353, -26.544422),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 11
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3b84r"]
+albedo_texture = ExtResource("1_5j575")
+emission_enabled = true
+emission = Color(0.215902, 0.215902, 0.215902, 1)
+emission_energy_multiplier = 0.1
+uv1_scale = Vector3(0.02, -8.035, 1)
+texture_filter = 0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_p0j1i"]
+
+[node name="ProceduralTrack" type="WorldEnvironment" unique_id=85569593]
+environment = SubResource("Environment_l3udk")
+script = ExtResource("1_3ceda")
+
+[node name="Path3D" type="Path3D" parent="." unique_id=565247913]
+transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, 0, 0)
+curve = SubResource("Curve3D_3ceda")
+
+[node name="MainTrack" type="CSGPolygon3D" parent="Path3D" unique_id=256471496]
+material_override = SubResource("StandardMaterial3D_3b84r")
+use_collision = true
+polygon = PackedVector2Array(-11.5, -0.5, -12.5, 0.5, 12.5, 0.5, 11.5, -0.5)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = true
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = true
+
+[node name="FollowCamera" type="SpringArm3D" parent="." unique_id=1269582614 node_paths=PackedStringArray("target")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.019462, 10.352276)
+shape = SubResource("SphereShape3D_p0j1i")
+script = ExtResource("2_5j575")
+target = NodePath("../Vernon")
+
+[node name="Camera3D" type="Camera3D" parent="FollowCamera" unique_id=1948872739]
+current = true
+
+[node name="SpotLight3D" type="SpotLight3D" parent="FollowCamera/Camera3D" unique_id=204704972]
+light_color = Color(0.756863, 0.584314, 0.929412, 1)
+light_energy = 5.0
+light_cull_mask = 4294967293
+spot_range = 200.0
+spot_angle_attenuation = 0.25
+
+[node name="Node3D" type="Node3D" parent="FollowCamera" unique_id=2091103578]
+
+[node name="Vernon" parent="." unique_id=485420793 node_paths=PackedStringArray("camera_orientation") instance=ExtResource("3_x4m0m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 19.28136, 19.673218)
+camera_orientation = NodePath("../FollowCamera/Camera3D")

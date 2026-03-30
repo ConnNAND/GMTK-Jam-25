@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bxynvktig10bh"]
+[gd_scene format=3 uid="uid://bxynvktig10bh"]
 
 [ext_resource type="Script" uid="uid://cpgb1244uuv13" path="res://Menus/Scripts/player_view.gd" id="1_mw52u"]
 [ext_resource type="PackedScene" uid="uid://bje5llf3vk0jp" path="res://Characters/Rocketeer/Rocketeer.tscn" id="2_uypme"]
@@ -18,7 +18,7 @@ shader_parameter/fog_color = Color(0, 0, 0, 1)
 shader_parameter/resolution_downsampling = 2.0
 shader_parameter/bit_depth = 16.0
 
-[node name="PlayerView" type="SubViewportContainer"]
+[node name="PlayerView" type="SubViewportContainer" unique_id=1322977858]
 process_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -34,15 +34,15 @@ Daniel = ExtResource("3_scolh")
 Vernon = ExtResource("4_pawcj")
 Gary = ExtResource("5_mko63")
 
-[node name="SubViewport" type="SubViewport" parent="."]
+[node name="SubViewport" type="SubViewport" parent="." unique_id=2011789929]
 process_mode = 1
 handle_input_locally = false
 size = Vector2i(1152, 648)
 render_target_update_mode = 4
 
-[node name="FollowCamera" parent="SubViewport" instance=ExtResource("3_rpd14")]
+[node name="FollowCamera" parent="SubViewport" unique_id=939166255 instance=ExtResource("3_rpd14")]
 
-[node name="Dither" type="ColorRect" parent="SubViewport"]
+[node name="Dither" type="ColorRect" parent="SubViewport" unique_id=1397436623]
 material = SubResource("ShaderMaterial_kxji3")
 anchors_preset = 15
 anchor_right = 1.0
@@ -50,9 +50,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="GameTimer" parent="SubViewport" instance=ExtResource("4_nd2d2")]
+[node name="GameTimer" parent="SubViewport" unique_id=419274288 instance=ExtResource("4_nd2d2")]
 
-[node name="Speedometer" type="Label" parent="SubViewport"]
+[node name="Speedometer" type="Label" parent="SubViewport" unique_id=1803989139]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -69,7 +69,7 @@ text = "asdf"
 script = ExtResource("5_7hwyb")
 metadata/_custom_type_script = "uid://ckfn01tkm1mqy"
 
-[node name="LapCounter" type="Label" parent="SubViewport"]
+[node name="LapCounter" type="Label" parent="SubViewport" unique_id=1964588391]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
@@ -80,7 +80,7 @@ text = "Laps: 0"
 script = ExtResource("7_kxji3")
 metadata/_custom_type_script = "uid://ctyx8vtlw442d"
 
-[node name="PauseMenu" parent="SubViewport" instance=ExtResource("3_t0o3n")]
+[node name="PauseMenu" parent="SubViewport" unique_id=202451642 instance=ExtResource("3_t0o3n")]
 unique_name_in_owner = true
 visible = false
 

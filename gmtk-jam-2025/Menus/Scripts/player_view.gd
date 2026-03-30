@@ -4,12 +4,21 @@ extends SubViewportContainer
 @export var Daniel:PackedScene
 @export var Vernon:PackedScene
 @export var Gary:PackedScene
+@export var testScene:bool = false
+@export var testPlayerInfo = [0, 0]
+@export var testSpawnLocation = Vector3.UP
 var playerID = -1
 var pause_held_flag = false
 var player : CharacterBody3D
 var finished = false
 var pausable : bool = false
 var player_collision_layer : int
+
+
+func _ready():
+	if testScene:
+		ready_player(testPlayerInfo, testSpawnLocation)
+
 
 func ready_player(playerInfo, spawnLocation):
 	playerID = playerInfo[0]
