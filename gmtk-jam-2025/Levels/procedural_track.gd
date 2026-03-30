@@ -2,8 +2,8 @@
 extends WorldEnvironment
 
 @export var SEED:String
-@export var track_area_radius = 500
-@export var track_area_height = 100
+@export var track_area_radius = 1000
+@export var track_area_height = 150
 
 
 var newCurve = Curve3D.new()
@@ -24,7 +24,7 @@ func _ready() -> void:
 	
 	var points = [Vector2.ZERO]
 	var left = randi_range(0, 1)
-	for i in randi_range(7, 125):
+	for i in randi_range(7, 75):
 		var temp
 		while true:
 			if left==1:
@@ -55,11 +55,19 @@ func _ready() -> void:
 			points.insert(wrapi(i+1, 0, points.size()-1), temp2)
 			i += 1
 	
+	#add more points between to smooth out changes in elevation
+	for i in range(points.size()):
+		var temp = points[i].distance_to(points[wrapi(i+1, 0, points.size()-1)])
+		if temp>120:
+			var temp2 = (points[i]+points[wrapi(i+1, 0, points.size()-1)])/2
+			points.insert(wrapi(i+1, 0, points.size()-1), temp2)
+			i += 1
+	
 	#erase duplicate points
 	var newpoints = []
 	for i in points:
 		if !newpoints.has(i):
-			newpoints.append(Vector3(i.x, noise.get_noise_2dv(i)*track_area_height, i.y))
+			newpoints.append(Vector3(i.x, noise.get_noise_2dv(i/4)*track_area_height, i.y))
 	points = newpoints
 	
 	for i in range(points.size()):
