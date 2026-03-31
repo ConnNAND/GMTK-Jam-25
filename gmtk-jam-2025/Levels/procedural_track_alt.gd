@@ -42,7 +42,7 @@ func setup() -> void:
 	for i in track_sample_count:
 		var track_progress : float = PI * i * 2.0 / (track_sample_count)
 		newCurve.add_point(Vector3(cos(track_progress) * (track_radius - offsets[i].x), offsets[i].y,sin(track_progress) * (track_radius - offsets[i].x)))
-	
+	%Vernon.global_position = newCurve.get_point_position(0) + Vector3(0,5,0)
 	%Path3D.curve = newCurve
 
 func _ready() -> void:
