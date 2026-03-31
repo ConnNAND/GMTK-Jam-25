@@ -1,31 +1,19 @@
 @tool
 extends WorldEnvironment
 
-@export var SEED:String :
-	set(value):
-		SEED = value
-		setup()
+@export var SEED:String
 var int_seed : int
-@export var track_radius = 100 :
-	set(value):
-		track_radius = value
-		setup()
-@export var track_radius_variation = 20 :
-	set(value):
-		track_radius_variation = value
-		setup()
-@export var track_height_variation = 50 :
-	set(value):
-		track_height_variation = value
-		setup()
-@export var track_sample_count = 100 :
-	set(value):
-		track_sample_count = value
-		setup()
-@export var heightNoise : FastNoiseLite
-@export var curveNoise : FastNoiseLite
+@export var track_radius = 100
+@export var track_radius_variation = 20
+@export var track_height_variation = 50
+@export var track_sample_count = 100
+@export var heightNoise : FastNoiseLite = FastNoiseLite.new()
+@export var curveNoise : FastNoiseLite = FastNoiseLite.new()
 @export var daily = false
-
+@export var reload : bool = false:
+	set(value):
+		setup()
+		reload = false
 
 func setup() -> void:
 	var newCurve = Curve3D.new()
