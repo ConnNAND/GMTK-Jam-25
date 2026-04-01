@@ -18,6 +18,7 @@
 [ext_resource type="AudioStream" uid="uid://dkx018144b44o" path="res://Audio/140512__blackstalian__click_sfx6.wav" id="13_ogt87"]
 [ext_resource type="AudioStream" uid="uid://dbgicokse6pwm" path="res://Audio/vibegoal.ogg" id="14_fqv8j"]
 [ext_resource type="AudioStream" uid="uid://c5x4asdysqft5" path="res://Audio/609025__colorscrimsontears__power-down-2-rpg.wav" id="14_pcfnw"]
+[ext_resource type="Script" uid="uid://bxj26gp2qshkl" path="res://Levels/Scripts/kill_plane.gd" id="19_ogt87"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_pcfnw"]
 load_path = "res://.godot/imported/bettersky.jpg-713f22ab3c933857ef12363d4f7d13b8.s3tc.ctex"
@@ -90,6 +91,8 @@ streams_count = 3
 stream_0/stream = ExtResource("10_yjtx8")
 stream_1/stream = ExtResource("11_5mg02")
 stream_2/stream = ExtResource("12_q2jxe")
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_pcfnw"]
 
 [node name="ProceduralTrack" type="WorldEnvironment" unique_id=85569593]
 environment = SubResource("Environment_17jmg")
@@ -221,6 +224,16 @@ stream = ExtResource("13_ogt87")
 [node name="fail" type="AudioStreamPlayer" parent="." unique_id=531142217]
 stream = ExtResource("14_pcfnw")
 
+[node name="KillPlane" type="Area3D" parent="." unique_id=1501594593]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -175, 0)
+collision_layer = 2
+collision_mask = 12
+script = ExtResource("19_ogt87")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KillPlane" unique_id=2034293040]
+shape = SubResource("WorldBoundaryShape3D_pcfnw")
+
 [connection signal="apply_track" from="." to="Path3D/TrackApplicator" method="apply_track_obstacles"]
 [connection signal="body_entered" from="Path3D/TrackApplicator/GoalPost" to="Path3D/TrackApplicator/GoalPost" method="_on_body_entered"]
 [connection signal="finished" from="Music" to="." method="_on_music_finished"]
+[connection signal="body_entered" from="KillPlane" to="KillPlane" method="_on_body_entered"]
