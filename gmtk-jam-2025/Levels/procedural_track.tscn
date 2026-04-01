@@ -8,8 +8,6 @@
 [ext_resource type="Script" uid="uid://br5dh2ewaliyt" path="res://Levels/intro_timer.gd" id="3_m1akq"]
 [ext_resource type="PackedScene" uid="uid://dwnltvp4qqjyl" path="res://Levels/Assets/StopwatchItem.tscn" id="3_ogt87"]
 [ext_resource type="PackedScene" uid="uid://dix1odcv6uuc4" path="res://Levels/Assets/storm.tscn" id="4_8ntcu"]
-[ext_resource type="Script" uid="uid://coh53ekisdwqr" path="res://Levels/lamp_generator.gd" id="4_yjtx8"]
-[ext_resource type="PackedScene" uid="uid://c3jyqlurl3ali" path="res://Levels/Assets/Lamp.tscn" id="5_5mg02"]
 [ext_resource type="PackedScene" uid="uid://b04o4ofu4dx6c" path="res://Levels/Assets/SpeedBuffItem.tscn" id="5_l3udk"]
 [ext_resource type="AudioStream" uid="uid://cqllqn3s7x2r" path="res://Audio/hyper-garden-jungle-breakbeat-drum-and-bass-loop-edit-356528.mp3" id="10_yjtx8"]
 [ext_resource type="Script" uid="uid://bbcwyhasc3vyp" path="res://Levels/Scripts/goal_post.gd" id="11_0d8jx"]
@@ -147,13 +145,6 @@ mesh = SubResource("BoxMesh_17jmg")
 transform = Transform3D(-0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, -0.866025, -1.14622, -14.8548, -2.25815)
 mesh = SubResource("BoxMesh_0d2n3")
 
-[node name="LampGenerator" type="Node3D" parent="." unique_id=1770681356 node_paths=PackedStringArray("path")]
-transform = Transform3D(1, 0, 2.38419e-07, 0, 1, 0, -2.38419e-07, 0, 1, 12, 0, 50)
-script = ExtResource("4_yjtx8")
-num_lamps = 80
-lamp = ExtResource("5_5mg02")
-path = NodePath("../Path3D")
-
 [node name="Path3D" type="Path3D" parent="." unique_id=565247913]
 transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, 0, 0)
 curve = SubResource("Curve3D_pcfnw")
@@ -192,11 +183,11 @@ shape = SubResource("SphereShape3D_u1o37")
 layers = 2
 mesh = SubResource("SphereMesh_pmck1")
 
-[node name="CheckPoint2" parent="Path3D/TrackApplicator/GoalPost" unique_id=602071698 instance=ExtResource("12_17jmg")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 111, -41, 258)
-
 [node name="CheckPoint" parent="Path3D/TrackApplicator/GoalPost" unique_id=1042905418 instance=ExtResource("12_17jmg")]
 transform = Transform3D(-1, 0, -8.7422805e-08, 0, 1, 0, 8.7422805e-08, 0, -1, 329, -18, 63)
+
+[node name="CheckPoint2" parent="Path3D/TrackApplicator/GoalPost" unique_id=602071698 instance=ExtResource("12_17jmg")]
+transform = Transform3D(-4.3711395e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711395e-08, 111, -41, 258)
 
 [node name="CheckPoint3" parent="Path3D/TrackApplicator/GoalPost" unique_id=1833838094 instance=ExtResource("12_17jmg")]
 transform = Transform3D(-1, 0, -8.7422805e-08, 0, 1, 0, 8.7422805e-08, 0, -1, 329, -18, 63)

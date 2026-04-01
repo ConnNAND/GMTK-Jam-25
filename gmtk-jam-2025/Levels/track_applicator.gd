@@ -25,13 +25,11 @@ func apply_checkpoints():
 	goalpost.reparent(placer)
 	goalpost.transform.origin = Vector3.ZERO
 	goalpost.reparent(self)
-	var checkpoint_count = 0
 	var checkpoints = []
-	for i in $GoalPost.get_children():
+	for i in goalpost.get_children():
 		if i is Area3D:
-			checkpoint_count += 1
 			checkpoints.append(i)
-	var progress = 1
+	var progress:float = 1
 	for i in checkpoints:
 		placer.progress_ratio = progress / (checkpoints.size()+1)
 		i.reparent(placer)
