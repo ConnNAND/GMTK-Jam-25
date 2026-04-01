@@ -248,20 +248,20 @@ uv1_triplanar = true
 transparency = 1
 albedo_color = Color(0.741176, 0.25098, 0.364706, 0.592157)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2y4dp"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pperl"]
 transparency = 1
 albedo_color = Color(0, 0.560784, 0.0117647, 0.545098)
 
 [sub_resource type="BoxMesh" id="BoxMesh_8nbxi"]
-material = SubResource("StandardMaterial3D_2y4dp")
+material = SubResource("StandardMaterial3D_pperl")
 size = Vector3(1, 1, 7.69)
 
 [sub_resource type="BoxMesh" id="BoxMesh_4kpi4"]
-material = SubResource("StandardMaterial3D_2y4dp")
+material = SubResource("StandardMaterial3D_pperl")
 size = Vector3(1, 1, 4.265)
 
 [sub_resource type="BoxMesh" id="BoxMesh_ymruk"]
-material = SubResource("StandardMaterial3D_2y4dp")
+material = SubResource("StandardMaterial3D_pperl")
 size = Vector3(1, 1, 4.88)
 
 [sub_resource type="Curve3D" id="Curve3D_6w1xo"]

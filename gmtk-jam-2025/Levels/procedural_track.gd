@@ -4,12 +4,22 @@ extends WorldEnvironment
 @export var SEED:String
 @export var track_area_radius = 1000
 @export var track_area_height = 150
+@export var run_from_editor = false
 
 signal apply_track
 
 
 var newCurve = Curve3D.new()
 @export var daily = false
+
+
+@export var PlayerViewport:PackedScene
+@export var Stopwatch:PackedScene
+@export var SpeedBuff:PackedScene
+
+var first = null
+@onready var music = $Music
+
 
 func _ready() -> void:
 	newCurve.closed = true
@@ -72,6 +82,7 @@ func _ready() -> void:
 			newpoints.append(Vector3(i.x, noise.get_noise_2dv(i/4)*track_area_height, i.y))
 	points = newpoints
 	
+	#apply points to curve
 	for i in range(points.size()):
 		var curPoint:Vector3 = points[i]
 		var nextPoint:Vector3 = points[wrapi(i+1, 0, points.size())]
@@ -80,4 +91,40 @@ func _ready() -> void:
 		var curveIn = -curveOut.normalized()*curPoint.distance_to(prevPoint)/4
 		newCurve.add_point(curPoint, curveIn, curveOut)
 	$Path3D.curve = newCurve
+	
+	#add obstacles
 	apply_track.emit()
+	
+	#This is the part where we actually do game logic now and spawn in players
+	$Spawn.global_transform.origin = $Spawn/RayCast3D.get_collision_point()+Vector3(0, 5, 0)
+	for i in PlayerData.players:
+		var temp = PlayerViewport.instantiate()
+		$PlayerViews.add_child(temp)
+		temp.ready_player(i, $Spawn.global_transform.origin+Vector3(randf_range(-10, 10), randf_range(0, 10), randf_range(-10, 10)))
+		var temp2 = Stopwatch.instantiate()
+		$Path3D.add_child(temp2)
+		temp2.player_id = i[0]
+		temp2.reset()
+		var temp3 = SpeedBuff.instantiate()
+		$Path3D.add_child(temp3)
+		temp3.player_id = i[0]
+		temp3.reset()
+	$PlayerViews.columns = maxi(ceili(sqrt($PlayerViews.get_child_count())), 1)
+	$AudioStreamPlayer.play()
+
+
+func _process(delta: float) -> void:
+	if !Engine.is_editor_hint():
+		music.volume_db = move_toward(music.volume_db, min(-20, first.windspeed*-30), delta*5)#-20 - (first.windspeed)
+
+
+func start_game():
+	find_child("StartingBlock").queue_free()
+	$PlayerViews.start_game()
+	$Music.play()
+	for i in get_tree().get_nodes_in_group("GameTimer"):
+		i.resume_game_timer()
+
+
+func _on_music_finished() -> void:
+	$Music.play()

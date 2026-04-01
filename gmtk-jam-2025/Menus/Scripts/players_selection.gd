@@ -33,4 +33,8 @@ func _on_start_pressed() -> void:
 		for i in get_children():
 			temp.append([i.player_id, i.character])
 		PlayerData.load_players(temp)
-		get_tree().change_scene_to_file("res://Levels/test_room.tscn")
+		match PlayerData.current_mode:
+			PlayerData.mode.local:
+				get_tree().change_scene_to_file("res://Levels/test_room.tscn")
+			PlayerData.mode.daily:
+				get_tree().change_scene_to_file("res://Levels/procedural_track.tscn")

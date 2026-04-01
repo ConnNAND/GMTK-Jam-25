@@ -20,14 +20,6 @@ func _ready() -> void:
 		$Path3D.add_child(temp3)
 		temp3.player_id = i[0]
 		temp3.reset()
-		var temp4 = SpeedBuff.instantiate()
-		$Path3D.add_child(temp4)
-		temp4.player_id = i[0]
-		temp4.reset()
-		var temp5 = SpeedBuff.instantiate()
-		$Path3D.add_child(temp5)
-		temp5.player_id = i[0]
-		temp5.reset()
 	$PlayerViews.columns = maxi(ceili(sqrt($PlayerViews.get_child_count())), 1)
 	$AudioStreamPlayer.play()
 

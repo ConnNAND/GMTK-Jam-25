@@ -48,8 +48,14 @@ func _options_on_back_pressed() -> void:
 
 
 func _on_local_game_pressed() -> void:
+	PlayerData.current_mode = PlayerData.mode.daily
 	get_tree().change_scene_to_file("res://Menus/character_select.tscn")
 
 
 func _on_volume_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_linear(0, value)
+
+
+func _on_daily_track_pressed() -> void:
+	PlayerData.current_mode = PlayerData.mode.daily
+	get_tree().change_scene_to_file("res://Menus/character_select.tscn")

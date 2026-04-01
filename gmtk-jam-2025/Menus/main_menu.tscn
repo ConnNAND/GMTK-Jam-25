@@ -1,11 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://dfivfc2s87jok"]
+[gd_scene format=3 uid="uid://dfivfc2s87jok"]
 
 [ext_resource type="Texture2D" uid="uid://bu0ovmoltj2b7" path="res://Materials/Textures/citybg.jpg" id="1_p3jrs"]
 [ext_resource type="Script" uid="uid://dfp0okjwoo2d1" path="res://Menus/Scripts/home_menu.gd" id="2_p3jrs"]
 [ext_resource type="AudioStream" uid="uid://ihy28bn13bai" path="res://Audio/vibeclick.ogg" id="3_at0u2"]
 [ext_resource type="AudioStream" uid="uid://cpils867d8614" path="res://Audio/140509__blackstalian__click_sfx1.wav" id="4_11gta"]
 
-[node name="MainMenu" type="Control"]
+[node name="MainMenu" type="Control" unique_id=1617016298]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -13,7 +13,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="BackgroundImage" type="TextureRect" parent="."]
+[node name="BackgroundImage" type="TextureRect" parent="." unique_id=1211494118]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -24,7 +24,7 @@ texture = ExtResource("1_p3jrs")
 expand_mode = 3
 stretch_mode = 6
 
-[node name="HomeMenu" type="CenterContainer" parent="BackgroundImage"]
+[node name="HomeMenu" type="CenterContainer" parent="BackgroundImage" unique_id=225386437]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -33,22 +33,22 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_p3jrs")
 
-[node name="MainMenu" type="VBoxContainer" parent="BackgroundImage/HomeMenu"]
+[node name="MainMenu" type="VBoxContainer" parent="BackgroundImage/HomeMenu" unique_id=1627165496]
 layout_mode = 2
 
-[node name="Title" type="Label" parent="BackgroundImage/HomeMenu/MainMenu"]
+[node name="Title" type="Label" parent="BackgroundImage/HomeMenu/MainMenu" unique_id=2046628701]
 layout_mode = 2
 theme_override_font_sizes/font_size = 60
 text = "Top G"
 horizontal_alignment = 1
 
-[node name="Play" type="Button" parent="BackgroundImage/HomeMenu/MainMenu"]
+[node name="Play" type="Button" parent="BackgroundImage/HomeMenu/MainMenu" unique_id=1945370998]
 layout_mode = 2
 focus_neighbor_bottom = NodePath("../Help")
 focus_next = NodePath("../Help")
 text = "Play"
 
-[node name="Help" type="Button" parent="BackgroundImage/HomeMenu/MainMenu"]
+[node name="Help" type="Button" parent="BackgroundImage/HomeMenu/MainMenu" unique_id=399080492]
 layout_mode = 2
 focus_neighbor_top = NodePath("../Play")
 focus_neighbor_bottom = NodePath("../Options")
@@ -56,7 +56,7 @@ focus_next = NodePath("../Options")
 focus_previous = NodePath("../Play")
 text = "Help"
 
-[node name="Options" type="Button" parent="BackgroundImage/HomeMenu/MainMenu"]
+[node name="Options" type="Button" parent="BackgroundImage/HomeMenu/MainMenu" unique_id=295486572]
 layout_mode = 2
 focus_neighbor_top = NodePath("../Help")
 focus_neighbor_bottom = NodePath("../Quit")
@@ -64,37 +64,49 @@ focus_next = NodePath("../Quit")
 focus_previous = NodePath("../Help")
 text = "Options"
 
-[node name="Quit" type="Button" parent="BackgroundImage/HomeMenu/MainMenu"]
+[node name="Quit" type="Button" parent="BackgroundImage/HomeMenu/MainMenu" unique_id=219431290]
 layout_mode = 2
 focus_neighbor_top = NodePath("../Options")
 focus_previous = NodePath("../Options")
 text = "Quit"
 
-[node name="ModeSelect" type="VBoxContainer" parent="BackgroundImage/HomeMenu"]
+[node name="ModeSelect" type="VBoxContainer" parent="BackgroundImage/HomeMenu" unique_id=958695281]
 visible = false
 layout_mode = 2
 
-[node name="Label" type="Label" parent="BackgroundImage/HomeMenu/ModeSelect"]
+[node name="Label" type="Label" parent="BackgroundImage/HomeMenu/ModeSelect" unique_id=1281325889]
 layout_mode = 2
 text = "Mode Select"
 
-[node name="LocalGame" type="Button" parent="BackgroundImage/HomeMenu/ModeSelect"]
+[node name="LocalGame" type="Button" parent="BackgroundImage/HomeMenu/ModeSelect" unique_id=1500222614]
 layout_mode = 2
-focus_neighbor_bottom = NodePath("../Back")
-focus_next = NodePath("../Back")
+focus_neighbor_top = NodePath("../Back")
+focus_neighbor_bottom = NodePath("../DailyTrack")
+focus_next = NodePath("../DailyTrack")
+focus_previous = NodePath("../Back")
 text = "Local"
 
-[node name="Back" type="Button" parent="BackgroundImage/HomeMenu/ModeSelect"]
+[node name="DailyTrack" type="Button" parent="BackgroundImage/HomeMenu/ModeSelect" unique_id=1102217360]
 layout_mode = 2
 focus_neighbor_top = NodePath("../LocalGame")
+focus_neighbor_bottom = NodePath("../Back")
+focus_next = NodePath("../Back")
 focus_previous = NodePath("../LocalGame")
+text = "Daily"
+
+[node name="Back" type="Button" parent="BackgroundImage/HomeMenu/ModeSelect" unique_id=1984375932]
+layout_mode = 2
+focus_neighbor_top = NodePath("../DailyTrack")
+focus_neighbor_bottom = NodePath("../LocalGame")
+focus_next = NodePath("../LocalGame")
+focus_previous = NodePath("../DailyTrack")
 text = "Back"
 
-[node name="Help" type="VBoxContainer" parent="BackgroundImage/HomeMenu"]
+[node name="Help" type="VBoxContainer" parent="BackgroundImage/HomeMenu" unique_id=1896426059]
 visible = false
 layout_mode = 2
 
-[node name="HowToPlay" type="Label" parent="BackgroundImage/HomeMenu/Help"]
+[node name="HowToPlay" type="Label" parent="BackgroundImage/HomeMenu/Help" unique_id=674122444]
 layout_mode = 2
 text = "How To Play:
 run really fast around the track and avoid obstacles to always beat your best lap time
@@ -104,7 +116,7 @@ Items will also spawn that will increase your ability to go fast, use them to ge
 Careful, falling off or being hit by certain obstacles will slow you back down!"
 horizontal_alignment = 1
 
-[node name="HowToPlay2" type="Label" parent="BackgroundImage/HomeMenu/Help"]
+[node name="HowToPlay2" type="Label" parent="BackgroundImage/HomeMenu/Help" unique_id=1119090094]
 layout_mode = 2
 text = "Characters: Every character has a unique gimmick! 
 Jeffery can double-jump with his rocket pack,
@@ -112,30 +124,30 @@ Vernon can open up his body to glide, and Gary is able to climb up walls,
 but real G's always pick Daniel."
 horizontal_alignment = 1
 
-[node name="Controls" type="Label" parent="BackgroundImage/HomeMenu/Help"]
+[node name="Controls" type="Label" parent="BackgroundImage/HomeMenu/Help" unique_id=1694804814]
 layout_mode = 2
 text = "Controls:
 Keyboard: wasd to move, space to jump, qe rotate camera
 Controller: left stick move, right stick camera, a jump
 escape or start to pause"
 
-[node name="Back" type="Button" parent="BackgroundImage/HomeMenu/Help"]
+[node name="Back" type="Button" parent="BackgroundImage/HomeMenu/Help" unique_id=2077783423]
 layout_mode = 2
 text = "Back"
 
-[node name="Options" type="VBoxContainer" parent="BackgroundImage/HomeMenu"]
+[node name="Options" type="VBoxContainer" parent="BackgroundImage/HomeMenu" unique_id=1122241534]
 visible = false
 layout_mode = 2
 
-[node name="Label" type="Label" parent="BackgroundImage/HomeMenu/Options"]
+[node name="Label" type="Label" parent="BackgroundImage/HomeMenu/Options" unique_id=1892951143]
 layout_mode = 2
 text = "Options"
 
-[node name="ChangeVolume" type="Label" parent="BackgroundImage/HomeMenu/Options"]
+[node name="ChangeVolume" type="Label" parent="BackgroundImage/HomeMenu/Options" unique_id=2120123865]
 layout_mode = 2
 text = "Adjust this slider to change the volume"
 
-[node name="Volume" type="HSlider" parent="BackgroundImage/HomeMenu/Options"]
+[node name="Volume" type="HSlider" parent="BackgroundImage/HomeMenu/Options" unique_id=735180158]
 layout_mode = 2
 focus_neighbor_bottom = NodePath("../Back")
 focus_next = NodePath("../Back")
@@ -144,16 +156,16 @@ step = 0.01
 value = 0.5
 tick_count = 1
 
-[node name="Back" type="Button" parent="BackgroundImage/HomeMenu/Options"]
+[node name="Back" type="Button" parent="BackgroundImage/HomeMenu/Options" unique_id=2115301146]
 layout_mode = 2
 focus_neighbor_top = NodePath("../Volume")
 focus_previous = NodePath("../Volume")
 text = "Back"
 
-[node name="click" type="AudioStreamPlayer" parent="."]
+[node name="click" type="AudioStreamPlayer" parent="." unique_id=1994075314]
 stream = ExtResource("3_at0u2")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=340721115]
 stream = ExtResource("4_11gta")
 
 [connection signal="pressed" from="BackgroundImage/HomeMenu/MainMenu/Play" to="BackgroundImage/HomeMenu" method="_on_play_pressed"]
@@ -161,6 +173,7 @@ stream = ExtResource("4_11gta")
 [connection signal="pressed" from="BackgroundImage/HomeMenu/MainMenu/Options" to="BackgroundImage/HomeMenu" method="_on_options_pressed"]
 [connection signal="pressed" from="BackgroundImage/HomeMenu/MainMenu/Quit" to="BackgroundImage/HomeMenu" method="_on_quit_pressed"]
 [connection signal="pressed" from="BackgroundImage/HomeMenu/ModeSelect/LocalGame" to="BackgroundImage/HomeMenu" method="_on_local_game_pressed"]
+[connection signal="pressed" from="BackgroundImage/HomeMenu/ModeSelect/DailyTrack" to="BackgroundImage/HomeMenu" method="_on_daily_track_pressed"]
 [connection signal="pressed" from="BackgroundImage/HomeMenu/ModeSelect/Back" to="BackgroundImage/HomeMenu" method="_modeselect_on_back_pressed"]
 [connection signal="pressed" from="BackgroundImage/HomeMenu/Help/Back" to="BackgroundImage/HomeMenu" method="_help_on_back_pressed"]
 [connection signal="value_changed" from="BackgroundImage/HomeMenu/Options/Volume" to="BackgroundImage/HomeMenu" method="_on_volume_value_changed"]

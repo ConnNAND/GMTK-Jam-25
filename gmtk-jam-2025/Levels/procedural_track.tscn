@@ -2,11 +2,24 @@
 
 [ext_resource type="Script" uid="uid://beryr7uag718v" path="res://Levels/procedural_track.gd" id="1_3ceda"]
 [ext_resource type="Texture2D" uid="uid://b3bgs6vejd5p1" path="res://Materials/Textures/new_road.jpg" id="1_5j575"]
-[ext_resource type="Script" uid="uid://xs5l2yevvf1p" path="res://Camera/follow_camera.gd" id="2_5j575"]
+[ext_resource type="PackedScene" uid="uid://bxynvktig10bh" path="res://Menus/PlayerView.tscn" id="2_q2jxe"]
+[ext_resource type="Script" uid="uid://cgfocaaphbrke" path="res://Levels/player_views.gd" id="2_uba7g"]
 [ext_resource type="Script" uid="uid://cnge5y5lsdxw4" path="res://Levels/track_applicator.gd" id="3_8w7oe"]
-[ext_resource type="PackedScene" uid="uid://dkfrtxv2meskt" path="res://Characters/Vernon/Vernon.tscn" id="3_x4m0m"]
+[ext_resource type="Script" uid="uid://br5dh2ewaliyt" path="res://Levels/intro_timer.gd" id="3_m1akq"]
+[ext_resource type="PackedScene" uid="uid://dwnltvp4qqjyl" path="res://Levels/Assets/StopwatchItem.tscn" id="3_ogt87"]
 [ext_resource type="PackedScene" uid="uid://dix1odcv6uuc4" path="res://Levels/Assets/storm.tscn" id="4_8ntcu"]
+[ext_resource type="Script" uid="uid://coh53ekisdwqr" path="res://Levels/lamp_generator.gd" id="4_yjtx8"]
+[ext_resource type="PackedScene" uid="uid://c3jyqlurl3ali" path="res://Levels/Assets/Lamp.tscn" id="5_5mg02"]
 [ext_resource type="PackedScene" uid="uid://b04o4ofu4dx6c" path="res://Levels/Assets/SpeedBuffItem.tscn" id="5_l3udk"]
+[ext_resource type="AudioStream" uid="uid://cqllqn3s7x2r" path="res://Audio/hyper-garden-jungle-breakbeat-drum-and-bass-loop-edit-356528.mp3" id="10_yjtx8"]
+[ext_resource type="Script" uid="uid://bbcwyhasc3vyp" path="res://Levels/Scripts/goal_post.gd" id="11_0d8jx"]
+[ext_resource type="AudioStream" uid="uid://ipr4r8cu4a0m" path="res://Audio/jungle-waves-drumampbass-electronic-inspiring-promo-345013.mp3" id="11_5mg02"]
+[ext_resource type="PackedScene" uid="uid://cyrbhiwbvp3b4" path="res://Levels/Assets/check_point.tscn" id="12_17jmg"]
+[ext_resource type="AudioStream" uid="uid://dsqnveboepueu" path="res://Audio/otherworldly-drum-and-bass-full-369492.mp3" id="12_q2jxe"]
+[ext_resource type="AudioStream" uid="uid://bm61rpkhvp20m" path="res://Audio/horn.ogg" id="13_0d2n3"]
+[ext_resource type="AudioStream" uid="uid://dkx018144b44o" path="res://Audio/140512__blackstalian__click_sfx6.wav" id="13_ogt87"]
+[ext_resource type="AudioStream" uid="uid://dbgicokse6pwm" path="res://Audio/vibegoal.ogg" id="14_fqv8j"]
+[ext_resource type="AudioStream" uid="uid://c5x4asdysqft5" path="res://Audio/609025__colorscrimsontears__power-down-2-rpg.wav" id="14_pcfnw"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8w7oe"]
 
@@ -17,13 +30,33 @@ sky_material = SubResource("ProceduralSkyMaterial_8w7oe")
 background_mode = 2
 sky = SubResource("Sky_8ntcu")
 
-[sub_resource type="Curve3D" id="Curve3D_8ntcu"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7elgs"]
+transparency = 1
+albedo_color = Color(0.741176, 0.25098, 0.364706, 0.592157)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2y4dp"]
+transparency = 1
+albedo_color = Color(0, 0.560784, 0.0117647, 0.545098)
+
+[sub_resource type="BoxMesh" id="BoxMesh_0d8jx"]
+material = SubResource("StandardMaterial3D_2y4dp")
+size = Vector3(1, 1, 7.69)
+
+[sub_resource type="BoxMesh" id="BoxMesh_17jmg"]
+material = SubResource("StandardMaterial3D_2y4dp")
+size = Vector3(1, 1, 4.265)
+
+[sub_resource type="BoxMesh" id="BoxMesh_0d2n3"]
+material = SubResource("StandardMaterial3D_2y4dp")
+size = Vector3(1, 1, 4.88)
+
+[sub_resource type="Curve3D" id="Curve3D_pcfnw"]
 closed = true
 _data = {
-"points": PackedVector3Array(2.0219977, 1.827914, 4.2125115, -11.226591, -10.148994, -23.388823, 0, -1.0251127, -10, -11.143398, -3.3371458, 25.31331, 7.937807, 2.3771582, -18.0315, -44.906364, -41.62109, -103.55529, -8.23809, -8.913754, 15.699473, 5.7637587, 6.2364855, -10.984097, -13.155134, -32.112457, -175.68129, -7.6660347, -7.651429, 8.686346, 7.9425807, 7.9274483, -8.999699, 9.899901, -7.166515, -219.61768, -4.516269, -0.44463578, 13.650245, 8.1923895, 0.8065572, -24.761173, 41.670223, 24.543276, -255.61647, -13.339805, 0.5577697, 22.419188, 7.437748, -0.31099033, -12.500053, 74.43978, 27.769505, -354.66116, -7.8338146, -2.8377633, 11.926718, 14.051638, 5.0901413, -21.393143, 104.19077, 26.525543, -404.66138, -26.0839, 0.8091222, -0.0060136965, 49.571598, -1.5377102, 0.011428833, 160.39732, 46.88611, -490.23395, -49.365086, 4.774526, -0.011396416, 24.785797, -2.3972497, 0.005722046, 358.68372, 40.735268, -490.18823, -21.450212, 12.647966, -0.0049453904, 24.785797, -14.61477, 0.0057144165, 457.8269, 31.146269, -490.16534, -28.339733, -2.3266263, -4.40155, 39.99797, 3.2837408, 6.2122345, 556.9701, -27.312817, -490.1425, -39.090046, -9.182653, -6.0712237, 19.998978, 4.697965, 3.1061172, 716.962, -14.177854, -465.29355, -19.678078, 5.925393, -3.056275, 19.998993, -6.022026, 3.1061175, 796.9579, 4.6140075, -452.86908, -17.648975, -5.834646, -10.017143, 25.615112, 8.468204, 14.538536, 876.95386, -19.474096, -440.4446, -9.049686, -1.8456317, -29.221743, 5.824142, 1.1878004, 18.80635, 979.4143, 14.398718, -382.29047, -5.7165675, -3.9492679, -18.458994, 5.8241425, 4.023586, 18.806358, 1002.7109, 19.14992, -307.06506, 3.838446, -7.7195597, -18.151136, -4.289856, 8.627398, 20.285751, 1026.0074, 35.244263, -231.83963, 4.4376426, 6.656074, -20.98453, -4.289871, -6.43443, 20.285755, 1008.848, 69.75385, -150.69662, 0.17853597, 8.754613, -19.865591, -0.30943298, -15.173221, 34.43042, 991.68854, 44.016132, -69.553604, 0.32827133, 9.033904, -36.524746, -0.15472412, -4.25795, 17.215208, 990.4508, -16.67675, 68.16807, 0.14633137, -7.0256486, -16.283007, -0.15470886, 7.4278674, 17.21521, 989.8319, -33.70855, 137.0289, 3.0938244, -0.57255715, -18.484076, -5.0885773, 0.9417152, 30.401741, 989.2131, -3.9970798, 205.88974, 29.329351, 2.7752335, -9.117757, -117.56973, -11.12481, 36.54947, 968.85876, -0.23021904, 327.4967, 121.39653, -22.739716, 5.296638, -69.62892, 13.0427265, -3.0379715, 498.57983, -44.72946, 473.69458, 63.79972, 1.5146359, 30.900328, -42.11322, -0.99978805, -20.396835, 220.06416, 7.441446, 461.5427, 12.484004, -5.1471205, 44.81306, -7.270499, 2.9976068, -26.098465, 51.611275, 3.4422936, 379.95535, 2.300621, 1.5097504, 27.118326, -5.63232, -3.6961312, -66.39037, 22.52928, 15.43272, 275.5615, 0, 5.5636597, 66.498955, 0, -0.41832688, -5, 0, 0.6481948, 10),
-"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+"points": PackedVector3Array(-5.415505, -0.27557015, -0.21008033, 28.325363, 1.4413476, 1.0988083, -950.20386, -28.683683, -311.63364, -26.034819, -11.259634, -1.0099456, 28.325363, 12.2502575, 1.0988007, -836.9024, -22.918293, -307.2384, -16.41917, -14.474285, 21.78321, 9.600098, 8.462946, -12.736389, -723.60095, 26.082735, -302.8432, -10.664978, 3.4724734, 14.149173, 9.600082, -3.1257477, -12.736382, -685.20056, 59.93452, -353.78876, -13.555347, 6.292747, -6.3875813, 24.035263, -11.157799, 11.325951, -646.80023, 47.43153, -404.73428, -24.86278, 8.663002, -11.715895, 24.035278, -8.374674, 11.325958, -550.6592, 2.8003364, -359.43048, -25.45531, -3.5687056, 10.742372, 27.501534, 3.8555758, -11.605896, -454.51807, -30.69836, -314.12665, -25.2862, 6.435689, 15.002886, 11.457161, -2.9160066, -6.797798, -344.51193, -15.276056, -360.55023, -13.152932, 2.1402342, 2.898181, 18.681633, -3.0398598, -4.1164017, -298.6833, -26.940083, -387.74142, -18.61559, -3.4385433, 4.1018558, 18.681637, 3.4507434, -4.1164093, -223.95676, -39.09952, -404.20703, -14.141749, -7.12537, -11.273688, 12.955374, 6.5276103, 10.327919, -149.23021, -25.296549, -420.67267, -13.541973, -4.1458845, -10.79555, 12.955375, 3.9662967, 10.327919, -97.408714, 0.81389225, -379.361, -16.320091, 2.9251394, -3.9162812, 6.7657595, -1.2126641, 1.623558, -45.587215, 16.67908, -338.04932, 2.7809734, 2.6121707, -5.943463, -6.459919, -6.067807, 13.806061, -18.524178, 11.828423, -331.55508, 6.2643204, 7.118638, -13.388034, -6.4599195, -7.340912, 13.806065, -44.363853, -12.442807, -276.33084, 1.9676106, 0.19009249, -16.80236, -2.122961, -0.20510101, 18.128971, -70.20353, -41.806454, -221.10658, 2.109137, -2.0895946, -18.010935, -2.1229591, 2.1032887, 18.12897, -78.69537, -42.626858, -148.5907, -13.276194, -5.209798, -11.5840845, 21.796803, 8.553426, 19.018705, -87.18721, -34.213703, -76.07482, 15.424726, 4.7958126, -25.476475, -48.947475, -15.218612, 80.84481, 0, 0, 0, 89.37781, -17.579847, -29.426195, -76.13641, 14.975379, 25.06668, -195.7899, -60.874447, 323.37924, 80.520615, 6.124977, -11.32559, -79.04752, -6.0129232, 11.118393, -500.33554, -0.97293603, 423.64597, 19.659117, 4.0268483, 77.495735, -19.28444, -3.9501014, -76.01876, -816.52563, -25.02463, 468.11954, 9.669038, -0.63367474, 77.92594, -14.135117, 0.92636585, -113.91953, -893.6634, -40.825035, 164.0445, 0, -44.61436, 105.772766, 0, 2.108972, -5, -950.20386, -37.11957, -291.63364),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 }
-point_count = 28
+point_count = 24
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3b84r"]
 albedo_texture = ExtResource("1_5j575")
@@ -33,15 +66,90 @@ emission_energy_multiplier = 0.1
 uv1_scale = Vector3(0.02, -8.035, 1)
 texture_filter = 0
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_p0j1i"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_u1o37"]
+radius = 25.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p37q1"]
+transparency = 1
+albedo_color = Color(0.885187, 0, 0.282763, 0.352941)
+
+[sub_resource type="SphereMesh" id="SphereMesh_pmck1"]
+material = SubResource("StandardMaterial3D_p37q1")
+radius = 25.0
+height = 50.0
+radial_segments = 10
+rings = 10
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_fqv8j"]
+streams_count = 3
+stream_0/stream = ExtResource("10_yjtx8")
+stream_1/stream = ExtResource("11_5mg02")
+stream_2/stream = ExtResource("12_q2jxe")
 
 [node name="ProceduralTrack" type="WorldEnvironment" unique_id=85569593]
 environment = SubResource("Environment_l3udk")
 script = ExtResource("1_3ceda")
+daily = true
+PlayerViewport = ExtResource("2_q2jxe")
+Stopwatch = ExtResource("3_ogt87")
+SpeedBuff = ExtResource("5_l3udk")
+
+[node name="PlayerViews" type="GridContainer" parent="." unique_id=408376876]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_uba7g")
+
+[node name="Intro Timer" type="Label" parent="." unique_id=1435120459]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Game Begins In 10"
+horizontal_alignment = 1
+script = ExtResource("3_m1akq")
+
+[node name="Spawn" type="Marker3D" parent="." unique_id=717753121]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+
+[node name="RayCast3D" type="RayCast3D" parent="Spawn" unique_id=1231925214]
+target_position = Vector3(0, -200, 0)
+
+[node name="StartingBlock" type="CSGBox3D" parent="Spawn" unique_id=198646392]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15.3223, 0)
+use_collision = true
+flip_faces = true
+size = Vector3(30, 30, 30)
+material = SubResource("StandardMaterial3D_7elgs")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Spawn/StartingBlock" unique_id=1062944181]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -14.8548, 0.239155)
+mesh = SubResource("BoxMesh_0d8jx")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Spawn/StartingBlock" unique_id=792796343]
+transform = Transform3D(-0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, -0.866025, 1, -14.8548, -2.13133)
+mesh = SubResource("BoxMesh_17jmg")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Spawn/StartingBlock" unique_id=1416316802]
+transform = Transform3D(-0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, -0.866025, -1.14622, -14.8548, -2.25815)
+mesh = SubResource("BoxMesh_0d2n3")
+
+[node name="LampGenerator" type="Node3D" parent="." unique_id=1770681356 node_paths=PackedStringArray("path")]
+transform = Transform3D(1, 0, 2.38419e-07, 0, 1, 0, -2.38419e-07, 0, 1, 12, 0, 50)
+script = ExtResource("4_yjtx8")
+num_lamps = 80
+lamp = ExtResource("5_5mg02")
+path = NodePath("../Path3D")
 
 [node name="Path3D" type="Path3D" parent="." unique_id=565247913]
 transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, 0, 0)
-curve = SubResource("Curve3D_8ntcu")
+curve = SubResource("Curve3D_pcfnw")
 
 [node name="MainTrack" type="CSGPolygon3D" parent="Path3D" unique_id=256471496]
 material_override = SubResource("StandardMaterial3D_3b84r")
@@ -62,34 +170,59 @@ path_joined = true
 [node name="TrackApplicator" type="Node3D" parent="Path3D" unique_id=16667003 node_paths=PackedStringArray("track")]
 script = ExtResource("3_8w7oe")
 track = NodePath("..")
-obstacles = Array[StringName]([&"uid://cpk5sd5ff3e2o", &"uid://bg2y0a077etab", &"uid://d1docfmaiovmf", &"uid://ddr3ndau0hbmj", &"uid://ncpxwvnvqalo", &"uid://cj0ishnsrqgbf"])
+obstacles = Array[String](["uid://cpk5sd5ff3e2o", "uid://bg2y0a077etab", "uid://d1docfmaiovmf", "uid://ddr3ndau0hbmj", "uid://ncpxwvnvqalo", "uid://cj0ishnsrqgbf"])
+
+[node name="GoalPost" type="Area3D" parent="Path3D/TrackApplicator" unique_id=591116614]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+collision_layer = 2
+collision_mask = 8
+script = ExtResource("11_0d8jx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Path3D/TrackApplicator/GoalPost" unique_id=165139106]
+shape = SubResource("SphereShape3D_u1o37")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Path3D/TrackApplicator/GoalPost" unique_id=1135388574]
+layers = 2
+mesh = SubResource("SphereMesh_pmck1")
+
+[node name="CheckPoint2" parent="Path3D/TrackApplicator/GoalPost" unique_id=602071698 instance=ExtResource("12_17jmg")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 111, -41, 258)
+
+[node name="CheckPoint" parent="Path3D/TrackApplicator/GoalPost" unique_id=1042905418 instance=ExtResource("12_17jmg")]
+transform = Transform3D(-1, 0, -8.7422805e-08, 0, 1, 0, 8.7422805e-08, 0, -1, 329, -18, 63)
+
+[node name="CheckPoint3" parent="Path3D/TrackApplicator/GoalPost" unique_id=1833838094 instance=ExtResource("12_17jmg")]
+transform = Transform3D(-1, 0, -8.7422805e-08, 0, 1, 0, 8.7422805e-08, 0, -1, 329, -18, 63)
+
+[node name="CheckPoint4" parent="Path3D/TrackApplicator/GoalPost" unique_id=945447858 instance=ExtResource("12_17jmg")]
+transform = Transform3D(-1, 0, -8.7422805e-08, 0, 1, 0, 8.7422805e-08, 0, -1, 329, -18, 63)
+
+[node name="Horn" type="AudioStreamPlayer" parent="Path3D/TrackApplicator/GoalPost" unique_id=1064504377]
+stream = ExtResource("13_0d2n3")
+volume_db = -8.0
+
+[node name="Vibe" type="AudioStreamPlayer" parent="Path3D/TrackApplicator/GoalPost" unique_id=536745501]
+stream = ExtResource("14_fqv8j")
+volume_db = 20.0
+
+[node name="Placer" type="PathFollow3D" parent="Path3D/TrackApplicator" unique_id=1684493127]
 
 [node name="Storm" parent="Path3D" unique_id=975470969 instance=ExtResource("4_8ntcu")]
-transform = Transform3D(0.90152377, 0, 0.43272957, 0, 1, 0, -0.43272957, 0, 0.90152377, 0, 148.97488, -10)
+transform = Transform3D(-0.03876338, 0, -0.9992482, 0, 1, 0, 0.9992482, 0, -0.03876338, -950.20386, 121.316315, -311.63364)
 
 [node name="SpeedBuffItem" parent="Path3D" unique_id=961351652 instance=ExtResource("5_l3udk")]
-transform = Transform3D(0.90152377, -0.15764765, 0.4029914, -1.4901161e-08, 0.93127775, 0.3643099, -0.43272957, -0.32843405, 0.83956903, -0.3152953, 0.83744276, -10.656868)
+transform = Transform3D(-0.03876338, -0.050743338, -0.99795806, 0, 0.9987097, -0.050781455, 0.9992482, -0.0019684632, -0.038713332, -950.30536, -26.686264, -311.63757)
 
-[node name="FollowCamera" type="SpringArm3D" parent="." unique_id=1269582614 node_paths=PackedStringArray("target")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.019462, 10.352276)
-shape = SubResource("SphereShape3D_p0j1i")
-script = ExtResource("2_5j575")
-target = NodePath("../Vernon")
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=1143904828]
+stream = SubResource("AudioStreamRandomizer_fqv8j")
+volume_db = -20.0
 
-[node name="Camera3D" type="Camera3D" parent="FollowCamera" unique_id=1948872739]
-current = true
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1123302465]
+stream = ExtResource("13_ogt87")
 
-[node name="SpotLight3D" type="SpotLight3D" parent="FollowCamera/Camera3D" unique_id=204704972]
-light_color = Color(0.756863, 0.584314, 0.929412, 1)
-light_energy = 5.0
-light_cull_mask = 4294967293
-spot_range = 200.0
-spot_angle_attenuation = 0.25
-
-[node name="Node3D" type="Node3D" parent="FollowCamera" unique_id=2091103578]
-
-[node name="Vernon" parent="." unique_id=485420793 node_paths=PackedStringArray("camera_orientation") instance=ExtResource("3_x4m0m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 100, 0)
-camera_orientation = NodePath("../FollowCamera/Camera3D")
+[node name="fail" type="AudioStreamPlayer" parent="." unique_id=531142217]
+stream = ExtResource("14_pcfnw")
 
 [connection signal="apply_track" from="." to="Path3D/TrackApplicator" method="apply_track_obstacles"]
+[connection signal="body_entered" from="Path3D/TrackApplicator/GoalPost" to="Path3D/TrackApplicator/GoalPost" method="_on_body_entered"]
+[connection signal="finished" from="Music" to="." method="_on_music_finished"]
