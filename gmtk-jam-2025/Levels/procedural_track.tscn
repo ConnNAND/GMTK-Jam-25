@@ -21,14 +21,21 @@
 [ext_resource type="AudioStream" uid="uid://dbgicokse6pwm" path="res://Audio/vibegoal.ogg" id="14_fqv8j"]
 [ext_resource type="AudioStream" uid="uid://c5x4asdysqft5" path="res://Audio/609025__colorscrimsontears__power-down-2-rpg.wav" id="14_pcfnw"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8w7oe"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_pcfnw"]
+load_path = "res://.godot/imported/bettersky.jpg-713f22ab3c933857ef12363d4f7d13b8.s3tc.ctex"
 
-[sub_resource type="Sky" id="Sky_8ntcu"]
-sky_material = SubResource("ProceduralSkyMaterial_8w7oe")
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_7elgs"]
+panorama = SubResource("CompressedTexture2D_pcfnw")
+filter = false
 
-[sub_resource type="Environment" id="Environment_l3udk"]
+[sub_resource type="Sky" id="Sky_0d8jx"]
+sky_material = SubResource("PanoramaSkyMaterial_7elgs")
+radiance_size = 0
+
+[sub_resource type="Environment" id="Environment_17jmg"]
 background_mode = 2
-sky = SubResource("Sky_8ntcu")
+sky = SubResource("Sky_0d8jx")
+ambient_light_color = Color(0.495545, 0.706268, 0.834397, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7elgs"]
 transparency = 1
@@ -87,7 +94,7 @@ stream_1/stream = ExtResource("11_5mg02")
 stream_2/stream = ExtResource("12_q2jxe")
 
 [node name="ProceduralTrack" type="WorldEnvironment" unique_id=85569593]
-environment = SubResource("Environment_l3udk")
+environment = SubResource("Environment_17jmg")
 script = ExtResource("1_3ceda")
 daily = true
 PlayerViewport = ExtResource("2_q2jxe")
