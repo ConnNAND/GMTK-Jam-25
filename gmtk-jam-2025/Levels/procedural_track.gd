@@ -25,7 +25,7 @@ func _ready() -> void:
 	newCurve.closed = true
 	if daily:
 		seed(Time.get_date_string_from_system().hash())
-	if SEED==null or SEED=="":
+	elif SEED==null or SEED=="":
 		seed(Time.get_datetime_string_from_system().hash())
 	else:
 		seed(SEED.hash())
