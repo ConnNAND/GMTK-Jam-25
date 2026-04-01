@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bee0qj6eunpda"]
+[gd_scene format=3 uid="uid://bee0qj6eunpda"]
 
 [ext_resource type="Script" uid="uid://dgpn0tnq8bdvv" path="res://Levels/Scripts/boost_panel.gd" id="1_x6sdw"]
 [ext_resource type="AudioStream" uid="uid://dk1l1wejll8" path="res://Audio/boostsf.ogg" id="2_e7umi"]
@@ -17,18 +17,18 @@ size = Vector3(10, 1, 10)
 [sub_resource type="BoxShape3D" id="BoxShape3D_x6sdw"]
 size = Vector3(10, 2, 10)
 
-[node name="BoostPanel" type="Area3D"]
+[node name="BoostPanel" type="Area3D" unique_id=1860611154]
 collision_layer = 2
 collision_mask = 12
 script = ExtResource("1_x6sdw")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1101452968]
 mesh = SubResource("BoxMesh_e7umi")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1582488362]
 shape = SubResource("BoxShape3D_x6sdw")
 
-[node name="Boost" type="AudioStreamPlayer" parent="."]
+[node name="Boost" type="AudioStreamPlayer" parent="." unique_id=116051506]
 stream = ExtResource("2_e7umi")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

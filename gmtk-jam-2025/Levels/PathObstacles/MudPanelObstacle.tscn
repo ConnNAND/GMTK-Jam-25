@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://d1docfmaiovmf"]
+
+[ext_resource type="Script" uid="uid://ckswqxebheanp" path="res://Levels/PathObstacles/wide_boost_panel_obstacle.gd" id="1_cro5n"]
+[ext_resource type="PackedScene" uid="uid://b51g5xitfkwih" path="res://Levels/Assets/Mud.tscn" id="2_cro5n"]
+
+[node name="WideBoostPanelObstacle" type="PathFollow3D" unique_id=1725647541]
+v_offset = 1.0
+script = ExtResource("1_cro5n")
+
+[node name="BoostPanel" parent="." unique_id=2063698526 instance=ExtResource("2_cro5n")]

@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://ddr3ndau0hbmj"]
+
+[ext_resource type="Script" uid="uid://b8nodmhvtrwqb" path="res://Levels/PathObstacles/scatterable.gd" id="1_uj7f2"]
+
+[node name="Trees" type="PathFollow3D" unique_id=1058033681]
+v_offset = 5.0
+script = ExtResource("1_uj7f2")
+scatterable = "uid://oqgdctnd8xb4"

@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cpk5sd5ff3e2o"]
+
+[ext_resource type="Script" uid="uid://ddyatpklvmfj6" path="res://Levels/PathObstacles/blank_obstacle.gd" id="1_fbnnw"]
+
+[node name="BlankObstacle" type="PathFollow3D" unique_id=240745593]
+script = ExtResource("1_fbnnw")

@@ -5,6 +5,8 @@ extends WorldEnvironment
 @export var track_area_radius = 1000
 @export var track_area_height = 150
 
+signal apply_track
+
 
 var newCurve = Curve3D.new()
 @export var daily = false
@@ -78,3 +80,4 @@ func _ready() -> void:
 		var curveIn = -curveOut.normalized()*curPoint.distance_to(prevPoint)/4
 		newCurve.add_point(curPoint, curveIn, curveOut)
 	$Path3D.curve = newCurve
+	apply_track.emit()

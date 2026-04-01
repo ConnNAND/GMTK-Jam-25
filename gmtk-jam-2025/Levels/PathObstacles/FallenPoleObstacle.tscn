@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://cj0ishnsrqgbf"]
+
+[ext_resource type="Script" uid="uid://bj7ersbfu86as" path="res://Levels/PathObstacles/WidePropFlipper.gd" id="1_37y6a"]
+[ext_resource type="PackedScene" uid="uid://bfo3ngwkkdglj" path="res://Levels/Assets/Pole.tscn" id="2_37y6a"]
+
+[node name="Pole" type="PathFollow3D" unique_id=240745593]
+script = ExtResource("1_37y6a")
+
+[node name="Pole" parent="." unique_id=151091389 instance=ExtResource("2_37y6a")]
+transform = Transform3D(1.062202, -7.4244, 0, 7.4244, 1.062202, 0, 0, 0, 7.4999995, 0, 2.024459, 0)
