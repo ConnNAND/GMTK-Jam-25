@@ -70,11 +70,13 @@ func _input(event: InputEvent) -> void:
 	elif player_id == 99:#this means it's keyboard and mouse or touch controls!
 		if OS.has_feature("mobile") or OS.has_feature("web_android") or OS.has_feature("web_ios"):
 			if event.is_action("move_forward"):
-				touch_walk_dir = 1
-			if event.is_action("move_backward"):
 				touch_walk_dir = -1
+			if event.is_action("move_backward"):
+				touch_walk_dir = 1
 			if event.is_action("break"):
 				touch_walk_dir = 0
+			if event is InputEventScreenDrag:
+				touch_turn = event.screen_velocity.x
 		elif event.device == 0 and (not event is InputEventJoypadButton and not event is InputEventJoypadMotion) and not (OS.has_feature("mobile") or OS.has_feature("web_android") or OS.has_feature("web_ios")):
 			if event.is_action("move_forward"):
 				movement_input.w = event.get_action_strength("move_forward")
@@ -84,8 +86,6 @@ func _input(event: InputEvent) -> void:
 				movement_input.y = event.get_action_strength("move_right")
 			if event.is_action("move_left"):
 				movement_input.z = event.get_action_strength("move_left")
-		elif event is InputEventScreenDrag:
-			touch_turn = event.screen_velocity.x
 
 
 func jump():
@@ -146,8 +146,8 @@ func control_camera(delta):
 		rotate(global_transform.basis.y, delta*initial_turning)
 	if Input.is_joy_button_pressed(player_id, JOY_BUTTON_RIGHT_SHOULDER):
 		rotate(global_transform.basis.y, -delta*initial_turning)
-	if player_id==99:# and (OS.has_feature("mobile") or OS.has_feature("web_android") or OS.has_feature("web_ios")):
-		rotate(global_transform.basis.y, -delta*touch_turn/250)
+	if player_id==99 and (OS.has_feature("mobile") or OS.has_feature("web_android") or OS.has_feature("web_ios")):
+		rotate(global_transform.basis.y, -delta*touch_turn/450)
 		touch_turn = 0
 
 

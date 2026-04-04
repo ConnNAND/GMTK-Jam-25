@@ -25,7 +25,7 @@ func control_jump(delta):
 			in_air = true
 		if gliding:
 			actual_velocity.y = -5
-	if Input.is_joy_button_pressed(player_id, JOY_BUTTON_A) or (Input.is_key_pressed(KEY_SPACE) and player_id==99):
+	if Input.is_joy_button_pressed(player_id, JOY_BUTTON_A) or (Input.is_key_pressed(KEY_SPACE) and player_id==99) or (Input.is_action_pressed("jump") and player_id==99 and (OS.has_feature("mobile") or OS.has_feature("web_android") or OS.has_feature("web_ios"))):
 		if !jump_just_pressed:
 			jump_just_pressed = true
 			jump()
@@ -34,7 +34,7 @@ func control_jump(delta):
 	if !gliding:
 		actual_velocity.y -= gravity*delta
 	#variable jump height for holding the button down
-	if (Input.is_joy_button_pressed(player_id, JOY_BUTTON_A) or (Input.is_key_pressed(KEY_SPACE) and player_id==99)) and velocity.y > 0:
+	if (Input.is_joy_button_pressed(player_id, JOY_BUTTON_A) or (Input.is_key_pressed(KEY_SPACE) and player_id==99)) or (Input.is_action_pressed("jump") and player_id==99 and (OS.has_feature("mobile") or OS.has_feature("web_android") or OS.has_feature("web_ios"))) and velocity.y > 0:
 		gravity = ProjectSettings.get_setting("physics/3d/default_gravity")/2
 	else:
 		gravity = ProjectSettings.get_setting("physics/3d/default_gravity")

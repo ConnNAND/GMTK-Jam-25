@@ -1,21 +1,38 @@
-[gd_scene load_steps=3 format=3 uid="uid://ble64swkbdodj"]
+[gd_scene format=3 uid="uid://ble64swkbdodj"]
 
 [ext_resource type="Script" uid="uid://xs5l2yevvf1p" path="res://Camera/follow_camera.gd" id="1_p0j1i"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_p0j1i"]
 
-[node name="FollowCamera" type="SpringArm3D"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_pcfnw"]
+load_path = "res://.godot/imported/bettersky.jpg-713f22ab3c933857ef12363d4f7d13b8.s3tc.ctex"
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_7elgs"]
+panorama = SubResource("CompressedTexture2D_pcfnw")
+filter = false
+
+[sub_resource type="Sky" id="Sky_0d8jx"]
+sky_material = SubResource("PanoramaSkyMaterial_7elgs")
+radiance_size = 0
+
+[sub_resource type="Environment" id="Environment_p0j1i"]
+background_mode = 2
+sky = SubResource("Sky_0d8jx")
+ambient_light_color = Color(0.495545, 0.706268, 0.834397, 1)
+
+[node name="FollowCamera" type="SpringArm3D" unique_id=1472105481]
 shape = SubResource("SphereShape3D_p0j1i")
 script = ExtResource("1_p0j1i")
 
-[node name="Camera3D" type="Camera3D" parent="."]
+[node name="Camera3D" type="Camera3D" parent="." unique_id=924694205]
+environment = SubResource("Environment_p0j1i")
 current = true
 
-[node name="SpotLight3D" type="SpotLight3D" parent="Camera3D"]
+[node name="SpotLight3D" type="SpotLight3D" parent="Camera3D" unique_id=16551296]
 light_color = Color(0.756863, 0.584314, 0.929412, 1)
 light_energy = 5.0
 light_cull_mask = 4294967293
 spot_range = 200.0
 spot_angle_attenuation = 0.25
 
-[node name="Node3D" type="Node3D" parent="."]
+[node name="Node3D" type="Node3D" parent="." unique_id=1558468651]

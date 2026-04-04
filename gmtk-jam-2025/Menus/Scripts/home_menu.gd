@@ -4,7 +4,7 @@ func _ready() -> void:
 	$MainMenu/Play.grab_focus()
 	$"../../AudioStreamPlayer".play()
 	if OS.has_feature("mobile") or OS.has_feature("web_android") or OS.has_feature("web_ios"):
-		get_window().content_scale_factor = 2.0 
+		get_window().content_scale_factor = 3.0 
 
 
 func _on_play_pressed() -> void:
