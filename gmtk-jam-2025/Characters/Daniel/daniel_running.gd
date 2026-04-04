@@ -27,6 +27,9 @@ var boost_factor:float = 1
 var gravity:float = ProjectSettings.get_setting("physics/3d/default_gravity")
 var up_vec = Vector3.UP
 
+var touch_turn = 0
+var touch_walk_dir = 0
+
 var timer
 var lap_counter
 
@@ -49,11 +52,13 @@ func _physics_process(delta: float) -> void:
 func get_movement():
 	var forward = movement_input.x - movement_input.w
 	var right = movement_input.y - movement_input.z
+	if (OS.has_feature("mobile") or OS.has_feature("web_android") or OS.has_feature("web_ios")) and player_id == 99:
+		return Vector3(0, 0, touch_walk_dir)
 	return Vector3(right/(pow(turning, 2)), 0, forward).normalized()
 
 
 func _input(event: InputEvent) -> void:
-	if event.device == player_id and not event is InputEventKey:
+	if event.device == player_id and not event is InputEventKey and not (OS.has_feature("mobile") or OS.has_feature("web_android") or OS.has_feature("web_ios")):
 		if event.is_action("move_forward"):
 			movement_input.w = event.get_action_strength("move_forward")
 		if event.is_action("move_backward"):
@@ -62,8 +67,15 @@ func _input(event: InputEvent) -> void:
 			movement_input.y = event.get_action_strength("move_right")
 		if event.is_action("move_left"):
 			movement_input.z = event.get_action_strength("move_left")
-	elif player_id == 99:#this means it's keyboard and mouse!
-		if event.device == 0 and (not event is InputEventJoypadButton and not event is InputEventJoypadMotion):
+	elif player_id == 99:#this means it's keyboard and mouse or touch controls!
+		if OS.has_feature("mobile") or OS.has_feature("web_android") or OS.has_feature("web_ios"):
+			if event.is_action("move_forward"):
+				touch_walk_dir = 1
+			if event.is_action("move_backward"):
+				touch_walk_dir = -1
+			if event.is_action("break"):
+				touch_walk_dir = 0
+		elif event.device == 0 and (not event is InputEventJoypadButton and not event is InputEventJoypadMotion) and not (OS.has_feature("mobile") or OS.has_feature("web_android") or OS.has_feature("web_ios")):
 			if event.is_action("move_forward"):
 				movement_input.w = event.get_action_strength("move_forward")
 			if event.is_action("move_backward"):
@@ -72,6 +84,8 @@ func _input(event: InputEvent) -> void:
 				movement_input.y = event.get_action_strength("move_right")
 			if event.is_action("move_left"):
 				movement_input.z = event.get_action_strength("move_left")
+		elif event is InputEventScreenDrag:
+			touch_turn = event.screen_velocity.x
 
 
 func jump():
@@ -132,6 +146,9 @@ func control_camera(delta):
 		rotate(global_transform.basis.y, delta*initial_turning)
 	if Input.is_joy_button_pressed(player_id, JOY_BUTTON_RIGHT_SHOULDER):
 		rotate(global_transform.basis.y, -delta*initial_turning)
+	if player_id==99:# and (OS.has_feature("mobile") or OS.has_feature("web_android") or OS.has_feature("web_ios")):
+		rotate(global_transform.basis.y, -delta*touch_turn/250)
+		touch_turn = 0
 
 
 func control_jump(delta):
@@ -150,7 +167,7 @@ func control_jump(delta):
 		if not in_air and !jumping:
 			actual_velocity.y = 0
 			in_air = true
-	if Input.is_joy_button_pressed(player_id, JOY_BUTTON_A) or (Input.is_key_pressed(KEY_SPACE) and player_id==99):
+	if Input.is_joy_button_pressed(player_id, JOY_BUTTON_A) or (Input.is_key_pressed(KEY_SPACE) and player_id==99) or (Input.is_action_pressed("jump") and player_id==99 and (OS.has_feature("mobile") or OS.has_feature("web_android") or OS.has_feature("web_ios"))):
 		if !jump_just_pressed:
 			jump_just_pressed = true
 			jump()
@@ -158,7 +175,7 @@ func control_jump(delta):
 		jump_just_pressed = false
 	actual_velocity.y -= gravity*delta
 	#variable jump height for holding the button down
-	if (Input.is_joy_button_pressed(player_id, JOY_BUTTON_A) or (Input.is_key_pressed(KEY_SPACE) and player_id==99)) and velocity.y > 0:
+	if (Input.is_joy_button_pressed(player_id, JOY_BUTTON_A) or (Input.is_key_pressed(KEY_SPACE) and player_id==99)) or (Input.is_action_pressed("jump") and player_id==99 and (OS.has_feature("mobile") or OS.has_feature("web_android") or OS.has_feature("web_ios"))) and velocity.y > 0:
 		gravity = ProjectSettings.get_setting("physics/3d/default_gravity")/2
 	else:
 		gravity = ProjectSettings.get_setting("physics/3d/default_gravity")

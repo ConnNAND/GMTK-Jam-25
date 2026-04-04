@@ -3,6 +3,9 @@ extends CenterContainer
 func _ready() -> void:
 	$MainMenu/Play.grab_focus()
 	$"../../AudioStreamPlayer".play()
+	if OS.has_feature("mobile") or OS.has_feature("web_android") or OS.has_feature("web_ios"):
+		get_window().content_scale_factor = 2.0 
+
 
 func _on_play_pressed() -> void:
 	$MainMenu.visible = false
@@ -48,7 +51,7 @@ func _options_on_back_pressed() -> void:
 
 
 func _on_local_game_pressed() -> void:
-	PlayerData.current_mode = PlayerData.mode.daily
+	PlayerData.current_mode = PlayerData.mode.local
 	get_tree().change_scene_to_file("res://Menus/character_select.tscn")
 
 

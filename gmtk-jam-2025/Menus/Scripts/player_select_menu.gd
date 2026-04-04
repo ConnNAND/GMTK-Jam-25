@@ -4,6 +4,8 @@ var player_id = 0
 var character:int
 
 func _ready() -> void:
+	if OS.has_feature("mobile") or OS.has_feature("web_android") or OS.has_feature("web_ios"):
+		$VBoxContainer/Controller.set_item_text(0, "Touch Controls")
 	for i in Input.get_connected_joypads():
 		$VBoxContainer/Controller.add_item(Input.get_joy_name(i), i)
 

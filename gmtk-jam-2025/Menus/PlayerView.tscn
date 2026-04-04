@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://do0ucus8i4gsr" path="res://Characters/Gary/GaryGecko.tscn" id="5_mko63"]
 [ext_resource type="Shader" uid="uid://d2n77cig0kdlu" path="res://Materials/Shaders/dither.gdshader" id="6_rqmiy"]
 [ext_resource type="Script" uid="uid://ctyx8vtlw442d" path="res://LapCounter/lap_counter.gd" id="7_kxji3"]
+[ext_resource type="Texture2D" uid="uid://l2sos73kuk6q" path="res://icon.svg" id="12_hwwrm"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kxji3"]
 shader = ExtResource("6_rqmiy")
@@ -83,5 +84,63 @@ metadata/_custom_type_script = "uid://ctyx8vtlw442d"
 [node name="PauseMenu" parent="SubViewport" unique_id=202451642 instance=ExtResource("3_t0o3n")]
 unique_name_in_owner = true
 visible = false
+
+[node name="TouchScreenControls" type="Control" parent="SubViewport" unique_id=563312455]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Run" type="VBoxContainer" parent="SubViewport/TouchScreenControls" unique_id=75004442]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+grow_vertical = 2
+alignment = 1
+
+[node name="Forward" type="Container" parent="SubViewport/TouchScreenControls/Run" unique_id=1652519015]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+
+[node name="ForwardButton" type="TouchScreenButton" parent="SubViewport/TouchScreenControls/Run/Forward" unique_id=81108869]
+texture_normal = ExtResource("12_hwwrm")
+action = "move_forward"
+
+[node name="Break" type="Container" parent="SubViewport/TouchScreenControls/Run" unique_id=941738807]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+
+[node name="BreakButton" type="TouchScreenButton" parent="SubViewport/TouchScreenControls/Run/Break" unique_id=266915980]
+texture_normal = ExtResource("12_hwwrm")
+action = "break"
+
+[node name="Backward" type="Container" parent="SubViewport/TouchScreenControls/Run" unique_id=1967603892]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+
+[node name="BackwardButton" type="TouchScreenButton" parent="SubViewport/TouchScreenControls/Run/Backward" unique_id=1056787791]
+texture_normal = ExtResource("12_hwwrm")
+action = "move_backward"
+
+[node name="Jump" type="Container" parent="SubViewport/TouchScreenControls" unique_id=1540466614]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -64.0
+offset_bottom = 64.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="JumpButton" type="TouchScreenButton" parent="SubViewport/TouchScreenControls/Jump" unique_id=1793384457]
+texture_normal = ExtResource("12_hwwrm")
+action = "jump"
 
 [connection signal="overtime_timer_timeout" from="SubViewport/GameTimer" to="." method="_on_game_timer_overtime_timer_timeout"]

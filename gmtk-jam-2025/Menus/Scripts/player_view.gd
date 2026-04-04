@@ -18,6 +18,8 @@ var player_collision_layer : int
 func _ready():
 	if testScene:
 		ready_player(testPlayerInfo, testSpawnLocation)
+	if OS.has_feature("mobile") or OS.has_feature("web_android") or OS.has_feature("web_ios"):
+		$SubViewport/TouchScreenControls.visible = true
 
 
 func ready_player(playerInfo, spawnLocation):

@@ -1,8 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://c4ioxrv2edq3"]
+[gd_scene format=3 uid="uid://c4ioxrv2edq3"]
 
 [ext_resource type="Script" uid="uid://bk8gexihhm14f" path="res://Menus/Scripts/player_select_menu.gd" id="1_qfdwg"]
 
-[node name="PlayerSelectMenu" type="CenterContainer"]
+[node name="PlayerSelectMenu" type="CenterContainer" unique_id=1156264254]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -10,20 +10,20 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_qfdwg")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1597266606]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer"]
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=776186519]
 layout_mode = 2
 text = "Player #"
 
-[node name="Controller" type="OptionButton" parent="VBoxContainer"]
+[node name="Controller" type="OptionButton" parent="VBoxContainer" unique_id=396770576]
 layout_mode = 2
 item_count = 1
 popup/item_0/text = "Keyboard & Mouse"
 popup/item_0/id = 99
 
-[node name="Character" type="OptionButton" parent="VBoxContainer"]
+[node name="Character" type="OptionButton" parent="VBoxContainer" unique_id=1853722812]
 layout_mode = 2
 item_count = 4
 popup/item_0/text = "Daniel Running"
@@ -35,7 +35,7 @@ popup/item_2/id = 2
 popup/item_3/text = "Gary Gecko"
 popup/item_3/id = 3
 
-[node name="Leave" type="Button" parent="VBoxContainer"]
+[node name="Leave" type="Button" parent="VBoxContainer" unique_id=160563202]
 layout_mode = 2
 text = "Leave"
 
