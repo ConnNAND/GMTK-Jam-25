@@ -12,5 +12,5 @@ func _ready():
 		var temp:Node = load(scatterable).instantiate()
 		add_child(temp)
 		temp.transform.origin += Vector3(randf_range(-radius/2, radius/2), 0, randf_range(-radius/2, radius/2))
-		if temp.has("origin_point"):
+		if "origin_point" in temp:
 			temp.origin_point = temp.global_transform.origin

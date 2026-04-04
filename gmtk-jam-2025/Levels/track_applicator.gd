@@ -20,20 +20,21 @@ func apply_track_obstacles():
 func apply_checkpoints():
 	var placer = $Placer
 	placer.reparent(track)
-	placer.progress_ratio = 0
 	var goalpost = $GoalPost
-	goalpost.reparent(placer)
 	goalpost.position = Vector3(0, 5, 0)
-	goalpost.reparent(self)
+	var temp = goalpost.global_rotation
 	var checkpoints = []
 	for i in goalpost.get_children():
 		if i is Area3D:
 			checkpoints.append(i)
 	var progress:float = 1
 	for i in checkpoints:
-		placer.progress_ratio = progress / (checkpoints.size()+1)
+		placer.progress_ratio = 0
 		i.reparent(placer)
+		placer.progress_ratio = progress / (checkpoints.size()+1)
+		temp = i.global_rotation
 		i.position = Vector3(0, 5, 0)
 		i.reparent(goalpost)
+		i.global_rotation = temp
 		progress += 1
 	
