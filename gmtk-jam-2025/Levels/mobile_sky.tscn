@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://eg1vifgy55h"]
+
+[ext_resource type="Texture2D" uid="uid://bfms3pif0weju" path="res://Materials/Textures/bettersky.jpg" id="1_3hl7r"]
+[ext_resource type="Script" uid="uid://dwmq34lnaty1d" path="res://Levels/mobile_sky.gd" id="2_l1vt6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_phexy"]
+cull_mode = 1
+albedo_texture = ExtResource("1_3hl7r")
+
+[sub_resource type="SphereMesh" id="SphereMesh_n106x"]
+material = SubResource("StandardMaterial3D_phexy")
+radius = 3000.0
+height = 6000.0
+radial_segments = 10
+rings = 5
+
+[node name="MobileSky" type="MeshInstance3D" unique_id=2000529868]
+visible = false
+mesh = SubResource("SphereMesh_n106x")
+script = ExtResource("2_l1vt6")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1403052333]
+transform = Transform3D(-0.70710695, -0.18301275, 0.6830128, -2.0760304e-08, 0.9659259, 0.2588191, -0.7071067, 0.18301275, -0.6830129, 0, 3.0679073, 0)
+light_color = Color(0.36112806, 0.34959802, 0, 1)

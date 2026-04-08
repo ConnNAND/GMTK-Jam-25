@@ -28,6 +28,9 @@ var gravity:float = ProjectSettings.get_setting("physics/3d/default_gravity")
 var up_vec = Vector3.UP
 
 var touch_turn = 0
+var just_touched = false
+var init_touch_coords:Vector2i
+var current_touch_coords:Vector2i
 var touch_walk_dir = 0
 
 var timer
@@ -75,8 +78,26 @@ func _input(event: InputEvent) -> void:
 				touch_walk_dir = 1
 			if event.is_action("break"):
 				touch_walk_dir = 0
-			if event is InputEventScreenDrag:
-				touch_turn = event.screen_velocity.x
+			if event is InputEventScreenTouch:
+				if event.pressed:
+					if not just_touched:
+						init_touch_coords = event.position
+						just_touched = true
+						current_touch_coords = event.position
+						touch_turn = 0
+					else:
+						Input.action_release("jump")
+						current_touch_coords = event.position
+						touch_turn = current_touch_coords.x - init_touch_coords.x
+				else:
+					if event.position.y <= init_touch_coords.y-25:
+						simulate_jump(event.position.y - (init_touch_coords.y-25))
+					just_touched = false
+					touch_turn = 0
+			elif event is InputEventScreenDrag:
+				current_touch_coords = event.position
+				touch_turn = current_touch_coords.x - init_touch_coords.x
+				#touch_turn = event.screen_velocity.x
 		elif event.device == 0 and (not event is InputEventJoypadButton and not event is InputEventJoypadMotion) and not (OS.has_feature("mobile") or OS.has_feature("web_android") or OS.has_feature("web_ios")):
 			if event.is_action("move_forward"):
 				movement_input.w = event.get_action_strength("move_forward")
@@ -147,8 +168,8 @@ func control_camera(delta):
 	if Input.is_joy_button_pressed(player_id, JOY_BUTTON_RIGHT_SHOULDER):
 		rotate(global_transform.basis.y, -delta*initial_turning)
 	if player_id==99 and (OS.has_feature("mobile") or OS.has_feature("web_android") or OS.has_feature("web_ios")):
-		rotate(global_transform.basis.y, -delta*touch_turn/450)
-		touch_turn = 0
+		rotate(global_transform.basis.y, -delta*touch_turn/78)
+		#touch_turn = 0
 
 
 func control_jump(delta):
@@ -234,6 +255,12 @@ func handle_basics(delta):
 	move_and_slide()
 	apply_floor_snap()
 	orient_player_to_surface(delta)
+
+
+func simulate_jump(swipe_size):
+	Input.action_press("jump")
+	await get_tree().create_timer(0.01 * swipe_size).timeout
+	Input.action_release("jump")
 
 
 func _on_bonk_check_body_entered(body: Node3D) -> void:

@@ -32,7 +32,7 @@ func apply_checkpoints():
 		placer.progress_ratio = 0
 		i.reparent(placer)
 		placer.progress_ratio = progress / (checkpoints.size()+1)
-		temp = i.global_rotation
+		temp = i.global_rotation+Vector3(0, 180, 0)
 		i.position = Vector3(0, 5, 0)
 		i.reparent(goalpost)
 		i.global_rotation = temp

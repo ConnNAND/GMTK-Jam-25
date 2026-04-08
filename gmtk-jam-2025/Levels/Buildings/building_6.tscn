@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://cqy8ksonhlp0q"]
+
+[ext_resource type="Material" uid="uid://716l81gsnl6i" path="res://Materials/coolofficebuilding.tres" id="1_qoi6g"]
+
+[node name="Building6" type="CSGBox3D" unique_id=726800785]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0, 0, 0)
+material_override = ExtResource("1_qoi6g")
+use_collision = true
+collision_layer = 16
+size = Vector3(25, 211, 25)

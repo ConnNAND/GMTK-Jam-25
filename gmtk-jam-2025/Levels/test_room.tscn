@@ -24,13 +24,19 @@
 [ext_resource type="Texture2D" uid="uid://bj1sf4cb7fsd8" path="res://Materials/Textures/apartments2.png" id="15_y4w06"]
 [ext_resource type="PackedScene" uid="uid://b51g5xitfkwih" path="res://Levels/Assets/Mud.tscn" id="16_8nbxi"]
 [ext_resource type="PackedScene" uid="uid://tgicqb4gnvq2" path="res://Levels/Assets/ShrinkingPlatform.tscn" id="17_2y4dp"]
+[ext_resource type="PackedScene" uid="uid://chvcjjqtb0atm" path="res://Levels/Buildings/building.tscn" id="17_5b6ai"]
+[ext_resource type="PackedScene" uid="uid://73a500vkeqoo" path="res://Levels/Buildings/building_2.tscn" id="18_48wip"]
 [ext_resource type="Texture2D" uid="uid://m2shmh1jcy00" path="res://Materials/Textures/apartments4.png" id="18_mvwd1"]
+[ext_resource type="PackedScene" uid="uid://bqg7wtagll3gu" path="res://Levels/Buildings/building_3.tscn" id="19_h5ll1"]
 [ext_resource type="Texture2D" uid="uid://grvbdgpnvdkj" path="res://Materials/Textures/apartments9.png" id="19_t0sje"]
 [ext_resource type="Texture2D" uid="uid://cfcxm4ybqglqu" path="res://Materials/Textures/building_construction.png" id="20_8tmlt"]
 [ext_resource type="Texture2D" uid="uid://cp3uds58n7lo6" path="res://Materials/Textures/apartment_block5.png" id="20_mvwd1"]
+[ext_resource type="PackedScene" uid="uid://f1gv346nbsnf" path="res://Levels/Buildings/building_4.tscn" id="20_w3plq"]
+[ext_resource type="PackedScene" uid="uid://cq3c4uw2smcca" path="res://Levels/Buildings/building_5.tscn" id="21_8lect"]
 [ext_resource type="Texture2D" uid="uid://cu0s0hv6mpkxl" path="res://Materials/Textures/apartment_block6.png" id="21_t0sje"]
 [ext_resource type="Texture2D" uid="uid://q58ac8av6d3m" path="res://Materials/Textures/building_dks-1.png" id="21_tlcfh"]
 [ext_resource type="Texture2D" uid="uid://dmxxdwa1dsn7s" path="res://Materials/Textures/building_derelict1.png" id="21_u6ab0"]
+[ext_resource type="PackedScene" uid="uid://cqy8ksonhlp0q" path="res://Levels/Buildings/building_6.tscn" id="22_5eljm"]
 [ext_resource type="Texture2D" uid="uid://8cl86yyaghd7" path="res://Materials/Textures/apartment_block7.png" id="22_voyto"]
 [ext_resource type="Texture2D" uid="uid://b2wvkwi4kv5y7" path="res://Materials/Textures/building_dock2.png" id="23_1qgm3"]
 [ext_resource type="Texture2D" uid="uid://cxysb78ihxeo1" path="res://Materials/Textures/building_dock_apartments2.png" id="24_mbwd3"]
@@ -55,6 +61,7 @@
 [ext_resource type="Script" uid="uid://b1lreptywkk30" path="res://Levels/car_spawner.gd" id="50_v5ntf"]
 [ext_resource type="AudioStream" uid="uid://dkx018144b44o" path="res://Audio/140512__blackstalian__click_sfx6.wav" id="51_vrdyx"]
 [ext_resource type="AudioStream" uid="uid://c5x4asdysqft5" path="res://Audio/609025__colorscrimsontears__power-down-2-rpg.wav" id="53_lbcri"]
+[ext_resource type="PackedScene" uid="uid://eg1vifgy55h" path="res://Levels/mobile_sky.tscn" id="62_48wip"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_8nbxi"]
 panorama = ExtResource("1_m7nff")
@@ -100,21 +107,15 @@ rings = 10
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_r4o0h"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_13yq3"]
+albedo_texture = ExtResource("20_8tmlt")
+uv1_scale = Vector3(0.02, 0.02, 0.02)
+uv1_triplanar = true
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xfamv"]
 albedo_texture = ExtResource("14_shs50")
 uv1_scale = Vector3(0.02, 0.02, 0.02)
 uv1_offset = Vector3(0, 0.2, 0)
-uv1_triplanar = true
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_voyto"]
-albedo_texture = ExtResource("15_y4w06")
-uv1_scale = Vector3(0.02, 0.02, 0.02)
-uv1_offset = Vector3(0, -0.4, 0)
-uv1_triplanar = true
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_13yq3"]
-albedo_texture = ExtResource("20_8tmlt")
-uv1_scale = Vector3(0.02, 0.02, 0.02)
 uv1_triplanar = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_486do"]
@@ -127,6 +128,12 @@ uv1_triplanar = true
 albedo_texture = ExtResource("24_mbwd3")
 uv1_scale = Vector3(0.04, 0.04, 0.04)
 uv1_offset = Vector3(0, -0.065, 0)
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_voyto"]
+albedo_texture = ExtResource("15_y4w06")
+uv1_scale = Vector3(0.02, 0.02, 0.02)
+uv1_offset = Vector3(0, -0.4, 0)
 uv1_triplanar = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tlcfh"]
@@ -319,7 +326,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.73447, 0)
 transform = Transform3D(1, 0, 2.38419e-07, 0, 1, 0, -2.38419e-07, 0, 1, 12, 0, 50)
 script = ExtResource("10_wddm5")
 num_lamps = 80
-lamp = ExtResource("11_lbcri")
+make_these = Array[PackedScene]([ExtResource("11_lbcri")])
 path = NodePath("../Path3D")
 
 [node name="Path3D" type="Path3D" parent="." unique_id=1759502846]
@@ -388,42 +395,23 @@ shape = SubResource("WorldBoundaryShape3D_r4o0h")
 
 [node name="Buildings" type="Node" parent="." unique_id=363275213]
 
-[node name="Building" type="CSGBox3D" parent="Buildings" unique_id=830160845]
+[node name="Building" parent="Buildings" unique_id=1472333390 instance=ExtResource("17_5b6ai")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, -55, -110)
-use_collision = true
-size = Vector3(25, 130, 25)
-material = SubResource("StandardMaterial3D_xfamv")
 
-[node name="Building2" type="CSGBox3D" parent="Buildings" unique_id=1732579102]
+[node name="Building2" parent="Buildings" unique_id=150079709 instance=ExtResource("18_48wip")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57, -45, -110)
-use_collision = true
-size = Vector3(25, 140, 25)
-material = SubResource("StandardMaterial3D_voyto")
 
-[node name="Building3" type="CSGBox3D" parent="Buildings" unique_id=475019399]
-transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 213.636, -60, 171.95)
-use_collision = true
-size = Vector3(23, 140, 41)
-material = SubResource("StandardMaterial3D_voyto")
+[node name="Building3" parent="Buildings" unique_id=1063315786 instance=ExtResource("19_h5ll1")]
+transform = Transform3D(0.70710695, 0, -0.70710695, 0, 1, 0, 0.70710695, 0, 0.70710695, 213.636, -60, 171.95)
 
-[node name="Building4" type="CSGBox3D" parent="Buildings" unique_id=1903554284]
-transform = Transform3D(0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, 0.258819, -238.364, -32.5, 73.9498)
-use_collision = true
-size = Vector3(23, 141, 41)
-material = SubResource("StandardMaterial3D_voyto")
+[node name="Building4" parent="Buildings" unique_id=1098904356 instance=ExtResource("20_w3plq")]
+transform = Transform3D(0.25881898, 0, -0.965926, 0, 1, 0, 0.965926, 0, 0.25881898, -238.364, -32.5, 73.9498)
 
-[node name="Building5" type="CSGBox3D" parent="Buildings" unique_id=299370312]
+[node name="Building5" parent="Buildings" unique_id=1427778913 instance=ExtResource("21_8lect")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, -50, -66)
-use_collision = true
-size = Vector3(25, 160, 25)
-material = ExtResource("14_ymruk")
 
-[node name="Building6" type="CSGBox3D" parent="Buildings" unique_id=956822896]
-transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -198, -24.5, 262)
-material_override = ExtResource("15_4kpi4")
-use_collision = true
-collision_layer = 16
-size = Vector3(25, 211, 25)
+[node name="Building6" parent="Buildings" unique_id=726800785 instance=ExtResource("22_5eljm")]
+transform = Transform3D(0.70710695, 0, 0.70710695, 0, 1, 0, -0.70710695, 0, 0.70710695, -198, -24.5, 262)
 
 [node name="Building7" type="CSGBox3D" parent="Buildings" unique_id=851341221]
 transform = Transform3D(0.5, 0, 0.866026, 0, 1, 0, -0.866026, 0, 0.5, -91, -24.5, 176)
@@ -1606,6 +1594,8 @@ stream = ExtResource("51_vrdyx")
 stream = ExtResource("53_lbcri")
 
 [node name="Lamps" type="Node3D" parent="." unique_id=791664075]
+
+[node name="MobileSky" parent="." unique_id=2000529868 instance=ExtResource("62_48wip")]
 
 [connection signal="body_entered" from="GoalPost" to="GoalPost" method="_on_body_entered"]
 [connection signal="body_entered" from="KillPlane" to="KillPlane" method="_on_body_entered"]

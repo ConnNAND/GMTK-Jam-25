@@ -1,13 +1,33 @@
-[gd_scene load_steps=2 format=3 uid="uid://c3jyqlurl3ali"]
+[gd_scene format=3 uid="uid://c3jyqlurl3ali"]
 
 [ext_resource type="Texture2D" uid="uid://dr4hpe6gsnflb" path="res://Materials/Textures/lamp.png" id="1_edxmm"]
+[ext_resource type="Script" uid="uid://d16vq4rehk6ov" path="res://Levels/Assets/lamp.gd" id="1_xe4ay"]
 
-[node name="Lamp" type="PathFollow3D"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_bpx0e"]
+radius = 100.0
+
+[node name="Lamp" type="PathFollow3D" unique_id=483146253]
 rotation_mode = 4
 tilt_enabled = false
+script = ExtResource("1_xe4ay")
 
-[node name="Sprite3D" type="Sprite3D" parent="."]
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1729669902]
 transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 0, 0, 0)
 offset = Vector2(0, 60)
 shaded = true
 texture = ExtResource("1_edxmm")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Sprite3D" unique_id=457014857]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0.42156047, 1.5287129, 0)
+visible = false
+light_color = Color(1, 0.7529412, 0.30588236, 1)
+spot_range = 9.582507
+spot_angle = 71.71874
+
+[node name="Area3D" type="Area3D" parent="Sprite3D" unique_id=2037108681]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Sprite3D/Area3D" unique_id=130772037]
+shape = SubResource("SphereShape3D_bpx0e")
+
+[connection signal="body_entered" from="Sprite3D/Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Sprite3D/Area3D" to="." method="_on_area_3d_body_exited"]

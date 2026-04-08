@@ -6,6 +6,7 @@ var units = 30
 @export var radius:float = 20
 @export var amount_min = 1
 @export var amount_max = 7
+@export var orient_with_track = true
 
 func _ready():
 	for i in range(randi_range(amount_min, amount_max)):
@@ -14,3 +15,6 @@ func _ready():
 		temp.transform.origin += Vector3(randf_range(-radius/2, radius/2), 0, randf_range(-radius/2, radius/2))
 		if "origin_point" in temp:
 			temp.origin_point = temp.global_transform.origin
+		if !orient_with_track:
+			temp.rotation.x = 0
+			temp.rotation.y = 0

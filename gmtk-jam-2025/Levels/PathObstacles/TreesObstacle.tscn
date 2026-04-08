@@ -6,3 +6,6 @@
 v_offset = 5.0
 script = ExtResource("1_uj7f2")
 scatterable = "uid://oqgdctnd8xb4"
+radius = 30.0
+amount_max = 5
+orient_with_track = false

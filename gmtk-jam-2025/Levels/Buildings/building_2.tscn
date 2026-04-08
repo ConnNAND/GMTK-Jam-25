@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://73a500vkeqoo"]
+
+[ext_resource type="Texture2D" uid="uid://bj1sf4cb7fsd8" path="res://Materials/Textures/apartments2.png" id="1_wod5l"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_voyto"]
+albedo_texture = ExtResource("1_wod5l")
+uv1_scale = Vector3(0.02, 0.02, 0.02)
+uv1_offset = Vector3(0, -0.4, 0)
+uv1_triplanar = true
+
+[node name="Building2" type="CSGBox3D" unique_id=150079709]
+use_collision = true
+size = Vector3(25, 140, 25)
+material = SubResource("StandardMaterial3D_voyto")
