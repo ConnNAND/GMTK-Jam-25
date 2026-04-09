@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cyrbhiwbvp3b4"]
+[gd_scene format=3 uid="uid://cyrbhiwbvp3b4"]
 
 [ext_resource type="Script" uid="uid://bgrabu73a6ldf" path="res://Levels/Scripts/check_point.gd" id="1_b5pab"]
 [ext_resource type="AudioStream" uid="uid://dhy4hqgx0li36" path="res://Audio/checkpointclick.ogg" id="2_desj7"]
@@ -21,22 +21,23 @@ rings = 10
 [sub_resource type="SphereShape3D" id="SphereShape3D_b5pab"]
 radius = 25.0
 
-[node name="CheckPoint" type="Area3D"]
+[node name="CheckPoint" type="Area3D" unique_id=1324200279]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 collision_layer = 2
 collision_mask = 8
 script = ExtResource("1_b5pab")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1574034161]
 layers = 2
 mesh = SubResource("SphereMesh_p37q1")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=761870236]
 shape = SubResource("SphereShape3D_b5pab")
 
-[node name="Collect" type="AudioStreamPlayer" parent="."]
+[node name="Collect" type="AudioStreamPlayer" parent="." unique_id=1830892173]
 stream = ExtResource("2_desj7")
 
-[node name="VibeCollect" type="AudioStreamPlayer" parent="."]
+[node name="VibeCollect" type="AudioStreamPlayer" parent="." unique_id=1653491172]
 stream = ExtResource("3_oxk36")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
