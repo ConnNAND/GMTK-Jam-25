@@ -47,6 +47,7 @@ var in_air : bool = true
 var jumping:bool = false
 var is_paused : bool = false
 
+var last_checkpoint : int = 0
 
 func _physics_process(delta: float) -> void:
 	handle_basics(delta)
