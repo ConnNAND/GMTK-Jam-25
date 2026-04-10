@@ -2,11 +2,17 @@ class_name Goalpost extends Checkpoint
 
 func _on_body_entered(body: Node3D) -> void:
 	if body is BasicPlayer and checkpoint_valid(body):
-		set_respawn(body)
+		set_checkpoint(body)
 		increase_speed(body)
 		play_sound(body)
 		reset_timer(body)
 		reset_items(body)
+	else:
+		print("Entered wrong checkpoint OR not player")
+
+func play_sound(player : BasicPlayer) -> void:
+	if player.windspeed < -5: $Horn.play()
+	else: $Vibe.play()
 
 func reset_timer(player : BasicPlayer):
 	if player.timer:

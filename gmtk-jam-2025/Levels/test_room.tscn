@@ -372,9 +372,11 @@ mesh = SubResource("SphereMesh_3k1a2")
 
 [node name="CheckPoint" parent="GoalPost" unique_id=60854152 instance=ExtResource("4_3k1a2")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 329, -18, 63)
+checkpoint_id = 1
 
 [node name="CheckPoint2" parent="GoalPost" unique_id=853819525 instance=ExtResource("4_3k1a2")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 111, -41, 258)
+checkpoint_id = 2
 
 [node name="Horn" type="AudioStreamPlayer" parent="GoalPost" unique_id=1821089489]
 stream = ExtResource("6_v4rkh")
