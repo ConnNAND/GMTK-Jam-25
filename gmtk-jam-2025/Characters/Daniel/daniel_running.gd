@@ -26,6 +26,7 @@ var boost_factor:float = 1
 
 var gravity:float = ProjectSettings.get_setting("physics/3d/default_gravity")
 var up_vec = Vector3.UP
+var bounce:Vector3 = Vector3.ZERO
 
 var touch_turn = 0
 var just_touched = false
@@ -91,7 +92,9 @@ func _input(event: InputEvent) -> void:
 						touch_turn = current_touch_coords.x - init_touch_coords.x
 				else:
 					if event.position.y <= init_touch_coords.y-25:
-						simulate_jump(event.position.y - (init_touch_coords.y-25))
+						simulate_jump(abs(event.position.y - (init_touch_coords.y)))
+					elif event.position.y >= init_touch_coords.y+45:
+						simulate_quick_break(abs(event.position.y - (init_touch_coords.y)))
 					just_touched = false
 					touch_turn = 0
 			elif event is InputEventScreenDrag:
@@ -115,6 +118,11 @@ func jump():
 		actual_velocity.y = jump_strength / hinderance
 		floor_snap_length = 0
 		$Jump.play()
+
+
+func queue_bounce(bouncer):
+	in_air = true
+	bounce = bouncer.global_transform.basis.y*bouncer.bounce_strength
 
 
 func kill():
@@ -252,6 +260,11 @@ func handle_basics(delta):
 	handle_momentum(delta)
 	if camera_orientation: #makes motion direction relative to camera
 		velocity = (global_transform.basis * actual_velocity.rotated(global_basis.y, camera_orientation.rotation.y))/hinderance
+	if bounce != Vector3.ZERO:
+		in_air = true
+		floor_snap_length = 0
+		velocity += bounce
+		bounce = Vector3.ZERO
 	move_and_slide()
 	apply_floor_snap()
 	orient_player_to_surface(delta)
@@ -259,11 +272,17 @@ func handle_basics(delta):
 
 func simulate_jump(swipe_size):
 	Input.action_press("jump")
-	await get_tree().create_timer(0.01 * swipe_size).timeout
+	await get_tree().create_timer(0.0024 * swipe_size).timeout
 	Input.action_release("jump")
+
+
+func simulate_quick_break(swipe_size):
+	touch_walk_dir = -0.1
+	await get_tree().create_timer(0.005 * swipe_size).timeout
+	touch_walk_dir = -1
 
 
 func _on_bonk_check_body_entered(body: Node3D) -> void:
 	$Ouch.play()
-	actual_velocity = Vector3.ZERO
-	target_velocity = Vector3.ZERO
+	actual_velocity *= 0.05
+	target_velocity *= 0.05

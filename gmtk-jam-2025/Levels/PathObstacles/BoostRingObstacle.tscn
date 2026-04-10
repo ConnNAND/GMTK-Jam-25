@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://wvqrrr7lv37k"]
+
+[ext_resource type="Script" uid="uid://bj7ersbfu86as" path="res://Levels/PathObstacles/WidePropFlipper.gd" id="1_tne8r"]
+[ext_resource type="PackedScene" uid="uid://c4xa4aebcn3d7" path="res://Levels/Assets/BoostRing.tscn" id="3_463ni"]
+
+[node name="BoostRingObstacle" type="PathFollow3D" unique_id=240745593]
+h_offset = 6.0
+v_offset = 13.0
+script = ExtResource("1_tne8r")
+
+[node name="BoostRing" parent="." unique_id=235180308 instance=ExtResource("3_463ni")]

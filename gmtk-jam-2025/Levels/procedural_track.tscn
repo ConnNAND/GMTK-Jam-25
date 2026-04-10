@@ -13,10 +13,8 @@
 [ext_resource type="PackedScene" uid="uid://c3jyqlurl3ali" path="res://Levels/Assets/Lamp.tscn" id="8_0d8jx"]
 [ext_resource type="PackedScene" uid="uid://chvcjjqtb0atm" path="res://Levels/Buildings/building.tscn" id="9_pmck1"]
 [ext_resource type="AudioStream" uid="uid://cqllqn3s7x2r" path="res://Audio/hyper-garden-jungle-breakbeat-drum-and-bass-loop-edit-356528.mp3" id="10_yjtx8"]
-[ext_resource type="PackedScene" uid="uid://73a500vkeqoo" path="res://Levels/Buildings/building_2.tscn" id="10_yxb6u"]
 [ext_resource type="Script" uid="uid://bbcwyhasc3vyp" path="res://Levels/Scripts/goal_post.gd" id="11_0d8jx"]
 [ext_resource type="AudioStream" uid="uid://ipr4r8cu4a0m" path="res://Audio/jungle-waves-drumampbass-electronic-inspiring-promo-345013.mp3" id="11_5mg02"]
-[ext_resource type="PackedScene" uid="uid://bqg7wtagll3gu" path="res://Levels/Buildings/building_3.tscn" id="11_phexy"]
 [ext_resource type="PackedScene" uid="uid://cyrbhiwbvp3b4" path="res://Levels/Assets/check_point.tscn" id="12_17jmg"]
 [ext_resource type="PackedScene" uid="uid://f1gv346nbsnf" path="res://Levels/Buildings/building_4.tscn" id="12_n106x"]
 [ext_resource type="AudioStream" uid="uid://dsqnveboepueu" path="res://Audio/otherworldly-drum-and-bass-full-369492.mp3" id="12_q2jxe"]
@@ -68,10 +66,10 @@ size = Vector3(1, 1, 4.88)
 [sub_resource type="Curve3D" id="Curve3D_yxb6u"]
 closed = true
 _data = {
-"points": PackedVector3Array(-4.583848, 0.7165317, 3.588094, 32.290375, -5.0475225, -25.275902, -936.0011, 11.883149, -190.56442, -27.881733, -21.290754, 21.82498, 16.145172, 12.328607, -12.637955, -806.8396, -8.306941, -291.66803, -18.815367, -1.201916, 14.72808, 16.145187, 1.0313463, -12.637947, -742.2589, 41.00748, -342.21985, -19.344013, 0.4171944, 6.861747, 12.747742, -0.2749319, -4.521904, -677.67816, 45.132866, -392.77164, -12.661901, 2.0629005, 4.295205, 28.075592, -4.5741277, -9.52388, -626.6872, 44.03314, -410.85925, -26.793861, -0.95770186, 13.455024, 13.496529, 0.4824109, -6.777527, -514.3848, 25.736628, -448.95477, -13.573587, 3.09188, -5.875531, 37.338356, -8.505174, 16.162468, -460.3987, 27.666271, -476.06488, -33.96271, 18.924149, -14.701265, 18.669174, -10.402534, 8.08123, -311.0453, -6.3544235, -411.415, -20.495497, -4.825254, -8.871789, 18.669174, 4.3952827, 8.081238, -236.36859, -47.964558, -379.0901, -14.5636425, -0.88170177, -14.84203, 20.935627, 1.2674699, 21.335815, -161.6919, -30.383427, -346.76514, -26.55925, -4.8026667, -12.90987, 15.604767, 2.8217852, 7.585136, -77.94939, -25.313547, -261.42188, -3.125892, 4.2492995, -16.768356, 3.266709, -4.4407244, 17.523746, -15.53032, -14.026406, -231.08133, -3.34195, -2.2167666, -17.927366, 3.266709, 2.1668582, 17.523748, -2.4634838, -31.789305, -160.98634, 2.0173264, -4.39902, -17.29241, -2.6508381, 5.780468, 22.722837, 10.603353, -23.121872, -90.89135, 5.831934, 0.77684695, -22.850672, -31.148682, -4.1491823, 122.04669, 0, 0, 0, 122.20097, 30.763847, 1.8327904, -42.03344, -10.581834, -0.6304245, -124.59473, -16.59673, 488.18677, 43.069496, -2.7307293, 4.0919857, -149.53464, 9.480925, -14.207123, -292.7285, -58.924065, 485.66507, 11.2692375, -11.2724495, 149.66052, -11.283523, 11.28674, -149.85025, -890.867, -21.000366, 428.83658, 0, 78.77404, 128.46968, 0, -3.065861, -5, -936.0011, 24.146593, -170.56442),
-"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+"points": PackedVector3Array(1.5239207, 0.77475077, 4.7233543, -16.250443, -8.261613, -50.367844, -601.3692, 36.674267, 330.27982, 16.392584, -4.362913, 50.808456, -8.125214, 2.162539, -25.183922, -666.371, 3.6278155, 128.80844, 7.8435993, -7.2370973, 24.311066, -8.125214, 7.496936, -25.183922, -698.8718, 12.277971, 28.072758, -14.780641, 2.8677857, 23.01655, 25.694458, -4.9853187, -40.01165, -731.3727, 42.265717, -72.662926, -25.829638, 0.99939084, 40.222153, 12.84723, -0.49708036, -20.005829, -628.59485, 22.324442, -232.70953, -12.47022, 5.739131, 19.41874, 12.847229, -5.9126406, -20.005821, -577.20593, 20.33612, -312.73285, -12.640563, -6.3343077, 20.008406, 14.954703, 7.493945, -23.671394, -525.817, -3.3144426, -392.75613, -25.798992, -0.42068893, -13.205014, 26.745811, 0.43612814, 13.689636, -465.9982, 26.661339, -487.4417, -21.875456, 17.29252, -11.19678, 13.37291, -10.571268, 6.844818, -359.01495, 28.405851, -432.68317, -14.276474, 8.956768, -7.3072944, 13.372906, -8.389888, 6.844811, -305.52332, -13.879219, -405.3039, -0.8233205, -3.9134223, -16.735697, 3.7033956, 17.60305, 75.2792, -252.0317, -47.43877, -377.92465, -73.32436, 7.1011105, -23.741388, 59.304527, -5.743357, 19.201965, -237.21811, 22.973429, -76.80786, 31.820862, 7.083682, -53.441395, -60.18947, -13.398853, 101.084915, 0, 0, 0, 113.52672, -29.025854, 17.01898, -90.15283, 23.049755, -13.514962, -240.75789, -53.595413, 404.33966, 0, 9.028779, 93.59465, 0, -0.48233414, -5, -601.3692, 38.603603, 350.27982),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 }
-point_count = 19
+point_count = 15
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3b84r"]
 albedo_texture = ExtResource("1_5j575")
@@ -168,9 +166,9 @@ path = NodePath("../Path3D")
 transform = Transform3D(1, 0, 2.38419e-07, 0, 1, 0, -2.38419e-07, 0, 1, 12, 0, 50)
 script = ExtResource("7_7elgs")
 num_lamps = 80
-make_these = Array[PackedScene]([ExtResource("9_pmck1"), ExtResource("10_yxb6u"), ExtResource("11_phexy"), ExtResource("12_n106x"), ExtResource("13_8yc3y"), ExtResource("14_h0kfx")])
+make_these = Array[PackedScene]([ExtResource("9_pmck1"), ExtResource("12_n106x"), ExtResource("13_8yc3y"), ExtResource("14_h0kfx")])
 path = NodePath("../Path3D")
-offset = -30.0
+offset = -26.0
 
 [node name="Placer" type="PathFollow3D" parent="BuildingGenerator" unique_id=1824453050]
 
@@ -197,7 +195,7 @@ path_joined = true
 [node name="TrackApplicator" type="Node3D" parent="Path3D" unique_id=16667003 node_paths=PackedStringArray("track")]
 script = ExtResource("3_8w7oe")
 track = NodePath("..")
-obstacles = Array[String](["uid://cpk5sd5ff3e2o", "uid://bg2y0a077etab", "uid://d1docfmaiovmf", "uid://ddr3ndau0hbmj", "uid://ncpxwvnvqalo", "uid://cj0ishnsrqgbf"])
+obstacles = Array[String](["uid://cpk5sd5ff3e2o", "uid://bg2y0a077etab", "uid://d1docfmaiovmf", "uid://ddr3ndau0hbmj", "uid://ncpxwvnvqalo", "uid://cj0ishnsrqgbf", "uid://wvqrrr7lv37k", "uid://crla4gnm0aits", "uid://ncgbs1mva2yq", "uid://c0t6pxbwf0840"])
 
 [node name="GoalPost" type="Area3D" parent="Path3D/TrackApplicator" unique_id=591116614]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 2, 0)
@@ -231,11 +229,11 @@ volume_db = 20.0
 [node name="Placer" type="PathFollow3D" parent="Path3D/TrackApplicator" unique_id=1684493127]
 
 [node name="Storm" parent="Path3D" unique_id=975470969 instance=ExtResource("4_8ntcu")]
-transform = Transform3D(-0.616386, 0, 0.7874437, 0, 1, 0, -0.7874437, 0, -0.616386, -936.0011, 161.88315, -190.56442)
+transform = Transform3D(-0.9516931, 0, -0.30704957, 0, 1, 0, 0.30704957, 0, -0.9516931, -601.3692, 186.67427, 330.27982)
 use_model_front = true
 
 [node name="SpeedBuffItem" parent="Path3D" unique_id=961351652 instance=ExtResource("5_l3udk")]
-transform = Transform3D(-0.616386, 0.096200764, 0.7815446, 1.4901154e-08, 0.99250877, -0.12216832, -0.7874437, -0.0753029, -0.6117684, -935.8087, 13.868168, -190.71503)
+transform = Transform3D(-0.9516931, -0.04735752, -0.30337527, 1.8626445e-09, 0.98803335, -0.15423402, 0.30704957, -0.14678355, -0.94030476, -601.4639, 38.650337, 329.98624)
 use_model_front = true
 
 [node name="Music" type="AudioStreamPlayer" parent="." unique_id=1143904828]

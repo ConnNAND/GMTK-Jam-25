@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://crla4gnm0aits"]
+
+[ext_resource type="Script" uid="uid://b8nodmhvtrwqb" path="res://Levels/PathObstacles/scatterable.gd" id="1_r8ram"]
+
+[node name="Bouncers" type="PathFollow3D" unique_id=1058033681]
+v_offset = 1.0
+script = ExtResource("1_r8ram")
+scatterable = "uid://8sur61og6h8"
+amount_max = 2

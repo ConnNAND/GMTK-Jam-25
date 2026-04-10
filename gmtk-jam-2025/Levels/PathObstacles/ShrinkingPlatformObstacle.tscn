@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://ncgbs1mva2yq"]
+
+[ext_resource type="Script" uid="uid://bj7ersbfu86as" path="res://Levels/PathObstacles/WidePropFlipper.gd" id="1_ivsof"]
+[ext_resource type="PackedScene" uid="uid://tgicqb4gnvq2" path="res://Levels/Assets/ShrinkingPlatform.tscn" id="2_o62i8"]
+
+[node name="ShrinkingPlatformObstacle" type="PathFollow3D" unique_id=240745593]
+h_offset = 6.0
+v_offset = 5.0
+rotation_mode = 1
+script = ExtResource("1_ivsof")
+
+[node name="ShrinkingPlatform" parent="." unique_id=5477327 instance=ExtResource("2_o62i8")]

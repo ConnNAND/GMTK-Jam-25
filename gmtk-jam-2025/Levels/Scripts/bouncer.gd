@@ -4,5 +4,7 @@ extends Area3D
 
 func _on_body_entered(body: Node3D) -> void:
 	if body.is_in_group("player"):
+		#body.queue_bounce(self)
 		body.floor_snap_length = 0
-		body.actual_velocity = -global_transform.basis.y*bounce_strength
+		body.in_air = true
+		body.actual_velocity = global_transform.basis.y*bounce_strength
