@@ -22,12 +22,17 @@ func _physics_process(delta: float) -> void:
 	else:
 		actual_velocity.y = sqrt(default_speed) + gravity/4
 	handle_momentum(delta)
+	if bounce != Vector3.ZERO:
+		in_air = true
+		jumping = true
+		floor_snap_length = 0
+		if set_bounce:
+			actual_velocity = bounce
+		else:
+			actual_velocity += bounce
+		bounce = Vector3.ZERO
 	if camera_orientation: #makes motion direction relative to camera
 		velocity = (global_transform.basis * actual_velocity.rotated(global_basis.y, camera_orientation.rotation.y))/hinderance
-	if bounce != Vector3.ZERO:
-		floor_snap_length = 0
-		velocity += bounce
-		bounce = Vector3.ZERO
 	move_and_slide()
 	apply_floor_snap()
 	orient_player_to_surface(delta)

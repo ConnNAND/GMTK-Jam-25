@@ -27,6 +27,7 @@ var boost_factor:float = 1
 var gravity:float = ProjectSettings.get_setting("physics/3d/default_gravity")
 var up_vec = Vector3.UP
 var bounce:Vector3 = Vector3.ZERO
+var set_bounce = false
 
 var touch_turn = 0
 var just_touched = false
@@ -120,8 +121,12 @@ func jump():
 		$Jump.play()
 
 
-func queue_bounce(bouncer):
+func queue_bounce(bouncer, set_strength):
 	in_air = true
+	jumping = true
+	set_bounce = set_strength
+	global_transform.origin += bouncer.global_transform.basis.y * 0.2
+	floor_snap_length = 0
 	bounce = bouncer.global_transform.basis.y*bouncer.bounce_strength
 
 
@@ -258,13 +263,18 @@ func handle_basics(delta):
 	control_camera(delta)
 	control_jump(delta)
 	handle_momentum(delta)
-	if camera_orientation: #makes motion direction relative to camera
-		velocity = (global_transform.basis * actual_velocity.rotated(global_basis.y, camera_orientation.rotation.y))/hinderance
 	if bounce != Vector3.ZERO:
 		in_air = true
+		jumping = true
 		floor_snap_length = 0
-		velocity += bounce
+		if set_bounce:
+			actual_velocity = bounce
+		else:
+			actual_velocity += bounce
 		bounce = Vector3.ZERO
+	if camera_orientation: #makes motion direction relative to camera
+		velocity = (global_transform.basis * actual_velocity.rotated(global_basis.y, camera_orientation.rotation.y))/hinderance
+	
 	move_and_slide()
 	apply_floor_snap()
 	orient_player_to_surface(delta)

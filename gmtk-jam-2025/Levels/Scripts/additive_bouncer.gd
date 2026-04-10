@@ -1,9 +1,8 @@
 extends Area3D
 
-@export var bounce_strength = 25
+@export var bounce_strength = 75
+
 
 func _on_body_entered(body: Node3D) -> void:
 	if body.is_in_group("player"):
-		body.queue_bounce(self)
-		#body.floor_snap_length = 0
-		#body.actual_velocity += global_transform.basis.y*bounce_strength
+		body.queue_bounce(self, false)
