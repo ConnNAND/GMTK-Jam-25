@@ -12,7 +12,7 @@ func _physics_process(delta: float) -> void:
 	movement = get_movement()
 	target_velocity = movement * current_speed * boost_factor
 	control_camera(delta)
-	if (Input.get_joy_axis(player_id, JOY_AXIS_LEFT_Y) < -0.3  or (Input.is_key_pressed(KEY_W) and player_id==99)) or (player_id==99 and (OS.has_feature("mobile") or OS.has_feature("web_android") or OS.has_feature("web_ios")) and touch_walk_dir < 0) and $climbray.is_colliding():
+	if ((Input.get_joy_axis(player_id, JOY_AXIS_LEFT_Y) < -0.3  or (Input.is_key_pressed(KEY_W) and player_id==99)) or (player_id==99 and (OS.has_feature("mobile") or OS.has_feature("web_android") or OS.has_feature("web_ios")) and touch_walk_dir < 0)) and $climbray.is_colliding():
 		climbing = true
 	else:
 		climbing = false

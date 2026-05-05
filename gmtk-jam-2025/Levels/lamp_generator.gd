@@ -5,8 +5,19 @@ extends Node3D
 @export var path : Path3D
 @export var offset : float = -12.0
 var placer:PathFollow3D
+@export var signaled = false
 
 func _ready():
+	if not signaled:
+		if get_child_count() > 0:
+			placer = get_child(0)
+			placer.reparent(path)
+		var progress_amount : float = 0
+		for i in range(num_lamps):
+			progress_amount += 1.0 / num_lamps
+			make_lamp(progress_amount)
+
+func generate_stuff():
 	if get_child_count() > 0:
 		placer = get_child(0)
 		placer.reparent(path)
@@ -26,10 +37,10 @@ func make_lamp(progress : float):
 		if (offset < 0):
 			new_lamp.get_child(0).rotate_y(PI)
 	else:
-		placer.progress_ratio = progress
 		placer.add_child(temp)
 		temp.position = Vector3.ZERO
 		temp.rotation = Vector3.ZERO
+		placer.progress_ratio = progress
 		placer.h_offset = offset
 		offset *= -1
 		temp.reparent(path)
